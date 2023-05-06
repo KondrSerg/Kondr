@@ -1,0 +1,16 @@
+
+PC0544	Thu Nov 01 16:39:39 2018
+	WNET/wnet_error: CreateFile errno = 2
+
+
+PC0544	Thu Nov 01 16:40:15 2018
+	WNET/wnet_error: CreateFile errno = 53
+
+
+PC0544	Thu Nov 01 16:40:35 2018
+	WNET/wnet_error: CreateFile errno = 2
+
+
+PC0544	Thu Nov 01 16:40:48 2018
+	INET/INET_connect: getaddrinfo(localhost\D,gds_db) failed: Этот хост неизвестен. 
+

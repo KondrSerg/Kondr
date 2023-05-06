@@ -1,0 +1,731 @@
+object FV: TFV
+  Left = 151
+  Top = 152
+  Caption = 'FV'
+  ClientHeight = 688
+  ClientWidth = 1034
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 113
+    Width = 1034
+    Height = 513
+    Align = alClient
+    Caption = 'Panel1'
+    TabOrder = 1
+    object SGS: TStringGrid
+      Left = 1
+      Top = 1
+      Width = 1032
+      Height = 511
+      Align = alClient
+      DefaultRowHeight = 18
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
+      PopupMenu = PopupMenu1
+      TabOrder = 0
+      OnDrawCell = SGSDrawCell
+      OnSelectCell = SGSSelectCell
+      OnSetEditText = SGSSetEditText
+      ColWidths = (
+        64
+        81
+        64
+        78
+        64)
+      RowHeights = (
+        18
+        18
+        18
+        18
+        18)
+    end
+    object SG: TAdvStringGrid
+      Left = 296
+      Top = 120
+      Width = 273
+      Height = 153
+      Cursor = crDefault
+      ColCount = 3
+      DrawingStyle = gdsClassic
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      GridLineWidth = 2
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
+      ParentFont = False
+      ScrollBars = ssBoth
+      TabOrder = 1
+      Visible = False
+      ActiveRowShow = True
+      ActiveRowColor = clSkyBlue
+      HoverRowCells = [hcNormal, hcSelected]
+      ActiveCellFont.Charset = DEFAULT_CHARSET
+      ActiveCellFont.Color = clWindowText
+      ActiveCellFont.Height = -11
+      ActiveCellFont.Name = 'Tahoma'
+      ActiveCellFont.Style = [fsBold]
+      AutoNumAlign = True
+      ControlLook.FixedGradientHoverFrom = clGray
+      ControlLook.FixedGradientHoverTo = clWhite
+      ControlLook.FixedGradientDownFrom = clGray
+      ControlLook.FixedGradientDownTo = clSilver
+      ControlLook.DropDownHeader.Font.Charset = DEFAULT_CHARSET
+      ControlLook.DropDownHeader.Font.Color = clWindowText
+      ControlLook.DropDownHeader.Font.Height = -11
+      ControlLook.DropDownHeader.Font.Name = 'Tahoma'
+      ControlLook.DropDownHeader.Font.Style = []
+      ControlLook.DropDownHeader.Visible = True
+      ControlLook.DropDownHeader.Buttons = <>
+      ControlLook.DropDownFooter.Font.Charset = DEFAULT_CHARSET
+      ControlLook.DropDownFooter.Font.Color = clWindowText
+      ControlLook.DropDownFooter.Font.Height = -11
+      ControlLook.DropDownFooter.Font.Name = 'MS Sans Serif'
+      ControlLook.DropDownFooter.Font.Style = []
+      ControlLook.DropDownFooter.Visible = True
+      ControlLook.DropDownFooter.Buttons = <>
+      Filter = <>
+      FilterDropDown.Font.Charset = DEFAULT_CHARSET
+      FilterDropDown.Font.Color = clWindowText
+      FilterDropDown.Font.Height = -11
+      FilterDropDown.Font.Name = 'MS Sans Serif'
+      FilterDropDown.Font.Style = []
+      FilterDropDown.TextChecked = 'Checked'
+      FilterDropDown.TextUnChecked = 'Unchecked'
+      FilterDropDownClear = '(All)'
+      FilterEdit.TypeNames.Strings = (
+        'Starts with'
+        'Ends with'
+        'Contains'
+        'Not contains'
+        'Equal'
+        'Not equal'
+        'Clear')
+      FixedRowHeight = 22
+      FixedFont.Charset = DEFAULT_CHARSET
+      FixedFont.Color = clWindowText
+      FixedFont.Height = -11
+      FixedFont.Name = 'Tahoma'
+      FixedFont.Style = [fsBold]
+      FloatFormat = '%.2f'
+      HoverButtons.Buttons = <>
+      HoverButtons.Position = hbLeftFromColumnLeft
+      HTMLSettings.ImageFolder = 'images'
+      HTMLSettings.ImageBaseName = 'img'
+      MouseActions.SizeFixedCol = True
+      PrintSettings.DateFormat = 'dd/mm/yyyy'
+      PrintSettings.Font.Charset = DEFAULT_CHARSET
+      PrintSettings.Font.Color = clWindowText
+      PrintSettings.Font.Height = -11
+      PrintSettings.Font.Name = 'MS Sans Serif'
+      PrintSettings.Font.Style = []
+      PrintSettings.FixedFont.Charset = DEFAULT_CHARSET
+      PrintSettings.FixedFont.Color = clWindowText
+      PrintSettings.FixedFont.Height = -11
+      PrintSettings.FixedFont.Name = 'MS Sans Serif'
+      PrintSettings.FixedFont.Style = []
+      PrintSettings.HeaderFont.Charset = DEFAULT_CHARSET
+      PrintSettings.HeaderFont.Color = clWindowText
+      PrintSettings.HeaderFont.Height = -11
+      PrintSettings.HeaderFont.Name = 'MS Sans Serif'
+      PrintSettings.HeaderFont.Style = []
+      PrintSettings.FooterFont.Charset = DEFAULT_CHARSET
+      PrintSettings.FooterFont.Color = clWindowText
+      PrintSettings.FooterFont.Height = -11
+      PrintSettings.FooterFont.Name = 'MS Sans Serif'
+      PrintSettings.FooterFont.Style = []
+      PrintSettings.PageNumSep = '/'
+      RowIndicator.Data = {
+        C6000000424DC60000000000000076000000280000000A0000000A0000000100
+        0400000000005000000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00CCCCCCCCCC00
+        0000CCCCCCCCCC000000CCCCCCCCCC000000CCCCCCCCCC000000CCCCCCCCCC00
+        0000CCCCCCCCCC000000CCCCCCCCCC000000CCCCCCCCCC000000CCCCCCCCCC00
+        0000CCCCCCCCCC000000}
+      ScrollWidth = 12
+      SearchFooter.FindNextCaption = 'Find &next'
+      SearchFooter.FindPrevCaption = 'Find &previous'
+      SearchFooter.Font.Charset = DEFAULT_CHARSET
+      SearchFooter.Font.Color = clWindowText
+      SearchFooter.Font.Height = -11
+      SearchFooter.Font.Name = 'MS Sans Serif'
+      SearchFooter.Font.Style = []
+      SearchFooter.HighLightCaption = 'Highlight'
+      SearchFooter.HintClose = 'Close'
+      SearchFooter.HintFindNext = 'Find next occurrence'
+      SearchFooter.HintFindPrev = 'Find previous occurrence'
+      SearchFooter.HintHighlight = 'Highlight occurrences'
+      SearchFooter.MatchCaseCaption = 'Match case'
+      SortSettings.DefaultFormat = ssAutomatic
+      Version = '8.1.3.0'
+      ColWidths = (
+        64
+        64
+        64)
+      RowHeights = (
+        22
+        22
+        22
+        22
+        22
+        22
+        22
+        22
+        22
+        22)
+      object Memommo1: TMemo
+        Left = 596
+        Top = 24
+        Width = 185
+        Height = 89
+        Lines.Strings = (
+          'mmo1')
+        TabOrder = 2
+        Visible = False
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 1034
+    Height = 113
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 152
+      Top = -1
+      Width = 91
+      Height = 13
+      Caption = #1053'\'#1095' '#1057#1074#1072#1088#1082#1072' '#1042#1089#1077#1075#1086
+    end
+    object Label2: TLabel
+      Left = 256
+      Top = -1
+      Width = 6
+      Height = 13
+      Caption = '0'
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 40
+      Width = 34
+      Height = 13
+      Caption = #1053#1086#1084#1077#1088
+    end
+    object Label4: TLabel
+      Left = 64
+      Top = 40
+      Width = 24
+      Height = 13
+      Caption = '4848'
+    end
+    object Label5: TLabel
+      Left = 152
+      Top = 19
+      Width = 90
+      Height = 13
+      Caption = #1053'\'#1095' '#1057#1073#1086#1088#1082#1072' '#1074#1089#1077#1075#1086
+    end
+    object Label6: TLabel
+      Left = 256
+      Top = 19
+      Width = 32
+      Height = 13
+      Caption = 'Label6'
+    end
+    object Label7: TLabel
+      Left = 800
+      Top = 16
+      Width = 103
+      Height = 13
+      Caption = #1044#1072#1090#1072' '#1055#1083#1072#1085#1080#1088#1086#1074#1072#1085#1080#1103
+    end
+    object Image2: TImage
+      Left = 617
+      Top = 41
+      Width = 17
+      Height = 17
+      Picture.Data = {
+        07544269746D617046060000424D460600000000000036040000280000001700
+        0000160000000100080000000000100200000000000000000000000100000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000C0DCC000F0CAA6000020400000206000002080000020A0000020C0000020
+        E00000400000004020000040400000406000004080000040A0000040C0000040
+        E00000600000006020000060400000606000006080000060A0000060C0000060
+        E00000800000008020000080400000806000008080000080A0000080C0000080
+        E00000A0000000A0200000A0400000A0600000A0800000A0A00000A0C00000A0
+        E00000C0000000C0200000C0400000C0600000C0800000C0A00000C0C00000C0
+        E00000E0000000E0200000E0400000E0600000E0800000E0A00000E0C00000E0
+        E00040000000400020004000400040006000400080004000A0004000C0004000
+        E00040200000402020004020400040206000402080004020A0004020C0004020
+        E00040400000404020004040400040406000404080004040A0004040C0004040
+        E00040600000406020004060400040606000406080004060A0004060C0004060
+        E00040800000408020004080400040806000408080004080A0004080C0004080
+        E00040A0000040A0200040A0400040A0600040A0800040A0A00040A0C00040A0
+        E00040C0000040C0200040C0400040C0600040C0800040C0A00040C0C00040C0
+        E00040E0000040E0200040E0400040E0600040E0800040E0A00040E0C00040E0
+        E00080000000800020008000400080006000800080008000A0008000C0008000
+        E00080200000802020008020400080206000802080008020A0008020C0008020
+        E00080400000804020008040400080406000804080008040A0008040C0008040
+        E00080600000806020008060400080606000806080008060A0008060C0008060
+        E00080800000808020008080400080806000808080008080A0008080C0008080
+        E00080A0000080A0200080A0400080A0600080A0800080A0A00080A0C00080A0
+        E00080C0000080C0200080C0400080C0600080C0800080C0A00080C0C00080C0
+        E00080E0000080E0200080E0400080E0600080E0800080E0A00080E0C00080E0
+        E000C0000000C0002000C0004000C0006000C0008000C000A000C000C000C000
+        E000C0200000C0202000C0204000C0206000C0208000C020A000C020C000C020
+        E000C0400000C0402000C0404000C0406000C0408000C040A000C040C000C040
+        E000C0600000C0602000C0604000C0606000C0608000C060A000C060C000C060
+        E000C0800000C0802000C0804000C0806000C0808000C080A000C080C000C080
+        E000C0A00000C0A02000C0A04000C0A06000C0A08000C0A0A000C0A0C000C0A0
+        E000C0C00000C0C02000C0C04000C0C06000C0C08000C0C0A000F0FBFF00A4A0
+        A000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
+        7F007F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F007F7F7F7F7F7F
+        7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F00}
+      Visible = False
+    end
+    object Label8: TLabel
+      Left = 640
+      Top = 50
+      Width = 78
+      Height = 13
+      Caption = #1055#1077#1088#1074#1099#1081' '#1087#1088#1086#1075#1086#1085
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      Visible = False
+    end
+    object Image5: TImage
+      Left = 617
+      Top = 64
+      Width = 17
+      Height = 17
+      Picture.Data = {
+        07544269746D617046060000424D460600000000000036040000280000001700
+        0000160000000100080000000000100200000000000000000000000100000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000C0DCC000F0CAA6000020400000206000002080000020A0000020C0000020
+        E00000400000004020000040400000406000004080000040A0000040C0000040
+        E00000600000006020000060400000606000006080000060A0000060C0000060
+        E00000800000008020000080400000806000008080000080A0000080C0000080
+        E00000A0000000A0200000A0400000A0600000A0800000A0A00000A0C00000A0
+        E00000C0000000C0200000C0400000C0600000C0800000C0A00000C0C00000C0
+        E00000E0000000E0200000E0400000E0600000E0800000E0A00000E0C00000E0
+        E00040000000400020004000400040006000400080004000A0004000C0004000
+        E00040200000402020004020400040206000402080004020A0004020C0004020
+        E00040400000404020004040400040406000404080004040A0004040C0004040
+        E00040600000406020004060400040606000406080004060A0004060C0004060
+        E00040800000408020004080400040806000408080004080A0004080C0004080
+        E00040A0000040A0200040A0400040A0600040A0800040A0A00040A0C00040A0
+        E00040C0000040C0200040C0400040C0600040C0800040C0A00040C0C00040C0
+        E00040E0000040E0200040E0400040E0600040E0800040E0A00040E0C00040E0
+        E00080000000800020008000400080006000800080008000A0008000C0008000
+        E00080200000802020008020400080206000802080008020A0008020C0008020
+        E00080400000804020008040400080406000804080008040A0008040C0008040
+        E00080600000806020008060400080606000806080008060A0008060C0008060
+        E00080800000808020008080400080806000808080008080A0008080C0008080
+        E00080A0000080A0200080A0400080A0600080A0800080A0A00080A0C00080A0
+        E00080C0000080C0200080C0400080C0600080C0800080C0A00080C0C00080C0
+        E00080E0000080E0200080E0400080E0600080E0800080E0A00080E0C00080E0
+        E000C0000000C0002000C0004000C0006000C0008000C000A000C000C000C000
+        E000C0200000C0202000C0204000C0206000C0208000C020A000C020C000C020
+        E000C0400000C0402000C0404000C0406000C0408000C040A000C040C000C040
+        E000C0600000C0602000C0604000C0606000C0608000C060A000C060C000C060
+        E000C0800000C0802000C0804000C0806000C0808000C080A000C080C000C080
+        E000C0A00000C0A02000C0A04000C0A06000C0A08000C0A0A000C0A0C000C0A0
+        E000C0C00000C0C02000C0C04000C0C06000C0C08000C0C0A000F0FBFF00A4A0
+        A000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00979797979797979797979797979797979797979797979700979797979797
+        9797979797979797979797979797979797009797979797979797979797979797
+        9797979797979797970097979797979797979797979797979797979797979797
+        9700979797979797979797979797979797979797979797979700979797979797
+        9797979797979797979797979797979797009797979797979797979797979797
+        9797979797979797970097979797979797979797979797979797979797979797
+        9700979797979797979797979797979797979797979797979700979797979797
+        9797979797979797979797979797979797009797979797979797979797979797
+        9797979797979797970097979797979797979797979797979797979797979797
+        9700979797979797979797979797979797979797979797979700979797979797
+        9797979797979797979797979797979797009797979797979797979797979797
+        9797979797979797970097979797979797979797979797979797979797979797
+        9700979797979797979797979797979797979797979797979700979797979797
+        9797979797979797979797979797979797009797979797979797979797979797
+        9797979797979797970097979797979797979797979797979797979797979797
+        9700979797979797979797979797979797979797979797979700979797979797
+        979797979797979797979797979797979700}
+      Visible = False
+    end
+    object Label61: TLabel
+      Left = 640
+      Top = 88
+      Width = 130
+      Height = 13
+      Caption = #1042#1090#1086#1088#1086#1081' '#1087#1088#1086#1075#1086#1085' '#1085#1077' '#1087#1088#1086#1096#1077#1083
+      Visible = False
+    end
+    object Image1: TImage
+      Left = 617
+      Top = 84
+      Width = 17
+      Height = 17
+      Picture.Data = {
+        07544269746D617046060000424D460600000000000036040000280000001700
+        0000160000000100080000000000100200000000000000000000000100000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000C0DCC000F0CAA6000020400000206000002080000020A0000020C0000020
+        E00000400000004020000040400000406000004080000040A0000040C0000040
+        E00000600000006020000060400000606000006080000060A0000060C0000060
+        E00000800000008020000080400000806000008080000080A0000080C0000080
+        E00000A0000000A0200000A0400000A0600000A0800000A0A00000A0C00000A0
+        E00000C0000000C0200000C0400000C0600000C0800000C0A00000C0C00000C0
+        E00000E0000000E0200000E0400000E0600000E0800000E0A00000E0C00000E0
+        E00040000000400020004000400040006000400080004000A0004000C0004000
+        E00040200000402020004020400040206000402080004020A0004020C0004020
+        E00040400000404020004040400040406000404080004040A0004040C0004040
+        E00040600000406020004060400040606000406080004060A0004060C0004060
+        E00040800000408020004080400040806000408080004080A0004080C0004080
+        E00040A0000040A0200040A0400040A0600040A0800040A0A00040A0C00040A0
+        E00040C0000040C0200040C0400040C0600040C0800040C0A00040C0C00040C0
+        E00040E0000040E0200040E0400040E0600040E0800040E0A00040E0C00040E0
+        E00080000000800020008000400080006000800080008000A0008000C0008000
+        E00080200000802020008020400080206000802080008020A0008020C0008020
+        E00080400000804020008040400080406000804080008040A0008040C0008040
+        E00080600000806020008060400080606000806080008060A0008060C0008060
+        E00080800000808020008080400080806000808080008080A0008080C0008080
+        E00080A0000080A0200080A0400080A0600080A0800080A0A00080A0C00080A0
+        E00080C0000080C0200080C0400080C0600080C0800080C0A00080C0C00080C0
+        E00080E0000080E0200080E0400080E0600080E0800080E0A00080E0C00080E0
+        E000C0000000C0002000C0004000C0006000C0008000C000A000C000C000C000
+        E000C0200000C0202000C0204000C0206000C0208000C020A000C020C000C020
+        E000C0400000C0402000C0404000C0406000C0408000C040A000C040C000C040
+        E000C0600000C0602000C0604000C0606000C0608000C060A000C060C000C060
+        E000C0800000C0802000C0804000C0806000C0808000C080A000C080C000C080
+        E000C0A00000C0A02000C0A04000C0A06000C0A08000C0A0A000C0A0C000C0A0
+        E000C0C00000C0C02000C0C04000C0C06000C0C08000C0C0A000F0FBFF00A4A0
+        A000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00464646464646464646464646464646464646464646464600464646464646
+        4646464646464646464646464646464646004646464646464646464646464646
+        4646464646464646460046464646464646464646464646464646464646464646
+        4600464646464646464646464646464646464646464646464600464646464646
+        4646464646464646464646464646464646004646464646464646464646464646
+        4646464646464646460046464646464646464646464646464646464646464646
+        4600464646464646464646464646464646464646464646464600464646464646
+        4646464646464646464646464646464646004646464646464646464646464646
+        4646464646464646460046464646464646464646464646464646464646464646
+        4600464646464646464646464646464646464646464646464600464646464646
+        4646464646464646464646464646464646004646464646464646464646464646
+        4646464646464646460046464646464646464646464646464646464646464646
+        4600464646464646464646464646464646464646464646464600464646464646
+        4646464646464646464646464646464646004646464646464646464646464646
+        4646464646464646460046464646464646464646464646464646464646464646
+        4600464646464646464646464646464646464646464646464600464646464646
+        464646464646464646464646464646464600}
+      Visible = False
+    end
+    object Label9: TLabel
+      Left = 640
+      Top = 69
+      Width = 74
+      Height = 13
+      Caption = #1042#1090#1086#1088#1086#1081' '#1087#1088#1086#1075#1086#1085
+      Visible = False
+    end
+    object Label10: TLabel
+      Left = 452
+      Top = 36
+      Width = 32
+      Height = 13
+      Caption = 'Label6'
+      Visible = False
+    end
+    object Label11: TLabel
+      Left = 348
+      Top = 36
+      Width = 101
+      Height = 13
+      Caption = #1053'\'#1095' '#1053#1086#1078#1085#1080#1094#1099' '#1074#1089#1077#1075#1086
+      Visible = False
+    end
+    object Label12: TLabel
+      Left = 452
+      Top = 52
+      Width = 32
+      Height = 13
+      Caption = 'Label6'
+      Visible = False
+    end
+    object Label13: TLabel
+      Left = 348
+      Top = 52
+      Width = 79
+      Height = 13
+      Caption = #1053'\'#1095' '#1055#1080#1083#1072' '#1074#1089#1077#1075#1086
+      Visible = False
+    end
+    object Label14: TLabel
+      Left = 452
+      Top = 68
+      Width = 32
+      Height = 13
+      Caption = 'Label6'
+      Visible = False
+    end
+    object Label15: TLabel
+      Left = 348
+      Top = 68
+      Width = 83
+      Height = 13
+      Caption = #1053'\'#1095' '#1043#1080#1073#1082#1072' '#1074#1089#1077#1075#1086
+      Visible = False
+    end
+    object Label16: TLabel
+      Left = 16
+      Top = 88
+      Width = 77
+      Height = 13
+      Caption = #1055#1088#1077#1076#1099#1076#1091#1097#1080#1081
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label17: TLabel
+      Left = 128
+      Top = 88
+      Width = 53
+      Height = 13
+      Caption = #1058#1077#1082#1091#1097#1080#1081
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label18: TLabel
+      Left = 152
+      Top = 40
+      Width = 81
+      Height = 13
+      Caption = #1057#1073#1086#1088#1082#1072' '#1083#1086#1087#1072#1090#1082#1080
+    end
+    object Label19: TLabel
+      Left = 152
+      Top = 59
+      Width = 62
+      Height = 13
+      Caption = #1057#1073#1086#1088#1082#1072' '#1090#1103#1075#1080
+    end
+    object Label20: TLabel
+      Left = 256
+      Top = 38
+      Width = 38
+      Height = 13
+      Caption = 'Label20'
+    end
+    object Label21: TLabel
+      Left = 256
+      Top = 57
+      Width = 38
+      Height = 13
+      Caption = 'Label21'
+    end
+    object Label22: TLabel
+      Left = 393
+      Top = -1
+      Width = 38
+      Height = 13
+      Caption = 'Label22'
+    end
+    object Label23: TLabel
+      Left = 528
+      Top = 0
+      Width = 38
+      Height = 13
+      Caption = 'Label23'
+    end
+    object Label24: TLabel
+      Left = 656
+      Top = 0
+      Width = 38
+      Height = 13
+      Caption = 'Label24'
+    end
+    object Label25: TLabel
+      Left = 752
+      Top = 0
+      Width = 6
+      Height = 13
+      Caption = '0'
+    end
+    object Label26: TLabel
+      Left = 256
+      Top = 76
+      Width = 38
+      Height = 13
+      Caption = 'Label21'
+    end
+    object Label27: TLabel
+      Left = 152
+      Top = 78
+      Width = 61
+      Height = 13
+      Caption = #1057#1073#1086#1088#1082#1072' '#1056#1077#1096
+    end
+    object DateTimePicker1: TDateTimePicker
+      Left = 800
+      Top = 40
+      Width = 186
+      Height = 21
+      Date = 0.452729143522447000
+      Time = 0.452729143522447000
+      TabOrder = 1
+      OnChange = DateTimePicker1Change
+      OnEnter = DateTimePicker1Enter
+    end
+    object Memo1: TMemo
+      Left = 820
+      Top = 60
+      Width = 185
+      Height = 89
+      Lines.Strings = (
+        'Memo1')
+      TabOrder = 2
+      Visible = False
+    end
+    object Memo3: TMemo
+      Left = 849
+      Top = 49
+      Width = 185
+      Height = 89
+      Lines.Strings = (
+        'Memo1')
+      ScrollBars = ssBoth
+      TabOrder = 0
+      Visible = False
+    end
+    object Edit2: TEdit
+      Left = 40
+      Top = 16
+      Width = 73
+      Height = 21
+      TabOrder = 3
+      Text = '286'
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 626
+    Width = 1034
+    Height = 62
+    Align = alBottom
+    TabOrder = 2
+    object Button1: TButton
+      Left = 871
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = 'Ok'
+      Enabled = False
+      TabOrder = 5
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 952
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = #1054#1090#1084#1077#1085#1072
+      TabOrder = 6
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Left = 776
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = 'TEST'
+      TabOrder = 4
+      Visible = False
+      OnClick = Button3Click
+    end
+    object ListBox1: TListBox
+      Left = 468
+      Top = 8
+      Width = 121
+      Height = 49
+      ItemHeight = 13
+      TabOrder = 2
+      Visible = False
+    end
+    object Memo2: TMemo
+      Left = 16
+      Top = 0
+      Width = 313
+      Height = 57
+      Lines.Strings = (
+        'Memo2')
+      ScrollBars = ssBoth
+      TabOrder = 0
+      Visible = False
+    end
+    object Edit1: TEdit
+      Left = 340
+      Top = 8
+      Width = 121
+      Height = 21
+      TabOrder = 1
+      Text = '7103'
+      Visible = False
+    end
+    object btn1: TButton
+      Left = 672
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = #1047#1072#1075#1086#1090#1086#1074#1082#1072
+      TabOrder = 3
+      Visible = False
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 768
+    Top = 40
+    object N1: TMenuItem
+      Caption = #1054#1095#1080#1089#1090#1080#1100
+      OnClick = N1Click
+    end
+  end
+end

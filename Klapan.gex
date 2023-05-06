@@ -1,0 +1,9 @@
+[General]
+Name=Klapan
+Project=1
+[Classes]
+Count=4
+Class0="TForm1","TForm","Main","0","E:\Клапана\Source\Main.pas"
+Class1="TRegist","TForm","Reg","0","E:\Клапана\Source\Reg.pas"
+Class2="TFLopatka","TForm","Lopatka","9","E:\Клапана\Source\Lopatka.pas"
+Class3="TFNomer","TForm","UNomer","9","E:\Клапана\Source\UNomer.pas"

@@ -1,0 +1,59 @@
+object FProgres: TFProgres
+  Left = 403
+  Top = 429
+  Width = 492
+  Height = 208
+  Caption = 'FProgres'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object APB1: TAdvProgressBar
+    Left = 8
+    Top = 8
+    Width = 441
+    Height = 18
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    Level0ColorTo = 14811105
+    Level1ColorTo = 13303807
+    Level2Color = 5483007
+    Level2ColorTo = 11064319
+    Level3ColorTo = 13290239
+    Level1Perc = 70
+    Level2Perc = 90
+    Position = 50
+    ShowBorder = True
+    Version = '1.2.0.2'
+  end
+  object ACP1: TAdvCircularProgress
+    Left = 40
+    Top = 48
+    Width = 60
+    Height = 60
+    Appearance.BackGroundColor = clNone
+    Appearance.BorderColor = clNone
+    Appearance.ActiveSegmentColor = 16752543
+    Appearance.InActiveSegmentColor = clSilver
+    Appearance.TransitionSegmentColor = 10485760
+    Appearance.ProgressSegmentColor = 4194432
+    Interval = 100
+  end
+  object AWP1: TAdvWiiProgressBar
+    Left = 240
+    Top = 56
+    Width = 50
+    Height = 50
+    Appearance.BlockBorderColorActive = clNone
+    Appearance.BlockColor = 15650560
+    Padding = 4
+  end
+end
