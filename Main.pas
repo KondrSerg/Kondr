@@ -12320,6 +12320,7 @@ begin
     if (Stat = 0) then
     Continue;
       NC_Sbor := 0;
+      NC_Sbor := 0;
       Result.Sborka1 := 0;
       Result.Sborka2 := 0;
       Result.Sborka_lop := '0';
