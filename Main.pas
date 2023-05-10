@@ -8945,7 +8945,8 @@ begin
   Res1 := Pos('-ДД', Izdel);
   Delete(Izdel, Res1, 3);
   if Res1 <> 0 then
-    Insert('-1Н', Izdel, Res1);  }
+    Insert('-1Н', Izdel, Res1);   if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023 }
 
   Res := Pos(' ', Izdel);
   Delete(Izdel, 1, Res);
@@ -9129,6 +9130,8 @@ begin
       SB_2_S := '0';
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
+      if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
   end;
         //----------------------------------------------------- КПУ-2-ф
   P := 0;
@@ -9180,6 +9183,8 @@ begin
       SB_2_S := '0';
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
+      if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
 
   end;
   if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Комплектация']) then
@@ -9425,7 +9430,8 @@ begin
     SB_1 := StrToFloat(SB_1_S);
 
     SB_2 := StrToFloat(SB_2_S);
-
+      if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
     Res := Pos('Р', Nazn);
     if Res <> 0 then
       SB_2 := SB_2 + 0.03;
@@ -9725,6 +9731,8 @@ begin
     SB_LOP_S := FloatToStr(SB_Lop);
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
+      if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
   end;
                 //----------------------------------------------------- КПУ-2-ф Круглые
   P := 0;
@@ -9768,6 +9776,8 @@ begin
     SB_LOP_S := FloatToStr(SB_Lop);
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
+      if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
   end;
         //----------------------------------------------------- КПУ-ДД
   P := 0;
@@ -10251,8 +10261,7 @@ begin
   if Flag_Razb_Klapana > 1 then
     SB_1 := SB_1 * 2; //Клапан разбит на 2
   Result.Sborka1 := SB_1;
-  if Flag_Razb_Klapana > 1 then
-    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
+
   Result.Sborka2 := SB_2;
   Result.Sborka_lop := SB_LOP_S;
   Result.Sborka_tyag := SB_TYAG_S;//КОРПУС
