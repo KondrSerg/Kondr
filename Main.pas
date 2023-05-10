@@ -10251,6 +10251,8 @@ begin
   if Flag_Razb_Klapana > 1 then
     SB_1 := SB_1 * 2; //Клапан разбит на 2
   Result.Sborka1 := SB_1;
+  if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
   Result.Sborka2 := SB_2;
   Result.Sborka_lop := SB_LOP_S;
   Result.Sborka_tyag := SB_TYAG_S;//КОРПУС
