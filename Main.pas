@@ -8899,7 +8899,7 @@ begin
     begin
       Flag_Razb_Klapana := Flag_Razb_Klapana + Kol_Ed; //Клапан разбит на 2
 
-      Izdel := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+      //Izdel := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
             //Nam := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
     end;
     Form1.ADOQuery2.Next;
@@ -8960,6 +8960,8 @@ begin
   Delete(Izdel, 1, Res);
         //========================================
         //Клапан КПУ-1Н-О-Н-600*400-2*ф-MB220-сн-0-0-0-0-0-0
+ //Клапан КПУ-1Н-О-МС-720*400-2*ф-MV220-СН-0-0-0-0-0-0 (КОМПЛЕКТ 1500*400)
+ //Клапан КПУ-1Н-З-МС-720*400-2*ф-MV220-СН-0-0-0-0-0-0 (КОМПЛЕКТ 1500*400)
         //========================================
   Res := Pos('-', Izdel);
   Nazn := Copy(Izdel, 1, Res - 1);
