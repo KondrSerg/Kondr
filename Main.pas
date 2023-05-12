@@ -8864,7 +8864,7 @@ end;
 
 function KPU_New(Izdel, IDGP: string; Svarka1: Double; Ii: Integer): TResult;
 var
-  i, Kpu, j, Klap, Res, Res1, a, b, Kol_Priv, Kol_Lop, Res_Ispol, Res_Priv, Res_Term, Res_Klem,
+  i, Kpu, j, Klap, Res, Res1, a,aa, b,bb, Kol_Priv, Kol_Lop, Res_Ispol, Res_Priv, Res_Term, Res_Klem,
   Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I,
   Hol_Kor_2N, Hol_kor, Perehod, Perehod2, DD: Integer;
   Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh,
@@ -8946,7 +8946,7 @@ begin
   Delete(Izdel, Res1, 3);
   if Res1 <> 0 then
     Insert('-1Н', Izdel, Res1);   if Flag_Razb_Klapana > 1 then
-    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023 }
+    SB_2 := SB_2 * 2; //Клапан разбит на 2  Матвеенко 10.05.2023 }
 
   Res := Pos(' ', Izdel);
   Delete(Izdel, 1, Res);
@@ -9130,8 +9130,8 @@ begin
       SB_2_S := '0';
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
-      if Flag_Razb_Klapana > 1 then
-    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
+     // if Flag_Razb_Klapana > 1 then
+    //SB_2 := SB_2 * 2; //Клапан разбит на 2  Матвеенко 10.05.2023
   end;
         //----------------------------------------------------- КПУ-2-ф
   P := 0;
@@ -9183,8 +9183,8 @@ begin
       SB_2_S := '0';
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
-      if Flag_Razb_Klapana > 1 then
-    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
+     // if Flag_Razb_Klapana > 1 then
+    //SB_2 := SB_2 * 2; //Клапан разбит на 2  Матвеенко 10.05.2023
 
   end;
   if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Комплектация']) then
@@ -9430,8 +9430,8 @@ begin
     SB_1 := StrToFloat(SB_1_S);
 
     SB_2 := StrToFloat(SB_2_S);
-      if Flag_Razb_Klapana > 1 then
-    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
+     // if Flag_Razb_Klapana > 1 then
+    //SB_2 := SB_2 * 2; //Клапан разбит на 2  Матвеенко 10.05.2023
     Res := Pos('Р', Nazn);
     if Res <> 0 then
       SB_2 := SB_2 + 0.03;
@@ -9545,10 +9545,7 @@ begin
       SS := '(Б=' + #39 + '251' + #39 + ')';
       SS1 := '801-1400';
     end;
-          //=
 
-//++++++++++  ==========
-          //
     if ((b > 351) and (b < 401)) and ((a < 201)) then
     begin
       SS := '(Б=' + #39 + '351' + #39 + ')';
@@ -9643,9 +9640,6 @@ begin
       SS1 := '801-1400';
     end;
           //=
-
-
-
     if not Form1.mkQuerySelect66(Form1.ADOQuery1, 'Select * from [%s] Where %s', ['ЛопаткаСМЛ', SS]) then
       exit;
     SB_LOP_S := Form1.ADOQuery1.FieldByName(SS1).AsString;
@@ -9731,8 +9725,8 @@ begin
     SB_LOP_S := FloatToStr(SB_Lop);
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
-      if Flag_Razb_Klapana > 1 then
-    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
+     // if Flag_Razb_Klapana > 1 then
+    //SB_2 := SB_2 * 2; //Клапан разбит на 2  Матвеенко 10.05.2023
   end;
                 //----------------------------------------------------- КПУ-2-ф Круглые
   P := 0;
@@ -9776,8 +9770,8 @@ begin
     SB_LOP_S := FloatToStr(SB_Lop);
     SB_1 := StrToFloat(SB_1_S);
     SB_2 := StrToFloat(SB_2_S);
-      if Flag_Razb_Klapana > 1 then
-    SB_2 := SB_2 * 2; //Клапан разбит на 2  Мотвеенко 10.05.2023
+    //  if Flag_Razb_Klapana > 1 then
+    //SB_2 := SB_2 * 2; //Клапан разбит на 2  Матвеенко 10.05.2023
   end;
         //----------------------------------------------------- КПУ-ДД
   P := 0;
@@ -10151,7 +10145,7 @@ begin
       S := Form1.ADOQuery1.FieldByName('Эл-привод').AsString;
 
     Form1.Memo13.Lines.Add(S);
-    D := (StrToFloat(S)+0.008) * Kol_Priv;
+    D := (StrToFloat(S)) * Kol_Priv;  //+0.008 Убрал 13,05,2023
   end;
  end;
       //------------------------------------------------------------------
@@ -10159,49 +10153,73 @@ begin
   //--------------------------------------------------
   D:=0;
   SS1:='';
-  //Матвеенко БРЕД от 24.04.2023
+  //Матвеенко БРЕД от 24.04.2023       12.05.2023
   if Flag_Razb_Klapana > 1 then
   Begin
     //SB_2 := SB_2 + 0.213; //Клапан разбит на 2
     //==========================================1
+    //Планка кассетная ВГ 1106.00.00.009-1400*30
       Res := Pos('-О-', Nam);
       Perehod := Pos('-З-', Nam);
       Res_Resh:=Pos('-1Н-',Nam);
 
     if (Res_Resh <> 0) and (Kol_F = 1) and ((Res <> 0) OR (Perehod <> 0))  then
     Begin
-    B:=B*2;
-    if (b <= 750) and (a > 2000) then
-    begin
+      ////Планка кассетная ВГ 1106.00.00.009-1400*30
+      SS:='(Обозначение LIKE ' +
+        #39 + 'ВГ 1106.00.00.009-%' + #39 + ')';
+        if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where  %s  AND  (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 +
+        'Детали' + #39 +
+        ') ',
+        ['Специф',SS]) then
+          exit;
+      SS:= Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+      if SS<>'' then
+      Begin
+          Res := Pos('-', SS);
+          Delete(SS, 1, Res);  //1400*30
+          //
+          Res := Pos('*', SS);
+          ss1:= Copy(SS, 1, Res - 1);
+          BB :=StrToInt(SS1);
+          if BB<=750 then
+            SS:='(Длина='+#39+'750'+#39+')';
+          if BB>750 then
+            SS:='(Длина='+#39+'1400'+#39+')';
+          ss1:=SS+' AND (Признак='+#39+'О'+#39+')';
+      End;
+      {B:=B*2;
+      if (b <= 750) and (a > 2000) then
+      begin
       SS := '(B=' + #39 + 'B<=750' + #39 + ') AND (A='+#39+'A>2000'+#39+')';
-    end;
-    //
-    if (b <= 1400) and (a > 2000) then
-    begin
+      end;
+      //
+      if (b <= 1400) and (a > 2000) then
+      begin
       SS := '(B=' + #39 + 'B<=1400' + #39 + ') AND (A='+#39+'A>2000'+#39+')';
-    end;
-    //-------------------------------------------2
-    if (b >= 750) and (a >= 1000) then
-    begin
+      end;
+      //-------------------------------------------2
+      if (b >= 750) and (a >= 1000) then
+      begin
       SS := '(B=' + #39 + 'B>=750' + #39 + ') AND (A='+#39+'A>1000'+#39+')';
-    end;
-    //
-    if (b >= 1400) and (a > 2000) then
-    begin
+      end;
+      //
+      if (b >= 1400) and (a > 2000) then
+      begin
       SS := '(B=' + #39 + 'B>=1400' + #39 + ') AND (A='+#39+'A>2000'+#39+')';
-    end;
-    //-------------------------------------------3
-    if (b > 1400) and (a <= 750) then
-    begin
+      end;
+      //-------------------------------------------3
+      if (b > 1400) and (a <= 750) then
+      begin
       SS := '(B=' + #39 + 'B>1400' + #39 + ') AND (A='+#39+'A<=750'+#39+')';
-    end;
-    //
-    if (b > 1400) and (A<= 2000) then
-    begin
+      end;
+      //
+      if (b > 1400) and (A<= 2000) then
+      begin
       SS := '(B=' + #39 + 'B>1400' + #39 + ') AND (A='+#39+'A<=2000'+#39+')';
-    end;
-    if SS<>'' then
-      ss1:=SS+' AND (ТИП='+#39+'O'+#39+')';
+      end; }
+
+
     End;
     //-------------------------------------------
     //++++++++++++++++++++++++++++++++++++++++++DD1
@@ -10211,44 +10229,67 @@ begin
 
     if (Res_Resh <> 0) and (Kol_F = 1) and (Perehod <> 0)  then
     Begin
-    //==========================================1
-    if (b <= 500) and (a > 1000) then
-    begin
+      //==========================================1  ДД
+{      if (b <= 500) and (a > 1000) then
+      begin
       SS := '(B=' + #39 + 'B<=750' + #39 + ') AND (A='+#39+'A>2000'+#39+')';
-    end;
-    //
-    if (b <= 1200) and (a > 1000) then
-    begin
+      end;
+      //
+      if (b > 500) and (a > 1000) then
+      begin
       SS := '(B=' + #39 + 'B<=1200' + #39 + ') AND (A='+#39+'A>1000'+#39+')';
-    end;
-    //-------------------------------------------2
-    if (b >= 500) and (a >= 500) then
-    begin
+      end;
+      //-------------------------------------------2
+      if (b <= 500) and (a <= 500) then
+      begin
       SS := '(B=' + #39 + 'B>=500' + #39 + ') AND (A='+#39+'A>=500'+#39+')';
-    end;
-    //
-    if (b >= 1000) and (a > 1000) then
-    begin
+      end;
+      //
+      if (b > 500) and (a > 500) then
+      begin
       SS := '(B=' + #39 + 'B>=1000' + #39 + ') AND (A='+#39+'A>1000'+#39+')';
-    end;
-    //-------------------------------------------3
-    if (b > 1200) and (a <= 500) then
-    begin
+      end;
+      //-------------------------------------------3
+      if (b > 1200) and (a <= 500) then
+      begin
       SS := '(B=' + #39 + 'B>1200' + #39 + ') AND (A='+#39+'A<=500'+#39+')';
-    end;
-    //
-    if (b > 1200) and (A<= 1000) then
-    begin
+      end;
+      //
+      if (b > 1200) and (A<= 1000) then
+      begin
       SS := '(B=' + #39 + 'B>1200' + #39 + ') AND (A='+#39+'A<=1000'+#39+')';
-    end;
-    if SS<>'' then
+      end;
+      if SS<>'' then
 
-    ss1:=SS+' AND (ТИП='+#39+'D'+#39+')';
-    //-------------------------------------------
+      ss1:=SS+' AND (ТИП='+#39+'D'+#39+')';  }
+      ////Планка кассетная ВГ 1106.00.00.009-1400*30
+      SS:='(Обозначение LIKE ' +
+        #39 + 'ВГ 1106.00.00.009-%' + #39 + ')';
+        if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where  %s  AND  (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 +
+        'Детали' + #39 +
+        ') ',
+        ['Специф',SS]) then
+          exit;
+      SS:= Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+      if SS<>'' then
+      Begin
+          Res := Pos('-', SS);
+          Delete(SS, 1, Res);  //1400*30
+          //
+          Res := Pos('*', SS);
+          ss1:= Copy(SS, 1, Res - 1);
+          BB :=StrToInt(SS1);
+          if BB<=500 then
+            SS:='(Длина='+#39+'500'+#39+')';
+          if BB>500 then
+            SS:='(Длина='+#39+'1000'+#39+')';
+          ss1:=SS+' AND (Признак='+#39+'Д'+#39+')';
+      End;
+      //-------------------------------------------
     End;
     if SS1<>'' then
     Begin
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] WHERE %s ', ['Перемычка',ss1]) then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] WHERE %s ', ['Перемычка по Планке',ss1]) then
       exit;
       S := Form1.ADOQuery1.FieldByName('НЧ').AsString;
       if S='' then
@@ -10258,14 +10299,14 @@ begin
   End;
   SB_2 := SB_2 + D ;
   //--------------------------------------------------
-  if Flag_Razb_Klapana > 1 then
-    SB_1 := SB_1 * 2; //Клапан разбит на 2
+  //if Flag_Razb_Klapana > 1 then
+  //  SB_1 := SB_1 * 2; //Клапан разбит на 2
   Result.Sborka1 := SB_1;
 
   Result.Sborka2 := SB_2;
   Result.Sborka_lop := SB_LOP_S;
   Result.Sborka_tyag := SB_TYAG_S;//КОРПУС
-    Result.Sborka_RON:=NC_RON;
+  Result.Sborka_RON:=NC_RON;
 end;
 
 function Elektr(Izdel, IDGP: string; Svarka1: Double; Ii: Integer): TResult;
