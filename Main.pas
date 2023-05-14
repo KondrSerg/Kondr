@@ -3007,6 +3007,7 @@ begin
   DTP11.DateTime := Now;
   DTP9.DateTime := Now;
   FOTK.DateTimePicker1.Date := Now;
+  F710.dtp1.Date := Now;
   DragAcceptFiles(Handle, true);
  {if PageControl1.TabIndex=9 Then
  Begin
@@ -45343,7 +45344,7 @@ begin
   begin   // TRUMPF
     F710.Caption := SG2.Cells[SG2.Col, 0];
     F710.Label2.Caption := SG2.Cells[25, SG2.Row]; //idGP
-    F710.dtp1.Date := Now;
+   // F710.dtp1.Date := Now;
     F710.Memo1.Text := SG2.Cells[8, SG2.Row];
     F710.rg1.Visible := False;
     F7 := 0;
