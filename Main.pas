@@ -27833,7 +27833,7 @@ function TForm1.SUT(Dat3, Nom3, Dir1: string; qq, Cvet: Integer; Prim: string): 
 var
   XL2, Sheet1, Sheet2, Sheet3, Rang: Variant;
   E, E1, i, Res, Priv, Kol_Zap, u, r, uu, ff, ff1, j: Integer;
-  Vn_DAt, Vn_DAt1, Dir, God, mes, Nom, S_Svar, S_Sbor, Sbor_Lop, Sbor_Tyag,
+  Vn_DAt, Vn_DAt1, Dir, God, mes, Nom, S_Svar, S_Sbor, Sbor_Lop, Sbor_Tyag, Raskl,Obvarka,
   Priv_Str, idgp, IDKO, Zak, Izdel, Leg, Kol_S, Stan, Oboz, Elem, Mat, Err,
   id_lop, s, S1, Lop, Dir2, Tab1, Tab2, Tab3, BZ, Brik, SS_SS, SS_SS1, Str,
   A_S, B_S, F_S, Prim1, Mod_Priv, K, P,Prov1,Prov2: string;
@@ -27894,9 +27894,9 @@ begin
   CreateDir(Dir);
 
   XL2 := CreateOleObject('Excel.Application');
-  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\SUT.xlsx'), PWideChar(Dir + '\' + Vn_DAt + ' СутЗадан_КПУ_КПД № ' + Nom + '.xlsx'), False);
+  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\SUTVOZ.xlsx'), PWideChar(Dir + '\' + Vn_DAt + ' СутЗадан_Возд № ' + Nom + '.xlsx'), False);
 
-  XL2.Workbooks.Open(Dir + '\' + Vn_DAt + ' СутЗадан_КПУ_КПД № ' + Nom + '.xlsx');
+  XL2.Workbooks.Open(Dir + '\' + Vn_DAt + ' СутЗадан_Возд № ' + Nom + '.xlsx');
   XL2.Application.EnableEvents := false;
   //XL2.visible:=True;
   u := 6;
@@ -27918,8 +27918,9 @@ begin
     S_Sbor := ADOQuery2.FieldByName('Н\ч Сборка Клапана').AsString;
     //
     Sbor_Lop := ADOQuery2.FieldByName('Сборка лопаток').AsString;
-    Sbor_Tyag := ADOQuery2.FieldByName('Сборка тяг').AsString;
-
+    Obvarka := ADOQuery2.FieldByName('Обварка').AsString;
+    Raskl := ADOQuery2.FieldByName('Расключение').AsString;
+    //
     BZ := ADOQuery2.FieldByName('БЗ').AsString;
     Brik := ADOQuery2.FieldByName('Брикет').AsString;
     Priv := ADOQuery2.FieldByName('Привод').AsInteger;
@@ -27935,17 +27936,15 @@ begin
     if Res <> 0 then
       Delete(Izdel, 1, 7);
     Priv_Str := IntToStr(Priv);
-    Res := Pos(',', S_Svar);
-    Delete(S_Svar, Res, 1);
-    if Res <> 0 then
-      Insert('.', S_Svar, Res);
+    S_Svar:=StringReplace(S_Svar, ',', '.', [rfReplaceAll]);
+    S_Sbor:=StringReplace(S_Sbor, ',', '.', [rfReplaceAll]);
+    Sbor_Lop:=StringReplace(Sbor_Lop, ',', '.', [rfReplaceAll]);
+    Obvarka:=StringReplace(Obvarka, ',', '.', [rfReplaceAll]);
+    Raskl:=StringReplace(Raskl, ',', '.', [rfReplaceAll]);
 
-    Res := Pos(',', S_Sbor);
-    Delete(S_Sbor, Res, 1);
-    if Res <> 0 then
-      Insert('.', S_Sbor, Res);
 
-    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') ', [Tab3]) then //
+    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp +
+    #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') ', [Tab3]) then //
       exit;
     Leg := Form1.Qry1.FieldByName('Заказчик').AsString;
     BZ1 := Form1.Qry1.FieldByName('bz').AsBoolean;
@@ -27954,19 +27953,22 @@ begin
     XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 4] := Izdel; //ADOQuery2.FieldByName('Изделие').AsString;
     XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 5] := ADOQuery2.FieldByName('Брикет').AsString;
 
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 6] := ADOQuery2.FieldByName('A').AsString;
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 7] := ADOQuery2.FieldByName('B').AsString;
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 8] := ADOQuery2.FieldByName('МодПривода').AsString;
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 9] := Priv_Str;
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 10] := ADOQuery2.FieldByName('Кол во запущенных').AsString;
+    //XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 6] := ADOQuery2.FieldByName('A').AsString;
+    //XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 7] := ADOQuery2.FieldByName('B').AsString;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 6] := ADOQuery2.FieldByName('МодПривода').AsString;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 7] := Priv_Str;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 8] := ADOQuery2.FieldByName('Кол во запущенных').AsString;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 9] := S_Sbor;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 10] := S_Svar;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 11] := Obvarka;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 12] := Raskl;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 13] := Sbor_Lop;
 
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 12] := S_Svar;
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 11] := S_Sbor;
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 13] := Prim1;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 14] := Prim1;
     Res := Pos('ЛЕГИОН', AnsiUpperCase(Leg));
     if Res <> 0 then
     begin
-      XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 13] := 'Легион';
+      XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 14] := 'Легион';
       XL2.ActiveWorkBook.WorkSheets[1].Range['M' + IntToStr((E) + (6)) + ':M' + IntToStr((E) + (6))].Interior.Color := 255; //
     end;
     if BZ1 then
@@ -27979,21 +27981,21 @@ begin
     XL2.ActiveWorkBook.WorkSheets[1].Cells[13, 1] := Vn_DAt;
     if Cvet = 1 then
     begin
-      XL2.ActiveWorkBook.WorkSheets[1].Range['A2:N2'].Interior.Color := 3010538; //Желтый
-      XL2.ActiveWorkBook.WorkSheets[6].Range['A2:N2'].Interior.Color := 3010538; //Желтый
-      XL2.ActiveWorkBook.WorkSheets[7].Range['A2:N2'].Interior.Color := 3010538; //Желтый
+      XL2.ActiveWorkBook.WorkSheets[1].Range['A2:F2'].Interior.Color := 3010538; //Желтый
+      XL2.ActiveWorkBook.WorkSheets[6].Range['A2:F2'].Interior.Color := 3010538; //Желтый
+      XL2.ActiveWorkBook.WorkSheets[7].Range['A2:F2'].Interior.Color := 3010538; //Желтый
     end;
     if Cvet = 2 then
     begin
-      XL2.ActiveWorkBook.WorkSheets[1].Range['A2:N2'].Interior.Color := 6877993; //Зеленый
-      XL2.ActiveWorkBook.WorkSheets[6].Range['A2:N2'].Interior.Color := 6877993; //Зеленый
-      XL2.ActiveWorkBook.WorkSheets[7].Range['A2:N2'].Interior.Color := 6877993; //Зеленый
+      XL2.ActiveWorkBook.WorkSheets[1].Range['A2:F2'].Interior.Color := 6877993; //Зеленый
+      XL2.ActiveWorkBook.WorkSheets[6].Range['A2:F2'].Interior.Color := 6877993; //Зеленый
+      XL2.ActiveWorkBook.WorkSheets[7].Range['A2:F2'].Interior.Color := 6877993; //Зеленый
     end;
     if Cvet = 3 then
     begin
-      XL2.ActiveWorkBook.WorkSheets[1].Range['A2:N2'].Interior.Color := 16424058; //Синий
-      XL2.ActiveWorkBook.WorkSheets[6].Range['A2:N2'].Interior.Color := 16424058; //Синий
-      XL2.ActiveWorkBook.WorkSheets[7].Range['A2:N2'].Interior.Color := 16424058; //Синий
+      XL2.ActiveWorkBook.WorkSheets[1].Range['A2:F2'].Interior.Color := 16424058; //Синий
+      XL2.ActiveWorkBook.WorkSheets[6].Range['A2:F2'].Interior.Color := 16424058; //Синий
+      XL2.ActiveWorkBook.WorkSheets[7].Range['A2:F2'].Interior.Color := 16424058; //Синий
     end;
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Склад
     //Sheet2 := XL2.ActiveWorkBook.WorkSheets[6];//XL2.WorkSheets.Add;
