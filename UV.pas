@@ -80,7 +80,7 @@ type
                 Enabled_Ok2: Integer;
         public
                 { Public declarations }
-                SUT:Integer;
+                SUT,Stat:Integer;
                 Puty:String;
                 Conn_Ceh:Connect_Miass_Ceh;
                 Conn_Klap:Connect_Miass_Klap;
@@ -130,7 +130,7 @@ begin
         Begin
             SGS.Rows[i].Clear;
         End;
-        SGS.ColCount := 46;
+        SGS.ColCount := 50;
         SGS.Cells[0, 0] := '№';
         SGS.Cells[1, 0] := FN_PLAN_DATA;
         SGS.Cells[2, 0] := FN_ZAK;
@@ -180,6 +180,10 @@ begin
          SGS.Cells[42, 0] := 'СборкаРЕШ';
          SGS.Cells[44, 0] := 'СборкаРЕШ Всего';
          SGS.Cells[45, 0] := 'Электро';
+         SGS.Cells[46,0] :='Статус';
+        SGS.Cells[47,0] :='СтатусФлекс';
+        SGS.Cells[48,0] :='СтатусФ';
+        SGS.Cells[49,0] :='СтатусПро';
         SGS.ColWidths[3] := 0;
 
         SGS.ColWidths[10] := 0;
@@ -209,7 +213,8 @@ begin
         if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where   (NOT [' + FN_TEHNOLOG
         + '] IS NULL) AND (['  +   FN_KOL_ZAP + ']<[' + FN_KOL + ']) AND'+
         ' ([' + FN_SBOR_KLAP_NC +
-        ']<>0)  AND ([Отмена] IS NULL) AND ((Х IS NULL) or (Х=0)) Order By Заказ ', [Tab1]) then
+        ']<>0)  AND  ((Статус='+#39+'1'+#39+')  or (СтатусФ='+#39+'1'+#39+') or (СтатусФлекс='+#39+'1'+#39+
+        ')) AND ([Отмена] IS NULL) AND ((Х IS NULL) or (Х=0)) Order By Заказ ', [Tab1]) then
                 exit;
        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
        //ЗАГОТОВКА
@@ -223,6 +228,7 @@ begin
         begin
                 Kol := Form1.ADOQuery1.FieldByName(FN_KOL).AsInteger;
                 Kol_Zap := Form1.ADOQuery1.FieldByName(FN_KOL_ZAP).AsInteger;
+                Stat:= Form1.ADOQuery1.FieldByName('Статус').AsInteger;
                 SGS.Cells[0, i + 1] := IntToStr(I + 1);
                 SGS.Cells[1, i + 1] :=
                         Form1.ADOQuery1.FieldByName(FN_PLAN_DATA).AsString;
@@ -309,6 +315,10 @@ begin
                         Form1.ADOQuery1.FieldByName('СборкаРЕШ').AsString;
                SGS.Cells[45 , I + 1] :=
                         Form1.ADOQuery1.FieldByName('Электро').AsString;
+               SGS.Cells[46,I + 1] :=Form1.ADOQuery1.FieldByName('Статус').AsString;
+                SGS.Cells[47,I + 1] :=Form1.ADOQuery1.FieldByName('СтатусФлекс').AsString;
+                SGS.Cells[48,I + 1] :=Form1.ADOQuery1.FieldByName('СтатусФ').AsString;
+                SGS.Cells[49,I + 1] :=Form1.ADOQuery1.FieldByName('СтатусПро').AsString;
                 Form1.ADOQuery1.Next;
 
         end;
@@ -712,7 +722,8 @@ begin
                                   NomPos:= NachNom+Kol_Zap-1;
                                   KodPos:= NachKod+Kol_Zap-1;
                                 end;
-                                  if not Form1.mkQueryInsert(Form1.ADOQuery2,
+
+                                if not Form1.mkQueryInsert(Form1.ADOQuery2,
                                   'Insert Into %s ' +
                                   '([Дата],[план Дата],Заказ,Изделие,[Кол во],'+
                                   '[Кол во запущенных],[' + FN_RAS_DATA_GOTOVN+ '],Номер,[Н\ч Сварка],'+
@@ -757,11 +768,10 @@ begin
                                   #39 + UP +#39,
                                   #39 + FloatToStr(el_o) +#39
                                   ])
-                                  then  exit;
+                                then  exit;
 
                                 Form1.Memo2.Lines.Add(S_Sbor);
                                 Inc(e);
-                                //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                         end;
                 end;
         end;
@@ -773,37 +783,59 @@ begin
                 UOsnova_Main.Flag_Error :=0;
                 Form1.Memo2.Lines.Add('Osnova');
                 SyStem.SysUtils.FormatSettings.DecimalSeparator :=('.');
-                 UOsnova_Main.Osnova( Vn_Dat,Zapusk,Spec,#39+Label4.Caption+#39,fileName, 1,Cvet1);
+               { if not Form1.mkQuerySelect(Form1.ADOQuery2,
+                                        'Select * from %s Where  (Заказ= ' + #39
+                                        + Zak + #39 + ') AND ([IdГП]= ' +
+                                        #39 + (IDgp) + #39 + ') AND ([IdКО]= ' +
+                                        #39 + (KO) + #39 + ')',
+                                        ['Klapana']) then
+                                        exit;    }
+                Stat:= 1;//StrToInt(Form1.ADOQuery2.FieldByName('Статус').AsString);
+                Memo1.Lines.Add(IntToStr(Stat)) ;
+                if Stat=1 then
+                begin
+                           UOsnova_Main.Flag_Error := 0;                            //  Edit1.Text
+                            UOsnova_Main.Tab3:='СпецифОбщая';
+                            Form1.Memo4.Lines.Add('СпецифОбщая');
+                           UOsnova_Main.Osnova( Vn_Dat,Zapusk,Spec,
+                          #39+Label4.Caption+#39,fileName, 1,Cvet1) ;
+
+                end
+
+                else
+                begin
+                          UOsnova_Main.Flag_Error := 0;                            //  Edit1.Text
+                            UOsnova_Main.Tab3:='СпецифФлекс';
+                            Form1.Memo4.Lines.Add('СпецифФлекс');
+                          UOsnova_Main.Osnova_Flex( Vn_Dat,Zapusk,Spec,
+                          #39+Label4.Caption+#39,fileName, 1,Cvet1);
+                end;
+                // UOsnova_Main.Osnova( Vn_Dat,Zapusk,Spec,#39+Label4.Caption+#39,fileName, 1,Cvet1);
                 //++++++++++++++++++++++++++++++++++++++++++++++++++
                 if  UOsnova_Main.Flag_Error =2 Then //ДЕТАЛИ НЕ ВСЕ
-                //ЗАНЕСТИ В ЗАПУСК И Поставить флаг ФлагЗаготовки и убрать Дату Планирования
+                //Удалить из ЗАПУСКА
                 Begin
                         //++++++++++++++++++++++++++++++++++++++++++++++++++++
-                        if not Form1.mkQueryUpdate(Form1.ADOQuery1,
-                        'UPDATE %s SET [ФлагЗаготовки]=' + #39
-                        + '0' + #39+ ',Планирование=NULL WHERE [Номер]=' + #39 +
-                        (Label4.Caption) + #39, [Zapusk])
-                        then
-                        Exit;
-                        Form1.Memo2.Lines.Add('UOsnova_Main.Osnova( ДЕТАЛИ НЕ ВСЕ,Запуск,Специф,'+Label4.Caption+','+fileName+' )UOsnova_Main.Flag_Error =2') ;
-                end;
-                //++++++++++++++++++++++++++++++++++++++++++++++++++
-                if  UOsnova_Main.Flag_Error =1 Then //ДАТА ЛЕВАЯ УДАЛИТЬ Из ЗАПУСКА
-                                                //И UPDATE КЛАПАНА НЕ ДЕЛАТЬ
-                Begin
                         if not Form1.mkQueryDelete( Form1.ADOQuery1, 'DELETE FROM %s Where (Номер= '
                         +#39+Label4.Caption+#39+') '  ,
                         [Zapusk] )
                         Then
                         Exit;
-                        Form1.Memo2.Lines.Add('UOsnova_Main.Osnova( ДАТА НЕ ТА - '+Vn_Dat+',Запуск,Специф,'+Label4.Caption+','+fileName+' )UOsnova_Main.Flag_Error =1') ;
-                        //Exit;
+                        Form1.Memo2.Lines.Add('UOsnova_Main.Osnova( ДЕТАЛИ НЕ ВСЕ,Запуск,Специф,'
+                        +Label4.Caption+','+fileName+' )UOsnova_Main.Flag_Error =2') ;
+                        Exit;
                 end;
+                //++++++++++++++++++++++++++++++++++++++++++++++++++
                 Dir1:='Суточные задания';
                 pdo:='';
+
+                Res:=Pos('2',Label25.Caption);
+                if Res<>0 then
+                Form1.SUT(D, Label4.Caption, Dir1, 2, Cvet1, pdo)
+                Else
                 Form1.SUT1(D,Label4.Caption,Dir1,StrToInt(Label25.Caption),Cvet1,pdo);//ZZZZZZZZZZZZZZZZZZZZZZ
-                //++++++++++++++++++++++++++++++++++++++++++++++++++
-                if  (UOsnova_Main.Flag_Error =0) OR (UOsnova_Main.Flag_Error =2) Then
+                //++++++++++++++++++++++++++++++++++++++++++++++++++  OR (UOsnova_Main.Flag_Error =2)
+                if  (UOsnova_Main.Flag_Error =0)  Then
                 Begin
                   for I := 1 to SGS.RowCount do
                   begin
@@ -940,18 +972,18 @@ begin
                                                 +#39 + IntToStr(KodPos) + #39 + ' WHERE ([IDГП]=' + #39 +
                                                 (IDGP) + #39+') AND ([IDКо]=' + #39 +
                                                 (KO) + #39+')', [Tab1])
-                                                        then
-                                                Exit;
+                                        then
+                                        Exit;
                                 end;
                         //+++++++++++++++++++++++++++++++++++++++++++++++++++++
                                 if (Rec_Count = 0) and (Kol_Zap <> Kol) then //Запустили не все
                                 begin
-                                //+++++++++++++++++++++++++++++++++++++++++++++
-                                NomPos:=NachNom +Kol_Zap-1;
-                                KodPos:=NachKod +Kol_Zap-1;
-                                //----------------------------------------------
-                                KonNom:=NachNom+Kol_Zap-1;
-                                KonKod:=NachKod+Kol_Zap-1;
+                                  //+++++++++++++++++++++++++++++++++++++++++++++
+                                  NomPos:=NachNom +Kol_Zap-1;
+                                  KodPos:=NachKod +Kol_Zap-1;
+                                  //----------------------------------------------
+                                  KonNom:=NachNom+Kol_Zap-1;
+                                  KonKod:=NachKod+Kol_Zap-1;
                                         //++++++++++++++++++++++++++++++++++++++++++++++++++++
                                         if not Form1.mkQueryUpdate(Form1.ADOQuery1,
                                                 'UPDATE %s SET [Кол во запущенных]=' + #39
@@ -978,16 +1010,16 @@ begin
                                         //Запустили последнии (в запуске уже были)
                                 begin
 
-                                NachKod:= KodPos+1;
-                                //+++++++++++++++++++++++++++++++++++++++++++++
-                                KonKod:= NachKod+Kol_Zap-1;
-                                //+++++++++++++++++++++++++++++++++++++++++++++
-                                NachNom:= NomPos+1;
-                                //+++++++++++++++++++++++++++++++++++++++++++++
-                                KonNom:= NachNom+Kol_Zap-1;
-                                //+++++++++++++++++++++++++++++++++++++++++++++
-                                NomPos:= NachNom+Kol_Zap-1;
-                                KodPos:= NachKod+Kol_Zap-1;
+                                  NachKod:= KodPos+1;
+                                  //+++++++++++++++++++++++++++++++++++++++++++++
+                                  KonKod:= NachKod+Kol_Zap-1;
+                                  //+++++++++++++++++++++++++++++++++++++++++++++
+                                  NachNom:= NomPos+1;
+                                  //+++++++++++++++++++++++++++++++++++++++++++++
+                                  KonNom:= NachNom+Kol_Zap-1;
+                                  //+++++++++++++++++++++++++++++++++++++++++++++
+                                  NomPos:= NachNom+Kol_Zap-1;
+                                  KodPos:= NachKod+Kol_Zap-1;
                                         //++++++++++++++++++++++++++++++++++++++++++++++++++++
                                         if not Form1.mkQueryUpdate(Form1.ADOQuery1,
                                                 'UPDATE %s SET [Кол во запущенных]=' + #39

@@ -521,9 +521,9 @@ begin
                 ' WHERE  (' + FN_NOM + '=' + #39 +
                 Label8.Caption
                 + #39 + ') AND ([Изделие]=' + #39 +
-                        Label3.Caption + #39 + ') AND ([Заказ]=' + #39 +
-                        Label6.Caption + #39 +
-                        ') AND (БЗ=' + #39 +BZ+ #39 + ')  ', ['[Запуск750]']) then
+                Label3.Caption + #39 + ') AND ([Заказ]=' + #39 +
+                Label6.Caption + #39 +
+                ') ', ['[Запуск750]']) then
                 Exit;
                 Form1.zclrstrngrd1.Cells[StrToInt(Label5.Caption),StrToInt(Label4.Caption)]:=Str1;
           end;
@@ -819,6 +819,9 @@ begin
           begin
 
          S:=FormatDateTime('mm.dd.YYYY',DateTimePicker1.Date);
+              res4:=AnsiCompareStr(Plan.Caption,S);
+              if Res4=0 then
+              Close;
         if not Form1.mkQuerySelect(Form1.ADOQuery1,
                 'Select  max(планирование) as S from %s Where планирование<'+#39+S+#39 ,
                 ['ЗапускВозд']) then
@@ -922,7 +925,7 @@ begin
 
         end;
 
-
+        Form1.Button55.Click;
         Close;
 end;
 

@@ -353,7 +353,7 @@ begin
            Form1.Title:=Form1.ADOQuery1.FieldByName('Title').AsString; //Участок
            Form1.Division:=Form1.ADOQuery1.FieldByName('facsimileTelephoneNumber').AsString; //Н- Начальник
            Form1.mail:=Form1.ADOQuery1.FieldByName('MAIL').AsString;
-           if Form1.mail='' then
+           {if Form1.mail='' then
            MessageDlg('К вашей учетной записи не привязан адрес электоронной почты!'+#10#13+
            'Вы не сможете получать важные сообщения!'+#10#13+
            'Обратитесь к системному администратору!', mtError, [mbOk], 0);
@@ -373,7 +373,7 @@ begin
              // Button3.Click;
               //FNewBRAK.UserName1:= Form1.UserName1;
 
-           end;
+           end; }
       End;
      Form1.UserName1:=Form1.ADOQuery1.FieldByName('name').AsString;
      res1:=Pos('Кондратенко', Form1.UserName1);
@@ -414,6 +414,13 @@ Name:= Form1.UserName1;
              Label20.Caption:= Name+'('+Grupp+')';
           End;
           //
+         res1:=Pos('министр',Grupp);
+          if Res1<>0 then
+          Begin
+             Grupp_I:=7;
+             Label20.Caption:= Name+'('+Grupp+')';
+          End;
+          //
          res1:=Pos('ОТК',Grupp);
           if Res1<>0 then
           Begin
@@ -421,7 +428,7 @@ Name:= Form1.UserName1;
              Label20.Caption:= Name+'('+Grupp+')';
           End;
           //
-          res1:=Pos('ОИТ',Grupp);
+          res1:=Pos('инф',Grupp);
           if Res1<>0 then
           Begin
              Grupp_I:=1;
@@ -575,14 +582,14 @@ begin
         S:= DateToStr(FileDateToDateTime(fileDate)) ;
         //--------------------
         FileName_Server :=Form1.Put_Avto+'\CKlapana2\Klapan.exe';
-        fileDate_Server := FileAge(fileName_server);
+       { fileDate_Server := FileAge(fileName_server);
         if (fileDate<>fileDate_Server) and (Doljnost<>1 ) then
         begin
                 MessageDlg('Внимание! Версии файлов не совпадают! Вызовите Кондратенко, тел. 115.', mtError,
                         [mbOk], 0);
                         Close;
                         Form1.Close;
-        end;
+        end; }
         //
 end;
 

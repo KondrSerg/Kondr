@@ -267,6 +267,14 @@ object FV1: TFV1
       Visible = False
       OnChange = Edt1Change
     end
+    object Button4: TButton
+      Left = 432
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'Button4'
+      TabOrder = 5
+    end
   end
   object SGS: TStringGrid
     Left = 0

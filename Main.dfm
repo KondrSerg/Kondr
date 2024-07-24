@@ -210,6 +210,7 @@ object Form1: TForm1
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
+    OnMouseUp = PageControl1MouseUp
     object TabSheet0: TTabSheet
       Caption = #1050#1083#1072#1087#1072#1085#1072' '#1050#1055#1059'-'#1050#1055#1044
       ImageIndex = -1
@@ -609,6 +610,88 @@ object Form1: TForm1
             'Memo29')
           ScrollBars = ssBoth
           TabOrder = 23
+          Visible = False
+        end
+        object Memo33: TMemo
+          Left = 232
+          Top = 288
+          Width = 185
+          Height = 89
+          Lines.Strings = (
+            '------------------------------------------------------'
+            ''
+            #1055#1086' '#1087#1088#1086#1092#1080#1083#1102' 1 - Freza_8_10'
+            ''
+            #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090':         [2] 8.000 '#1084#1084' '#1088#1072#1076#1080#1091#1089' '#1094#1080#1083#1080#1085#1076#1088#1080#1095#1077#1089#1082#1080#1081' '#1092#1088#1077#1079#1099
+            #1056#1072#1073#1086#1095#1072#1103' '#1087#1086#1076#1072#1095#1072':     37.000 '#1084#1084'/'#1089#1077#1082
+            #1052#1080#1085'. '#1086#1087#1090#1080#1084#1072#1083#1100#1085#1086#1081' '#1087#1086#1076#1072#1095#1080':37.000 '#1084#1084'/'#1089#1077#1082
+            #1052#1072#1082#1089'. '#1086#1087#1090#1080#1084#1072#1083#1100#1085#1086#1081' '#1087#1086#1076#1072#1095#1080':37.000 '#1084#1084'/'#1089#1077#1082
+            #1055#1086#1076#1072#1095#1072' '#1074#1088#1077#1079#1072#1085#1080#1103':    13.000 '#1084#1084'/'#1089#1077#1082
+            #1041#1077#1079#1086#1087#1072#1089#1085#1072#1103' Z:       30.000 '#1084#1084
+            #1063#1072#1089#1090#1086#1090#1072' '#1074#1088#1072#1097#1077#1085#1080#1103'    6450 '#1086#1073'/'#1084#1080#1085
+            #1064#1072#1075':                0.000 '#1084#1084
+            #1058#1086#1095#1085#1086#1089#1090#1100':           0.025 '#1084#1084
+            #1055#1088#1080#1087#1091#1089#1082':            0.000 '#1084#1084
+            #1058#1086#1095#1082#1072' '#1074#1086#1079#1074#1088#1072#1090#1072':     X:610.000 Y:2440.000 Z:100.000'
+            #1050#1086#1084#1084#1077#1085#1090#1072#1088#1080#1080':        '#1055#1086' '#1087#1088#1086#1092#1080#1083#1102' 1'
+            ''
+            #1050#1086#1085#1077#1095#1085#1072#1103' '#1075#1083#1091#1073#1080#1085#1072':   10.000'
+            ''
+            #1044#1083#1080#1085#1072' '#1088#1072#1073#1086#1095#1077#1081' '#1087#1086#1076#1072#1095#1080':6757.3 '#1084#1084
+            #1044#1083#1080#1085#1072' '#1087#1086#1076#1072#1095#1080' '#1074#1088#1077#1079#1072#1085#1080#1103':480 '#1084#1084
+            #1044#1083#1080#1085#1072' '#1073#1099#1089#1090#1088#1099#1093' '#1087#1077#1088#1077#1084#1077#1097#1077#1085#1080#1081':3361 '#1084#1084
+            #1042#1088#1077#1084#1103' '#1086#1073#1088#1072#1073#1086#1090#1082#1080':    00:05:42'
+            #1042#1088#1077#1084#1103' '#1086#1087#1090#1080#1084#1072#1083#1100#1085#1086#1081' '#1087#1086#1076#1072#1095#1080':00:05:42')
+          ScrollBars = ssBoth
+          TabOrder = 24
+          Visible = False
+        end
+        object Memo34: TMemo
+          Left = 423
+          Top = 289
+          Width = 185
+          Height = 89
+          Lines.Strings = (
+            '------------------------------------------------------'
+            ''
+            #1042#1088#1077#1084#1103' '#1086#1073#1088#1072#1073#1086#1090#1082#1080' '#1086#1087#1088#1077#1076#1077#1083#1103#1083#1086#1089#1100' '#1087#1086' '#1073#1099#1089#1090#1088#1099#1084' '#1087#1077#1088#1077#1084#1077#1097#1077#1085#1080#1103#1084
+            ' 8.000 '#1084'/'#1084#1080#1085' '#1080' '#1082#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090#1091' 1.40')
+          ScrollBars = ssBoth
+          TabOrder = 25
+          Visible = False
+        end
+        object Memo35: TMemo
+          Left = 41
+          Top = 288
+          Width = 185
+          Height = 89
+          Lines.Strings = (
+            '------------------------------------------------------'
+            ''
+            #1055#1086' '#1087#1088#1086#1092#1080#1083#1102' 1 - Freza_8_12'
+            ''
+            #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090':         [2] 8.000 '#1084#1084' '#1088#1072#1076#1080#1091#1089' '#1094#1080#1083#1080#1085#1076#1088#1080#1095#1077#1089#1082#1080#1081' '#1092#1088#1077#1079#1099
+            #1056#1072#1073#1086#1095#1072#1103' '#1087#1086#1076#1072#1095#1072':     37.000 '#1084#1084'/'#1089#1077#1082
+            #1052#1080#1085'. '#1086#1087#1090#1080#1084#1072#1083#1100#1085#1086#1081' '#1087#1086#1076#1072#1095#1080':37.000 '#1084#1084'/'#1089#1077#1082
+            #1052#1072#1082#1089'. '#1086#1087#1090#1080#1084#1072#1083#1100#1085#1086#1081' '#1087#1086#1076#1072#1095#1080':37.000 '#1084#1084'/'#1089#1077#1082
+            #1055#1086#1076#1072#1095#1072' '#1074#1088#1077#1079#1072#1085#1080#1103':    13.000 '#1084#1084'/'#1089#1077#1082
+            #1041#1077#1079#1086#1087#1072#1089#1085#1072#1103' Z:       30.000 '#1084#1084
+            #1063#1072#1089#1090#1086#1090#1072' '#1074#1088#1072#1097#1077#1085#1080#1103'    6450 '#1086#1073'/'#1084#1080#1085
+            #1064#1072#1075':                0.000 '#1084#1084
+            #1058#1086#1095#1085#1086#1089#1090#1100':           0.025 '#1084#1084
+            #1055#1088#1080#1087#1091#1089#1082':            0.000 '#1084#1084
+            #1058#1086#1095#1082#1072' '#1074#1086#1079#1074#1088#1072#1090#1072':     X:610.000 Y:2440.000 Z:100.000'
+            #1050#1086#1084#1084#1077#1085#1090#1072#1088#1080#1080':        '#1055#1086' '#1087#1088#1086#1092#1080#1083#1102' 1'
+            ''
+            #1050#1086#1085#1077#1095#1085#1072#1103' '#1075#1083#1091#1073#1080#1085#1072':   12.000'
+            ''
+            #1044#1083#1080#1085#1072' '#1088#1072#1073#1086#1095#1077#1081' '#1087#1086#1076#1072#1095#1080':1140.0 '#1084#1084
+            #1044#1083#1080#1085#1072' '#1087#1086#1076#1072#1095#1080' '#1074#1088#1077#1079#1072#1085#1080#1103':42 '#1084#1084
+            #1044#1083#1080#1085#1072' '#1073#1099#1089#1090#1088#1099#1093' '#1087#1077#1088#1077#1084#1077#1097#1077#1085#1080#1081':1537 '#1084#1084
+            #1042#1088#1077#1084#1103' '#1086#1073#1088#1072#1073#1086#1090#1082#1080':    00:01:03'
+            #1042#1088#1077#1084#1103' '#1086#1087#1090#1080#1084#1072#1083#1100#1085#1086#1081' '#1087#1086#1076#1072#1095#1080':00:01:03')
+          ScrollBars = ssBoth
+          TabOrder = 26
           Visible = False
         end
       end
@@ -1225,7 +1308,7 @@ object Form1: TForm1
           Left = 261
           Top = 51
           Width = 213
-          Height = 105
+          Height = 86
           Hint = 'ddddddddddddddddddddd'
           Center = True
           ParentShowHint = False
@@ -1351,7 +1434,7 @@ object Form1: TForm1
         end
         object Button2: TButton
           Left = 7
-          Top = 108
+          Top = 79
           Width = 75
           Height = 25
           Caption = #1048#1079' '#1069#1082#1089#1077#1083#1103
@@ -1362,6 +1445,7 @@ object Form1: TForm1
           Font.Style = []
           ParentFont = False
           TabOrder = 25
+          Visible = False
           OnClick = Button2Click
         end
         object BitBtn5: TBitBtn
@@ -1828,14 +1912,12 @@ object Form1: TForm1
           OnClick = Button54Click
         end
         object Button52: TButton
-          Left = 1136
-          Top = 80
+          Left = 791
+          Top = 9
           Width = 75
           Height = 25
-          Caption = 'Tabl'
+          Caption = #1057#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1080
           TabOrder = 20
-          Visible = False
-          OnClick = Button52Click
         end
         object Button4: TButton
           Left = 962
@@ -1858,9 +1940,9 @@ object Form1: TForm1
           OnClick = ImportClick
         end
         object btn10: TButton
-          Left = 956
-          Top = 72
-          Width = 75
+          Left = 791
+          Top = 40
+          Width = 93
           Height = 25
           Caption = #1055#1044#1054
           TabOrder = 19
@@ -1984,8 +2066,8 @@ object Form1: TForm1
           Visible = False
         end
         object Button59: TButton
-          Left = 824
-          Top = 8
+          Left = 846
+          Top = 10
           Width = 38
           Height = 25
           Caption = #1055#1086#1095#1090#1072
@@ -2031,7 +2113,7 @@ object Form1: TForm1
         end
         object Button83: TButton
           Left = 7
-          Top = 130
+          Top = 110
           Width = 75
           Height = 25
           Caption = #1052#1077#1090#1072#1083#1083
@@ -2057,11 +2139,38 @@ object Form1: TForm1
         object Button85: TButton
           Left = 158
           Top = 131
-          Width = 97
+          Width = 71
           Height = 25
-          Caption = #1053#1086#1088#1084#1099' '#1076#1083#1103' 1'#1057
+          Caption = #1053'\'#1063' 1'#1057' '#1055#1054#1046
           TabOrder = 47
           OnClick = Button85Click
+        end
+        object dtp14: TDateTimePicker
+          Left = 8
+          Top = 134
+          Width = 144
+          Height = 21
+          Date = 45062.605371817130000000
+          Time = 45062.605371817130000000
+          TabOrder = 48
+        end
+        object Button86: TButton
+          Left = 235
+          Top = 131
+          Width = 65
+          Height = 25
+          Caption = #1053'/'#1063' 1'#1057' '#1042#1054#1047
+          TabOrder = 49
+          OnClick = Button86Click
+        end
+        object Button92: TButton
+          Left = 306
+          Top = 130
+          Width = 65
+          Height = 25
+          Caption = #1053'/'#1063' 1'#1057' '#1050#1040#1053
+          TabOrder = 50
+          OnClick = Button92Click
         end
       end
     end
@@ -3960,7 +4069,7 @@ object Form1: TForm1
         object Button36: TButton
           Left = 922
           Top = 56
-          Width = 75
+          Width = 103
           Height = 25
           Caption = #1053#1072#1081#1090#1080
           TabOrder = 3
@@ -4266,9 +4375,9 @@ object Form1: TForm1
           OnClick = Button38Click
         end
         object Memo32: TMemo
-          Left = 458
+          Left = 456
           Top = -3
-          Width = 157
+          Width = 105
           Height = 62
           Lines.Strings = (
             'Memo32')
@@ -4276,13 +4385,49 @@ object Form1: TForm1
           TabOrder = 38
         end
         object Button90: TButton
-          Left = 936
-          Top = 144
-          Width = 75
+          Left = 535
+          Top = 114
+          Width = 90
           Height = 25
           Caption = #1054#1090#1095#1077#1090' '#1053'\'#1063
           TabOrder = 39
           OnClick = Button90Click
+        end
+        object Button93: TButton
+          Left = 535
+          Top = 146
+          Width = 90
+          Height = 25
+          Caption = #1042#1099#1073#1088#1072#1090#1100
+          TabOrder = 40
+          OnClick = Button93Click
+        end
+        object Button95: TButton
+          Left = 922
+          Top = 115
+          Width = 103
+          Height = 25
+          Caption = #1057#1087#1080#1089#1072#1085#1080#1077' '#1074' 1'#1057
+          TabOrder = 41
+          OnClick = Button95Click
+        end
+        object Button97: TButton
+          Left = 922
+          Top = 91
+          Width = 103
+          Height = 25
+          Caption = #1053#1077#1090' '#1087#1088#1080#1074#1086#1076#1072' '#1080#1079' 1'#1057
+          TabOrder = 42
+          OnClick = Button97Click
+        end
+        object Button98: TButton
+          Left = 922
+          Top = 146
+          Width = 103
+          Height = 25
+          Caption = #1057#1087#1080#1089#1072#1085#1080#1077' '#1076#1086#1083#1075#1086#1074
+          TabOrder = 43
+          OnClick = Button98Click
         end
       end
     end
@@ -4574,6 +4719,19 @@ object Form1: TForm1
           Position = 0
           ShowBorder = True
           Version = '1.2.1.1'
+        end
+        object shp1: TShape
+          Left = 240
+          Top = 108
+          Width = 15
+          Height = 15
+        end
+        object Label283: TLabel
+          Left = 261
+          Top = 111
+          Width = 75
+          Height = 13
+          Caption = #1050#1086#1088#1086#1073#1082#1072' '#1050#1054#1056#1042
         end
         object Button27: TButton
           Left = 1060
@@ -4990,8 +5148,8 @@ object Form1: TForm1
           OnClick = btn1Click
         end
         object edt1: TEdit
-          Left = 224
-          Top = 103
+          Left = 465
+          Top = 88
           Width = 121
           Height = 21
           TabOrder = 31
@@ -5000,8 +5158,8 @@ object Form1: TForm1
           OnKeyPress = edt1KeyPress
         end
         object edt2: TEdit
-          Left = 256
-          Top = 108
+          Left = 568
+          Top = 99
           Width = 197
           Height = 21
           TabOrder = 33
@@ -5009,8 +5167,8 @@ object Form1: TForm1
           Visible = False
         end
         object edt3: TEdit
-          Left = 132
-          Top = 108
+          Left = 708
+          Top = 99
           Width = 121
           Height = 21
           TabOrder = 32
@@ -5121,17 +5279,7 @@ object Form1: TForm1
           Height = 25
           Caption = #1057#1086#1087#1088'.'#1050#1072#1085#1072#1083'.'#1048#1079#1060#1072#1081#1083#1072
           TabOrder = 37
-          Visible = False
           OnClick = Button82Click
-        end
-        object Button86: TButton
-          Left = 8
-          Top = 99
-          Width = 97
-          Height = 25
-          Caption = #1053#1086#1088#1084#1099' '#1076#1083#1103' 1'#1057
-          TabOrder = 38
-          OnClick = Button86Click
         end
         object dtp12: TDateTimePicker
           Left = 1223
@@ -5140,7 +5288,7 @@ object Form1: TForm1
           Height = 21
           Date = 44896.590648263890000000
           Time = 44896.590648263890000000
-          TabOrder = 39
+          TabOrder = 38
         end
         object dtp13: TDateTimePicker
           Left = 1223
@@ -5149,7 +5297,7 @@ object Form1: TForm1
           Height = 21
           Date = 44896.590737326390000000
           Time = 44896.590737326390000000
-          TabOrder = 40
+          TabOrder = 39
         end
       end
       object SG11: TAdvStringGrid
@@ -6180,6 +6328,7 @@ object Form1: TForm1
             Width = 66
             Height = 13
             Caption = #1044#1072#1090#1072' '#1047#1072#1082#1072#1079#1072
+            Visible = False
           end
           object Label215: TLabel
             Left = 629
@@ -6187,6 +6336,32 @@ object Form1: TForm1
             Width = 37
             Height = 13
             Caption = #1050#1083#1072#1087#1072#1085
+          end
+          object shp11: TShape
+            Left = 122
+            Top = 112
+            Width = 15
+            Height = 15
+          end
+          object Label284: TLabel
+            Left = 143
+            Top = 115
+            Width = 26
+            Height = 13
+            Caption = #1055#1044#1052
+          end
+          object shp12: TShape
+            Left = 1048
+            Top = 172
+            Width = 17
+            Height = 17
+          end
+          object Label285: TLabel
+            Left = 1072
+            Top = 173
+            Width = 75
+            Height = 13
+            Caption = #1050#1086#1088#1086#1073#1082#1072' '#1050#1054#1056#1042
           end
           object Button46: TButton
             Left = 579
@@ -6421,12 +6596,12 @@ object Form1: TForm1
               #1057#1073#1086#1088#1082#1072' '#1043#1086#1090#1086#1074#1085#1086#1089#1090#1100
               #1054#1058#1050
               #1053#1077' '#1059#1087#1072#1082#1086#1074#1072#1085
-              #1044#1072#1090#1072' '#1047#1072#1076#1072#1085#1080#1103
+              #1044#1072#1090#1072
               #1059#1087#1072#1082#1086#1074#1082#1072)
           end
           object Button49: TButton
             Left = 905
-            Top = 15
+            Top = 10
             Width = 75
             Height = 25
             Caption = #1054#1089#1080
@@ -6434,7 +6609,7 @@ object Form1: TForm1
             OnClick = Button49Click
           end
           object Memo12: TMemo
-            Left = 964
+            Left = 862
             Top = 172
             Width = 113
             Height = 97
@@ -6494,6 +6669,7 @@ object Form1: TForm1
             Font.Style = []
             ParentFont = False
             TabOrder = 11
+            Visible = False
             OnClick = btn28Click
           end
           object btn32: TButton
@@ -6532,6 +6708,7 @@ object Form1: TForm1
             Date = 44393.585005821760000000
             Time = 44393.585005821760000000
             TabOrder = 22
+            Visible = False
           end
           object dtp9: TDateTimePicker
             Left = 905
@@ -6541,6 +6718,7 @@ object Form1: TForm1
             Date = 44393.585005821760000000
             Time = 44393.585005821760000000
             TabOrder = 23
+            Visible = False
           end
           object Button74: TButton
             Left = 460
@@ -6586,6 +6764,15 @@ object Form1: TForm1
             Caption = #1054#1090#1095#1077#1090' '#1053'\'#1063
             TabOrder = 28
             OnClick = Button91Click
+          end
+          object Button96: TButton
+            Left = 352
+            Top = 152
+            Width = 89
+            Height = 25
+            Caption = #1057#1087#1080#1089#1072#1085#1080#1077' '#1074' 1'#1057
+            TabOrder = 29
+            Visible = False
           end
         end
       end
@@ -7504,6 +7691,13 @@ object Form1: TForm1
             00FF0000FF0000FF0000}
           OnClick = btn64Click
         end
+        object Label282: TLabel
+          Left = 370
+          Top = 113
+          Width = 120
+          Height = 13
+          Caption = #1054#1089#1080' '#1085#1072' '#1057#1058#1040#1052#1099' '#1080' '#1051#1070#1050#1048
+        end
         object btn3: TButton
           Left = 388
           Top = 12
@@ -7622,9 +7816,10 @@ object Form1: TForm1
           Date = 42139.686237465280000000
           Time = 42139.686237465280000000
           TabOrder = 11
+          OnChange = dtp1Change
         end
         object dtp2: TDateTimePicker
-          Left = 212
+          Left = 188
           Top = 60
           Width = 162
           Height = 21
@@ -7754,6 +7949,15 @@ object Form1: TForm1
           TabOrder = 15
           OnClick = Button87Click
         end
+        object Button94: TButton
+          Left = 388
+          Top = 87
+          Width = 75
+          Height = 25
+          Caption = #1054#1057#1048
+          TabOrder = 16
+          OnClick = Button94Click
+        end
       end
       object pnl2: TPanel
         Left = 0
@@ -7790,6 +7994,7 @@ object Form1: TForm1
           OnTopLeftChanged = SGTopLeftChanged
           ActiveRowShow = True
           ActiveRowColor = clSkyBlue
+          GridLineColor = clBlack
           HoverRowCells = [hcNormal, hcSelected]
           OnGetCellColor = SGGetCellColor
           OnClickSort = SGClickSort
@@ -8944,6 +9149,7 @@ object Form1: TForm1
           OnTopLeftChanged = SG215TopLeftChanged
           ActiveRowShow = True
           ActiveRowColor = clGradientActiveCaption
+          GridLineColor = clBlack
           HoverRowCells = [hcNormal, hcSelected]
           OnRowChanging = SG215RowChanging
           HintColor = clActiveCaption
@@ -9975,6 +10181,24 @@ object Form1: TForm1
           TabOrder = 12
           OnClick = Button88Click
         end
+        object dtp15: TDateTimePicker
+          Left = 112
+          Top = 56
+          Width = 109
+          Height = 21
+          Date = 45198.612914166670000000
+          Time = 45198.612914166670000000
+          TabOrder = 13
+        end
+        object dtp16: TDateTimePicker
+          Left = 227
+          Top = 56
+          Width = 109
+          Height = 21
+          Date = 45198.612914166670000000
+          Time = 45198.612914166670000000
+          TabOrder = 14
+        end
       end
       object pnl7: TPanel
         Left = 0
@@ -10004,13 +10228,14 @@ object Form1: TForm1
           ScrollBars = ssBoth
           TabOrder = 0
           OnMouseDown = SG4MouseDown
-          OnMouseUp = SGMouseUp
+          OnMouseUp = SG4MouseUp
           OnMouseWheelDown = SGMouseWheelDown
           OnMouseWheelUp = SGMouseWheelUp
           OnSelectCell = SGSelectCell
           OnTopLeftChanged = SGTopLeftChanged
           ActiveRowShow = True
           ActiveRowColor = clSkyBlue
+          GridLineColor = clBackground
           HoverRowCells = [hcNormal, hcSelected]
           OnGetCellColor = SG4GetCellColor
           OnDblClickCell = SG4DblClickCell
@@ -11162,6 +11387,7 @@ object Form1: TForm1
           OnSelectCell = SG5SelectCell
           OnTopLeftChanged = SG5TopLeftChanged
           ActiveRowShow = True
+          GridLineColor = clBlack
           HoverRowCells = [hcNormal, hcSelected]
           OnRowChanging = SG5RowChanging
           OnEditingDone = SG5EditingDone
@@ -13793,7 +14019,7 @@ object Form1: TForm1
           Left = 0
           Top = 0
           Width = 36
-          Height = 421
+          Height = 438
           Cursor = crDefault
           Align = alLeft
           ColCount = 1
@@ -14971,7 +15197,7 @@ object Form1: TForm1
           OnClick = Button76Click
         end
         object Button78: TButton
-          Left = 656
+          Left = 647
           Top = 146
           Width = 75
           Height = 25
@@ -15060,6 +15286,15 @@ object Form1: TForm1
           TabOrder = 24
           Visible = False
           OnClick = ComboBox22Click
+        end
+        object Button99: TButton
+          Left = 439
+          Top = 110
+          Width = 113
+          Height = 25
+          Caption = #1057#1087#1080#1089#1072#1085#1080#1077' 1'#1057
+          TabOrder = 25
+          OnClick = Button99Click
         end
       end
       object zclrstrngrd1: TZColorStringGrid
@@ -15975,16 +16210,13 @@ object Form1: TForm1
     Top = 256
   end
   object ADOConnection1: TADOConnection
-    ConnectionString = 
-      'Provider=SQLNCLI11.1;Persist Security Info=False;User ID=testuse' +
-      'r;Initial Catalog=MIASSCEH;Data Source=MSS-APP3;Initial File Nam' +
-      'e="";Server SPN="";'
     LoginPrompt = False
     Provider = 'SQLNCLI11.1'
     Left = 384
     Top = 256
   end
   object OpenDialog1: TOpenDialog
+    Filter = 'xls|*.xls'
     Left = 868
     Top = 260
   end
@@ -15996,8 +16228,8 @@ object Form1: TForm1
     Top = 256
   end
   object MainMenu1: TMainMenu
-    Left = 736
-    Top = 408
+    Left = 352
+    Top = 400
     object N1: TMenuItem
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072
       object Access1: TMenuItem
@@ -16036,6 +16268,10 @@ object Form1: TForm1
       object N91: TMenuItem
         Caption = #1042#1085#1077#1089#1090#1080' '#1054#1089#1080' '#1074' '#1041#1044
         OnClick = N91Click
+      end
+      object N125: TMenuItem
+        Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
+        OnClick = N125Click
       end
     end
   end
@@ -16083,6 +16319,10 @@ object Form1: TForm1
       Visible = False
       OnClick = DelClick
     end
+    object N118: TMenuItem
+      Caption = #1047#1072#1083#1080#1090#1100' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1102
+      OnClick = N118Click
+    end
     object N12: TMenuItem
       Caption = #1055#1077#1088#1077#1081#1090#1080' '#1074' '#1087#1088#1086#1080#1079#1074#1086#1076#1089#1090#1074#1086
       OnClick = N12Click
@@ -16095,11 +16335,6 @@ object Form1: TForm1
       Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
       ShortCut = 16451
       OnClick = N16Click
-    end
-    object N26: TMenuItem
-      Caption = #1054#1090#1084#1077#1085#1072
-      Visible = False
-      OnClick = N26Click
     end
     object N28: TMenuItem
       Caption = #1050#1058#1054
@@ -16201,6 +16436,18 @@ object Form1: TForm1
     object N104: TMenuItem
       Caption = #1047#1072#1074#1053#1086#1084
       OnClick = N104Click
+    end
+    object N108: TMenuItem
+      Caption = #1060#1072#1081#1083#1099' '#1050#1044
+      OnClick = N108Click
+    end
+    object N26: TMenuItem
+      Caption = #1054#1090#1084#1077#1085#1072
+      OnClick = N26Click
+    end
+    object N115: TMenuItem
+      Caption = #1042#1077#1088#1085#1091#1090#1100
+      OnClick = N115Click
     end
   end
   object ActionList1: TActionList
@@ -16352,6 +16599,10 @@ object Form1: TForm1
       Caption = #1056#1072#1079#1074#1077#1088#1090#1082#1080' '#1051#1072#1079#1077#1088
       OnClick = N105Click
     end
+    object N109: TMenuItem
+      Caption = #1060#1072#1081#1083#1099' '#1050#1044
+      OnClick = N109Click
+    end
   end
   object ADOConn1S: TADOConnection
     Left = 620
@@ -16384,6 +16635,10 @@ object Form1: TForm1
     object NNN42: TMenuItem
       Caption = #1059#1076#1072#1083#1080#1090#1100' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1102
       OnClick = NNN42Click
+    end
+    object N119: TMenuItem
+      Caption = #1047#1072#1083#1080#1090#1100' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1102
+      OnClick = N119Click
     end
     object NNNTV: TMenuItem
       Caption = #1058#1077#1093#1085#1086#1083#1086#1075'2'
@@ -16425,6 +16680,18 @@ object Form1: TForm1
     object N103: TMenuItem
       Caption = #1047#1072#1074#1053#1086#1084
       OnClick = N103Click
+    end
+    object N111: TMenuItem
+      Caption = #1060#1072#1081#1083#1099' '#1050#1044
+      OnClick = N111Click
+    end
+    object N113: TMenuItem
+      Caption = #1054#1090#1084#1077#1085#1072
+      OnClick = N113Click
+    end
+    object N114: TMenuItem
+      Caption = #1042#1077#1088#1085#1091#1090#1100
+      OnClick = N114Click
     end
   end
   object OpenDialog2: TOpenDialog
@@ -16473,12 +16740,18 @@ object Form1: TForm1
     end
     object N77: TMenuItem
       Caption = #1056#1072#1079#1086#1073#1088#1072#1090#1100
-      Visible = False
       OnClick = N77Click
     end
     object N95: TMenuItem
       Caption = #1056#1072#1079#1074#1077#1088#1090#1082#1080' '#1057#1052#1051
-      OnClick = N95Click
+      object N116: TMenuItem
+        Caption = #1042#1086#1079#1076#1091#1096#1085#1099#1077
+        OnClick = N116Click
+      end
+      object N117: TMenuItem
+        Caption = #1055#1086#1078#1072#1088#1085#1099#1077
+        OnClick = N117Click
+      end
     end
     object N97: TMenuItem
       Caption = #1056#1072#1079#1074#1077#1088#1090#1082#1080' '#1058#1077#1093#1085#1086#1083#1086#1075
@@ -16487,6 +16760,10 @@ object Form1: TForm1
     object N106: TMenuItem
       Caption = #1056#1072#1079#1074#1077#1088#1090#1082#1080' '#1051#1072#1079#1077#1088
       OnClick = N106Click
+    end
+    object N112: TMenuItem
+      Caption = #1060#1072#1081#1083#1099' '#1050#1044
+      OnClick = N112Click
     end
   end
   object OpenDialog3: TOpenDialog
@@ -16507,6 +16784,7 @@ object Form1: TForm1
     end
     object TehnologN42: TMenuItem
       Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
+      ShortCut = 16451
       OnClick = TehnologN42Click
     end
     object N47: TMenuItem
@@ -16521,6 +16799,10 @@ object Form1: TForm1
     object N79: TMenuItem
       Caption = #1059#1076#1072#1083#1080#1090#1100' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1102
       OnClick = N79Click
+    end
+    object N120: TMenuItem
+      Caption = #1047#1072#1083#1080#1090#1100' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1102
+      OnClick = N120Click
     end
     object N93: TMenuItem
       Caption = #1055#1088#1086#1074#1077#1088#1080#1090#1100' '#1079#1072#1075#1086#1090#1086#1074#1082#1091
@@ -16591,6 +16873,7 @@ object Form1: TForm1
     end
     object N107: TMenuItem
       Caption = #1047#1072#1076#1072#1085#1080#1077' '#1085#1072' '#1083#1077#1085#1090#1091
+      Visible = False
       OnClick = N107Click
     end
   end
@@ -16654,6 +16937,10 @@ object Form1: TForm1
       Caption = #1059#1076#1072#1083#1080#1090#1100' '#1057#1087#1077#1094#1080#1092
       OnClick = N46Click
     end
+    object N121: TMenuItem
+      Caption = #1047#1072#1083#1080#1090#1100' '#1089#1087#1077#1094#1080#1092#1080#1082#1072#1094#1080#1102
+      OnClick = N121Click
+    end
     object N75: TMenuItem
       Caption = #1069#1090#1080#1082#1077#1090#1082#1072
       ShortCut = 115
@@ -16691,6 +16978,10 @@ object Form1: TForm1
     object N85: TMenuItem
       Caption = #1053#1077' '#1089#1088#1086#1095#1085#1086
       OnClick = N85Click
+    end
+    object N122: TMenuItem
+      Caption = #1057#1091#1090#1086#1095#1085#1086#1077
+      OnClick = N122Click
     end
   end
   object ADOConnectionTemp: TADOConnection
@@ -16733,12 +17024,20 @@ object Form1: TForm1
       Visible = False
       OnClick = N101Click
     end
+    object N123: TMenuItem
+      Caption = #1055#1088#1086#1074#1077#1088#1080#1090#1100' '#1079#1072#1075#1086#1090#1086#1074#1082#1091
+      OnClick = N123Click
+    end
+    object N124: TMenuItem
+      Caption = #1069#1090#1080#1082#1077#1090#1082#1080
+      OnClick = N124Click
+    end
   end
   object il1: TImageList
     Left = 1068
     Top = 365
     Bitmap = {
-      494C0101090018005C0310001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010109001800000510001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -17222,7 +17521,7 @@ object Form1: TForm1
   object SQLConnection1: TADOConnection
     ConnectionString = 
       'Provider=SQLOLEDB.1;Password=111;Persist Security Info=True;User' +
-      ' ID=semin;Initial Catalog=VezaKCKP;Data Source=MSS-APP3'
+      ' ID=semin;Initial Catalog=VezaKCKP;Data Source=MI-SV-RD01'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 133
@@ -17298,5 +17597,9 @@ object Form1: TForm1
     Parameters = <>
     Left = 624
     Top = 464
+  end
+  object dlgOpen1: TOpenDialog
+    Left = 804
+    Top = 401
   end
 end

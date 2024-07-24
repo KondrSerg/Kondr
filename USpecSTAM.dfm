@@ -25,7 +25,7 @@ object FSTAM: TFSTAM
     Left = 0
     Top = 0
     Width = 1109
-    Height = 506
+    Height = 440
     Align = alClient
     DefaultRowHeight = 18
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing]
@@ -35,8 +35,7 @@ object FSTAM: TFSTAM
     OnMouseWheelDown = SpecGridMouseWheelDown
     OnMouseWheelUp = SpecGridMouseWheelUp
     OnSelectCell = SpecGridSelectCell
-    ExplicitWidth = 916
-    ExplicitHeight = 326
+    ExplicitHeight = 506
     ColWidths = (
       64
       64
@@ -87,13 +86,11 @@ object FSTAM: TFSTAM
   end
   object pnl1: TPanel
     Left = 0
-    Top = 506
+    Top = 440
     Width = 1109
-    Height = 83
+    Height = 149
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 326
-    ExplicitWidth = 916
     object lbl2: TLabel
       Left = 56
       Top = 8
@@ -187,6 +184,16 @@ object FSTAM: TFSTAM
       Caption = #1053#1072#1081#1090#1080
       TabOrder = 1
       OnClick = btn2Click
+    end
+    object Memo1: TMemo
+      Left = 0
+      Top = 35
+      Width = 466
+      Height = 117
+      Lines.Strings = (
+        'Memo1')
+      ScrollBars = ssBoth
+      TabOrder = 2
     end
   end
   object Memo2: TMemo

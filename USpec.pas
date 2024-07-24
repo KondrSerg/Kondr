@@ -60,7 +60,7 @@ type
                 TmpCol,TmpRow:Integer;
         public
                 { Public declarations }
-                AColG,ARowG,Fl,FL2:Integer;
+                AColG,ARowG,Fl,FL2,Flex:Integer;
         end;
 
 var

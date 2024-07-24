@@ -1247,7 +1247,6 @@ type
     Memo29: TMemo;
     Memo30: TMemo;
     Memo31: TMemo;
-    Button86: TButton;
     N106: TMenuItem;
     N105: TMenuItem;
     N107: TMenuItem;
@@ -1277,6 +1276,46 @@ type
     Button90: TButton;
     Button91: TButton;
     ComboBox22: TComboBox;
+    dtp14: TDateTimePicker;
+    Button86: TButton;
+    Button92: TButton;
+    N108: TMenuItem;
+    N109: TMenuItem;
+    N111: TMenuItem;
+    N112: TMenuItem;
+    Button93: TButton;
+    dlgOpen1: TOpenDialog;
+    N113: TMenuItem;
+    N114: TMenuItem;
+    N115: TMenuItem;
+    N116: TMenuItem;
+    N117: TMenuItem;
+    N118: TMenuItem;
+    N119: TMenuItem;
+    N120: TMenuItem;
+    N121: TMenuItem;
+    Button94: TButton;
+    dtp15: TDateTimePicker;
+    dtp16: TDateTimePicker;
+    Label282: TLabel;
+    N122: TMenuItem;
+    Button95: TButton;
+    Button96: TButton;
+    Button97: TButton;
+    Button98: TButton;
+    Button99: TButton;
+    N123: TMenuItem;
+    N124: TMenuItem;
+    Memo33: TMemo;
+    Memo34: TMemo;
+    Memo35: TMemo;
+    N125: TMenuItem;
+    shp1: TShape;
+    Label283: TLabel;
+    shp11: TShape;
+    Label284: TLabel;
+    shp12: TShape;
+    Label285: TLabel;
     procedure FormShow(Sender: TObject);
     procedure WMDropFiles(var Msg: TMessage); message wm_DropFiles;
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1484,7 +1523,6 @@ type
     procedure Button54Click(Sender: TObject);
     procedure btn25Click(Sender: TObject);
     procedure N25Click(Sender: TObject);
-    procedure Button52Click(Sender: TObject);
     procedure N26Click(Sender: TObject);
     procedure ScanFolder(dir: string);
     procedure Button56Click(Sender: TObject);
@@ -1561,6 +1599,7 @@ type
     procedure N37Click(Sender: TObject);
     procedure SGLMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure StringGrid6MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure Specif_Na_Izdel(Izdel1,GP,KO,Zak1,BZ1,Dat1,Kod1,Tab,Tab2: String;BZ_L1,BLF_L:Boolean;AA:Integer);
     procedure N38Click(Sender: TObject);
     procedure N39Click(Sender: TObject);
     procedure btn11Click(Sender: TObject);
@@ -1778,6 +1817,7 @@ type
     procedure Specif_Shum_K(Izdel, GP, KO, Zak, BZ, Dat, Tab, Tab2: string; AA: Integer);
     procedure Specif_Shum_D(Izdel, GP, KO, Zak, BZ, Dat, Tab, Tab2: string; AA: Integer);
     procedure Specif_Klap_KOL_K(Izdel, GP, KO, Zak, BZ, Dat, Tab, Tab2: string; AA: Integer);
+    procedure Specif_Klap_KOL(Izdel, GP, KO, Zak, BZ, Dat, Tab, Tab2: string; AA: Integer);
     procedure METALL(Dat1, Dat2, Str, Tab1, Tab2: string; XL: Variant);
     procedure Specif_F(Izdel, GP, KO, Zak, BZ, Dat, Tab, Tab2: string; AA: Integer);
     procedure PopupVOZD_LPopup(Sender: TObject);
@@ -1885,7 +1925,6 @@ type
     procedure Specif_EKV_K(Izdel, GP, KO, Zak, BZ, Dat, Tab, Tab2: string; AA: Integer);
     function Vsriv(Naim:String):String;
     procedure N94Click(Sender: TObject);
-    procedure N95Click(Sender: TObject);
     procedure N97Click(Sender: TObject);
     procedure N96Click(Sender: TObject);
     procedure N98Click(Sender: TObject);
@@ -1904,6 +1943,7 @@ type
     procedure Edit40KeyPress(Sender: TObject; var Key: Char);
     procedure Button85Click(Sender: TObject);
     procedure CC1(Dat1, Dat2, Str, Tab1, Tab2: string;P:Integer);
+    procedure CC_KANAL(Dat1, Dat2, Str, Tab1, Tab2: string;P:Integer);
     procedure CC_STAM(Dat1, Dat2, Str, Tab1, Tab2: string);
     procedure Button86Click(Sender: TObject);
     procedure N106Click(Sender: TObject);
@@ -1918,7 +1958,45 @@ type
     function SUT1(Dat3, Nom3, Dir1: string; qq, Cvet: Integer; Prim: string): string;
     procedure Button90Click(Sender: TObject);
     procedure Button91Click(Sender: TObject);
+    procedure Button92Click(Sender: TObject);
+    procedure N108Click(Sender: TObject);
   // function Germik_DU(Izdel,IDGP:string; Svarka1:Double ;Ii:Integer):MyRec;
+  procedure GetAllPath_CEH( Path: string;N:String );
+  function KD(BZ: string): string;
+  function Xls_To_Grid1(AGrid: TStringGrid; AXLSFile: string; List: string; C, R: Integer): Boolean;
+    procedure N109Click(Sender: TObject);
+    procedure N111Click(Sender: TObject);
+    procedure N112Click(Sender: TObject);
+    procedure Button93Click(Sender: TObject);
+    procedure N113Click(Sender: TObject);
+    procedure N114Click(Sender: TObject);
+    procedure N115Click(Sender: TObject);
+    procedure N116Click(Sender: TObject);
+    procedure N117Click(Sender: TObject);
+    procedure Clear_StringGrid1(StringGrid: TStringGrid);
+    procedure N118Click(Sender: TObject);
+    procedure N119Click(Sender: TObject);
+    procedure N120Click(Sender: TObject);
+    procedure N121Click(Sender: TObject);
+    procedure OSI1(T1,T2,T3,T4,D1,D2,DR1,DR2,S:string);
+    procedure Button94Click(Sender: TObject);
+    procedure dtp1Change(Sender: TObject);
+    procedure N122Click(Sender: TObject);
+    procedure SG4MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure PageControl1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Button95Click(Sender: TObject);
+    function Spisanie1S(Nam_F,Tab_Zap,Tab_Spec,GP: String): Boolean;
+    function Spisanie1SDolgi(Nam_F,Tab_Zap,Tab_Spec: String): Boolean;
+    function Spisanie1SVSE(Nam_F,Tab_Zap,Tab_Spec: String): Boolean;
+    procedure Button97Click(Sender: TObject);
+    procedure Button98Click(Sender: TObject);
+    procedure Button99Click(Sender: TObject);
+    procedure N123Click(Sender: TObject);
+    procedure N124Click(Sender: TObject);
+    procedure N125Click(Sender: TObject);
+    //function Germik_T(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
   private
                 { Private declarations }
 
@@ -1949,7 +2027,7 @@ type
     Column_ALL: array[0..550, 0..4] of string;
     F750, FF710, DIP,STAM_Er: Integer;
     XL_Global: Variant;
-    Zagolov, Telo, Betwe710, Betwe_G: string;
+    Zagolov, Telo, Betwe710, Betwe_G,Patch_G,STR_LUK: string;
   end;
 
 var
@@ -1984,7 +2062,7 @@ uses
   UTSP, UServer, UPrivod, UNewNaklVoz, UProgres, US, USpecSTAM, UKolLop, UKolZap,
   Unit1, UNewNaklSTAM, USTAMTime, UPDO, UProgrammist, Unit2, UNorma1, UNormaVoz,
   U710, USpecOb, UIzv, UFile, mainBRAK, UnewBRAK, UGibka, UNCH, USborkaNCH,
-  UPochta, UPolsov, UShtrih, UBrigada, URabota, USborKan;
+  UPochta, UPolsov, UShtrih, UBrigada, URabota, USborKan, UShtrih_EKV, UPoisk;
 
 {$R *.dfm}
 
@@ -2065,6 +2143,7 @@ var
   FindRes: Integer;
 begin
   Memo5.Lines.Clear;
+  Memo6.Lines.Clear;
   FindRes := FindFirst(Path + '*.*', faAnyFile, SR);
   while FindRes = 0 do
   begin
@@ -2084,7 +2163,8 @@ begin
       Continue;
     end;
 
-    Memo5.Lines.Add(SR.Name);
+    Memo5.Lines.Add(Path +SR.Name);
+    Memo6.Lines.Add(SR.Name);
     FindRes := FindNext(SR);
   end;
   FindClose(SR);
@@ -2319,6 +2399,11 @@ procedure TForm1.dtp10Change(Sender: TObject);
 begin
   dtp11.DateTime := dtp10.DateTime;
 
+end;
+
+procedure TForm1.dtp1Change(Sender: TObject);
+begin
+dtp2.DateTime := dtp1.DateTime;
 end;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3001,10 +3086,16 @@ begin
   F750 := 0;
   FF710 := 0;
   Dip := 0;
+  shp1.Brush.Color:= RGB(229,90,240);//Коробка КОРВ  Розовый
+  shp12.Brush.Color:= RGB(229,90,240);//Коробка КОРВ  Розовый
+  dtp1.DateTime := Now;
+  DTP2.DateTime := Now;
   dtp3.DateTime := Now;
   DTP8.DateTime := Now;
   dtp10.DateTime := Now;
   DTP11.DateTime := Now;
+  dtp15.DateTime := Now;
+  DTP16.DateTime := Now;
   DTP9.DateTime := Now;
   FOTK.DateTimePicker1.Date := Now;
   F710.dtp1.Date := Now;
@@ -3410,6 +3501,7 @@ begin
 end;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     //стринг грид в эксель
 procedure TForm1.ExportGridtoExcel2(Sender: TStringGrid);
 var
@@ -3760,7 +3852,7 @@ begin
     MessageDlg('Не все детали обработаны! Список в папке с накладной.', mtError, [mbOk], 0);
     Exit;
   end;  and (Flag_Zag <> 0)}
-  if (zclrstrngrd1.Col = I_FN_KOL_ZAP + 3) and ((FlagDolg = 7) or (FlagDolg = 1)) then //Планирование
+ { if (zclrstrngrd1.Col = I_FN_KOL_ZAP + 3) and ((FlagDolg = 7) or (FlagDolg = 1)) then //Планирование
   begin
     Form2.Label2.Caption := zclrstrngrd1.Cells[zclrstrngrd1.Col, 1];
     Form2.Label3.Caption := zclrstrngrd1.Cells[I_FN_KOL_ZAP + 7, zclrstrngrd1.ROW];
@@ -3773,7 +3865,7 @@ begin
     Form2.Caption := zclrstrngrd1.Cells[0, zclrstrngrd1.ROW];
     Form2.LabCVET.Caption := zclrstrngrd1.Cells[I_FN_KOL_ZAP + 28, zclrstrngrd1.ROW]; //Cvet
     Form2.ShowModal;
-  end;
+  end; }
 
   if (zclrstrngrd1.Col = I_FN_KOL_ZAP + 6) and ((FlagDolg = 4) or (FlagDolg = 1) or (FlagDolg = 7)) //Примечание
     then
@@ -3847,10 +3939,10 @@ begin
   begin
       FSborKan.Label1.Caption:=zclrstrngrd1.Cells[I_FN_KOL_ZAP + 26, zclrstrngrd1.Row];
       FSborKan.Label2.Caption:=zclrstrngrd1.Cells[I_FN_KOL_ZAP + 34, zclrstrngrd1.Row];
-
+      //0-Канлка(Запуск750) 1- ЗапускЛЮК 2- ЗапускСТАМ
+      FSborKan.Sbor_Uch:=0;
       FSborKan.ShowModal;
       //zclrstrngrd1.Cells[I_FN_KOL_ZAP + 12, 1] := 'Сборщик';
-
   end;
 end;
 
@@ -5449,9 +5541,12 @@ begin
   begin
     if not Form1.mkQueryDelete(Form1.ADOQuery1, 'DELETE FROM %s Where (IdГП= ' + #39 + Idgp + #39 + ') ', ['СпецифЛЮК']) then
       Exit;
-    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 + ' WHERE ([IdГП]=' + #39 + Idgp + #39 + ')', ['ЛЮК']) then
+    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 +
+    ',[СтатусФ]=' + #39 + '0' + #39 +
+    ',[СтатусФлекс]=' + #39 + '0' + #39 +
+    ',[СтатусПро]=' + #39 + '0' + #39 +' WHERE ([IdГП]=' + #39 + Idgp + #39 + ')', ['ЛЮК']) then
       Exit;
-
+    Button36Click(nil);
   end;
 end;
 
@@ -5800,7 +5895,7 @@ begin
     else
       B:= '2000'; }
       Kol_G:=XL.ActiveWorkBook.WorkSheets[I].Cells[2, 8];
-      KolGib:=StrToFloat(Kol_G);
+      KolGib:=StrToFloat(Kol_G)*K;
      {     if (A_I<900) then
       begin
         NC:=(KolGib*0.006)*1.105;
@@ -5811,17 +5906,17 @@ begin
         NC:=((KolGib*0.006)+0.034)*1.105;
       end; }
      // Result.MAT_G_Do1 := NC ;
-    Kol_G:=XL.ActiveWorkBook.WorkSheets[I].Cells[2, 8];
+    Kol_G:=FloatToStr(KolGib);//XL.ActiveWorkBook.WorkSheets[I].Cells[2, 8];
     if not Form1.mkQuerySelect(Form1.ADOQuery1,
         'Select * from [%s] Where ([Высота]=' + #39 + Kol_G + #39 +
         ') and (Длина=' + #39 + B + #39 + ') and ([№]=' + #39 + '777' + #39 + ') ', ['Резка Гибка']) then
     exit;
-    K:=1;
+    //K:=1;
     Nch := Form1.ADOQuery1.FieldByName('Норма').AsFloat;
-    nch_o:=(Nch*K)*Kol_I;
+    nch_o:=(Nch)*Kol_I;
     Kol:=FloatToStr(nch_o);
-    Kol:=StringReplace(Kol, '.', ',', [rfReplaceAll]);
-    XL.ActiveWorkBook.WorkSheets[I].Cells[29, 3] := '`'+(Kol);
+    Kol:=StringReplace(Kol, ',', '.', [rfReplaceAll]);
+    XL.ActiveWorkBook.WorkSheets[I].Cells[29, 3] :=(Kol); // '`'+
     XL.ActiveWorkBook.WorkSheets[I].SaveAs(Dir + '\' + Dat + '-' + Nam + '.xlsx');
   end
   else
@@ -6261,7 +6356,7 @@ begin
       exit;
   Str_SQL_Poisk := '';
   Poisk_Vosd := 0;
-  StringGrid10.ColCount := 20;
+  StringGrid10.ColCount := 22;
   StringGrid10.Cells[0, 0] := '№';
   StringGrid10.ColWidths[0] := 20;
   StringGrid10.Cells[I_FN_DAT, 0] := FN_DAT;
@@ -6289,9 +6384,11 @@ begin
   StringGrid10.Cells[I_FN_SGP + 4, 0] := 'Легион';
   StringGrid10.Cells[I_FN_SGP + 5, 0] := 'bz';
   StringGrid10.Cells[I_FN_SGP + 6, 0] := 'СтатусФ';
+  StringGrid10.Cells[I_FN_SGP + 7, 0] := 'СтатусПро';
+  StringGrid10.Cells[I_FN_SGP + 8, 0] := 'СтатусФлекс';
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++SG6
             //
-  SG6.ColCount := 33;
+  SG6.ColCount := 35;
   SG6.Cells[I_FN_NOM, 0] := 'Номер раз';
   SG6.Cells[I_FN_RAS_DATA_GOTOVN, 0] := FN_RAS_DATA_GOTOVN;
   SG6.Cells[I_FN_BRIKET, 0] := 'Кол-во Приводов';
@@ -6385,6 +6482,9 @@ begin
     StringGrid10.Cells[I_FN_SGP + 4, I + 1] := ADOQuery1.FieldByName('Легион').AsString;
     StringGrid10.Cells[I_FN_SGP + 5, I + 1] := ADOQuery1.FieldByName('bz').AsString;
     StringGrid10.Cells[I_FN_SGP + 6, I + 1] := ADOQuery1.FieldByName('СтатусФ').AsString;
+    StringGrid10.Cells[I_FN_SGP + 7, I + 1] := ADOQuery1.FieldByName('СтатусПро').AsString;
+    StringGrid10.Cells[I_FN_SGP + 8, I + 1] := ADOQuery1.FieldByName('СтатусФлекс').AsString;
+
                 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SG6
     SG6.Cells[I_FN_NOM, I + 1] := ADOQuery1.FieldByName(FN_NOMER_RAZ).AsString;
     SG6.Cells[I_FN_RAS_DATA_GOTOVN, I + 1] := ADOQuery1.FieldByName(FN_RAS_DATA_GOTOVN).AsString;
@@ -6418,6 +6518,7 @@ begin
     SG6.Cells[I_FN_OTMENA + 8, I + 1] := ADOQuery1.FieldByName('Пила').AsString;
     SG6.Cells[I_FN_OTMENA + 9, I + 1] := ADOQuery1.FieldByName('СборкаРеш').AsString;
     SG6.Cells[I_FN_OTMENA + 10, I + 1] := ADOQuery1.FieldByName('Электро').AsString;
+    SG6.Cells[I_FN_OTMENA + 11, I + 1] := ADOQuery1.FieldByName('Код').AsString;
                 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SG6
     ADOQuery1.Next;
   end;
@@ -6860,7 +6961,30 @@ begin
       StringGrid10.Canvas.FillRect(Rect);
       StringGrid10.Canvas.TextOut(Rect.Left, Rect.Top, StringGrid10.Cells[ACol, ARow]);
     end;
-
+                //------------СтатусФ
+    Stat := 0;
+    if StringGrid10.Cells[I_FN_SGP + 6, ARow] <> '' then
+      Stat := Pos('1',StringGrid10.Cells[I_FN_SGP + 6, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 1) then
+      StringGrid10.canvas.brush.Color :=RGB(240,227,52);//ФАЙЛ   Желтый
+      StringGrid10.Canvas.Font.Style := [fsItalic]+[fsBold];
+      StringGrid10.Canvas.FillRect(Rect);
+      StringGrid10.Canvas.TextOut(Rect.Left, Rect.Top, StringGrid10.Cells[ACol, ARow]);
+    end;
+         //------------СтатусФлекс
+    Stat := 0;
+    if StringGrid10.Cells[I_FN_SGP + 8, ARow] <> '' then
+      Stat := Pos('rue',StringGrid10.Cells[I_FN_SGP + 8, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 2) then
+      StringGrid10.canvas.brush.Color := RGB(14,177,250);//ДОКс   Синий
+      StringGrid10.Canvas.Font.Style := [fsBold];
+      StringGrid10.Canvas.FillRect(Rect);
+      StringGrid10.Canvas.TextOut(Rect.Left, Rect.Top, StringGrid10.Cells[ACol, ARow]);
+    end;
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     if (StringGrid10.Cells[I_FN_ZAKAZCHIK, ARow] <> '') and (StringGrid10.Cells[I_FN_SGP, ARow] <> '') and (ACol = I_FN_NAM) then
@@ -7698,7 +7822,11 @@ begin
       A := StrToInt(Copy(Naim, 1, F-1));
       Delete(Naim, 1, F); //125-2,4
     end ;
-
+    F := Pos('_', Naim);   //
+    if F <> 0 then
+    begin
+       Delete(Naim, F, 200); //2,4_226400040б
+    end;
       Mosh_S := Naim;
 
 
@@ -8401,6 +8529,301 @@ begin
   Result.Sborka_RON:=NC_RON;
 end;
 
+function Germik_DU_Vozd(Izdel, IDGP,KO: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, a, b, Kol_Priv, Kol_Lop, Res_Ispol,
+   Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, F1: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term,
+  Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2,B_I,NC_Ger_S_Prov: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, Str: string;
+begin
+      //Клапан ГЕРМИК-ДУ-З-500*600-2*ф-ЭМП220-сн-0-0
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+  Kpu := Pos('ГЕРМИК', Izdel);
+    Result.Sborka1 := 0;
+  Result.Sborka2 := 0;
+  Result.Sborka_lop := '0';
+  Result.Sborka_tyag := '0';
+  Result.SVarka := 0;
+  if Kpu <> 0 then
+  begin
+    Lop := '0';
+    F1 := 0;
+    Flag_Razb_Klapana := 0;
+    if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (IdГП=' + #39 + IDGP + #39 +
+    ') and (IdКО=' + #39 + KO + #39 + ')  ', ['СпецифВозд']) then
+      exit;
+    Flag_Razb_Klapana := 0;
+    for j := 0 to Form1.ADOQuery2.RecordCount - 1 do  //Проверка на Клапан разбитый на 2
+    begin
+      Elem := Form1.ADOQuery2.FieldByName('Элемент').AsString;
+      Kol_Ed_Str := StringReplace(Form1.ADOQuery2.FieldByName('Количество').AsString, '.', ',', [rfReplaceAll]);
+      System.SysUtils.FormatSettings.DecimalSeparator := (',');
+      Kol_Ed := StrToFloat(Kol_Ed_Str);
+      Klap := AnsiCompareStr('Клапан', Elem);
+      if (Klap = 0) and (Kol_Ed > 1) then
+      begin
+        Flag_Razb_Klapana := 1; //Клапан разбит на 2
+        Izdel := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+            //Nam := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+        Break;
+      end;
+      Form1.ADOQuery2.Next;
+    end;                 //Лопатка-заготовка
+    Str := 'Лопатка%';
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 +
+    ') and (IdКО=' + #39 + KO + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 +
+    ') AND ((Элемент Like ' + #39 + '%s' + #39 + '))', ['СпецифВозд', Str]) then
+      exit;
+    for i := 0 to Form1.ADOQuery1.RecordCount - 1 do
+    begin
+      Kol_Lop := Kol_Lop + Form1.ADOQuery1.FieldByName('Количество').AsInteger;
+      Form1.ADOQuery1.Next;
+    end;
+
+    Privod := Form1.StringGrid6.Cells[I_FN_BRIKET, Ii + 1];
+    if Privod = '0' then
+    begin
+     // MessageDlg('Необходимо поставить кол-во приводов!', mtError, [mbOk], 0);
+     // Exit;
+    end;
+
+    Privod_Nam := Form1.StringGrid10.Cells[I_FN_MOD_PRIVOD, Ii + 1];
+    Res := Pos(' ', Izdel);
+    Delete(Izdel, 1, Res);
+        //======================================== ГЕРМИК
+    Res := Pos('-', Izdel);
+    KPu_S := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //======================================== ДУ
+    Res := Pos('-', Izdel);
+    KPu_S := KPu_S + '-' + Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================  З
+    Res := Pos('-', Izdel);
+    N1 := Copy(Izdel, 1, Res - 1);
+    if Length(N1) = 1 then
+      Delete(Izdel, 1, Res);
+        //Delete(Izdel, 1, Res);
+        //========================================
+       //Клапан ГЕРМИК-ДУ-З-500*600-2*ф-ЭМП220-сн-0-0
+       //Клапан ГЕРМИК-ДУ-З-900*900-2*ф-MB24-сн-0-0
+       //Клапан ГЕРМИК-ДУ-З-750*800-1*ф-MV24-вн-РОН110-мрз
+       //Клапан ГЕРМИК-ДУ-З-400*800-1*ф-MB220-вн-рон-мрз
+       //Клапан ГЕРМИК-ДУ-Д-600*700-1*ф-MB24-вн-0-0-0-0
+       //Клапан ГЕРМИК-ДУ-З-500*600-1*ф-MB220-вн-0-РОН120-мрз-0
+       //Клапан ГЕРМИК-ДУ-З-400*800-1*ф-MB220-вн-рон-мрз
+       //Клапан ГЕРМИК-ДУ-З-1000*500-2*ф-MB220-сн-0-мрп
+       //Клапан ГЕРМИК-ДУ-1000*500-2*ф-MB220-сн-0-мрп
+    Res := Pos('*', Izdel);
+    if Res > 5 then
+      Exit;
+    a := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    b := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    F := Copy(Izdel, 1, 1);
+    Delete(Izdel, 1, Res);
+    if F <> '' then
+      Kol_F := StrToInt(F);
+        //========================================
+       //Клапан ГЕРМИК-ДУ-З-500*600-2*ф-ЭМП220-сн-0-0
+    Res := Pos('-', Izdel);
+    Priv := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //======================================== -сн
+    Res := Pos('-', Izdel);
+    Razmesh := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //======================================== Klem,Resh,luk,Pereh,Ruk,Rama
+
+    if Privod = '' then
+      Kol_Priv := 0
+    else
+      Kol_Priv := StrToInt(Privod);
+        //-----------------------------------------------------
+        //========================================
+    if a <= 1000 then
+      USLOVie := '<1000'
+    else
+      USLOVie := '>1000';
+
+    NAM_LIST := KPu_S + '-' + F + '-ф-' + N1 + USLOVie;
+    if Kol_Lop <= 10 then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([кол-во лопаток]='
+      + #39 + IntToStr(Kol_Lop) + #39 + ')', [NAM_LIST]) then
+        exit;
+      SB_LOP_S := Form1.ADOQuery1.FieldByName('сборка лопаток').AsString;
+      SB_TYAG_S := Form1.ADOQuery1.FieldByName('сборка тяг').AsString;
+      SB_1_S := Form1.ADOQuery1.FieldByName('1-я сборка').AsString;
+      SB_2_S := Form1.ADOQuery1.FieldByName('2-я сборка').AsString;
+      SB_1 := StrToFloat(SB_1_S);
+      SB_2 := StrToFloat(SB_2_S);
+    end
+    else
+    begin
+      Kol_Lop := 10;
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([кол-во лопаток]='
+      + #39 + IntToStr(Kol_Lop) + #39 + ')', [NAM_LIST]) then
+        exit;
+      SB_LOP_S := FloatToStr(Form1.ADOQuery1.FieldByName('сборка лопаток').AsFloat * 2);
+      SB_TYAG_S := FloatToStr(Form1.ADOQuery1.FieldByName('сборка тяг').AsFloat * 2);
+      SB_1_S := Form1.ADOQuery1.FieldByName('1-я сборка').AsString;
+      SB_2_S := Form1.ADOQuery1.FieldByName('2-я сборка').AsString;
+      SB_1 := StrToFloat(SB_1_S) * 2;
+      SB_2 := StrToFloat(SB_2_S) * 2;
+    end;
+          //Form1.Memo13.Lines.Add(Form1.ADOQuery1.FieldByName('сборка лопаток').AsString);
+          //Form1.Memo13.Lines.Add(Form1.ADOQuery1.FieldByName('сборка тяг').AsString);
+    Form1.Memo13.Lines.Add(SB_1_S);
+    Form1.Memo13.Lines.Add(SB_2_S);
+
+        //-----------------------------------------------------
+    Perim := a + b;
+    Res_Resh := Pos(AnsiUpperCase('мрЗ'), AnsiUpperCase(Nam));
+    Res_Ram := Pos(AnsiUpperCase('мрП'), AnsiUpperCase(Nam));
+    if (Res_Ram <> 0) or (Res_Resh <> 0) then
+    begin
+      if Perim <= 600 then
+        USLOVie := '600';
+          //+++++++++++++++++++++
+      if (Perim > 600) and (Perim <= 850) then
+        USLOVie := '850';
+          //+++++++++++++++++++++
+      if (Perim > 850) and (Perim <= 1200) then
+        USLOVie := '1200';
+          //+++++++++++++++++++++
+      if (Perim > 1200) and (Perim <= 1800) then
+        USLOVie := '1800';
+          //+++++++++++++++++++++
+      if (Perim > 1800) then
+        USLOVie := '2000';
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]='
+      + #39 + (USLOVie) + #39 + ')', ['МРЗ']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('Норма').AsString;
+      NC_RON := StrToFloat(S);
+      Form1.Memo13.Lines.Add(S);
+    end;
+
+        //-----------------------------------------------------
+    Perim := a + b;
+    S := AnsiUpperCase('рон');
+    S1 := AnsiUpperCase(Nam);
+    Res_Resh := Pos(S, S1);
+    if (Res_Resh <> 0) then
+    begin
+      if Perim <= 1000 then
+        USLOVie := '1000';
+          //+++++++++++++++++++++
+      if (Perim > 1000) and (Perim <= 1300) then
+        USLOVie := '1300';
+          //+++++++++++++++++++++
+      if (Perim > 1300) and (Perim <= 1800) then
+        USLOVie := '1800';
+          //+++++++++++++++++++++
+      if (Perim > 1800) and (Perim <= 2500) then
+        USLOVie := '2500';
+          //+++++++++++++++++++++
+      if (Perim > 2500) then
+        USLOVie := '2501';
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]='
+      + #39 + (USLOVie) + #39 + ')', ['Решетка']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('Норма').AsString;
+      Form1.Memo13.Lines.Add(S);
+      NC_RON := StrToFloat(S);
+    end;
+
+        //Электромагнит
+    Res_Resh := Pos(AnsiUpperCase('ЭМП'), AnsiUpperCase(Priv));
+    if (Res_Resh <> 0) then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s]', ['Привод']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('Эл-магнит').AsString;
+      Form1.Memo13.Lines.Add(S);
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+        //Эл-привод
+    if (Res_Resh = 0) then
+    begin
+
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+        exit;
+          {Res_Resh:=Pos(AnsiUpperCase('МС'),AnsiUpperCase(Priv));
+          if  (Res_Resh<>0) then
+            S:=  Form1.ADOQuery1.FieldByName('МС').AsString
+          else }
+      S := Form1.ADOQuery1.FieldByName('Эл-привод').AsString;
+      Form1.Memo13.Lines.Add(S);
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+    SB_2 := SB_2 + D ;
+    D := 0;
+        //--------------------------------------------------------КK
+    S := AnsiUpperCase('-КК-');
+    S1 := AnsiUpperCase(Nam);
+    Res := Pos(S, S1); //Клемная коробка
+    if Res <> 0 then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('КК').AsString;
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+    SB_2 := SB_2 + D;
+    D := 0;
+               //--------------------------------------------------------КK
+    S := AnsiUpperCase('-КЛ-');
+    S1 := AnsiUpperCase(Nam);
+    Res := Pos(S, S1); //Клемная коробка
+    if Res <> 0 then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('КК').AsString;
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+    SB_2 := SB_2 + D;
+    D := 0;
+  end;
+  if Flag_Razb_Klapana = 1 then//Клапан разбит на 2 then
+    SB_2 := SB_2 + 0.213;
+          {Для ГЕРМИКА-ДУ
+        [Расключение]=' + #39 + (Prov) + #39 + будет равно СборкаРеш   NC_RON
+        [Обварка]=' + #39 + (Obv) + #39 + будет равно Сборка тяг=Корпус  SB_TYAG_S}
+         { SB_1 := Result.Sborka1;
+        SB_2 := Result.Sborka2;
+        NC_Ger_S_Prov:=Result.Svarka;
+        SB_LOP_S  :=Result.Sborka_lop;
+        Obvarka:=Result.Obvarka_G_R; }
+
+    NC_Ger_S_Prov:=Kol_Priv *0.32 ; //Расключение
+
+    if A>1500 then
+     NC_Ger_S_Prov:= NC_Ger_S_Prov*1.2;
+
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  Result.Sborka_lop := SB_LOP_S;
+  //
+  //Result.Sborka_tyag := SB_TYAG_S;
+  Result.Obvarka_G_R := StrToFloat(SB_TYAG_S);
+  //
+  //Result.Sborka_RON:=NC_RON;
+  Result.Svarka:=NC_Ger_S_Prov; //Расключение
+  //Result.Svarka:= NC_RON;
+end;
+
 function OKSID_New(Izdel, IDGP: string; Svarka1: Double; Ii: Integer): TResult;
 var
   i, Kpu, j, Flag_Razb_Klapana, Klap, Res, a, b, Kol_Priv, Kol_Lop, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, F1: Integer;
@@ -8625,6 +9048,198 @@ begin
   Result.Sborka_RON:=NC_RON;
 end;
 
+function PROK_K_New(Izdel, IDGP: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, a, b, Kol_Priv, Kol_Lop, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, F1: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop,iz, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, Str: string;
+begin
+ //Клапан ПРОК-1-Н-500-0
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+
+  Kpu := Pos('ПРОК-', Izdel);
+  Result.SVarka := 0;
+  if Kpu <> 0 then
+  begin
+    Lop := '0';
+    F1 := 0;
+
+    B:=0;
+    Privod := Form1.SG6.Cells[I_FN_BRIKET, Ii + 1];
+    if Privod = '0' then
+    begin
+     // MessageDlg('Необходимо поставить кол-во приводов!', mtError, [mbOk], 0);
+     // Exit;
+    end;
+    //Клапан ПРОК-1-Н-500-0
+    Privod_Nam := Form1.StringGrid10.Cells[I_FN_MOD_PRIVOD, Ii + 1];
+    Res := Pos(' ', Izdel);
+    Delete(Izdel, 1, Res);
+   //ПРОК-1-Н-500-0
+    Res := Pos('-', Izdel);
+    KPu_S := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+    //=======================================
+  //1-Н-500-0
+    Res := Pos('-', Izdel);
+    KPu_S := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+    //=======================================
+  //Н-500-0
+    Res := Pos('-', Izdel);
+    KPu_S := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+    //500-0
+    //=======================================
+    Res := Pos('-', Izdel);
+    if Res <>0 then
+    a := StrToInt(Copy(Izdel, 1, Res - 1));
+        //======================================== Klem,Resh,luk,Pereh,Ruk,Rama
+
+    if Privod = '' then
+      Kol_Priv := 0
+    else
+      Kol_Priv := StrToInt(Privod);
+    //-----------------------------------------------------
+
+    if a <= 450 then
+      USLOVie := '355';
+    if (a > 450) AND (a<=630) then
+      USLOVie := '500';
+    if (a > 630) AND (a<=800) then
+      USLOVie := '710';
+    if (a > 800) AND (a<=1000) then
+      USLOVie := '900';
+
+    if a > 1000 then
+      USLOVie := '1120';
+
+     NAM_LIST := 'ПРОК-КР';
+
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Д]=' +
+       #39 + (USLOVie) + #39 + ') ', [NAM_LIST]) then
+        exit;
+
+      SB_1_S := '0.0001';
+      SB_2_S := Form1.ADOQuery1.FieldByName('Н\ч').AsString;
+      SB_1 := StrToFloat(SB_1_S);
+      SB_2 := StrToFloat(SB_2_S);
+
+    Form1.Memo13.Lines.Add(SB_1_S);
+    Form1.Memo13.Lines.Add(SB_2_S);
+
+        //-----------------------------------------------------
+    Perim := a + b;
+    Res_Resh := Pos(AnsiUpperCase('мрЗ'), AnsiUpperCase(Nam));
+    Res_Ram := Pos(AnsiUpperCase('мрП'), AnsiUpperCase(Nam));
+    if (Res_Ram <> 0) or (Res_Resh <> 0) then
+    begin
+      if Perim <= 600 then
+        USLOVie := '600';
+          //+++++++++++++++++++++
+      if (Perim > 600) and (Perim <= 850) then
+        USLOVie := '850';
+          //+++++++++++++++++++++
+      if (Perim > 850) and (Perim <= 1200) then
+        USLOVie := '1200';
+          //+++++++++++++++++++++
+      if (Perim > 1200) and (Perim <= 1800) then
+        USLOVie := '1800';
+          //+++++++++++++++++++++
+      if (Perim > 1800) then
+        USLOVie := '2000';
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + (USLOVie) + #39 + ')', ['МРЗ']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('Норма').AsString;
+      NC_RON := StrToFloat(S);
+      Form1.Memo13.Lines.Add(S);
+    end;
+
+        //-----------------------------------------------------
+    Perim := a + b;
+    S := AnsiUpperCase('рон');
+    S1 := AnsiUpperCase(Nam);
+    Res_Resh := Pos(S, S1);
+    if (Res_Resh <> 0) then
+    begin
+      if Perim <= 1000 then
+        USLOVie := '1000';
+          //+++++++++++++++++++++
+      if (Perim > 1000) and (Perim <= 1300) then
+        USLOVie := '1300';
+          //+++++++++++++++++++++
+      if (Perim > 1300) and (Perim <= 1800) then
+        USLOVie := '1800';
+          //+++++++++++++++++++++
+      if (Perim > 1800) and (Perim <= 2500) then
+        USLOVie := '2500';
+          //+++++++++++++++++++++
+      if (Perim > 2500) then
+        USLOVie := '2501';
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + (USLOVie) + #39 + ')', ['Решетка']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('Норма').AsString;
+      Form1.Memo13.Lines.Add(S);
+      NC_RON := StrToFloat(S);
+    end;
+        //Электромагнит
+    Res_Resh := Pos(AnsiUpperCase('ЭМП'), AnsiUpperCase(Priv));
+    if (Res_Resh <> 0) then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s]', ['Привод']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('Эл-магнит').AsString;
+      Form1.Memo13.Lines.Add(S);
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+        //Эл-привод
+    if (Res_Resh = 0) then
+    begin
+
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+        exit;
+
+      S := Form1.ADOQuery1.FieldByName('Эл-привод').AsString;
+      Form1.Memo13.Lines.Add(S);
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+    SB_2 := SB_2 + D ;
+    D := 0;
+        //--------------------------------------------------------КK
+    S := AnsiUpperCase('-КК-');
+    S1 := AnsiUpperCase(Nam);
+    Res := Pos(S, S1); //Клемная коробка
+    if Res <> 0 then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('КК').AsString;
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+    SB_2 := SB_2 + D;
+    D := 0;
+               //--------------------------------------------------------КK
+    S := AnsiUpperCase('-КЛ-');
+    S1 := AnsiUpperCase(Nam);
+    Res := Pos(S, S1); //Клемная коробка
+    if Res <> 0 then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('КК').AsString;
+      D := StrToFloat(S) * Kol_Priv;
+    end;
+    SB_2 := SB_2 + D;
+    D := 0;
+  end;
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  Result.Sborka_RON:=NC_RON;
+end;
+
 function PROK_New(Izdel, IDGP: string; Svarka1: Double; Ii: Integer): TResult;
 var
   i, Kpu, j, Flag_Razb_Klapana, Klap, Res, a, b, Kol_Priv, Kol_Lop, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, F1: Integer;
@@ -8635,13 +9250,14 @@ begin
 //Клапан ПРОК-1-Н-700*700-0
 //Клапан ПРОК-1-Н-500-0
 //Клапан ПРОК-1-Н-1000*300-1*000*V1
+//Клапан ПРОК-2-Н-1090*1090-stam
   D := 0;
   NAM_LIST := '';
   Nam := Izdel;
   Kpu := Pos('*', Izdel);
   if Kpu=0 then
   Exit;
-  Kpu := Pos('ПРОК-1-Н-', Izdel);
+  Kpu := Pos('ПРОК-', Izdel);
   Result.SVarka := 0;
   if Kpu <> 0 then
   begin
@@ -8669,6 +9285,9 @@ begin
     end;                 //Лопатка-заготовка
     Str := 'Лопатка%';
     if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') AND ((Элемент Like ' + #39 + '%s' + #39 + '))', ['Специф', Str]) then
+      exit;
+     if Form1.ADOQuery1.RecordCount=0 then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') AND ((Элемент Like ' + #39 + '%s' + #39 + '))', ['СпецифВозд', Str]) then
       exit;
     for i := 0 to Form1.ADOQuery1.RecordCount - 1 do
     begin
@@ -8711,19 +9330,7 @@ begin
     b := StrToInt(Copy(Izdel, 1, Res - 1));
     Delete(Izdel, 1, Res);
         //========================================
-    Res := Pos('-', Izdel);
-    F := Copy(Izdel, 1, 1);
-    Delete(Izdel, 1, Res);
-    if F <> '' then
-      Kol_F := StrToInt(F);
-        //========================================
-    Res := Pos('-', Izdel);
-    Razmesh := Copy(Izdel, 1, Res - 1);
-    Delete(Izdel, 1, Res);
-        //======================================== -сн
-    Res := Pos('-', Izdel);
-    Ispol := Copy(Izdel, 1, Res - 1);
-    Delete(Izdel, 1, Res);
+
         //======================================== Klem,Resh,luk,Pereh,Ruk,Rama
 
     if Privod = '' then
@@ -8745,7 +9352,7 @@ begin
        #39 + IntToStr(Kol_Lop) + #39 + ') ', [NAM_LIST]) then
         exit;
 
-      SB_1_S := '0,0001';
+      SB_1_S := '0.0001';
       SB_2_S := Form1.ADOQuery1.FieldByName(USLOVie).AsString;
       SB_1 := StrToFloat(SB_1_S);
       SB_2 := StrToFloat(SB_2_S);
@@ -8867,9 +9474,9 @@ function KPU_New(Izdel, IDGP: string; Svarka1: Double; Ii: Integer): TResult;
 var
   i, Kpu, j, Klap, Res, Res1, a,aa, b,bb, Kol_Priv, Kol_Lop, Res_Ispol, Res_Priv, Res_Term, Res_Klem,
   Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I,
-  Hol_Kor_2N, Hol_kor, Perehod, Perehod2, DD: Integer;
+  Hol_Kor_2N, Hol_kor, Perehod, Perehod2, DD,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,Mag,FL_LOP: Integer;
   Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh,
-   N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str: string;
+   N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str,Oboz: string;
   Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2, NC_Kor, Flag_Razb_Klapana: Double;
   SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, MS, SS, SS1,Str1: string;
 begin
@@ -8882,11 +9489,14 @@ begin
   Result.Sborka2 := 0;
   Result.Sborka_lop := '0';
   Result.Sborka_tyag := '0';
+  NC_RON:=0;
+  Mag:=-1;
   Kol_Lop := 0;
   Lop := '0';
   Res_Priv:=0;
   Flag_Razb_Klapana := 0;
-  if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') ', ['Специф']) then
+  if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (IdГП=' + #39 + IDGP + #39 +
+  ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') ', ['Специф']) then
     exit;
   Flag_Razb_Klapana := 0;
   for j := 0 to Form1.ADOQuery2.RecordCount - 1 do  //Проверка на Клапан разбитый на 2
@@ -8905,15 +9515,55 @@ begin
     end;
     Form1.ADOQuery2.Next;
   end;                 //Лопатка-заготовка
+  FL_LOP:=-1;
   Str := 'Лопатка%';
-  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') AND ((Элемент Like ' + #39 + '%s' + #39 + '))', ['Специф', Str]) then
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 +
+  ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') AND ((Элемент Like ' + #39 + '%s' + #39 +
+  '))', ['Специф', Str]) then
     exit;
   for i := 0 to Form1.ADOQuery1.RecordCount - 1 do
   begin
+  // ВГ 1106.01.00.000;  ВГ 1106.02.00.000;ВГ 1106.09.00.000;;
+  //ВГ 1106.20.01.000;ВГ 1106.20.02.000;ВГ 1106.20.09.000;;
+  //ВГ 1106.22.01.000;ВГ 1106.22.02.000;;
+  //ВГ 1106.34.01.000;ВГ 1106.34.02.000;;
+  //ВГ 1106.40.01.000; ВГ 1106.40.02.000;;
     Kol_Lop := Kol_Lop + Form1.ADOQuery1.FieldByName('Количество').AsInteger;
+    Oboz := Form1.ADOQuery1.FieldByName('Обозначение').AsString;
+    R1:=Pos('ВГ 1106.01.00.000',Oboz);
+    R2:=Pos('ВГ 1106.02.00.000',Oboz);
+    R3:=Pos('ВГ 1106.09.00.000',Oboz);
+
+    R4:=Pos('ВГ 1106.20.01.000',Oboz);
+    R5:=Pos('ВГ 1106.20.02.000',Oboz);
+    R6:=Pos('ВГ 1106.20.09.000',Oboz);
+
+    R7:=Pos('ВГ 1106.22.01.000',Oboz);
+    R8:=Pos('ВГ 1106.22.02.000',Oboz);
+
+    R9:=Pos('ВГ 1106.34.01.000',Oboz);
+    R10:=Pos('ВГ 1106.34.02.000',Oboz);
+
+    R11:=Pos('ВГ 1106.40.01.000',Oboz);
+    R12:=Pos('ВГ 1106.40.02.000',Oboz);
+
+    if (r1<>0) OR (r2<>0) OR (r3<>0)  OR (r4<>0) OR (r5<>0) or (r6<>0) OR (r7<>0) OR (r8<>0)  OR (r9<>0)
+    OR (r10<>0) OR (r11<>0)  OR (r12<>0) then
+    begin
+      FL_LOP:=1;//лист ЛопаткаКПУ-2-ф-Магнит (2)
+    end;
     Form1.ADOQuery1.Next;
   end;
-                                                                                                           // ВГ 1106.01.00.001-800*500
+   Str1 := '%Электропривод%';
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 +
+  ') AND (Элемент Like ' + #39 + '%s' + #39 + ')', ['Специф', Str1]) then
+    exit;
+   if Form1.ADOQuery1.RecordCount<>0 then
+      Mag:=0
+   else
+      Mag:=1;
+
+  // ВГ 1106.01.00.001-800*500
 
 
   Privod := Form1.SG6.Cells[I_FN_BRIKET, Ii + 1];
@@ -8930,14 +9580,24 @@ begin
   end;
   Privod_Nam := Form1.StringGrid10.Cells[I_FN_MOD_PRIVOD, Ii + 1];
         //Клапан КПУ-3-ДД-Р-Н-250*250-2*ф-MB220-сн-0-0-0-1*160-0-0
+        //Клапан КПУ-ДД-Р-Н-250*250-2*ф-MV24-СН-0-0-0-0-0-0
         //Клапан КПУ-1Н-О-Н-100-2*ф-MV220-СН-КК-0-0-0-0-0
   Res1 := Pos('Миасс ', Izdel);
   if Res1<>0 then
   Delete(Izdel, 1, 6);
   Izdel := Trim(Izdel);
+
+ // Res1 := Pos('КПУ-ДД-Р', Izdel);
+  //if Res1<>0 then
+  //  Izdel:=(StringReplace(Izdel,'КПУ-ДД-Р','КПУ-3-ДД',[rfReplaceAll]));
   Res1 := Pos('-ДД', Izdel);
   if Res1 <> 0 then
     DD := 1;
+    //   Клапан КПУ-2Н-Д-Н-1000*400-1*Ф-MV24-ВН-0-0-0-0-0-0
+   Res1 := Pos('-Д-', Izdel);
+  if Res1 <> 0 then
+    DD := 1;
+
  { Res := Pos('-3-ДД', Izdel);
   Delete(Izdel, Res, 5);
   if Res <> 0 then
@@ -9077,7 +9737,75 @@ begin
       NAM_LIST := KPu_S+'-' +N1+ '-' + F + '-ф-Кр';
   end
   Else }
+  Perim := a + b;
+  Res_Resh := Pos(AnsiUpperCase('мрЗ'), AnsiUpperCase(Nam));
+  Res_Ram := Pos(AnsiUpperCase('мрП'), AnsiUpperCase(Nam));
+  if (Res_Ram <> 0) or (Res_Resh <> 0) then
+  begin
+    if Perim <= 600 then
+      USLOVie := '600';
+          //+++++++++++++++++++++
+    if (Perim > 600) and (Perim <= 850) then
+      USLOVie := '850';
+          //+++++++++++++++++++++
+    if (Perim > 850) and (Perim <= 1200) then
+      USLOVie := '1200';
+          //+++++++++++++++++++++
+    if (Perim > 1200) and (Perim <= 1800) then
+      USLOVie := '1800';
+          //+++++++++++++++++++++
+    if (Perim > 1800) then
+      USLOVie := '2000';
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    (USLOVie) + #39 + ')', ['МРЗ']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('Норма').AsString;
+    NC_RON := StrToFloat(S);
+    Form1.Memo13.Lines.Add(S);
+  end;
+        //-----------------------------------------------------  РОН
+  Perim := a + b;
+  S := AnsiUpperCase('рон');
+  S1 := AnsiUpperCase(Nam);
+  Res_Resh := Pos(S, S1);
+  if (Res_Resh <> 0) then
+  begin
+    if Perim <= 1000 then
+      USLOVie := '1000';
+          //+++++++++++++++++++++
+    if (Perim > 1000) and (Perim <= 1300) then
+      USLOVie := '1300';
+          //+++++++++++++++++++++
+    if (Perim > 1300) and (Perim <= 1800) then
+      USLOVie := '1800';
+          //+++++++++++++++++++++
+    if (Perim > 1800) and (Perim <= 2500) then
+      USLOVie := '2500';
+          //+++++++++++++++++++++
+    if (Perim > 2500) then
+      USLOVie := '2501';
+          //
+    S := AnsiUpperCase('рон130');
+    S1 := AnsiUpperCase(Nam);
+    Res_Resh := Pos(S, S1);
+    if (Res_Resh <> 0) then
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+      (USLOVie) + #39 + ')', ['Решетка']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('РОН130').AsString;
+    end
+    else
+    begin
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+      (USLOVie) + #39 + ')', ['Решетка']) then
+        exit;
+      S := Form1.ADOQuery1.FieldByName('РОН130').AsString;
+    end;
 
+    Form1.Memo13.Lines.Add(S);
+    NC_RON :=NC_RON+ StrToFloat(S);
+  end;
         //-------------------------------------------------------------------
   P := 0;
  if (Kol_F = 1) and (b <> 0) then
@@ -9314,7 +10042,8 @@ begin
       P := 1400;
     if (Perim > 1700) then
       P := 1700;
-        if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where [Размер клапана]='+#39+IntToStr(P)+#39, ['Переходник1D']) then
+        if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where [Размер клапана]='+
+        #39+IntToStr(P)+#39, ['Переходник1D']) then
       exit;
        S := Form1.ADOQuery1.FieldByName('н/ч').AsString;
     D := StrToFloat(S)* Kol_Priv;
@@ -9324,52 +10053,26 @@ begin
  end;
         //----------------------------------------------------- КПУ-2-ф
   P := 0;
-
+ {  FL_LOP:=0;
+  Str := 'Лопатка%';
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') AND ((Элемент Like ' + #39 + '%s' + #39 + '))', ['Специф', Str]) then
+    exit;
+  for i := 0 to Form1.ADOQuery1.RecordCount - 1 do
+  begin
+    Kol_Lop := Kol_Lop + Form1.ADOQuery1.FieldByName('Количество').AsInteger;
+    Oboz := Form1.ADOQuery1.FieldByName('Обозначение').AsString;
+    R1:=Pos('ВГ 1106.09.00.000',Oboz);
+    R2:=Pos('ВГ 1106.20.09.000',Oboz);
+    if (r1<>0)  OR (r2<>0) then
+    begin
+      FL_LOP:=1;//лист ЛопаткаКПУ-2-ф-Магнит (2)
+    end;
+    Form1.ADOQuery1.Next;
+  end;}
   if (Kol_F = 2) AND (B<>0) then  //КПУ-2-ф
   begin
      NAM_LIST := KPu_S +'-'+ F + '-ф';
- {        if (b <= 700) then
-      P := 700;
 
-    if (b > 700) then
-      P := 800;
-    if Res_Priv <>0 then
-       Res_Priv:=1;
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([кол-во лопаток]=' +
-    #39 + IntToStr(Kol_Lop) + #39 + ') AND (Привод='+#39+IntToStr(Res_Priv)+#39+')', [NAM_LIST]) then
-      exit;
-    Res := Pos('О', Nazn);
-    Res1 := Pos('З', Nazn);
-    if (Res <> 0) or (Res1 <> 0) then
-    begin
-      if P = 700 then
-        SB_LOP_S := Form1.ADOQuery1.FieldByName('сборка лопаток  О,З-B<=700').AsString
-      else
-        SB_LOP_S := Form1.ADOQuery1.FieldByName('сборка лопаток  О,З-B>700').AsString
-    end;
-          //
-    Res := Pos('Д', Nazn);
-    if Res <> 0 then
-    begin
-      if P = 700 then
-        SB_LOP_S := Form1.ADOQuery1.FieldByName('сборка лопаток Д-B<=700').AsString
-      else
-        SB_LOP_S := Form1.ADOQuery1.FieldByName('сборка лопаток Д-B>700').AsString
-    end;
-          //
-    if SB_LOP_S = '' then
-      SB_LOP_S := '0';
-    SB_TYAG_S := Form1.ADOQuery1.FieldByName('сборка корпуса').AsString;
-    if SB_TYAG_S = '' then
-      SB_TYAG_S := '0';
-    SB_1_S := Form1.ADOQuery1.FieldByName('1-я сборка').AsString;
-    if SB_1_S = '' then
-      SB_1_S := '0';
-    SB_2_S := Form1.ADOQuery1.FieldByName('2-я сборка').AsString;
-    if SB_2_S = '' then
-      SB_2_S := '0';
-    SB_1 := StrToFloat(SB_1_S);
-    SB_2 := StrToFloat(SB_2_S);}
     if Perim <= 100 then
       P := 100;
     if (Perim > 100) and (Perim <= 600) then
@@ -9399,7 +10102,7 @@ begin
     if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([кол-во лопаток]=' + #39 +
     IntToStr(Kol_Lop) + #39 + ') AND (полупериметр=' + #39 + IntToStr(P) + #39 + ')', [NAM_LIST]) then
       exit;
-    Res := Pos('Р', Nazn);
+   { Res := Pos('Р', Nazn);
     if Res <> 0 then
       SB_LOP_S := Form1.ADOQuery1.FieldByName('сборка лопаток О, З').AsString;
 
@@ -9417,7 +10120,7 @@ begin
       SB_LOP_S := Form1.ADOQuery1.FieldByName('сборка лопаток Д').AsString;
           //
     if SB_LOP_S = '' then
-      SB_LOP_S := '0';
+      SB_LOP_S := '0';  }
     SB_TYAG_S := Form1.ADOQuery1.FieldByName('сборка тяг').AsString;
     if SB_TYAG_S = '' then
       SB_TYAG_S := '0';
@@ -9436,6 +10139,122 @@ begin
     Res := Pos('Р', Nazn);
     if Res <> 0 then
       SB_2 := SB_2 + 0.03;
+
+    //////
+    //
+    SS1:='';
+    SS:='';
+    if (Mag=0) and (FL_LOP=1) then //Привод
+   Begin
+    if  (a < 150) then
+      SS1:='100';
+    if (a >=150) and (a <= 200) then
+      SS1:='150-200';
+    if (a >201) and (a <=350) then
+    SS1:='201-350';
+    if (a >351) and (a <=400) then
+    SS1:='351-400';
+    if (a >400) and (a <=600) then
+    SS1:='401-600';
+    if (a >600) and (a <=800) then
+    SS1:='601-800';
+    if (a >800) and (a <=1100) then
+    SS1:='801-1100';
+    if (a >1100) then
+    SS1:='1101-1400';
+    //
+    if (b < 150) then
+     SS :='100';
+    if (b >=150) and (b <= 200) then
+    ss:='150';
+    if (b >=200) and (b <= 250) then
+    ss:='201';
+    if (b >=250) and (b <= 350) then
+    ss:='251';
+    if (b >=350) and (b <= 400) then
+    ss:='351';
+    if (b >=400) and (b <= 600) then
+    ss:='401';
+    if (b >=600) and (b <= 800) then
+    ss:='601';
+    if (b >=800) and (b <= 1000) then
+    ss:='801';
+    if (b >=1000) and (b <= 1300) then
+    ss:='1001';
+    if (b >=1300) and (b <= 1500) then
+    ss:='1301';
+    if (b >=1500) and (b <= 1700) then
+    ss:='1501';
+    if (b >=1700)  then
+    ss:='1701';
+    SB_LOP_S := '';
+    if not Form1.mkQuerySelect66(Form1.ADOQuery1, 'Select * from [%s] Where д=%s', ['ЛопаткаКПУ-2-ф-Магнит', SS]) then
+      exit;
+   End;
+    //===============================
+    //Вторая табл
+    if (Mag=1)  and (FL_LOP=1) then //Магнит
+   Begin
+       if  (a < 150) then
+      SS1:='100';
+
+    if (a >=150) and (a <= 200) then
+      SS1:='150-200';
+    if (a >200) and (a <=300) then
+    SS1:='201-300';
+    if (a >300) and (a <=400) then
+    SS1:='301-400';
+    if (a >400) and (a <=600) then
+    SS1:='400-600';
+    if (a >600) and (a <=800) then
+    SS1:='600-800';
+    if (a >800) and (a <=1100) then
+    SS1:='801-1100';
+    if (a >1100) then
+    SS1:='1101-1400';
+    //
+        if (b < 150) then
+     SS :='100';
+    if (b >=150) and (b <= 200) then
+    ss:='150';
+    if (b >=200) and (b <= 250) then
+    ss:='201';
+
+    if (b >=250) and (b <= 300) then
+    ss:='251';
+   // if (b >=300) and (b <= 350) then
+   //  ss:='301';
+    if (b >=300) and (b <= 400) then
+    ss:='351';
+    if (b >=400) and (b <= 600) then
+    ss:='401';
+    if (b >=600) and (b <= 800) then
+    ss:='601';
+    if (b >=800) and (b <= 1000) then
+    ss:='801';
+    if (b >=1000) and (b <= 1300) then
+    ss:='1001';
+    if (b >=1300) and (b <= 1500) then
+    ss:='1301';
+    if (b >=1500) and (b <= 1700) then
+    ss:='1501';
+    if (b >=1700)  then
+    ss:='1701';
+    SB_LOP_S := '';
+    if not Form1.mkQuerySelect66(Form1.ADOQuery1, 'Select * from [%s] Where д=%s', ['ЛопаткаКПУ-2-ф-Магнит (2)', SS]) then
+      exit;
+   End;
+          //=
+   // if not Form1.mkQuerySelect66(Form1.ADOQuery1, 'Select * from [%s] Where %s', ['ЛопаткаКПУ-2-ф-Магнит (2)', SS]) then
+   //   exit;
+   if SS1<>'' then
+
+    SB_LOP_S := Form1.ADOQuery1.FieldByName(SS1).AsString;
+
+    if SB_LOP_S = '' then
+      SB_LOP_S := '0';
+    SB_Lop := StrToFloat(SB_LOP_S) ;
+    SB_LOP_S := FloatToStr(SB_Lop);
   end;
        { SS:='(Обозначение LIKE ' +
         #39 + 'ВГ 1106.01.00.001%' + #39 + ')';
@@ -9705,7 +10524,8 @@ begin
     if (Perim >= 800) then
       P := 800;
     NAM_LIST := KPu_S + '-' + N1 + '-' + F + '-ф' + '-Кр';
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where   (полупериметр=' + #39 + IntToStr(P) + #39 + ')', [NAM_LIST]) then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where   (полупериметр=' + #39 +
+    IntToStr(P) + #39 + ')', [NAM_LIST]) then
       exit;
     Res := Pos('О', Nazn);
     if Res <> 0 then
@@ -9746,11 +10566,24 @@ begin
 
     if (Perim >= 710) then
       P := 800;
-
+      //
+     Res:=Pos('ДД',Nam);
+     if Res<>0 then
+     N1:='1Н';
+     //
+     Res:=Pos('2Н',Nam);
+     if Res<>0 then
+     N1:='1Н';
+     //
+     Res:=Pos('1НА',Nam);
+     if Res<>0 then
+     N1:='1Н';
+    {Str := StringReplace(N1, 'ДД', '1Н', [rfReplaceAll, rfIgnoreCase]);
     Str := StringReplace(N1, '2Н', '1Н', [rfReplaceAll, rfIgnoreCase]);
-    Str := StringReplace(N1, '1НА', '1Н', [rfReplaceAll, rfIgnoreCase]);
-    NAM_LIST := KPu_S + '-' + Str + '-' + F + '-ф' + '-Кр';
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where   (полупериметр=' + #39 + IntToStr(P) + #39 + ')', [NAM_LIST]) then
+    Str := StringReplace(N1, '1НА', '1Н', [rfReplaceAll, rfIgnoreCase]); }
+    NAM_LIST := KPu_S + '-' + N1 + '-' + F + '-ф' + '-Кр';
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where   (полупериметр=' + #39 +
+    IntToStr(P) + #39 + ')', [NAM_LIST]) then
       exit;
     Res := Pos('О', Nazn);
     if Res <> 0 then
@@ -9814,6 +10647,8 @@ begin
         End;  }
         //--------------------------------------------------------КОРПУС Hol_Kor_2N,Hol_kor,Perehod,Perehod2
   P := 0;
+
+
   Hol_Kor_2N := Pos('-2Н-', Nam); //холодный корпус 2Н
   if (Hol_Kor_2N <> 0) AND (B<>0) then
   begin
@@ -9835,7 +10670,8 @@ begin
     if (Perim > 2500) then
       P := 2501;
 
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + IntToStr(P) + #39 + ')', ['Корпус']) then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    IntToStr(P) + #39 + ')', ['Корпус']) then
       exit;
     S := Form1.ADOQuery1.FieldByName('холодный корпус 2Н').AsString;
     NC_Kor := StrToFloat(S);
@@ -9843,11 +10679,31 @@ begin
   end;
   P := 0;
   NC_Kor := 0;
-        //=========Корпус холодный если есть 2*1000(A)  Hol_Kor_2N,Hol_kor,Perehod,Perehod2
+          //=========Корпус холодный если есть 2*1000(A)  Hol_Kor_2N,Hol_kor,Perehod,Perehod2
   S := AnsiUpperCase('2*000');
   S1 := AnsiUpperCase(Nam);
   Perehod2 := Pos(S, S1);
-  if (Perehod2 <> 0) then
+          //=========Корпус холодный если есть 2*1000(A)Hol_Kor_2N,Hol_kor,Perehod,Perehod2
+  P := 0;
+  S := AnsiUpperCase('2*' + Pereh);
+  S1 := AnsiUpperCase(Nam);
+  Perehod2 := Pos(S, S1);
+          //=========Корпус холодный если есть 1*1000(A)Hol_Kor_2N,Hol_kor,Perehod,Perehod2
+  P := 0;
+  S := AnsiUpperCase('1*' + Pereh);
+  S1 := AnsiUpperCase(Nam);
+  Perehod := Pos(S, S1);
+          //=========Корпус холодный если есть 1*000(A)Hol_Kor_2N,Hol_kor,
+  P := 0;
+  S := AnsiUpperCase('1*000');
+  S1 := AnsiUpperCase(Nam);
+  Perehod := Pos(S, S1);
+          //=========Корпус холодный если есть РОН  и не 1ф  Hol_Kor_2N,Hol_kor,Perehod,Perehod2
+  P := 0;
+  S := AnsiUpperCase('рон');
+  S1 := AnsiUpperCase(Nam);
+  Res_Resh := Pos(S, S1);
+  if (Perehod2 <> 0) or (Perehod <> 0) or  (Res_Resh<>0) then
   begin
     if (Perim <= 600) then
       P := 600;
@@ -9867,15 +10723,19 @@ begin
     if (Perim > 2500) then
       P := 2501;
 
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + IntToStr(P) + #39 +
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    IntToStr(P) + #39 +
     ')', ['Корпус']) then
       exit;
     S := Form1.ADOQuery1.FieldByName('холодный корпус').AsString;
-    NC_Kor := StrToFloat(S) * 2;
+    if (Perehod2 <> 0) then
+        NC_Kor := StrToFloat(S) * 2
+    Else
+     NC_Kor := StrToFloat(S);
     SB_1 := SB_1 + NC_Kor;
 
   end;
-        //=========Корпус холодный если есть 2*1000(A)Hol_Kor_2N,Hol_kor,Perehod,Perehod2
+  {      //=========Корпус холодный если есть 2*1000(A)Hol_Kor_2N,Hol_kor,Perehod,Perehod2
   P := 0;
   S := AnsiUpperCase('2*' + Pereh);
   S1 := AnsiUpperCase(Nam);
@@ -9900,7 +10760,8 @@ begin
     if (Perim > 2500) then
       P := 2501;
 
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + IntToStr(P) + #39
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    IntToStr(P) + #39
     + ')', ['Корпус']) then
       exit;
     S := Form1.ADOQuery1.FieldByName('холодный корпус').AsString;
@@ -9935,7 +10796,8 @@ begin
     if (Perim > 2500) then
       P := 2501;
 
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + IntToStr(P) + #39 + ')', ['Корпус']) then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    IntToStr(P) + #39 + ')', ['Корпус']) then
       exit;
     S := Form1.ADOQuery1.FieldByName('холодный корпус').AsString;
     NC_Kor := StrToFloat(S);
@@ -9969,7 +10831,8 @@ begin
     if (Perim > 2500) then
       P := 2501;
 
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + IntToStr(P) + #39 +
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    IntToStr(P) + #39 +
     ')', ['Корпус']) then
       exit;
     S := Form1.ADOQuery1.FieldByName('холодный корпус').AsString;
@@ -10003,14 +10866,15 @@ begin
     if (Perim > 2500) then
       P := 2501;
 
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + IntToStr(P) + #39 +
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    IntToStr(P) + #39 +
     ')', ['Корпус']) then
       exit;
     S := Form1.ADOQuery1.FieldByName('холодный корпус').AsString;
     NC_Kor := StrToFloat(S);
   end;
   SB_1 := SB_1 + NC_Kor;
-  NC_Kor := 0;
+  NC_Kor := 0; }
         //--------------------------------------------------------КK
   S := AnsiUpperCase('-КК-');
   S1 := AnsiUpperCase(Nam);
@@ -10071,7 +10935,8 @@ begin
           //+++++++++++++++++++++
     if (Perim > 1800) then
       USLOVie := '2000';
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + (USLOVie) + #39 + ')', ['МРЗ']) then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+    (USLOVie) + #39 + ')', ['МРЗ']) then
       exit;
     S := Form1.ADOQuery1.FieldByName('Норма').AsString;
     NC_RON := StrToFloat(S);
@@ -10104,13 +10969,15 @@ begin
     Res_Resh := Pos(S, S1);
     if (Res_Resh <> 0) then
     begin
-      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + (USLOVie) + #39 + ')', ['Решетка']) then
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+      (USLOVie) + #39 + ')', ['Решетка']) then
         exit;
       S := Form1.ADOQuery1.FieldByName('РОН130').AsString;
     end
     else
     begin
-      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + (USLOVie) + #39 + ')', ['Решетка']) then
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 +
+      (USLOVie) + #39 + ')', ['Решетка']) then
         exit;
       S := Form1.ADOQuery1.FieldByName('РОН130').AsString;
     end;
@@ -10169,7 +11036,8 @@ begin
       ////Планка кассетная ВГ 1106.00.00.009-1400*30
       SS:='(Обозначение LIKE ' +
         #39 + 'ВГ 1106.00.00.009-%' + #39 + ')';
-        if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where  %s  AND  (IdГП=' + #39 + IDGP + #39 + ') AND (ВидЭлемента=' + #39 +
+        if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where  %s  AND  (IdГП=' + #39 + IDGP +
+        #39 + ') AND (ВидЭлемента=' + #39 +
         'Детали' + #39 +
         ') ',
         ['Специф',SS]) then
@@ -10227,8 +11095,8 @@ begin
    // Res := Pos('О', Nazn);
       Perehod := Pos('ДД', Nam);
       Res_Resh:=Pos('-1Н-',Nam);
-
-    if (Res_Resh <> 0) and (Kol_F = 1) and (Perehod <> 0)  then
+       //and (Kol_F = 1) Матвеенко 01.03.2024
+   // if (Res_Resh <> 0)  and (Perehod <> 0)  then
     Begin
       //==========================================1  ДД
 {      if (b <= 500) and (a > 1000) then
@@ -10300,8 +11168,14 @@ begin
   End;
   SB_2 := SB_2 + D ;
   //--------------------------------------------------
-  //if Flag_Razb_Klapana > 1 then
-  //  SB_1 := SB_1 * 2; //Клапан разбит на 2
+  if Flag_Razb_Klapana > 1 then
+
+  Begin
+     SB_1 := SB_1 * 2; //Клапан разбит на 2
+     SB_2 := SB_2 * 2; //Клапан разбит на 2
+     d:=StrToFloat(SB_TYAG_S)*2;
+     SB_TYAG_S:=FloatToStr(D);
+  End;
   Result.Sborka1 := SB_1;
 
   Result.Sborka2 := SB_2;
@@ -10477,16 +11351,17 @@ begin
 
   Privod := Form1.SG6.Cells[I_FN_BRIKET, Ii + 1];
   Str := '%ЭМВ%';
-  Str1 := '%Электропривод%';
-  if (Privod = '0') then
-  begin
+
+  Str1 := '%Электропривод%';   //Электропривод NM230A-S
+ // if (Privod = '0') then
+ // begin
   if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 +
   ') AND (Элемент Like ' + #39 + '%s' + #39 + ') OR ((Элемент Like ' + #39 + '%s' + #39 + '))', ['Специф', Str,Str1]) then
     exit;
 
     Privod :=  Form1.ADOQuery1.FieldByName('Количество').AsString;
     Privod_Nam := Form1.ADOQuery1.FieldByName('Элемент').AsString;
-  end;
+ // end;
     if Privod = '' then
     Kol_Priv := 0
   else
@@ -10519,10 +11394,10 @@ begin
 
     if Perim <= 200 then
       P := 200;
-    if (Perim > 200) and (Perim <= 400) then
+    if (Perim > 200) and (Perim <= 355) then
       P := 400;
 
-    if (Perim > 400) and (Perim <= 600) then
+    if (Perim > 355) and (Perim <= 560) then
       P := 600;
 
     if (Perim > 600) and (Perim <= 800) then
@@ -10575,14 +11450,14 @@ begin
 
   NC_Kor := 0;
         //--------------------------------------------------------КK
-  S := AnsiUpperCase('-КК-');
+  S := AnsiUpperCase('КК');
   S1 := AnsiUpperCase(Nam);
   Res := Pos(S, S1); //Клемная коробка
   if Res <> 0 then
   begin
     if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
       exit;
-    S := Form1.ADOQuery1.FieldByName('КК').AsString;
+    S := Form1.ADOQuery1.FieldByName('ККНЕРПА').AsString;
     D := StrToFloat(S) * Kol_Priv;
   end;
   SB_2 := SB_2 + D;
@@ -10631,9 +11506,9 @@ begin
     Res_Resh := Pos(AnsiUpperCase('Электропривод'), AnsiUpperCase(Privod_Nam));
   if (Res_Resh <> 0) then
   begin
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['ПриводРЭА']) then
       exit;
-    S := Form1.ADOQuery1.FieldByName('Эл-привод').AsString;
+    S := Form1.ADOQuery1.FieldByName('ПриводРЭА').AsString;
     Form1.Memo13.Lines.Add(S);
     D := StrToFloat(S) * Kol_Priv;
   end;
@@ -10931,7 +11806,7 @@ begin
     SB_1 := Form1.ADOQuery1.FieldByName('1-я сборка').AsFloat;
     SB_2 := Form1.ADOQuery1.FieldByName('2-я сборка').AsFloat;
     SB_Lop := Form1.ADOQuery1.FieldByName('Сборка лопаток').AsFloat;
-    SB_Lop := SB_Lop * Kol_Lop;
+    //SB_Lop := SB_Lop * Kol_Lop;
        if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where Полупериметр='+#39+Bb+#39, ['ОбваркаКорпуса-Герм-Рег']) then
     exit;
 
@@ -11290,6 +12165,250 @@ begin
   Result.Sborka_lop := SB_LOP_S;
 end;
 
+ function KANAL_Regular(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2, NC_Kor, Kol_Lop, Simmetri, Kol_MUF, b_I: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, MS, Tip_Klap, Ispolnenie, Var_Raskr_Lop, Tip_Priv, Nal_Kog, Ispol_KOnstr, Ispol_Klim, Tip, Pos2, Pos3, Pos4, Pos5, Pos6, Izdel_Germik, Izdelie, a, b, SQL_S: string;
+  Pos_U, Ruch, Res0, Res2, Res3, A_i, FL: Integer;
+begin
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+  Izdelie := Izdel;
+  Izdel_Germik := Izdel;
+  Result.SVarka := 0;
+  Result.Sborka1 := 0;
+  Result.Sborka2 := 0;
+  Result.Sborka_lop := '0';
+  Result.Sborka_tyag := '0';
+  Lop := '0';
+  Ispolnenie := '';
+  Var_Raskr_Lop := '';
+  Tip_Priv := '';
+  Nal_Kog := '';
+  Ispol_KOnstr := '';
+  Ispol_Klim := '';
+  SB_2 := 0;
+  SQL_S := '';
+  FL := 0;
+  Ruch := 0;
+  SB_Lop:=0;
+      //=============================
+  //Клапан Канал-РЕГУЛЯР-50-25-0
+  Izdelie := Izdel;
+
+    NAM_LIST := 'РЕГУЛЯР-КАНАЛ';
+    Res := Pos(' ', Izdelie);
+    if Res<>0 then
+    Delete(Izdelie, 1, Res); //Клапан Канал-ГЕРМИК-С-50-30-рукоятка
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res);  // ГЕРМИК-С-50-25-Н-F220S
+    end;
+
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res); //50-25-Н-F220S
+    end;
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    A := Copy(Izdelie, 1, Res - 1);
+    Delete(Izdelie, 1, Res);       //25-Н-F220S
+    end;
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    B := Copy(Izdelie, 1, Res - 1);
+    Delete(Izdelie, 1, Res);       //Н-F220S
+    end;
+    Str:=A+'-'+B;
+    S:=' Размер LIKE '+#39+'%'+Str+'%'+#39;
+        //-------------------------------------------------------------------
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where %s ', [NAM_LIST,S]) then
+    exit;
+
+    SB_2 := Form1.ADOQuery1.FieldByName('НЧ').AsFloat;
+    SB_1 := 0.001;
+
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  SB_LOP_S := FloatToStr(SB_Lop);
+  Result.Sborka_lop := SB_LOP_S;
+end;
+
+function KANAL_GERMIK_S(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2, NC_Kor, Kol_Lop, Simmetri, Kol_MUF, b_I: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, MS, Tip_Klap, Ispolnenie, Var_Raskr_Lop, Tip_Priv, Nal_Kog, Ispol_KOnstr, Ispol_Klim, Tip, Pos2, Pos3, Pos4, Pos5, Pos6, Izdel_Germik, Izdelie, a, b, SQL_S: string;
+  Pos_U, Ruch, Res0, Res2, Res3, A_i, FL: Integer;
+begin
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+  Izdelie := Izdel;
+  Izdel_Germik := Izdel;
+  Result.SVarka := 0;
+  Result.Sborka1 := 0;
+  Result.Sborka2 := 0;
+  Result.Sborka_lop := '0';
+  Result.Sborka_tyag := '0';
+  Lop := '0';
+  Ispolnenie := '';
+  Var_Raskr_Lop := '';
+  Tip_Priv := '';
+  Nal_Kog := '';
+  Ispol_KOnstr := '';
+  Ispol_Klim := '';
+  SB_2 := 0;
+  SQL_S := '';
+  FL := 0;
+  Ruch := 0;
+  SB_Lop:=0;
+      //=============================
+  //Клапан Канал-ГЕРМИК-С-50-30-рукоятка
+  Izdelie := Izdel;
+
+    NAM_LIST := 'Гермик-С-КАНАЛ';
+    Res := Pos(' ', Izdelie);
+    if Res<>0 then
+    Delete(Izdelie, 1, Res); //Клапан Канал-ГЕРМИК-С-50-30-рукоятка
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res);  // ГЕРМИК-С-50-25-Н-F220S
+    end;
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res); //С-50-25-Н-F220S
+    end;
+
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res); //50-25-Н-F220S
+    end;
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    A := Copy(Izdelie, 1, Res - 1);
+    Delete(Izdelie, 1, Res);       //25-Н-F220S
+    end;
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    B := Copy(Izdelie, 1, Res - 1);
+    Delete(Izdelie, 1, Res);       //Н-F220S
+    end;
+    Str:=A+'-'+B;
+    S:=' Размер LIKE '+#39+'%'+Str+'%'+#39;
+        //-------------------------------------------------------------------
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where %s ', [NAM_LIST,S]) then
+    exit;
+
+    SB_2 := Form1.ADOQuery1.FieldByName('НЧ').AsFloat;
+    SB_1 := 0.001;
+
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  SB_LOP_S := FloatToStr(SB_Lop);
+  Result.Sborka_lop := SB_LOP_S;
+end;
+
+function KANAL_GERMIK_P(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2, NC_Kor, Kol_Lop, Simmetri, Kol_MUF, b_I: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, MS, Tip_Klap, Ispolnenie, Var_Raskr_Lop, Tip_Priv, Nal_Kog, Ispol_KOnstr, Ispol_Klim, Tip, Pos2, Pos3, Pos4, Pos5, Pos6, Izdel_Germik, Izdelie, a, b, SQL_S: string;
+  Pos_U, Ruch, Res0, Res2, Res3, A_i, FL: Integer;
+begin
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+  Izdelie := Izdel;
+  Izdel_Germik := Izdel;
+  Result.SVarka := 0;
+  Result.Sborka1 := 0;
+  Result.Sborka2 := 0;
+  Result.Sborka_lop := '0';
+  Result.Sborka_tyag := '0';
+  Lop := '0';
+  Ispolnenie := '';
+  Var_Raskr_Lop := '';
+  Tip_Priv := '';
+  Nal_Kog := '';
+  Ispol_KOnstr := '';
+  Ispol_Klim := '';
+  SB_2 := 0;
+  SQL_S := '';
+  FL := 0;
+  Ruch := 0;
+  SB_Lop:=0;
+      //=============================
+  //Клапан Канал-ГЕРМИК-П-50-25-Н-F220S
+  Izdelie := Izdel;
+
+    NAM_LIST := 'Гермик-П-КАНАЛ';
+    Res := Pos(' ', Izdelie);
+    if Res<>0 then
+    Delete(Izdelie, 1, Res); //Канал-ГЕРМИК-П-50-25-Н-F220S
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res);  // ГЕРМИК-П-50-25-Н-F220S
+    end;
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res); //П-50-25-Н-F220S
+    end;
+
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Delete(Izdelie, 1, Res); //50-25-Н-F220S
+    end;
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    A := Copy(Izdelie, 1, Res - 1);
+    Delete(Izdelie, 1, Res);       //25-Н-F220S
+    end;
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    B := Copy(Izdelie, 1, Res - 1);
+    Delete(Izdelie, 1, Res);       //Н-F220S
+    end;
+    Str:=A+'-'+B;
+    S:=' Размер LIKE '+#39+'%'+Str+'%'+#39;
+        //-------------------------------------------------------------------
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where %s', [NAM_LIST,S]) then
+    exit;
+
+    SB_2 := Form1.ADOQuery1.FieldByName('НЧ').AsFloat;
+    SB_1 := 0.001;
+
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  SB_LOP_S := FloatToStr(SB_Lop);
+  Result.Sborka_lop := SB_LOP_S;
+end;
+
 function KANAL_KR_KV(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
 var
   i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
@@ -11372,6 +12491,162 @@ begin
   Result.Sborka_lop := SB_LOP_S;
 end;
 
+function KVR(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2, NC_Kor, Kol_Lop, Simmetri, Kol_MUF, b_I: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, MS, Tip_Klap, Ispolnenie, Var_Raskr_Lop, Tip_Priv, Nal_Kog, Ispol_KOnstr, Ispol_Klim, Tip, Pos2, Pos3, Pos4, Pos5, Pos6, Izdel_Germik, Izdelie, a, b, SQL_S: string;
+  Pos_U, Ruch, Res0, Res2, Res3, A_i, FL: Integer;
+begin
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+  Izdelie := Izdel;
+  Izdel_Germik := Izdel;
+  Result.SVarka := 0;
+  Result.Sborka1 := 0;
+  Result.Sborka2 := 0;
+  Result.Sborka_lop := '0';
+  Result.Sborka_tyag := '0';
+  Kol_MUF:=0;
+  Lop := '0';
+  Ispolnenie := '';
+  Var_Raskr_Lop := '';
+  Tip_Priv := '';
+  Nal_Kog := '';
+  Ispol_KOnstr := '';
+  Ispol_Klim := '';
+  SB_2 := 0;
+  SQL_S := '';
+  FL := 0;
+  Ruch := 0;
+  SB_Lop:=0;
+      //=============================
+  //Клапан КВР-1440-1310-Н-07-05-У3
+  Izdelie := Izdel;
+
+    NAM_LIST := 'КВР';
+    Res := Pos(' ', Izdelie);
+    if Res<>0 then
+    Delete(Izdelie, 1, Res); //КВР-1440-1310-Н-07-05-У3
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+// 1440-1310-Н-07-05-У3
+    Delete(Izdelie, 1, Res);
+    end;
+        Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+      a := Copy(Izdelie, 1, Res - 1);
+      Delete(Izdelie, 1, Res);   // 1310-Н-07-05-У3
+    end;
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+      b := Copy(Izdelie, 1, Res - 1);
+      Delete(Izdelie, 1, Res);   // Н-07-05-У3
+    end;
+    a:=a+'-'+b;
+
+        //-------------------------------------------------------------------
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where (Размер='+#39+a+#39+') ', [NAM_LIST]) then
+    exit;
+
+
+    SB_2 := Form1.ADOQuery1.FieldByName('СБ2').AsFloat;
+    SB_1 := Form1.ADOQuery1.FieldByName('СБ1').AsFloat;;
+
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  SB_LOP_S := FloatToStr(SB_Lop);
+  Result.Sborka_lop := SB_LOP_S;
+end;
+
+function KLAB(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2, NC_Kor, Kol_Lop, Simmetri, Kol_MUF, b_I: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, MS, Tip_Klap, Ispolnenie, Var_Raskr_Lop, Tip_Priv, Nal_Kog, Ispol_KOnstr, Ispol_Klim, Tip, Pos2, Pos3, Pos4, Pos5, Pos6, Izdel_Germik, Izdelie, a, b, SQL_S: string;
+  Pos_U, Ruch, Res0, Res2, Res3, A_i, FL: Integer;
+begin
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+  Izdelie := Izdel;
+  Izdel_Germik := Izdel;
+  Result.SVarka := 0;
+  Result.Sborka1 := 0;
+  Result.Sborka2 := 0;
+  Result.Sborka_lop := '0';
+  Result.Sborka_tyag := '0';
+  Kol_MUF:=0;
+  Lop := '0';
+  Ispolnenie := '';
+  Var_Raskr_Lop := '';
+  Tip_Priv := '';
+  Nal_Kog := '';
+  Ispol_KOnstr := '';
+  Ispol_Klim := '';
+  SB_2 := 0;
+  SQL_S := '';
+  FL := 0;
+  Ruch := 0;
+  SB_Lop:=0;
+      //=============================
+  //Клапан Канал-КОЛ-К-200_226200001-02-СПБ
+  //Клапан КЛАБ-125-0*ф-Н-РУЧКА-0-0
+  Izdelie := Izdel;
+
+    NAM_LIST := 'КОЛ-КРУГ';
+    Res := Pos(' ', Izdelie);
+    if Res<>0 then
+    Delete(Izdelie, 1, Res); //КЛАБ-125-0*ф-Н-РУЧКА-0-0
+              //========================================
+    Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+    Nam := Copy(Izdelie, 1, Res - 1); // 125-0*ф-Н-РУЧКА-0-0
+    Delete(Izdelie, 1, Res);
+    end;
+        Res := Pos('-', Izdelie);
+    if Res<>0 then
+    begin
+      a := Copy(Izdelie, 1, Res - 1);
+      Delete(Izdelie, 1, Res);   // 200_226200001-02-СПБ
+    end;
+
+  b_I := StrToInt(A);
+
+  if b_I <= 250 then
+    b := '250';
+                                                //-------------------------
+  if (b_I > 250) and (b_I <= 350) then
+    b := '350';
+                                               //-------------------------
+  if (b_I > 350) then
+    b := '600';
+        //-------------------------------------------------------------------
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where (Д='+#39+B+#39+') ', [NAM_LIST]) then
+    exit;
+  Res:=Pos('РУЧКА',Izdelie);
+  if Res<>0 then
+     Kol_MUF:=0.06
+  Else
+     Kol_MUF:=0.2;
+
+    SB_2 := Form1.ADOQuery1.FieldByName('1-я сборка').AsFloat+Kol_MUF;
+    SB_1 := 0.001;
+
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  SB_LOP_S := FloatToStr(SB_Lop);
+  Result.Sborka_lop := SB_LOP_S;
+end;
+
 function KANAL_KR(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
 var
   i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
@@ -11404,6 +12679,7 @@ begin
   SB_Lop:=0;
       //=============================
   //Клапан Канал-КОЛ-К-200_226200001-02-СПБ
+  //Клапан КЛАБ-125-0*ф-Н-РУЧКА-0-0
   Izdelie := Izdel;
 
     NAM_LIST := 'КОЛ-КРУГ';
@@ -11945,6 +13221,405 @@ begin
 
 end;
 //
+function Germik_T(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  i, Kpu, j, Flag_Razb_Klapana, Klap, Res, Res1, Kol_Priv, Res_Ispol, Res_Priv, Res_Term, Res_Klem, Res_Ram, Res_Ruk, Kol_F, Res_Resh, Perim, P, Res_MS, Res_EPV, MS_I, Pos_Zv, R1, R2, R3, R4: Integer;
+  Kol_Ed_Str, Nam, Elem, Lop, Privod_Nam, KPu_S, Nazn, Privod, Ispol, Term, Priv, Razmesh, klem, Resh, N1, Pereh, Ruk, Rama, F, luk, NAM_LIST, USLOVie, S, Str: string;
+  Kol_Ed, NC_RON, NC_MRP, HK, D, SB_Lop, SB_Tyag, SB_1, SB_2, NC_Kor, Kol_Lop, Simmetri, Kol_MUF, b_I,
+  NC_Ger_S_Prov: Double;
+  SB_LOP_S, SB_TYAG_S, S1, SB_1_S, SB_2_S, MS, Tip_Klap,
+  Ispolnenie, Var_Raskr_Lop, Tip_Priv, Nal_Kog, Ispol_KOnstr, Ispol_Klim, Tip,
+  Pos2, Pos3, Pos4, Pos5, Pos6, Izdel_Germik, Izdelie, a,A1, b,B1: string;
+  Pos_U, Ruch, Res0, Res2, Res3,Ger_S: Integer;
+begin
+  D := 0;
+  NAM_LIST := '';     //Клапан ГЕРМИК-Т-2000*1500-В-4*ЭПВ-SF230-S2-V-1-УХЛ2-0
+  Nam := Izdel;       //Клапан ГЕРМИК-Т-Н*В-Н-1*ХХХ-1(Профиль УВК с терморазрывом)
+                      //Клапан ГЕРМИК-Т-970*720-В-1*под привод-1
+
+  Izdelie := Izdel;
+  Izdel_Germik := Izdel;
+  Result.SVarka := 0;
+  Result.Sborka1 := 0;
+  Result.Sborka2 := 0;
+  Result.Sborka_lop := '0';
+  Result.Sborka_tyag := '0';
+  Result.Obvarka_G_R := 0;
+  NC_Ger_S_Prov:=0;
+  Lop := '0';
+  Ispolnenie := '';
+  Var_Raskr_Lop := '';
+  Tip_Priv := '';
+  Nal_Kog := '';
+  Ispol_KOnstr := '';
+  Ispol_Klim := '';
+  SB_2 := 0;
+                        //=============================
+          //Kol_Lop //Кол лопаток в МЕТРАХ см Табл
+    Flag_Razb_Klapana := 0;
+  if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (IdГП=' + #39 + IDGP + #39 +
+  ') AND ([IdКО]=' + #39 + IDKO + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ')  ', ['СпецифВозд']) then
+    exit;
+  Flag_Razb_Klapana := 0;
+  Simmetri := 0;
+  for j := 0 to Form1.ADOQuery2.RecordCount - 1 do  //Проверка на Клапан разбитый на 2
+  begin
+    Elem := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+    Kol_Ed_Str := StringReplace(Form1.ADOQuery2.FieldByName('Количество').AsString, '.', ',', [rfReplaceAll]);
+    System.SysUtils.FormatSettings.DecimalSeparator := (',');
+    Kol_Ed := StrToFloat(Kol_Ed_Str);
+    Klap := POs('Клапан', Elem);
+    if (Klap <> 0) then
+    begin
+      if Kol_Ed>1 then
+      Begin
+        Flag_Razb_Klapana :=  StrToInt(Kol_Ed_Str); //Клапан разбит на 2
+        Izdel := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+        Break;
+      End;
+            //Nam := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+    end;
+    Form1.ADOQuery2.Next;
+  end;
+
+  Pos_Zv := Pos('*', Izdel);
+  if Pos_Zv <> 0 then
+  begin
+
+    Res := Pos(' ', Izdel);
+    Delete(Izdel, 1, Res);
+              //========================================
+    Res := Pos('-', Izdel);
+    Nam := Copy(Izdel, 1, Res - 1); // ГЕРМИК
+    Delete(Izdel, 1, Res);
+              //========================================
+    Res := Pos('-', Izdel);
+    Tip_Klap := Copy(Izdel, 1, Res - 1); //С или П
+    Delete(Izdel, 1, Res);
+              //========================================
+    Res := Pos('*', Izdel);
+    a := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+              //========================================
+    Res := Pos('-', Izdel);
+    b := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+              //========================================
+              //Клапан ГЕРМИК-С-800*800-Н-1*РУЧКА-1-УХЛ2
+              //Клапан ГЕРМИК-С-740*740-Н-1*LM24A-SR-2-УХЛ2
+    Res := Pos('-', Izdel);
+    Ispolnenie := Copy(Izdel, 1, Res - 1); // H
+    Delete(Izdel, 1, Res);
+              //========================================
+    Res := Pos('*', Izdel);
+    Tip := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+    Ruch := Pos('РУЧКА', Izdelie);
+              //========================================
+    Res := Pos('-', Izdel);
+    Pos2 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    Pos3 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    Pos4 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    Pos5 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    Pos6 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Ispol_Klim := Izdel;
+    Res := Pos('У', Ispol_Klim);
+    if Res = 0 then
+      Ispol_KOnstr := Ispol_Klim
+    else
+    begin
+                                                        //-----------------------------
+      Pos_U := Pos(Izdel, Izdel_Germik);
+      Ruch := Pos('РУЧКА', Izdelie);
+      if (Pos_U <> 0) then
+        Delete(Izdel_Germik, 1, Pos_U - 3);
+                                                        //---------------------------
+      Res1 := Pos('-', Izdel_Germik);
+      Ispol_KOnstr := Copy(Izdel_Germik, 1, Res1 - 1); //1=0 2=0.126+0.273
+    end;
+
+  end            //++++++++++++++++++++++++++++++++++++++++++++++++++++++ Нормальные Гермики
+  else
+  begin
+
+    Res := Pos(' ', Izdel);
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    Nam := Copy(Izdel, 1, Res - 1); //ГЕРМИК
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    Tip_Klap := Copy(Izdel, 1, Res - 1); //C
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    a := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Res := Pos('-', Izdel);
+    b := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+                                                //========================================H ГЕРМИК-П-0510-0750-НВ
+                                                //Клапан ГЕРМИК-П-0510-0750-НВ
+    Res := Pos('-', Izdel);      //Исполнение Н=Общепром В=Взрывозащ К=Нерж
+    Ispolnenie := Copy(Izdel, 1, Res - 1); //В-С-12-00-00-УХЛ3
+    Delete(Izdel, 1, Res);
+                                                //======================================== ГЕРМИК-П-0510-0750-НВ-П
+    Res := Pos('-', Izdel);                   //П=Паралельное раскр лопаток
+    Var_Raskr_Lop := Copy(Izdel, 1, Res - 1); //С=Симетричное
+    Delete(Izdel, 1, Res);
+                                                //======================================== ГЕРМИК-П-0510-0750-НВ-П-04
+    Res := Pos('-', Izdel);                    //99=Ручной
+    Tip_Priv := Copy(Izdel, 1, Res - 1);       //00=Без привода
+    Delete(Izdel, 1, Res);                     //Остальные Эл.Привод
+                                                //======================================== ГЕРМИК-П-0510-0750-НВ-П-04-00//01=С кожухом
+    Res := Pos('-', Izdel);                    //ГЕРМИК С
+    Nal_Kog := Copy(Izdel, 1, Res - 1);       //00=Исполнение 1
+    Delete(Izdel, 1, Res);                    //01=Исполнение 2
+                                                //======================================== ГЕРМИК-П-0510-0750-НВ-П-04-00-00
+    Res := Pos('-', Izdel);                 //00=Наружное 01=Внутри корпуса
+    Ispol_KOnstr := Copy(Izdel, 1, Res - 1); //02=Наруже Фланец 03=Внутри Фланец
+    Delete(Izdel, 1, Res);
+                                                //========================================
+    Ispol_Klim := Copy(Izdel, 1, Res - 1);
+  end;
+
+                //Лопатка-заготовка
+  Str := 'Лопатка%';
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 + ') AND ([IdКО]=' + #39 + IDKO + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') AND ((Элемент Like ' + #39 + '%s' + #39 + '))', ['СпецифВозд', Str]) then
+    exit;
+  for i := 0 to Form1.ADOQuery1.RecordCount - 1 do
+  begin
+    Kol_Lop := Kol_Lop + Form1.ADOQuery1.FieldByName('Количество').AsFloat;
+    Form1.ADOQuery1.Next;
+  end;
+  Str := 'Муфта%';
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where (IdГП=' + #39 + IDGP + #39 + ') AND ([IdКО]=' + #39 + IDKO + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ') AND ((Элемент Like ' + #39 + '%s' + #39 + '))', ['СпецифВозд', Str]) then
+    exit;
+  for i := 0 to Form1.ADOQuery1.RecordCount - 1 do
+  begin
+    Kol_MUF := Kol_MUF + Form1.ADOQuery1.FieldByName('Количество').AsFloat;
+    Form1.ADOQuery1.Next;
+  end;
+  Res0 := Pos('С', Tip_Klap);
+        // Res1:=Pos('В',Ispolnenie);
+  Res2 := Pos('С', Var_Raskr_Lop);
+
+  if (Res0 <> 0) and (Res2 <> 0) then
+    Simmetri := Kol_Lop * 0.02;  //Клапан ГЕРМИК-С-0675-0575-В-С-12-00-00-УХЛ3 симметрия
+
+  b_I := StrToInt(b);
+  if Flag_Razb_Klapana > 1 then
+    Kol_Lop := Kol_Lop / Flag_Razb_Klapana;
+
+  //if Flag_Razb_Klapana > 1 then
+  //  b_I := b_I / 2;
+
+  if b_I <= 550 then
+    b1 := '600';
+                                                //-------------------------
+  if (b_I > 550) and (b_I <= 1100) then
+    b1 := '1200';
+                                                //-------------------------
+  if (b_I > 1100) and (b_I <= 1530) then
+    b1 := '1500';
+                                                //-------------------------
+  if (b_I > 1530) then
+    b1 := '2000';
+  NAM_LIST := Nam + '-' + Tip_Klap;
+        //-------------------------------------------------------------------
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([кол-во лопаток]=' + #39 + FloatToStr(Kol_Lop) + #39 + ') and ([полупериметр]=' + #39 + b1 + #39 + ') ', [NAM_LIST]) then
+    exit;
+  SB_1 := Form1.ADOQuery1.FieldByName('1-я сборка').AsFloat;
+  SB_2 := Form1.ADOQuery1.FieldByName('2-я сборка').AsFloat;
+  if Flag_Razb_Klapana > 1 then //Тютева 2 секции 14.04.2020
+    SB_2 := SB_2 * Flag_Razb_Klapana;
+  if Flag_Razb_Klapana > 1 then //Тютева 2 секции 14.04.2020
+    SB_2 := SB_2 + (Kol_MUF * 0.03);
+
+  if (Flag_Razb_Klapana > 1) and (Res2 <> 0) then   //-C- Тютева 2 секции 14.04.2020
+    SB_2 := SB_2 + 0.382;
+  Res2 := Pos('П', Var_Raskr_Lop);
+  if (Flag_Razb_Klapana > 1) and (Res2 <> 0) then   //-П- Тютева 2 секции 14.04.2020
+    SB_2 := SB_2 + 0.2;
+  if Flag_Razb_Klapana > 1 then
+    SB_2 := SB_2 + 0.213; //Клапан разбит на 2
+  SB_2 := SB_2 + Simmetri;  //Клапан ГЕРМИК-С-0675-0575-В-С-12-00-00-УХЛ3 симметрия
+  //  ==========================================
+    b_I := StrToInt(b)+StrToInt(a);
+    if b_I <= 600 then
+    b1 := '600';
+                                                //-------------------------
+  if (b_I > 600) and (b_I <= 850) then
+    b1 := '850';
+                                                //-------------------------
+  if (b_I > 850) and (b_I <= 1200) then
+    b1 := '1200';
+
+  if (b_I > 1200) and (b_I <= 1800) then
+    b1 := '1800';
+
+   if (b_I > 1800) and (b_I <= 2000) then
+    b1 := '2000';
+
+  if (b_I > 2000) then
+    b1 := '2500';
+   if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where Полупериметр='+#39+B1+#39, ['ОбваркаКорпуса-Герм-Рег']) then
+    exit;
+
+    Result.Obvarka_G_R := Form1.ADOQuery1.FieldByName('Норма').AsFloat;
+    // ===============================
+  Privod := Form1.StringGrid6.Cells[I_FN_BRIKET, Ii + 1];
+  if Privod = '' then
+    Kol_Priv := 0
+  else
+    Kol_Priv := StrToInt(Privod);
+  Privod_Nam := Form1.SGL.Cells[I_FN_MOD_PRIVOD, Ii + 1];
+  Priv := Form1.SGL.Cells[I_FN_MOD_PRIVOD, Ii + 1];
+        //--------------------------------------------------------КK
+  if Ruch <> 0 then
+    SB_2 := SB_2 + 0.06;
+  //----------------------------------------------------------------
+  Ger_S:=Pos('ГЕРМИК-С-',Izdelie);
+  if Ger_S=0 then     //Матвеенко 09,09,2022 по служебке
+  begin
+  S := AnsiUpperCase('-КК-');
+  S1 := AnsiUpperCase(Izdelie);
+  Res := Pos(S, S1); //Клемная коробка
+  if Res <> 0 then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('КК').AsString;
+    D := StrToFloat(S) * Kol_Priv;
+  end;
+  SB_2 := SB_2 + D;
+  D := 0;
+               //--------------------------------------------------------КK
+  S := AnsiUpperCase('-КЛ-');
+  S1 := AnsiUpperCase(Izdelie);
+  Res := Pos(S, S1); //Клемная коробка
+  if Res <> 0 then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('КК').AsString;
+    D := StrToFloat(S) * Kol_Priv;
+  end;
+  SB_2 := SB_2 + D;
+  D := 0;
+  end
+  //----------------------------------
+  Else
+  begin
+    NC_Ger_S_Prov:=Kol_Priv *0.32 ; //Расключение
+    b_I:=StrToFloat(A);
+    if b_I>1500 then
+     NC_Ger_S_Prov:= NC_Ger_S_Prov*1.2;
+  end;
+   Ger_S:=Pos('ГЕРМИК-Т-',Izdelie); //Служебка
+  if Ger_S<>0 then
+    begin
+    NC_Ger_S_Prov:=Kol_Priv *0.32 ; //Расключение
+    b_I:=StrToFloat(A);
+    if b_I>1500 then
+     NC_Ger_S_Prov:= NC_Ger_S_Prov*1.2;
+  end;
+  //----------------------------------------------------------------
+  Ger_S:=Pos('ГЕРМИК-С-',Izdelie);
+  if Ger_S=0 then     //Матвеенко 31,01,2023 по служебке
+  begin
+  //--------------------------------------------------------Т Клапан КПУ-1Н-О-Н-1000*650-2*ф-MB220-T-сн-0-0-0-0-0-0
+      //Термодатчик
+  S := AnsiUpperCase('-T-');
+  S1 := AnsiUpperCase(Izdelie);
+  Res := Pos(S, S1);
+  if Res <> 0 then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('Т').AsString;
+    D := StrToFloat(S) * Kol_Priv;
+  end;
+  SB_2 := SB_2 + D;
+  D := 0;
+        //-----------------------------------------------------------ПРИВОД
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+    exit;
+  S := Form1.ADOQuery1.FieldByName('Эл-приводВоз').AsString;
+  Form1.Memo13.Lines.Add(S);
+  D := StrToFloat(S) * Kol_Priv;   //Простой
+
+  R4 := Pos('-2-У', Izdelie); //Простой Утепленный
+  R1 := Pos('-В-', Izdelie);
+  R2 := Pos('-ВК-', Izdelie);
+  R3 := Pos('-КВ-', Izdelie);
+  if (R1 = 0) and (R2 = 0) and (R3 = 0) and (R4 <> 0) then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('Эл-приводВозУТ').AsString;
+    Form1.Memo13.Lines.Add(S);
+    D := StrToFloat(S) * Kol_Priv;
+  end;
+        //взрыв+++++++++++++++++++
+  R1 := Pos('-В-', Izdelie);
+  R2 := Pos('-ВК-', Izdelie);
+  R3 := Pos('-КВ-', Izdelie);
+  if (R1 <> 0) or (R2 <> 0) or (R3 <> 0) then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('Эл-приводВозВЗР').AsString;
+    Form1.Memo13.Lines.Add(S);
+    D := StrToFloat(S) * Kol_Priv;
+  end;
+
+  R1 := Pos('-В-', Izdelie);
+  R2 := Pos('-ВК-', Izdelie);
+  R3 := Pos('-КВ-', Izdelie);
+  R4 := Pos('-2-У', Izdelie); //взрыв Утепленный
+  if ((R1 <> 0) or (R2 <> 0) or (R3 <> 0)) and (R4 <> 0) then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('Эл-приводВозВЗРУТ').AsString;
+    Form1.Memo13.Lines.Add(S);
+    D := StrToFloat(S) * Kol_Priv;
+  end;
+      //------------------------------------------------------------------
+  SB_2 := SB_2 + D ;
+  end;
+        //--------------------------------------------------------К нерж
+  S := AnsiUpperCase('-К-');
+  S1 := AnsiUpperCase(Izdelie);
+  Res := Pos(S, S1); //КIspolnenie
+  if Res <> 0 then
+    SB_2 := SB_2 * 1.2;
+
+  if Flag_Razb_Klapana > 1 then
+    SB_1 := SB_1 * Flag_Razb_Klapana; //Клапан разбит на 2
+  Result.Sborka1 := SB_1;
+  Result.Sborka2 := SB_2;
+  Result.Svarka:=NC_Ger_S_Prov; //Расключение
+End;
+
+
 
 function Germik_P(Izdel, IDGP, IDKO: string; Svarka1: Double; Ii: Integer): TResult;
 var
@@ -12266,10 +13941,19 @@ begin
   end;
   SB_2 := SB_2 + D;
   D := 0;
-  end
+  end;
   //----------------------------------
-  Else
+  {Else
   begin
+    NC_Ger_S_Prov:=Kol_Priv *0.32 ; //Расключение
+    b_I:=StrToFloat(A);
+    if b_I>1500 then
+     NC_Ger_S_Prov:= NC_Ger_S_Prov*1.2;
+  end; }
+     Ger_S:=Pos('ГЕРМИК-Т-',Izdelie); //Служебка
+     Res:=Pos('ГЕРМИК-С-',Izdelie);
+  if (Ger_S<>0) or (Res<>0) then
+    begin
     NC_Ger_S_Prov:=Kol_Priv *0.32 ; //Расключение
     b_I:=StrToFloat(A);
     if b_I>1500 then
@@ -12410,10 +14094,16 @@ begin
       end;
       //Клапан ПРОК-1-Н-1000*300-1*000*V1
       Kpu := Pos('ПРОК-', Izdel);
-      if Kpu <> 0 then
+      Kpd05 := Pos('*', Izdel);
+      if (Kpu <> 0) AND (Kpd05<>0) then
       begin
         NC_Sbor := 0;
         Result := PROK_New(Izdel, IDGP, 0, I);
+      end;
+      if (Kpu <> 0) AND (Kpd05=0) then
+      begin
+        NC_Sbor := 0;
+        Result := PROK_K_New(Izdel, IDGP, 0, I);
       end;
       //
       Kpu := Pos('КПУ', Izdel);
@@ -12753,7 +14443,7 @@ var
   Br, Izdel, Kol: string;
   Rect: TRect;
 begin
-  SG4.COLCount := 24;
+  SG4.COLCount := 30;
   Clear_StringGrid(SG4);
 
   SG4.Cells[0, 0] := '№';
@@ -12780,6 +14470,11 @@ begin
   SG4.Cells[21, 0] := 'Материал';
   SG4.Cells[22, 0] := 'ПР';
   SG4.Cells[23, 0] := 'Отмена';
+  SG4.Cells[24, 0] := 'IDКО';
+  SG4.Cells[25, 0] := 'Код';
+  SG4.Cells[26, 0] :='СтатусФ';
+  SG4.Cells[26, 0] :='СтатусПро';
+  SG4.Cells[28, 0] :='СтатусФлекс';
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   if ((ComboBox29.ItemIndex = 0) or (ComboBox29.ItemIndex = -1) or (ComboBox29.Text = '')) and (ComboBox28.ItemIndex <> 0) and (ComboBox28.Text <> '') then
@@ -12813,25 +14508,25 @@ begin
   end;
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if (ComboBox30.ItemIndex = 1) or (ComboBox30.ItemIndex = -1) then
-    Betwe1 := Betwe1 + ' AND (ОТК IS NULL) ';
+    Betwe1 := Betwe1 + ' AND (ОТК IS NULL) AND (Отмена IS NULL)';
 
   if (ComboBox30.ItemIndex = 2) then
-    Betwe1 := Betwe1 + ' AND ([Кол во Запущенных]<[Кол во]) ';
+    Betwe1 := Betwe1 + ' AND ([Кол во Запущенных]<[Кол во]) AND (Отмена IS NULL) ';
 
   if (ComboBox30.ItemIndex = 3) then
-    Betwe1 := Betwe1 + ' AND (NOT ОТК IS NULL) AND (ПР=' + #39 + 'МИ' + #39 + ') ';
+    Betwe1 := Betwe1 + ' AND (NOT ОТК IS NULL) AND (ПР=' + #39 + 'МИ' + #39 + ') AND (Отмена IS NULL) ';
 
   if (ComboBox30.ItemIndex = 4) then
     Betwe1 := Betwe1 + ' AND (NOT Отмена IS NULL) AND (ПР=' + #39 + 'МИ' + #39 + ') ';
   if Poisk_LUK = 1 then
   begin
-    if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE ' + Label182.Caption + ' like ' + #39 + '%s' + Edit24.Text + '%s' + #39, ['ЛЮК', '%', '%']) then
+    if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE %s', ['ЛЮК', STR_LUK]) then
       exit;
   end;
 
   if Poisk_LUK = 0 then
   begin
-    if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE (Отмена IS NULL) AND (L=0) ' + Betwe1 + Order2, ['ЛЮК']) then
+    if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE  (L=0) ' + Betwe1 + Order2, ['ЛЮК']) then
       exit;
   end;
   if ADOQuery2.RecordCount = 0 then
@@ -12843,6 +14538,7 @@ begin
   begin
     SG4.Cells[1, I + 1] := ADOQuery2.FieldByName('Дата').AsString;
     SG4.Cells[2, I + 1] := ADOQuery2.FieldByName('Заказ').AsString;
+
     Izdel := ADOQuery2.FieldByName('Изделие').AsString;
     res := Pos(' ', Izdel);
     if res <> 0 then
@@ -12872,6 +14568,12 @@ begin
     SG4.Cells[21, I + 1] := ADOQuery2.FieldByName('Мат').AsString;
     SG4.Cells[22, I + 1] := ADOQuery2.FieldByName('ПР').AsString;
     SG4.Cells[23, I + 1] := ADOQuery2.FieldByName('Отмена').AsString;
+    SG4.Cells[24, I+1] := ADOQuery2.FieldByName('IDКО').AsString;
+    SG4.Cells[25, I+1] := ADOQuery2.FieldByName('Код').AsString;
+    SG4.Cells[26, I + 1] := ADOQuery2.FieldByName('Изделие').AsString;
+    SG4.Cells[26, i+1] := Form1.ADOQuery2.FieldByName('СтатусФ').AsString;
+    SG4.Cells[26, i+1] := Form1.ADOQuery2.FieldByName('СтатусПро').AsString;
+    SG4.Cells[28, i+1] := Form1.ADOQuery2.FieldByName('СтатусФлекс').AsString;
     ADOQuery2.Next;
 
   end;
@@ -12881,7 +14583,7 @@ begin
     SG4.Cells[0, I + 1] := IntToStr(I + 1);
   end;
   SG4.ColWidths[9] := 0;
-  SG4.ColWidths[10] := 20;
+ // SG4.ColWidths[10] := 20;
   SG4.ColWidths[17] := 0;
   SG4.ColWidths[19] := 50;
   SG4.ColWidths[18] := 40;
@@ -12967,45 +14669,86 @@ begin
   A := StrToInt(A_S);
   B := StrToInt(B_S);
   P := A + B;
-  if A < 1000 then
-    aa := '500';
-        //
-  if (A >= 1000) and (A <= 1500) then
+ if Ispol=2 then
+ Begin
+  if A <= 1500 then
     aa := '1000';
         //
-  if (A > 1500) and (A <= 1800) then
+  if (A > 1500) then
     aa := '1500';
-        //
-  if (A > 1800) then
-    aa := '1800';
       //=====================================
-  if B < 1000 then
-    bb := '500';
+  if B < 2300 then
+    bb := '2300';
         //
-  if (B >= 1000) and (B <= 1800) then
-    bb := '1000';
+  if (B >= 2300) and (B <= 3000) then
+    bb := '3000';
         //
-  if (B > 1800) then
-    bb := '1800';
+  if (B > 3080) then
+    bb := '3080';
+ End;
+      // Л-К-02-1800*2900-П-2*PLS30-РЗ-МТ
+      //Л-К-01-1200*1200-С-1*PLS30-РЗ-0
+  if Ispol=1 then
+ Begin
+    if Kol_Pr=1 then
+    Begin
+      if A <= 1000 then
+          aa := '1000';
+        //
+      if (A > 1000) and (A <= 1500) then
+          aa := '1500';
       //
-  if P < 2400 then
-    pp := '2400';
+      if (A > 1500) and (A <= 1800) then
+          aa := '1501';
+      //
+      if A > 1800 then
+          aa := '1800';
+      //=====================================
+      if B < 1000 then
+          bb := '1000';
         //
-  if (P >= 2400) and (P <= 2700) then
-    pp := '2700';
+      if (B >= 1000) and (B <= 1800) then
+          bb := '1800';
         //
-  if (P > 2700) and (P <= 2800) then
-    pp := '2800';
+      if (B > 1800) then
+          bb := '2000';
+    End;
+    //
+    if Kol_Pr=2 then
+    Begin
+      if A <= 1500 then
+          aa := '1000';
         //
-  if (P > 2800) then
-    pp := '3000';
-  NAM_LIST := 'Л-К-0' + Priv;
+      if A > 1500 then
+          aa := '1500';
+      //=====================================
+      if B < 2300 then
+          bb := '2300';
+        //
+      if (B >= 2300) and (B <= 3000) then
+          bb := '3000';
+        //
+      if (B > 3000) then
+          bb := '3800';
+    End;
+ End;
+ //
+ if P <= 3000 then
+ D:=0.5;
+//
+ if P > 3000 then
+ D:=0.7;
+//
+  NAM_LIST := 'Л-К-0' + IntToStr(Ispol);
+  if Kol_Pr=2 then
+       NAM_LIST := 'Л-К-01 (2)' ;
+  //
   if Ispol <> 4 then
     if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([A]=' + #39 + aa + #39 + ') AND ([B]=' + #39 + bb + #39 + ') ', [NAM_LIST]) then
       exit;
 
   if Ispol = 4 then
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + pp + #39 + ') ', [NAM_LIST]) then
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([A]=' + #39 + aa + #39 + ') AND ([B]=' + #39 + bb + #39 + ') ', ['Л-С-04']) then
       exit;
 
   SB_1_S := Form1.ADOQuery1.FieldByName('Норма').AsString;
@@ -13013,8 +14756,155 @@ begin
     SB_1_S := '0';
 
   SB_1 := StrToFloat(SB_1_S);
+  SB_1 := SB_1 + D;
+  D := 0;
       //--------------------------------------------------------Решетка
   if R = 1 then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Решетка']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('ЛЮК').AsString;
+    D := StrToFloat(S);
+  end;
+  SB_1 := SB_1 + D;
+  D := 0;
+      //--------------------------------------------------------ТЭН
+ { if Z = 1 then
+  begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['КК']) then
+      exit;
+    S := Form1.ADOQuery1.FieldByName('Т-ЛЮК').AsString;
+    D := StrToFloat(S);
+  end;
+  SB_1 := SB_1 + D;
+  D := 0;
+      //--------------------------------------------------------Привод
+  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Привод']) then
+    exit;
+  S := Form1.ADOQuery1.FieldByName('ЭПВ').AsString;
+  D := StrToFloat(S);
+  SB_1 := SB_1 + (D * Kol_Pr); }
+  D := 0;
+  Result.Sborka1 := SB_1;
+end;
+function Dimozor(Izdel, IDGP: string; Svarka1: Double; Ii: Integer): TResult;
+var
+  Res, Res1, Res2, R, Z, A, B, P, Kol_Pr, DD, Ispol,Is1,Kol_Lop,I: Integer;
+  A_S, B_S, aa, bb, Str, S, Priv, Nam, NAM_LIST, SB_1_S, pp,Gab: string;
+  SB_1, D: Double;
+begin
+  D := 0;
+  NAM_LIST := '';
+  Nam := Izdel;
+  DD := 0; //Люк дымовой ДЫМОЗОР-200-1800*2000-П-3000-24-0-С
+          //Люк дымовой ДЫМОЗОР-300-900*1100-У-40-24-0-С
+          //Люк дымовой ДЫМОЗОР-100-1350*1500-У-3000-24-0-МП
+  R := 0;
+  Z := 0;
+  P:=0;
+  A:=0;
+  B:=0;
+  Kol_Lop:=0;
+  Kol_Pr := 0;
+  Result.SVarka := 0;
+  Result.Sborka1 := 0;
+  Res := Pos('-', Nam);
+
+  if Res <> 0 then
+    Delete(Nam, 1, Res); //200-1800*2000-П-3000-24-0-С
+  Res := Pos('-', Nam);
+  if Res <> 0 then
+  Begin
+    Str:=Copy(Nam, 1, Res - 1);
+    Is1:=StrToInt(Str);
+    Delete(Nam, 1, Res); //1800*2000-П-3000-24-0-С
+
+  End;
+  Res := Pos('-', Nam);
+  if Res <> 0 then
+  begin
+    Str := Copy(Nam, 1, Res - 1);
+    Delete(Nam, 1, Res); //П-3000-24-0-С
+    Gab := (Str);//1800*2000
+  end;
+  Res := Pos('*', Gab);
+  if Res <> 0 then
+  begin
+    A_S := Copy(Gab, 1, Res - 1);
+    Delete(Gab, 1, Res); //A
+  end;
+
+    B_S := Gab;
+
+  A := StrToInt(A_S);
+  B := StrToInt(B_S);
+  P := A + B;
+  if Is1=300 then
+  Begin
+      if A < 1000 then
+        aa := '900';
+        //
+      if (A >= 1000) and (A <= 1500) then
+        aa := '1000';
+        //
+      if (A > 1500) then
+        aa := '1100';
+  End;
+  if Is1=100 then
+  Begin
+    if P <= 1000 then
+    pp := '1000';
+        //
+    if (P > 1000) and (P <= 1500) then
+    pp := '1500';
+        //
+    if (P > 1500) and (P <= 2000) then
+    pp := '2000';
+        //
+    if (P > 2000) and (P <= 2500) then
+    pp := '2500';
+    if (P > 2500)  then
+    pp := '3000';
+  End;
+
+  if Is1 = 300 then
+  Begin                         //Лопатка верхняя Лопатка нижняя
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where (IdГП=' + #39 + IDGP + #39 +
+    ') AND (Изделие=' + #39 + 'Люк дымовой '+Izdel + #39 +
+    ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 +
+    ') AND ((Элемент =' + #39 +'Лопатка малая' + #39 +
+    ') OR (Элемент =' + #39 +'Лопатка верхняя' + #39 + ') oR (Элемент =' + #39 +'Лопатка нижняя' + #39 + ') )', ['СпецифЛЮК']) then
+      exit;
+    if Form1.ADOQuery1.RecordCount<>0 then
+    for I := 0 to Form1.ADOQuery1.RecordCount-1 do
+    begin
+      Kol_Lop:=Kol_Lop+ Form1.ADOQuery1.FieldByName('Количество').AsInteger;
+      Form1.ADOQuery1.Next
+    end;
+
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([А]=' + #39 + aa + #39 + ') AND ([Лопатка]=' + #39 + IntToStr(Kol_Lop) + #39 + ') ', ['Дымозор300']) then
+      exit;
+    SB_1_S := Form1.ADOQuery1.FieldByName('Норма').AsString;
+    if P<=3000 then
+     D:=0.2
+     Else
+    D:=0.4;
+  End;
+
+  if Is1 = 100 then
+  Begin
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] Where ([Полупериметр]=' + #39 + pp + #39 + ') ', ['Дымозор100']) then
+      exit;
+      SB_1_S := Form1.ADOQuery1.FieldByName('Норма').AsString;
+  End;
+
+
+  if SB_1_S = '' then
+    SB_1_S := '0';
+
+  SB_1 := StrToFloat(SB_1_S)+D;
+      //--------------------------------------------------------Решетка
+ { if R = 1 then
   begin
     if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from [%s] ', ['Решетка']) then
       exit;
@@ -13039,10 +14929,9 @@ begin
   S := Form1.ADOQuery1.FieldByName('ЭПВ').AsString;
   D := StrToFloat(S);
   SB_1 := SB_1 + (D * Kol_Pr);
-  D := 0;
+  D := 0;}
   Result.Sborka1 := SB_1;
 end;
-
 procedure TForm1.btn37Click(Sender: TObject);
 var
   Result: Tresult;
@@ -13061,11 +14950,17 @@ begin
     IDGP := SG4.Cells[13, I + 1];
 
     Kpu := Pos('Л-К-', Izdel);
-
     if Kpu <> 0 then
     begin
       Result := LUK_New(Izdel, IDGP, 0, I);
     end;
+
+    Kpu := Pos('ДЫМОЗОР', Izdel);
+    if Kpu <> 0 then
+    begin
+      Result := Dimozor(Izdel, IDGP, 0, I);
+    end;
+
     SB_1 := Result.Sborka1;
 
     SB1_S := StringReplace(FloatToStr(SB_1), ',', '.', [rfReplaceAll]);
@@ -13619,12 +15514,12 @@ begin
   Begin
     OTK:=StrToDate(ZSG.Cells[I_FN_KOL_ZAP + 8, ZSG.ROW]);
     N:=Now;
-  End;
+  End;                                         //  (FlagDolg = 10) or
     if ((ZSG.Col = 0) or (ZSG.Col = I_FN_KOL_ZAP + 12) or (ZSG.Col = I_FN_KOL_ZAP + 25) or (ZSG.Col = I_FN_KOL_ZAP + 33) or (ZSG.Col = I_FN_KOL_ZAP + 35))
-    and ((FlagDolg = 4) or (FlagDolg = 1) or (FlagDolg = 10) or (FlagDolg = 7) or (FlagDolg = 2)) then
+    and ((FlagDolg = 4) or (FlagDolg = 1) or (FlagDolg = 7) or (FlagDolg = 2)) then
   begin     //
 
-    if ((Kol_Zap=Kol_Prin) AND (N>OTK+2)) AND (FlagDolg <> 1) AND (FlagDolg <> 2) Then  //   (ZSG.Cells[I_FN_KOL_ZAP + 9,ZSG.row]<>'')
+    if ((Kol_Zap=Kol_Prin) AND (N>OTK+4)) AND (FlagDolg <> 1) AND (FlagDolg <> 2) Then  //   (ZSG.Cells[I_FN_KOL_ZAP + 9,ZSG.row]<>'')
     Begin
       MessageDlg('ОТК приняло клапан, запрещенно изменять дату!', mtError, [mbOk], 0);
       Exit;
@@ -13644,7 +15539,7 @@ begin
     FSborAll.CBB3.Text := ZSG.Cells[I_FN_KOL_ZAP + 35, ZSG.Row] ;//:= 'Сборщик';
     FSborAll.ShowModal;
   end;
-        ///++++++++++++++++++++++++++++
+        ///++++++++++++++++++++++++++++ ZSG.Cells[I_FN_KOL_ZAP + 12, 1] := 'Сборщик';
   Flag_Zag := Pos('rue', ZSG.Cells[I_FN_KOL_ZAP + 27, ZSG.Row]);
 
 
@@ -14225,7 +16120,7 @@ end;
 
 procedure TForm1.SG4GetCellColor(Sender: TObject; ARow, ACol: Integer; AState: TGridDrawState; ABrush: TBrush; AFont: TFont);
 var
-  I, Res: Integer;
+  I, Res,Stat: Integer;
 begin
 
   if (ARow > 0) and (ACol > 1) then
@@ -14259,7 +16154,23 @@ begin
     begin
       AFont.Style := [fsBold];
     end;
+    //++++++++++++++++++++++++++++++++++++++
+    if (SG4.Cells[23, ARow] <> '') then
+    begin
+      ABrush.Color := RGB(180, 180, 180); //ОТМЕНА
+    end;
+                       //------------СтатусФлекс
+    Stat := 0;
+    if SG4.Cells[28, ARow] <> '' then
+      Stat := Pos('rue',SG4.Cells[28, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 2) then
+      SG4.canvas.brush.Color := RGB(14,177,250);//ДОКс   Синий
+      SG4.Canvas.Font.Style := [fsBold];
+    end;
   end;
+
 end;
 
 procedure TForm1.SG4MouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -14268,6 +16179,33 @@ begin
   if Button = mbRight then
     mouse_event(MOUSEEVENTF_LEFTDOWN or MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
 end;
+
+procedure TForm1.SG4MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var
+  I: Integer;
+  F: Double;
+  J: Integer;
+  myRect: TGridRect;
+  Sum: Double;
+begin
+  if (SG4.Col = 4) or (SG4.Col = 5) or (SG4.Col = 9) or (SG4.Col = 20) then
+  begin
+    Sum := 0;
+    myRect := SG4.Selection;
+    for I := myRect.Left to myRect.Right do
+      for J := myRect.Top to myRect.Bottom do
+      begin
+        try
+          Sum := Sum + StrToFloat(SG4.Cells[I, J]);
+        except
+          Break;
+        end;
+      end;
+    StatusBar2.Panels[2].Text := FloattOsTR(Sum);
+  end;
+end;
+
 
 procedure TForm1.SG5DblClick(Sender: TObject);
 begin
@@ -14296,7 +16234,7 @@ begin
     FStamTime.Label4.Caption := IntToStr(SG5.Row);
     FStamTime.ShowModal;
   end;
-  if (SG5.Col = 12) or (SG5.Col = 11) and ((FlagDolg = 1) or (FlagDolg = 7)) then
+  if (SG5.Col = 12)  and ((FlagDolg = 1) or (FlagDolg = 7)) then
   begin   // TRUMPF
     FStamTime.Caption := SG5.Cells[SG5.Col, 0];
     FStamTime.Label1.Caption := SG5.Cells[21, SG5.Row]; //idGP
@@ -14376,6 +16314,14 @@ begin
     FOTK.Label13.Caption := SG5.Cells[22, SG5.ROW]; //НачНомер
     FOTK.Label15.Caption := SG5.Cells[23, SG5.ROW]; //КонНомер
     FOTK.ShowModal;
+  end;
+    if (SG5.Col =11) then //Сборщик
+  begin
+      FSborKan.Label1.Caption:=SG5.Cells[21, SG5.Row];
+      FSborKan.Label2.Caption:=SG5.Cells[27, SG5.Row];
+      //0-Канлка(Запуск750) 1- ЗапускЛЮК 2- ЗапускСТАМ
+      FSborKan.Sbor_Uch:=1;
+      FSborKan.ShowModal;
   end;
 end;
 
@@ -14466,7 +16412,7 @@ var
   myRect: TGridRect;
   Sum: Double;
 begin
-  if (SG5.Col = 4) or (SG5.Col = 18) or (SG5.Col = 5) then
+  if (SG5.Col = 4) or (SG5.Col = 19) or (SG5.Col = 5) then
   begin
     Sum := 0;
     myRect := SG5.Selection;
@@ -14767,9 +16713,13 @@ begin
   begin
     if not Form1.mkQueryDelete(Form1.ADOQuery1, 'DELETE FROM %s Where (IdГП= ' + #39 + StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ') ', ['Специф']) then
       Exit;
-    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 + ',[СтатусФ]=' + #39 + '0' + #39 + ',[СПисокФ]=' + #39 + '' + #39 + ' WHERE ([IdГП]=' + #39 + StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ')', ['Klapana']) then
+    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 +
+    ',[СтатусФ]=' + #39 + '0' + #39 +
+    ',[СтатусФлекс]=' + #39 + '0' + #39 +
+    ',[СтатусПро]=' + #39 + '0' + #39 +
+    ',[СПисокФ]=' + #39 + '' + #39 + ' WHERE ([IdГП]=' + #39 + StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ')', ['Klapana']) then
       Exit;
-
+    Button16Click(nil);
   end;
 
         {if not Form1.mkQueryDelete(Form1.ADOQuery1,
@@ -15414,7 +17364,7 @@ begin
   end;
   SQL_Str := SQL_Str + ' AND (пр=' + #39 + 'МИ' + #39 + ')';
 
-  SGL.ColCount := 26; //I_FN_POS+2;
+  SGL.ColCount := 29; //I_FN_POS+2;
   SGL.Cells[0, 0] := '№';
   SGL.ColWidths[0] := 40;
   SGL.Cells[I_FN_DAT, 0] := FN_DAT;
@@ -15443,6 +17393,9 @@ begin
   SGL.Cells[I_FN_SGP + 9, 0] := 'bz';
   SGL.Cells[I_FN_SGP + 10, 0] := 'СтатусФ';
   SGL.Cells[I_FN_SGP + 11, 0] := 'BLF';
+  SGL.Cells[I_FN_SGP + 12, 0] := 'СтатусФлекс';
+  SGL.Cells[I_FN_SGP + 13, 0] := 'СтатусПро';
+  SGL.Cells[I_FN_SGP + 14, 0] := 'КОРВ';
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++SG6
             //
   StringGrid6.ColCount := 33;
@@ -15542,6 +17495,9 @@ begin
     SGL.Cells[I_FN_SGP + 9, I + 1] := ADOQuery1.FieldByName('bz').AsString;
     SGL.Cells[I_FN_SGP + 10, I + 1] := ADOQuery1.FieldByName('СтатусФ').AsString;
     SGL.Cells[I_FN_SGP + 11, I + 1] := ADOQuery1.FieldByName('BLF').AsString;
+    SGL.Cells[I_FN_SGP + 12, I + 1] := ADOQuery1.FieldByName('СтатусФлекс').AsString;
+    SGL.Cells[I_FN_SGP + 13, I + 1] := ADOQuery1.FieldByName('СтатусФ').AsString;
+    SGL.Cells[I_FN_SGP + 14, I + 1] := ADOQuery1.FieldByName('КОРВ').AsString;
                 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SG6
     StringGrid6.Cells[I_FN_NOM, I + 1] := ADOQuery1.FieldByName(FN_NOMER_RAZ).AsString;
     StringGrid6.Cells[I_FN_RAS_DATA_GOTOVN, I + 1] := ADOQuery1.FieldByName(FN_RAS_DATA_GOTOVN).AsString;
@@ -15671,7 +17627,7 @@ begin
       Nam := zclrstrngrd1.Cells[I_FN_KOL_ZAP + 7, i]
     end;
   end;
-  Nom := '0'; //zclrstrngrd1.Cells[0, zclrstrngrd1.Row];
+  Nom := zclrstrngrd1.Cells[0, zclrstrngrd1.Row];
   C := StrToInt(zclrstrngrd1.Cells[I_FN_KOL_ZAP + 28, zclrstrngrd1.Row]);
   Prim := zclrstrngrd1.Cells[I_FN_KOL_ZAP + 6, zclrstrngrd1.Row];
   Dir1 := '\Суточные задания(Канал)\';
@@ -15682,7 +17638,9 @@ begin
   if (R1 <> 0) then
     Form1.SUT_Kanal_GKV(Vn_DAt, Nom, Dir1, 2, C, Prim);
   if (R1 = 0) and (r = 0) then
+   // Form1.SUT(Vn_DAt, Nom, Dir1, 2, C, Prim);
     Form1.SUT_Kanal(Vn_DAt, Nom, Dir1, 2, C, Prim);
+
 end;
 
 procedure TForm1.MenuItem15Click(Sender: TObject);
@@ -19785,7 +21743,11 @@ begin
   begin
     if not Form1.mkQueryDelete(Form1.ADOQuery1, 'DELETE FROM [%s] Where (IdГП= ' + #39 + SG10.Cells[21, SG10.Row] + #39 + ') AND ((IdКО= ' + #39 + SG10.Cells[22, SG10.Row] + #39 + ') OR (IdКО= ' + #39 + #39 + '))', ['Специф750']) then
       Exit;
-    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE [%s] SET [Статус]=' + #39 + '0' + #39 + ',[СтатусФ]=' + #39 + '0' + #39 + ',[Технолог Обраб]= NULL' + ' WHERE ([IdГП]=' + #39 + SG10.Cells[21, SG10.Row] + #39 + ') AND (IdКО= ' + #39 + SG10.Cells[22, SG10.Row] + #39 + ')', ['750']) then
+    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE [%s] SET [Статус]=' + #39 + '0' + #39 +
+    ',[СтатусФ]=' + #39 + '0' + #39 +
+    ',[СтатусФлекс]=' + #39 + '0' + #39 +
+    ',[СтатусПро]=' + #39 + '0' + #39 +
+    ',[Технолог Обраб]= NULL' + ' WHERE ([IdГП]=' + #39 + SG10.Cells[21, SG10.Row] + #39 + ') AND (IdКО= ' + #39 + SG10.Cells[22, SG10.Row] + #39 + ')', ['750']) then
       Exit;
 
   end;
@@ -20334,6 +22296,30 @@ begin
   ShellExecute(h, 'open', PWideChar(Dir), nil, nil, SW_SHOW);
 end;
 
+function AnsiToUCS(AStr: String): String;
+
+  function Convert(AChar: Char): String;
+  var
+      j: integer;
+  begin
+    Result := '';
+    j := ord(AChar);
+    case j of
+      192..255: j := j + 848;
+      184: j := 1105;
+    end;
+    Result := IntToHex(j, 4)
+  end;
+
+var
+  c, i: integer;
+begin
+    Result := '';
+  c := Length(AStr);
+  for i := 1 to c do
+    Result := Result + Convert(AStr[i]);
+end;
+
 procedure TForm1.N89Click(Sender: TObject);
 var
   //XL2: Variant;
@@ -20348,6 +22334,8 @@ var
   Str, Dir_Ser, Str1, Str2, Str3, fileName, fullFilePath, Put: string;
   h: hwnd;
   FindFile: TSearchRec;
+  myFile:TextFile;
+  B0,B1:TBytes;
 begin
 
   Vn_DAt := FormatDateTime('mm.dd.yyyy', DateTimePicker1.Date);
@@ -20539,9 +22527,36 @@ begin
 
   Memo9.Clear;
   Memo8.Clear;
+  Memo6.Clear;
+  //
+  if Memo7.Lines.Count<>0 then
+  begin
+        Dir := Put_KTO + '\Кондратьев\Programm\Pogar\' + God + '\' + mes + '\' + Nom + 'Фрезерный\10\';
+        CreateDir(Dir);
+        CopyFile(PWideChar(Put_KTO+'\Cklapana2\2013\ШаблонФрезер10.txt'),
+        PWideChar(Dir + Nom+'_1_10.txt'), False);
+        //Memo6.Lines.LoadFromFile(Dir + Nom+'_1_10.txt');
+        AssignFile(myFile, Dir + Nom+'_1_10.txt');
+        Append(myFile);
+
+        //CloseFile(myFile);
+  end;
+  //
+
   for i := 0 to Memo7.Lines.Count - 1 do
   begin
     F := 0;
+    if I>0 then
+    begin
+        Str:=StringReplace(Memo33.Text,'По профилю 1 - Freza_8_10','По профилю '+IntToStr(I)+' - Freza_8_10',[rfReplaceAll, rfIgnoreCase]);
+        B0 := BytesOf(str+Memo34.Text);
+        B1:=TEncoding.Convert(TEncoding.ANSI,TEncoding.UTF8,B0);
+        Str1:=StringOf(B1);
+        WriteLn(myFile,Str1);
+    end;
+
+
+
     Put := Put_KTO;
     Res := Pos('ОИТ', Put);
     if Res <> 0 then
@@ -20550,16 +22565,6 @@ begin
     //Dir_Ser := Put + 'ОИТ\';
     if Memo7.Lines.Strings[i] <> '' then
       fileName := Memo7.Lines.Strings[i] + '.dxf';
-     // FindFile.name := Memo7.Lines.Strings[i] + '.dxf';
-    //fullFilePath := FileSearch(fileName, Dir_Ser);
-    //if fullFilePath <> '' then
-    {if FindFirst(Dir_Ser, faAnyFile, FindFile)=0 then
-    begin
-      Memo9.Lines.Add(fullFilePath);
-            Dir := Put_KTO + '\Кондратьев\Programm\Pogar\' + God + '\' + mes + '\' + Nom + 'Фрезерный\10\';
-      CreateDir(Dir);
-      CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
-    end }
 
     if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
       repeat
@@ -20578,10 +22583,37 @@ begin
       Memo2.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
     end;
   end;
+  if Memo7.Lines.Count<>0 then
+  begin
+
+    CloseFile(myFile);
+  end;
  //
+   Memo6.Clear;
+  //
+  if Memo23.Lines.Count<>0 then
+  begin
+        Dir := Put_KTO + '\Кондратьев\Programm\Pogar\' + God + '\' + mes + '\' + Nom + 'Фрезерный\12\';
+        CreateDir(Dir);
+        CopyFile(PWideChar(Put_KTO+'\Cklapana2\2013\ШаблонФрезер12.txt'),
+        PWideChar(Dir + Nom+'_1_12.txt'), False);
+        Memo6.Lines.LoadFromFile(Dir + Nom+'_1_12.txt');
+
+        AssignFile(myFile, Dir + Nom+'_1_12.txt');
+        Append(myFile);
+
+        //CloseFile(myFile);
+  end;
+  //
   for i := 0 to Memo23.Lines.Count - 1 do
   begin
     F := 0;
+    if I>0 then
+    begin
+        Str:=StringReplace(Memo35.Text,'По профилю 1 - Freza_8_12','По профилю '+IntToStr(I)+' - Freza_8_12',[rfReplaceAll, rfIgnoreCase]);
+        Str:=AnsiToUCS(Str);
+        WriteLn(myFile, Str);
+    end;
     //Dir_Ser := Put_KTO + '\Мингалиев\Вите\Programm1\Pogar';
     Put := Put_KTO;
     Res := Pos('ОИТ', Put);
@@ -20616,7 +22648,11 @@ begin
       Memo2.Lines.Add(Memo24.Lines.Strings[i] + '  ' + fileName);
     end;
   end;
+  if Memo23.Lines.Count<>0 then
+  begin
 
+    CloseFile(myFile);
+  end;
   if Memo8.Lines.Strings[0] <> '' then
   begin
     Memo8.Lines.SaveToFile('123.txt');
@@ -20625,6 +22661,8 @@ begin
   end;
   ShellExecute(h, 'open', PWideChar(Dir), nil, nil, SW_SHOW);
 end;
+
+
 
 procedure TForm1.N8Click(Sender: TObject);
 begin
@@ -20980,10 +23018,15 @@ end;
 
 procedure TForm1.N90Click(Sender: TObject);
 var
-  Vn_DAt, Vn_DAt1, God, mes, Nom, Prim, Dir1: string;
+  Vn_DAt, Vn_DAt1, God, mes, Nom, Prim, Dir1,Izdel: string;
   D: TDate;
-  C: Integer;
+  C,R,R1: Integer;
 begin
+  Izdel:=SG215.Cells[4, SG215.Row] ;
+  R:=Pos('СТАМ 401-',Izdel);
+  R1:=Pos('СТАМ 411-',Izdel);
+  if (R<>0) or (R1<>0) then
+  Exit;
   Vn_DAt := SG215.Cells[8, SG215.Row]; // Планирование
   D := StrToDate(Vn_DAt);
   Vn_DAt1 := FormatDateTime('mm.dd.yyyy', D);
@@ -20993,7 +23036,7 @@ begin
   C := 0; //StrToInt(SG215.Cells[I_FN_KOL_ZAP + 28, SG215.Row]);//Цвет
   Prim := SG215.Cells[9, SG215.Row]; //Примечание
   Dir1 := '\Суточные задания\';
-  Form1.SUT(Vn_DAt, Nom, Dir1, 0, C, Prim); //ZZZZZZZZZZZZZZZZZZZZZZ
+  Form1.SUT(Vn_DAt, Nom, Dir1, 3, C, Prim); //ZZZZZZZZZZZZZZZZZZZZZZ
 end;
 
 procedure TForm1.N91Click(Sender: TObject);
@@ -21533,275 +23576,6 @@ begin
   F2 := 1;
   if F2 <> 0 then
     ShellExecute(h, 'open', PWideChar(S + '\' + Nam + '\Фрезерный\'), nil, nil, SW_SHOW);
-end;
-
-procedure TForm1.N95Click(Sender: TObject);
-var
-  //XL2: Variant;
-  E, i, J, X, X1, X3, Res, Priv, Kol_Zap, Kount, DlinaI, Res_KPU, Sten_G, Sten_V, Res_Detal, hh, F2, Res1, Res2: Integer;
-  Vn_DAt, Dir, God, mes, Nom, Priv_Str, IDGP, OboznSh, Obozn, Dlina, Elem, Izdel, S, K, Mat: string;
-  ar: array[0..7750, 0..7] of string;
-  Ar1: array[0..1500, 0..13] of string;
-  Ar3: array[0..100, 0..13] of string;
-  Ar2: array of array of string;
-  SR: TSearchRec; // поисковая переменная
-  FindRes: Integer; // переменная для записи результата поиска
-  Str, Dir_Ser, Str1, Str2, Str3, fileName, fullFilePath, Put: string;
-  h: hwnd;
-  FindFile: TSearchRec;
-begin
-
-  Vn_DAt := FormatDateTime('mm.dd.yyyy', DateTimePicker1.Date);
-  God := FormatDateTime('yyyy', Now);
-  mes := FormatDateTime('mmmm', Now);
-  for X1 := 0 to SG212.RowCount - 1 do
-  begin
-    Nom := SG212.Cells[0, X1]; //ZSG.Cells[0, ZSG.Row];
-    if Nom = '' then
-      Continue;
-    if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (Номер=' + #39 + Nom + #39 + ') AND (Отмена IS NULL) Order By Заказ ', ['ЗапускВозд']) then
-      exit;
-    Kount := ADOQuery2.RecordCount;
-    if Form1.ADOQuery2.RecordCount <> 0 then
-    begin
-
-      for i := 0 to Form1.ADOQuery2.RecordCount - 1 do
-      begin
-        ar[i, 0] := Form1.ADOQuery2.FieldByName('Заказ').AsString;
-        ar[i, 1] := Form1.ADOQuery2.FieldByName('Кол во запущенных').AsString;
-        ar[i, 2] := Nom;
-        ar[i, 3] := Form1.ADOQuery2.FieldByName('Изделие').AsString;
-        ar[i, 4] := Form1.ADOQuery2.FieldByName('МодПривода').AsString;
-        ar[i, 5] := Form1.ADOQuery2.FieldByName('IdГП').AsString;
-        ar[i, 6] := Form1.ADOQuery2.FieldByName('IdКО').AsString;
-        Form1.ADOQuery2.Next;
-      end;
-    end;
-    for i := 0 to Kount do
-    begin                                   //  AND (Trumph='+#39+'True'+#39+')
-      if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (IDГП=' + #39 + ar[i, 5] + #39 + ') AND  (IdКО=' + #39 + ar[i, 6] + #39 + ') AND (ВидЭлемента=' + #39 + 'Детали' + #39 + ')  Order By Обозначение ', ['СпецифВозд']) then
-        exit;
-      if ar[i, 1] = '' then
-        Break;
-      Kol_Zap := StrToInt(ar[i, 1]);
-    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-      for J := 0 to ADOQuery2.RecordCount - 1 do
-      begin
-        Elem := Form1.ADOQuery2.FieldByName('Элемент').AsString;
-        OboznSh := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
-        if not Form1.mkQuerySelect66(Form1.ADOQuery4, 'Select * from %s Where   (Обозначение=' + #39 + OboznSh + #39 + ') AND ((Фрезерный=' + #39 + 'True' + #39 + ') ) AND (Технолог=' + #39 + 'True' + #39 + ')  ', ['СпецифОбщая']) then
-          exit;
-        if ADOQuery4.RecordCount <> 0 then
-        begin
-
-          Mat := ADOQuery2.FieldByName('Материал').AsString;
-          Res := Pos('х10', Mat);
-          if Res <> 0 then
-          begin
-            K := ADOQuery2.FieldByName('Количество').AsString;
-            Ar1[X, 0] := IntToStr(Kol_Zap * StrToInt(K));
-            Obozn := ADOQuery4.FieldByName('Обозначение').AsString;
-            Ar1[X, 1] := ADOQuery4.FieldByName('Обозначение').AsString;
-            Ar1[X, 11] := ADOQuery2.FieldByName('Обозначение').AsString;
-            Ar1[X, 2] := ADOQuery2.FieldByName('Элемент').AsString;
-            Ar1[X, 3] := ar[i, 3]; //ADOQuery4.FieldByName('Изделие').AsString;
-            Ar1[X, 4] := ADOQuery2.FieldByName('Длина').AsString;
-            Ar1[X, 5] := ADOQuery2.FieldByName('Ширина').AsString;
-            Ar1[X, 6] := ADOQuery2.FieldByName('ДлинаРазв').AsString;
-            Ar1[X, 7] := ADOQuery2.FieldByName('ШиринаРазв').AsString;
-            Ar1[X, 8] := ADOQuery2.FieldByName('Заказ').AsString;
-            Ar1[X, 9] := ADOQuery2.FieldByName('IDГП').AsString;
-            Ar1[X, 10] := ADOQuery2.FieldByName('Материал').AsString;
-            Ar1[X, 12] := ADOQuery2.FieldByName('idКО').AsString;
-            Inc(X);
-          end
-          else
-          begin
-            K := ADOQuery2.FieldByName('Количество').AsString;
-            Ar3[X3, 0] := IntToStr(Kol_Zap * StrToInt(K));
-            Obozn := ADOQuery4.FieldByName('Обозначение').AsString;
-            Ar3[X3, 1] := ADOQuery4.FieldByName('Обозначение').AsString;
-            Ar3[X3, 11] := ADOQuery2.FieldByName('Обозначение').AsString;
-            Ar3[X3, 2] := ADOQuery2.FieldByName('Элемент').AsString;
-            Ar3[X3, 3] := ar[i, 3]; //ADOQuery4.FieldByName('Изделие').AsString;
-            Ar3[X3, 4] := ADOQuery2.FieldByName('Длина').AsString;
-            Ar3[X3, 5] := ADOQuery2.FieldByName('Ширина').AsString;
-            Ar3[X3, 6] := ADOQuery2.FieldByName('ДлинаРазв').AsString;
-            Ar3[X3, 7] := ADOQuery2.FieldByName('ШиринаРазв').AsString;
-            Ar3[X3, 8] := ADOQuery2.FieldByName('Заказ').AsString;
-            Ar3[X3, 9] := ADOQuery2.FieldByName('IDГП').AsString;
-            Ar3[X3, 10] := ADOQuery2.FieldByName('Материал').AsString;
-            Ar3[X3, 12] := ADOQuery2.FieldByName('idКО').AsString;
-            Inc(X3);
-          end;
-          Form1.ADOQuery4.Next;
-        end;
-        Form1.ADOQuery2.Next;
-      end;
-    end;
-  end;
-  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God;
-  CreateDir(Dir);
-  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\';
-  CreateDir(Dir);
-  //Dir := Put_KTO + '\Кондратьев\Programm\Pogar\' + God + '\' + mes + '\' + Nom + '\';
-  //CreateDir(Dir);
-  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\';
-  CreateDir(Dir);
-        //-----------------------------------------------
-  Memo7.Lines.Clear;
-  Memo15.Lines.Clear;
-  for i := 0 to High(Ar1) do
-  begin
-    if Ar1[E, 3] = '' then
-      Break;
-        //ВГ 410.00.01.002-400 меняем на ВГ 410.00.01.001-400  Гапова 21.01.2019
-    Izdel := ar[E, 3];
-    Obozn := Ar1[E, 11];
-                //+++++++++++++++++++
-    Str := Obozn; //Ar1[E, 11]; //Element
-    Res := Pos('ВГ', Str);
-    if Res <> 0 then
-    begin
-      Delete(Str, Res, 3);
-      Insert('VG_', Str, 1);
-    end;
-                //+++++++++++++++++++
-    Res := Pos('ТЕКИ', Str);
-    if Res <> 0 then
-    begin
-      Delete(Str, Res, 5);
-      Insert('TEKI_', Str, 1);
-    end;
-                //+++++++++++++++++++
-    Res := Pos('НИ', Str);
-    if Res <> 0 then
-    begin
-      Delete(Str, Res, 3);
-      Insert('NI_', Str, 1);
-    end;
-    Str := ConvertRus(Str);
-                //+++++++++++++++++++
-    Str1 := StringReplace(Str, '-', '_', [rfReplaceAll]); //Замена Пробела на _
-    Str2 := StringReplace(Str1, ',', '.', [rfReplaceAll]); //Замена , на .
-    Str3 := StringReplace(Str2, '*', 'x', [rfReplaceAll]); //Замена * на x (Латиница)
-                //+++++++++++++++++++
-    Memo7.Lines.Add(Str3);
-    Memo15.Lines.Add(Ar1[E, 8] + '  ' + Ar1[E, 3]);
-    Inc(E);
-  end;
-
-     //-----------------------------------------------
-  Memo23.Lines.Clear;
-  Memo24.Lines.Clear;
-  E := 0;
-  for i := 0 to High(Ar3) do
-  begin
-    if Ar3[E, 3] = '' then
-      Break;
-
-      //+++++++++++++++++++
-    Str := Ar3[E, 11]; //Element
-    Res := Pos('ВГ', Str);
-    if Res <> 0 then
-    begin
-      Delete(Str, Res, 3);
-      Insert('VG_', Str, 1);
-    end;
-                //+++++++++++++++++++
-    Res := Pos('ТЕКИ', Str);
-    if Res <> 0 then
-    begin
-      Delete(Str, Res, 5);
-      Insert('TEKI_', Str, 1);
-    end;
-                //+++++++++++++++++++
-    Res := Pos('НИ', Str);
-    if Res <> 0 then
-    begin
-      Delete(Str, Res, 3);
-      Insert('NI_', Str, 1);
-    end;
-    Str := ConvertRus(Str);
-                //+++++++++++++++++++
-    Str1 := StringReplace(Str, '-', '_', [rfReplaceAll]); //Замена Пробела на _
-    Str2 := StringReplace(Str1, ',', '.', [rfReplaceAll]); //Замена , на .
-    Str3 := StringReplace(Str2, '*', 'x', [rfReplaceAll]); //Замена * на x (Латиница)
-                //+++++++++++++++++++
-    Memo23.Lines.Add(Str3);
-    Memo24.Lines.Add(Ar3[E, 8] + '  ' + Ar3[E, 3]);
-    Inc(E);
-  end;
-
-  Memo9.Clear;
-  Memo8.Clear;
-  for i := 0 to Memo7.Lines.Count - 1 do
-  begin
-    F := 0;
-    Put := Put_KTO;
-    Res := Pos('ОИТ', Put);
-    if Res <> 0 then
-      Delete(Put, Res, 3);
-    Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Воздушные\';
-    //Dir_Ser := Put + 'ОИТ\';
-    if Memo7.Lines.Strings[i] <> '' then
-      fileName := Memo7.Lines.Strings[i] + '.dxf';
-    if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
-      repeat
-        if FindFile.Name[1] = '.' then
-          continue;
-        fullFilePath := (Dir_Ser + FindFile.Name);
-        Memo9.Lines.Add(fullFilePath);
-        Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\10\';
-        CreateDir(Dir);
-        CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
-        Memo2.Lines.Add('CopyFile1  ' + fullFilePath);
-      until FindNext(FindFile) <> 0
-    else
-    begin
-      Memo8.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
-      Memo2.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
-    end;
-  end;
- //
-  for i := 0 to Memo23.Lines.Count - 1 do
-  begin
-    F := 0;
-    Put := Put_KTO;
-    Res := Pos('ОИТ', Put);
-    if Res <> 0 then
-      Delete(Put, Res, 3);
-    Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Воздушные\';
-    //Dir_Ser := Put + 'ОИТ\';
-    if Memo23.Lines.Strings[i] <> '' then
-      fileName := Memo23.Lines.Strings[i] + '.dxf';
-
-    if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
-      repeat
-        if FindFile.Name[1] = '.' then
-          continue;
-        fullFilePath := (Dir_Ser + FindFile.Name);
-        Memo9.Lines.Add(fullFilePath);
-        Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\12\';
-        CreateDir(Dir);
-        CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
-        Memo2.Lines.Add('CopyFile2  ' + fullFilePath);
-      until FindNext(FindFile) <> 0
-    else
-    begin
-      Memo8.Lines.Add(Memo24.Lines.Strings[i] + '  ' + fileName);
-      Memo2.Lines.Add(Memo24.Lines.Strings[i] + '  ' + fileName);
-    end;
-  end;
-
-  if Memo8.Lines.Strings[0] <> '' then
-  begin
-    Memo8.Lines.SaveToFile('123.txt');
-    Str := ExtractFileDir(ParamStr(0)) + '\123.txt';
-    ShellExecute(Form1.Handle, nil, PChar(Str), nil, nil, SW_SHOWNORMAL);
-  end;
-  ShellExecute(h, 'open', PWideChar(Dir), nil, nil, SW_SHOW);
 end;
 
 procedure TForm1.N96Click(Sender: TObject);
@@ -22435,7 +24209,7 @@ begin
   if Ii = 1 then
   begin
     Form1.ADOConnection1.Connected := False;
-    Form1.ADOConnection1.ConnectionString := 'Provider=SQLOLEDB.1;Packet Size = 4096;Password=111;Persist Security Info=True;User Id=testuser;' + 'Initial Catalog=MIASSCEH;Data Source=MSS-APP3;';
+    Form1.ADOConnection1.ConnectionString := 'Provider=SQLOLEDB.1;Packet Size = 4096;Password=111;Persist Security Info=True;User Id=testuser;' + 'Initial Catalog=MIASSCEH;Data Source=MI-SV-RD01;';
     Form1.ADOConnection1.Connected := True;
     Form1.ADOQuery1.SQL.Clear;
     Form1.ADOQuery1.SQL.Add('Select * from ' + Tab + ' Where ' + Pole + ' LIKE ' + #39 + '%' + Str_Poisk + '%' + #39 + ' ORDER BY Дата');
@@ -23749,13 +25523,13 @@ begin
     if Res <> 0 then
       Delete(Put, Res, 3);
     Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Воздушные\';
-    //Dir_Ser := Put + 'ОИТ\';
-    if Memo7.Lines.Strings[i] <> '' then
+
+    {if Memo7.Lines.Strings[i] <> '' then
       fileName := Memo7.Lines.Strings[i] + '.dxf';
     if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
       repeat
-        if FindFile.Name[1] = '.' then
-          continue;
+        //if FindFile.Name[1] = '.' then
+         // continue;
         fullFilePath := (Dir_Ser + FindFile.Name);
         Memo9.Lines.Add(fullFilePath);
        // Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\10\';
@@ -23763,6 +25537,22 @@ begin
         CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
         Memo2.Lines.Add('CopyFile1  ' + fullFilePath);
       until FindNext(FindFile) <> 0
+    else}
+    if Memo7.Lines.Strings[i] <> '' then
+      fileName := Memo7.Lines.Strings[i] + '.dxf';
+    fullFilePath := FileSearch(fileName, Dir_Ser);
+    if fullFilePath = '' then
+    begin
+       Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Пожарные';
+       fullFilePath := FileSearch(fileName, Dir_Ser);
+    end;
+    if fullFilePath <> '' then
+    begin
+      Memo9.Lines.Add(fullFilePath);
+      Memo2.Lines.Add('ДА  '+Dir_Ser+'\'+fullFilePath);
+      Memo2.Lines.Add(fullFilePath+ ' ДА  '+Dir + fileName);
+      CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
+    end
     else
     begin
       Memo8.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
@@ -23816,6 +25606,62 @@ if STAM_Er=1 then
   XL.Application.ActiveWorkBook.SaveAs(Dir + '\' + Dat1 + '.xls');
   XL.Visible := True;
 
+end;
+
+procedure TForm1.GetAllPath_CEH( Path: string;N:String );
+var SR:TSearchRec;
+FindRes:Integer;
+begin
+        Memo3.Lines.Clear;
+        FindRes:=FindFirst(Path+'*'+N+'*',faDirectory,SR);
+        While FindRes=0 do
+        begin
+               { if ((SR.Attr and faDirectory)=faDirectory) and
+                ((SR.Name='.')or(SR.Name='..')) then
+                begin
+                        FindRes:=FindNext(SR);
+                        Memo2.Lines.Add(SR.Name);
+                        Memo3.Lines.Add(SR.Name);
+                        Continue;
+                end;
+
+                if ((SR.Attr and faDirectory)=faDirectory) then //если найден каталог, то
+                begin
+                        GetAllPath_CEH(Path+SR.Name,'*'+N+'*'); //входим в процедуру поиска с параметрами текущего каталога + каталог, что мы нашли
+                        Memo2.Lines.Add(SR.Name);
+                        Memo3.Lines.Add(SR.Name);
+                        FindRes:=FindNext(SR); //после осмотра вложенного каталога мы продолжаем поиск в этом каталоге
+                        ShellExecute( 0, 'open',  PWideChar(Path+'\'+SR.Name), nil, nil, SW_SHOW);
+                        Continue;
+                end;  }
+
+                Memo2.Lines.Add(SR.Name);
+                Memo3.Lines.Add(SR.Name);
+                ShellExecute( 0, 'open',  PWideChar(Path+'\'+SR.Name), nil, nil, SW_SHOW);
+                FindRes:=FindNext(SR);
+        end;
+        FindClose(SR);
+end;
+
+procedure TForm1.N108Click(Sender: TObject);
+var BZ:string;
+begin
+    //StringGrid10.Cells[I_FN_ZAKAZCHIK, I + 1] := ADOQuery1.FieldByName('БЗ').AsString;
+    BZ:=StringGrid10.Cells[I_FN_ZAKAZCHIK,StringGrid10.Row];
+    KD(BZ);
+end;
+
+procedure TForm1.N109Click(Sender: TObject);
+begin
+    KD(ZSG.Cells[I_FN_KOL_ZAP + 29, ZSG.Row]);
+end;
+
+function TForm1.KD(BZ: string): string;
+var I:Integer;
+S,N:string;
+begin
+     GetAllPath_CEH('\\MSS-DC06\V\ОИТ\CKlapana\БЗ Клапана\',BZ);
+     //GetAllFilesBZ('V:\ОИТ\CKlapana\БЗ Клапана\',BZ);
 end;
 
 {function Material_Gib(Mater, Dlin_R, Shir_R, Dlin, Shir, Shir_Pol1, Shir_Pol2, Detal: string; KL, Kol_Gib, BB: Integer; IDGP: string; Kol_Det: Double): TResult;
@@ -24476,6 +26322,2313 @@ begin
   end;
 end;
 
+procedure TForm1.N111Click(Sender: TObject);
+begin
+
+           KD( StringGrid6.Cells[23,StringGrid6.Row ]);
+end;
+
+procedure TForm1.N112Click(Sender: TObject);
+begin
+    KD(ZCV.Cells[3,ZCV.Row]);
+end;
+
+procedure TForm1.N113Click(Sender: TObject);
+var
+  Str: string;
+begin
+//StringGrid10.Cells[I_FN_SGP + 2, I + 1] := ADOQuery1.FieldByName('IdГП').AsString;
+//StringGrid10.Cells[I_FN_SGP + 3, I + 1] := ADOQuery1.FieldByName('IdКО').AsString;
+  Str := FormatDateTime('mm.dd.yyyy', Now);
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' + #39 + Str + #39 + ' WHERE ([IdГП]=' + #39 +
+  SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  SGL.Cells[I_FN_SGP + 8, SGL.Row] + #39 + ')', ['KlapanaZap']) then
+    Exit;
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' + #39 + Str + #39 + ' WHERE ([IdГП]=' + #39 +
+  SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  SGL.Cells[I_FN_SGP + 8, SGL.Row]+ #39 + ')', ['ЗапускВозд']) then
+    Exit;
+end;
+
+procedure TForm1.N114Click(Sender: TObject);
+var
+  Str: string;
+begin
+//StringGrid10.Cells[I_FN_SGP + 2, I + 1] := ADOQuery1.FieldByName('IdГП').AsString;
+//StringGrid10.Cells[I_FN_SGP + 3, I + 1] := ADOQuery1.FieldByName('IdКО').AsString;
+  Str := 'NULL';
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' + Str+ ' WHERE ([IdГП]=' + #39 +
+  SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  SGL.Cells[I_FN_SGP + 8, SGL.Row] + #39 + ')', ['KlapanaZap']) then
+    Exit;
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' +  Str + ' WHERE ([IdГП]=' + #39 +
+  SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  SGL.Cells[I_FN_SGP + 8, SGL.Row]+ #39 + ')', ['ЗапускВозд']) then
+    Exit;
+end;
+
+procedure TForm1.N115Click(Sender: TObject);
+var
+  Str: string;
+begin
+//StringGrid10.Cells[I_FN_SGP + 2, I + 1] := ADOQuery1.FieldByName('IdГП').AsString;
+//StringGrid10.Cells[I_FN_SGP + 3, I + 1] := ADOQuery1.FieldByName('IdКО').AsString;
+  Str := 'NULL';
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' + Str + ' WHERE ([IdГП]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 3, StringGrid10.Row] + #39 + ')', ['Klapana']) then
+    Exit;
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' + Str + ' WHERE ([IdГП]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 3, StringGrid10.Row] + #39 + ')', ['Запуск']) then
+    Exit;
+end;
+
+procedure TForm1.N116Click(Sender: TObject);
+var
+  //XL2: Variant;
+  E, i, J, X, X1, X3, Res, Priv, Kol_Zap, Kount, DlinaI, Res_KPU, Sten_G, Sten_V, Res_Detal, hh, F2, Res1, Res2: Integer;
+  Vn_DAt, Dir, God, mes, Nom, Priv_Str, IDGP, OboznSh, Obozn, Dlina, Elem, Izdel, S, K, Mat: string;
+  ar: array[0..7750, 0..7] of string;
+  Ar1: array[0..1500, 0..13] of string;
+  Ar3: array[0..100, 0..13] of string;
+  Ar2: array of array of string;
+  SR: TSearchRec; // поисковая переменная
+  FindRes: Integer; // переменная для записи результата поиска
+  Str, Dir_Ser, Str1, Str2, Str3, fileName, fullFilePath, Put: string;
+  h: hwnd;
+  FindFile: TSearchRec;
+begin
+
+  Vn_DAt := FormatDateTime('mm.dd.yyyy', DateTimePicker1.Date);
+  God := FormatDateTime('yyyy', Now);
+  mes := FormatDateTime('mmmm', Now);
+  for X1 := 0 to SG212.RowCount - 1 do
+  begin
+    Nom := SG212.Cells[0, X1]; //ZSG.Cells[0, ZSG.Row];
+    if Nom = '' then
+      Continue;
+    if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (Номер=' + #39 + Nom + #39 + ') AND (Отмена IS NULL) Order By Заказ ', ['ЗапускВозд']) then
+      exit;
+    Kount := ADOQuery2.RecordCount;
+    if Form1.ADOQuery2.RecordCount <> 0 then
+    begin
+
+      for i := 0 to Form1.ADOQuery2.RecordCount - 1 do
+      begin
+        ar[i, 0] := Form1.ADOQuery2.FieldByName('Заказ').AsString;
+        ar[i, 1] := Form1.ADOQuery2.FieldByName('Кол во запущенных').AsString;
+        ar[i, 2] := Nom;
+        ar[i, 3] := Form1.ADOQuery2.FieldByName('Изделие').AsString;
+        ar[i, 4] := Form1.ADOQuery2.FieldByName('МодПривода').AsString;
+        ar[i, 5] := Form1.ADOQuery2.FieldByName('IdГП').AsString;
+        ar[i, 6] := Form1.ADOQuery2.FieldByName('IdКО').AsString;
+        Form1.ADOQuery2.Next;
+      end;
+    end;
+    for i := 0 to Kount do
+    begin                                   //  AND (Trumph='+#39+'True'+#39+')
+      if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (IDГП=' + #39 + ar[i, 5] + #39 + ') AND  (IdКО=' + #39 + ar[i, 6] + #39 + ') AND (ВидЭлемента=' + #39 + 'Детали' + #39 + ')  Order By Обозначение ', ['СпецифВозд']) then
+        exit;
+      if ar[i, 1] = '' then
+        Break;
+      Kol_Zap := StrToInt(ar[i, 1]);
+    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+      for J := 0 to ADOQuery2.RecordCount - 1 do
+      begin
+        Elem := Form1.ADOQuery2.FieldByName('Элемент').AsString;
+        OboznSh := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+        if not Form1.mkQuerySelect66(Form1.ADOQuery4, 'Select * from %s Where   (Обозначение=' + #39 + OboznSh + #39 + ') AND ((Фрезерный=' + #39 + 'True' + #39 + ') ) AND (Технолог=' + #39 + 'True' + #39 + ')  ', ['СпецифОбщая']) then
+          exit;
+        if ADOQuery4.RecordCount <> 0 then
+        begin
+
+          Mat := ADOQuery2.FieldByName('Материал').AsString;
+          Res := Pos('х10', Mat);
+          if Res <> 0 then
+          begin
+            K := ADOQuery2.FieldByName('Количество').AsString;
+            Ar1[X, 0] := IntToStr(Kol_Zap * StrToInt(K));
+            Obozn := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar1[X, 1] := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar1[X, 11] := ADOQuery2.FieldByName('Обозначение').AsString;
+            Ar1[X, 2] := ADOQuery2.FieldByName('Элемент').AsString;
+            Ar1[X, 3] := ar[i, 3]; //ADOQuery4.FieldByName('Изделие').AsString;
+            Ar1[X, 4] := ADOQuery2.FieldByName('Длина').AsString;
+            Ar1[X, 5] := ADOQuery2.FieldByName('Ширина').AsString;
+            Ar1[X, 6] := ADOQuery2.FieldByName('ДлинаРазв').AsString;
+            Ar1[X, 7] := ADOQuery2.FieldByName('ШиринаРазв').AsString;
+            Ar1[X, 8] := ADOQuery2.FieldByName('Заказ').AsString;
+            Ar1[X, 9] := ADOQuery2.FieldByName('IDГП').AsString;
+            Ar1[X, 10] := ADOQuery2.FieldByName('Материал').AsString;
+            Ar1[X, 12] := ADOQuery2.FieldByName('idКО').AsString;
+            Inc(X);
+          end
+          else
+          begin
+            K := ADOQuery2.FieldByName('Количество').AsString;
+            Ar3[X3, 0] := IntToStr(Kol_Zap * StrToInt(K));
+            Obozn := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar3[X3, 1] := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar3[X3, 11] := ADOQuery2.FieldByName('Обозначение').AsString;
+            Ar3[X3, 2] := ADOQuery2.FieldByName('Элемент').AsString;
+            Ar3[X3, 3] := ar[i, 3]; //ADOQuery4.FieldByName('Изделие').AsString;
+            Ar3[X3, 4] := ADOQuery2.FieldByName('Длина').AsString;
+            Ar3[X3, 5] := ADOQuery2.FieldByName('Ширина').AsString;
+            Ar3[X3, 6] := ADOQuery2.FieldByName('ДлинаРазв').AsString;
+            Ar3[X3, 7] := ADOQuery2.FieldByName('ШиринаРазв').AsString;
+            Ar3[X3, 8] := ADOQuery2.FieldByName('Заказ').AsString;
+            Ar3[X3, 9] := ADOQuery2.FieldByName('IDГП').AsString;
+            Ar3[X3, 10] := ADOQuery2.FieldByName('Материал').AsString;
+            Ar3[X3, 12] := ADOQuery2.FieldByName('idКО').AsString;
+            Inc(X3);
+          end;
+          Form1.ADOQuery4.Next;
+        end;
+        Form1.ADOQuery2.Next;
+      end;
+    end;
+  end;
+  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God;
+  CreateDir(Dir);
+  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\';
+  CreateDir(Dir);
+  //Dir := Put_KTO + '\Кондратьев\Programm\Pogar\' + God + '\' + mes + '\' + Nom + '\';
+  //CreateDir(Dir);
+  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\';
+  CreateDir(Dir);
+        //-----------------------------------------------
+  Memo7.Lines.Clear;
+  Memo15.Lines.Clear;
+  for i := 0 to High(Ar1) do
+  begin
+    if Ar1[E, 3] = '' then
+      Break;
+        //ВГ 410.00.01.002-400 меняем на ВГ 410.00.01.001-400  Гапова 21.01.2019
+    Izdel := ar[E, 3];
+    Obozn := Ar1[E, 11];
+                //+++++++++++++++++++
+    Str := Obozn; //Ar1[E, 11]; //Element
+    Res := Pos('ВГ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('VG_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('ТЕКИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 5);
+      Insert('TEKI_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('НИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('NI_', Str, 1);
+    end;
+    Str := ConvertRus(Str);
+                //+++++++++++++++++++
+    Str1 := StringReplace(Str, '-', '_', [rfReplaceAll]); //Замена Пробела на _
+    Str2 := StringReplace(Str1, ',', '.', [rfReplaceAll]); //Замена , на .
+    Str3 := StringReplace(Str2, '*', 'x', [rfReplaceAll]); //Замена * на x (Латиница)
+                //+++++++++++++++++++
+    Memo7.Lines.Add(Str3);
+    Memo15.Lines.Add(Ar1[E, 8] + '  ' + Ar1[E, 3]);
+    Inc(E);
+  end;
+
+     //-----------------------------------------------
+  Memo23.Lines.Clear;
+  Memo24.Lines.Clear;
+  E := 0;
+  for i := 0 to High(Ar3) do
+  begin
+    if Ar3[E, 3] = '' then
+      Break;
+
+      //+++++++++++++++++++
+    Str := Ar3[E, 11]; //Element
+    Res := Pos('ВГ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('VG_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('ТЕКИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 5);
+      Insert('TEKI_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('НИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('NI_', Str, 1);
+    end;
+    Str := ConvertRus(Str);
+                //+++++++++++++++++++
+    Str1 := StringReplace(Str, '-', '_', [rfReplaceAll]); //Замена Пробела на _
+    Str2 := StringReplace(Str1, ',', '.', [rfReplaceAll]); //Замена , на .
+    Str3 := StringReplace(Str2, '*', 'x', [rfReplaceAll]); //Замена * на x (Латиница)
+                //+++++++++++++++++++
+    Memo23.Lines.Add(Str3);
+    Memo24.Lines.Add(Ar3[E, 8] + '  ' + Ar3[E, 3]);
+    Inc(E);
+  end;
+
+  Memo9.Clear;
+  Memo8.Clear;
+  for i := 0 to Memo7.Lines.Count - 1 do
+  begin
+    F := 0;
+    Put := Put_KTO;
+    Res := Pos('ОИТ', Put);
+    if Res <> 0 then
+      Delete(Put, Res, 3);
+    Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Воздушные\';
+    //Dir_Ser := Put + 'ОИТ\';
+    if Memo7.Lines.Strings[i] <> '' then
+      fileName := Memo7.Lines.Strings[i] + '.dxf';
+    if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
+      repeat
+        if FindFile.Name[1] = '.' then
+          continue;
+        fullFilePath := (Dir_Ser + FindFile.Name);
+        Memo9.Lines.Add(fullFilePath);
+        Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\10\';
+        CreateDir(Dir);
+        CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
+        Memo2.Lines.Add('CopyFile1  ' + fullFilePath);
+      until FindNext(FindFile) <> 0
+    else
+    begin
+      Memo8.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
+      Memo2.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
+    end;
+  end;
+ //
+  for i := 0 to Memo23.Lines.Count - 1 do
+  begin
+    F := 0;
+    Put := Put_KTO;
+    Res := Pos('ОИТ', Put);
+    if Res <> 0 then
+      Delete(Put, Res, 3);
+    Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Воздушные\';
+    //Dir_Ser := Put + 'ОИТ\';
+    if Memo23.Lines.Strings[i] <> '' then
+      fileName := Memo23.Lines.Strings[i] + '.dxf';
+
+    if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
+      repeat
+        if FindFile.Name[1] = '.' then
+          continue;
+        fullFilePath := (Dir_Ser + FindFile.Name);
+        Memo9.Lines.Add(fullFilePath);
+        Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\12\';
+        CreateDir(Dir);
+        CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
+        Memo2.Lines.Add('CopyFile2  ' + fullFilePath);
+      until FindNext(FindFile) <> 0
+    else
+    begin
+      Memo8.Lines.Add(Memo24.Lines.Strings[i] + '  ' + fileName);
+      Memo2.Lines.Add(Memo24.Lines.Strings[i] + '  ' + fileName);
+    end;
+  end;
+
+  if Memo8.Lines.Strings[0] <> '' then
+  begin
+    Memo8.Lines.SaveToFile('123.txt');
+    Str := ExtractFileDir(ParamStr(0)) + '\123.txt';
+    ShellExecute(Form1.Handle, nil, PChar(Str), nil, nil, SW_SHOWNORMAL);
+  end;
+  ShellExecute(h, 'open', PWideChar(Dir), nil, nil, SW_SHOW);
+end;
+
+procedure TForm1.N117Click(Sender: TObject);
+var
+  //XL2: Variant;
+  E, i, J, X, X1, X3, Res, Priv, Kol_Zap, Kount, DlinaI, Res_KPU, Sten_G, Sten_V, Res_Detal, hh, F2, Res1, Res2: Integer;
+  Vn_DAt, Dir, God, mes, Nom, Priv_Str, IDGP, OboznSh, Obozn, Dlina, Elem, Izdel, S, K, Mat: string;
+  ar: array[0..7750, 0..7] of string;
+  Ar1: array[0..1500, 0..13] of string;
+  Ar3: array[0..100, 0..13] of string;
+  Ar2: array of array of string;
+  SR: TSearchRec; // поисковая переменная
+  FindRes: Integer; // переменная для записи результата поиска
+  Str, Dir_Ser, Str1, Str2, Str3, fileName, fullFilePath, Put: string;
+  h: hwnd;
+  FindFile: TSearchRec;
+begin
+
+  Vn_DAt := FormatDateTime('mm.dd.yyyy', DateTimePicker1.Date);
+  God := FormatDateTime('yyyy', Now);
+  mes := FormatDateTime('mmmm', Now);
+  for X1 := 0 to SG212.RowCount - 1 do
+  begin
+    Nom := SG212.Cells[0, X1]; //ZSG.Cells[0, ZSG.Row];
+    if Nom = '' then
+      Continue;
+    if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (Номер=' + #39 + Nom + #39 + ') AND (Отмена IS NULL) Order By Заказ ', ['ЗапускВозд']) then
+      exit;
+    Kount := ADOQuery2.RecordCount;
+    if Form1.ADOQuery2.RecordCount <> 0 then
+    begin
+
+      for i := 0 to Form1.ADOQuery2.RecordCount - 1 do
+      begin
+        ar[i, 0] := Form1.ADOQuery2.FieldByName('Заказ').AsString;
+        ar[i, 1] := Form1.ADOQuery2.FieldByName('Кол во запущенных').AsString;
+        ar[i, 2] := Nom;
+        ar[i, 3] := Form1.ADOQuery2.FieldByName('Изделие').AsString;
+        ar[i, 4] := Form1.ADOQuery2.FieldByName('МодПривода').AsString;
+        ar[i, 5] := Form1.ADOQuery2.FieldByName('IdГП').AsString;
+        ar[i, 6] := Form1.ADOQuery2.FieldByName('IdКО').AsString;
+        Form1.ADOQuery2.Next;
+      end;
+    end;
+    for i := 0 to Kount do
+    begin                                   //  AND (Trumph='+#39+'True'+#39+')
+      if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (IDГП=' + #39 + ar[i, 5] + #39 + ') AND  (IdКО=' + #39 + ar[i, 6] + #39 + ') AND (ВидЭлемента=' + #39 + 'Детали' + #39 + ')  Order By Обозначение ', ['СпецифВозд']) then
+        exit;
+      if ar[i, 1] = '' then
+        Break;
+      Kol_Zap := StrToInt(ar[i, 1]);
+    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+      for J := 0 to ADOQuery2.RecordCount - 1 do
+      begin
+        Elem := Form1.ADOQuery2.FieldByName('Элемент').AsString;
+        OboznSh := Form1.ADOQuery2.FieldByName('Обозначение').AsString;
+        if not Form1.mkQuerySelect66(Form1.ADOQuery4, 'Select * from %s Where   (Обозначение=' + #39 + OboznSh + #39 + ') AND ((Фрезерный=' + #39 + 'True' + #39 + ') ) AND (Технолог=' + #39 + 'True' + #39 + ')  ', ['СпецифОбщая']) then
+          exit;
+        if ADOQuery4.RecordCount <> 0 then
+        begin
+
+          Mat := ADOQuery2.FieldByName('Материал').AsString;
+          Res := Pos('х10', Mat);
+          if Res <> 0 then
+          begin
+            K := ADOQuery2.FieldByName('Количество').AsString;
+            Ar1[X, 0] := IntToStr(Kol_Zap * StrToInt(K));
+            Obozn := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar1[X, 1] := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar1[X, 11] := ADOQuery2.FieldByName('Обозначение').AsString;
+            Ar1[X, 2] := ADOQuery2.FieldByName('Элемент').AsString;
+            Ar1[X, 3] := ar[i, 3]; //ADOQuery4.FieldByName('Изделие').AsString;
+            Ar1[X, 4] := ADOQuery2.FieldByName('Длина').AsString;
+            Ar1[X, 5] := ADOQuery2.FieldByName('Ширина').AsString;
+            Ar1[X, 6] := ADOQuery2.FieldByName('ДлинаРазв').AsString;
+            Ar1[X, 7] := ADOQuery2.FieldByName('ШиринаРазв').AsString;
+            Ar1[X, 8] := ADOQuery2.FieldByName('Заказ').AsString;
+            Ar1[X, 9] := ADOQuery2.FieldByName('IDГП').AsString;
+            Ar1[X, 10] := ADOQuery2.FieldByName('Материал').AsString;
+            Ar1[X, 12] := ADOQuery2.FieldByName('idКО').AsString;
+            Inc(X);
+          end
+          else
+          begin
+            K := ADOQuery2.FieldByName('Количество').AsString;
+            Ar3[X3, 0] := IntToStr(Kol_Zap * StrToInt(K));
+            Obozn := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar3[X3, 1] := ADOQuery4.FieldByName('Обозначение').AsString;
+            Ar3[X3, 11] := ADOQuery2.FieldByName('Обозначение').AsString;
+            Ar3[X3, 2] := ADOQuery2.FieldByName('Элемент').AsString;
+            Ar3[X3, 3] := ar[i, 3]; //ADOQuery4.FieldByName('Изделие').AsString;
+            Ar3[X3, 4] := ADOQuery2.FieldByName('Длина').AsString;
+            Ar3[X3, 5] := ADOQuery2.FieldByName('Ширина').AsString;
+            Ar3[X3, 6] := ADOQuery2.FieldByName('ДлинаРазв').AsString;
+            Ar3[X3, 7] := ADOQuery2.FieldByName('ШиринаРазв').AsString;
+            Ar3[X3, 8] := ADOQuery2.FieldByName('Заказ').AsString;
+            Ar3[X3, 9] := ADOQuery2.FieldByName('IDГП').AsString;
+            Ar3[X3, 10] := ADOQuery2.FieldByName('Материал').AsString;
+            Ar3[X3, 12] := ADOQuery2.FieldByName('idКО').AsString;
+            Inc(X3);
+          end;
+          Form1.ADOQuery4.Next;
+        end;
+        Form1.ADOQuery2.Next;
+      end;
+    end;
+  end;
+  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God;
+  CreateDir(Dir);
+  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\';
+  CreateDir(Dir);
+  //Dir := Put_KTO + '\Кондратьев\Programm\Pogar\' + God + '\' + mes + '\' + Nom + '\';
+  //CreateDir(Dir);
+  Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\';
+  CreateDir(Dir);
+        //-----------------------------------------------
+  Memo7.Lines.Clear;
+  Memo15.Lines.Clear;
+  for i := 0 to High(Ar1) do
+  begin
+    if Ar1[E, 3] = '' then
+      Break;
+        //ВГ 410.00.01.002-400 меняем на ВГ 410.00.01.001-400  Гапова 21.01.2019
+    Izdel := ar[E, 3];
+    Obozn := Ar1[E, 11];
+                //+++++++++++++++++++
+    Str := Obozn; //Ar1[E, 11]; //Element
+    Res := Pos('ВГ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('VG_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('ТЕКИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 5);
+      Insert('TEKI_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('НИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('NI_', Str, 1);
+    end;
+    Str := ConvertRus(Str);
+                //+++++++++++++++++++
+    Str1 := StringReplace(Str, '-', '_', [rfReplaceAll]); //Замена Пробела на _
+    Str2 := StringReplace(Str1, ',', '.', [rfReplaceAll]); //Замена , на .
+    Str3 := StringReplace(Str2, '*', 'x', [rfReplaceAll]); //Замена * на x (Латиница)
+                //+++++++++++++++++++
+    Memo7.Lines.Add(Str3);
+    Memo15.Lines.Add(Ar1[E, 8] + '  ' + Ar1[E, 3]);
+    Inc(E);
+  end;
+
+     //-----------------------------------------------
+  Memo23.Lines.Clear;
+  Memo24.Lines.Clear;
+  E := 0;
+  for i := 0 to High(Ar3) do
+  begin
+    if Ar3[E, 3] = '' then
+      Break;
+
+      //+++++++++++++++++++
+    Str := Ar3[E, 11]; //Element
+    Res := Pos('ВГ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('VG_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('ТЕКИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 5);
+      Insert('TEKI_', Str, 1);
+    end;
+                //+++++++++++++++++++
+    Res := Pos('НИ', Str);
+    if Res <> 0 then
+    begin
+      Delete(Str, Res, 3);
+      Insert('NI_', Str, 1);
+    end;
+    Str := ConvertRus(Str);
+                //+++++++++++++++++++
+    Str1 := StringReplace(Str, '-', '_', [rfReplaceAll]); //Замена Пробела на _
+    Str2 := StringReplace(Str1, ',', '.', [rfReplaceAll]); //Замена , на .
+    Str3 := StringReplace(Str2, '*', 'x', [rfReplaceAll]); //Замена * на x (Латиница)
+                //+++++++++++++++++++
+    Memo23.Lines.Add(Str3);
+    Memo24.Lines.Add(Ar3[E, 8] + '  ' + Ar3[E, 3]);
+    Inc(E);
+  end;
+
+  Memo9.Clear;
+  Memo8.Clear;
+  for i := 0 to Memo7.Lines.Count - 1 do
+  begin
+    F := 0;
+    Put := Put_KTO;
+    Res := Pos('ОИТ', Put);
+    if Res <> 0 then
+      Delete(Put, Res, 3);
+    Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Пожарные\';
+    //Dir_Ser := Put + 'ОИТ\';
+    if Memo7.Lines.Strings[i] <> '' then
+      fileName := Memo7.Lines.Strings[i] + '.dxf';
+    if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
+      repeat
+        if FindFile.Name[1] = '.' then
+          continue;
+        fullFilePath := (Dir_Ser + FindFile.Name);
+        Memo9.Lines.Add(fullFilePath);
+        Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\10\';
+        CreateDir(Dir);
+        CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
+        Memo2.Lines.Add('CopyFile1  ' + fullFilePath);
+      until FindNext(FindFile) <> 0
+    else
+    begin
+      Memo8.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
+      Memo2.Lines.Add(Memo15.Lines.Strings[i] + '  ' + fileName);
+    end;
+  end;
+ //
+  for i := 0 to Memo23.Lines.Count - 1 do
+  begin
+    F := 0;
+    Put := Put_KTO;
+    Res := Pos('ОИТ', Put);
+    if Res <> 0 then
+      Delete(Put, Res, 3);
+    Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Пожарные\';
+    //Dir_Ser := Put + 'ОИТ\';
+    if Memo23.Lines.Strings[i] <> '' then
+      fileName := Memo23.Lines.Strings[i] + '.dxf';
+
+    if FindFirst(Dir_Ser + fileName, faDirectory, FindFile) = 0 then
+      repeat
+        if FindFile.Name[1] = '.' then
+          continue;
+        fullFilePath := (Dir_Ser + FindFile.Name);
+        Memo9.Lines.Add(fullFilePath);
+        Dir := Put_KTO + '\Кондратьев\Programm\Vozd\' + God + '\' + mes + '\' + Nom + 'Фрезерный\12\';
+        CreateDir(Dir);
+        CopyFile(PWideChar(fullFilePath), PWideChar(Dir + fileName), False);
+        Memo2.Lines.Add('CopyFile2  ' + fullFilePath);
+      until FindNext(FindFile) <> 0
+    else
+    begin
+      Memo8.Lines.Add(Memo24.Lines.Strings[i] + '  ' + fileName);
+      Memo2.Lines.Add(Memo24.Lines.Strings[i] + '  ' + fileName);
+    end;
+  end;
+
+  if Memo8.Lines.Strings[0] <> '' then
+  begin
+    Memo8.Lines.SaveToFile('123.txt');
+    Str := ExtractFileDir(ParamStr(0)) + '\123.txt';
+    ShellExecute(Form1.Handle, nil, PChar(Str), nil, nil, SW_SHOWNORMAL);
+  end;
+  ShellExecute(h, 'open', PWideChar(Dir), nil, nil, SW_SHOW);
+end;
+
+function Tipe(var Klap, S1: string): TResult;
+var
+  I: Integer;
+  Pos_Isp, Pos_Privod, Pos_Dop, Pos_Sn, Pos_Ram, Pos_Flan, Pos_Flan1, Izdel, Tip, N2, Pos1, Pos2, Pos3,Pos3_1, Pos4, Pos5: string;
+  Res, Res1, Res_Kpd, Res_KPU, Res_Ger, Res_KED,Res_Reglan, Kol, R_25, A, B, Kol_Klap, F1, F2, F0,DD: Integer;
+begin
+  Izdel := Klap;
+
+  Tip := '';
+  Result.TIP_SL1 := '';
+  Result.TIP_IN2 := 0;
+  Result.TIP_IN3 := 0;
+  Result.TIP_IN1 := 0;
+  Result.TIP_IN4 := 0;
+  R_25 := Pos('р25', Izdel);
+  if R_25 <> 0 then
+    Result.TIP_IN4 := 1
+  else
+    Result.TIP_IN4 := 0;
+
+  Res := Pos('КПД', Izdel);
+  if Res <> 0 then
+    Tip := 'КПД';
+
+  Res := Pos('КЭД', Izdel);
+  if Res <> 0 then
+    Tip := 'КЭД';
+
+  Res := Pos('КПУ', Izdel);
+  if Res <> 0 then
+    Tip := 'КПУ';
+
+  res := Pos('ГЕРМИК-ДУ', IZdel);
+  if Res <> 0 then
+    Tip := 'ГЕРМИК-ДУ';
+
+  Res_Kpd := Pos('КПД', Izdel);
+  Res_Kpu := Pos('КПУ', Izdel);
+  Res_Ger := Pos('ГЕРМИК-ДУ', Izdel);
+  Res_KED := Pos('КЭД', Izdel);
+  Res_Reglan:= Pos('РЕГЛАН', Izdel);
+   //KL - тип клапана 0-КПУ 1-КПД, 2-Гермик-ДУ, 3-КЭД, 4-
+  if Res_Kpu <> 0 then
+    Result.TIP_IN1 := 0;
+  if Res_Kpd <> 0 then
+    Result.TIP_IN1 := 1;
+  if Res_Ger <> 0 then
+    Result.TIP_IN1 := 2;
+  if Res_KED <> 0 then
+    Result.TIP_IN1 := 3;
+  if (Res_Kpu = 0) and (Res_Kpd = 0) and (Res_Ger = 0) and (Res_KED = 0) then
+    Result.TIP_IN1 := 4;
+   //Клапан КЭД-03-900*350-2*ф-MВ220-сн-р25-0
+   //Клапан КПУ-1Н-О-Н-600*400-2*ф-MB220-сн-0-0-0-0-0-0
+   //Клапан КПД-4-01-500*500-1*ф-ЭМП220-вн-0-0
+  if Res_KED <> 0 then
+  begin
+    Res_KED:=Pos('Клапан',Izdel);
+    if Res_KED <> 0 then
+    begin
+    Kol := (Kol_klap);
+    Res := Pos(' ', Izdel);
+    Delete(Izdel, 1, Res); // Клапан
+
+    end;
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos1 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos2 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('*', Izdel);
+    A := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    B := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('*', Izdel);
+    Pos_Flan := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Flan1 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Privod := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Sn := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Dop := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Pos_Ram := Izdel;
+        //========================================
+
+  end;
+        //++++++++++++++++++++++++++++++++
+  if Res_Kpu <> 0 then
+  begin
+   // Res := Pos(' ', Izdel);
+    //Delete(Izdel, 1, Res);
+        //======================================== KPU
+    Res := Pos('-', Izdel);
+    Pos1 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //======================================== 1 H
+    Res := Pos('-', Izdel);
+    N2 := Copy(Izdel, 1, 2);
+    Pos2 := Copy(Izdel, 1, 1);
+    Pos3 := Copy(Izdel, 2, 1);
+    Delete(Izdel, 1, Res);
+    DD:=Pos('ДД-',Izdel);
+    if DD<>0 then
+   Begin
+      Res := Pos('-', Izdel);
+      Pos3_1 := Copy(Izdel, 1, Res -1);
+      Delete(Izdel, 1, Res);
+
+      {Res := Pos('-', Izdel);
+      Pos3_1 :=Pos3_1+ Copy(Izdel, 1, Res-1 );
+      Delete(Izdel, 1, Res);  }
+   End;
+        //========================================
+        //Клапан КПУ-1Н-О-Н-600*400-2*ф-MB220-сн-0-0-0-0-0-0
+        //Клапан КПД-4-01-500*500-1*ф-ЭМП220-вн-0-0
+        //Клапан КЭД-03-900*350-2*ф-MВ220-сн-р25-0
+        //Клапан КПУ-3-ДД-Р-Н-600*400-2*ф-MB24-сн-кк-0-0-0-0-0
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos4 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos5 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+        //Клапан КПУ-2Н-О-Н-200-2*ф-MB220-T-сн-0-0-0-2*100-0-0
+        //Клапан КПУ-1Н-О-Н-200*200-2*ф-MB220-сн-0-с-0-0-0-0
+    Res := Pos('-', Izdel); //Проверка на круглый если -
+    if Res > 5 then //200*200- Квадрат
+    begin
+      Res := Pos('*', Izdel);
+      A := StrToInt(Copy(Izdel, 1, Res - 1));
+      Delete(Izdel, 1, Res);
+                //========================================
+      Res := Pos('-', Izdel);
+      B := StrToInt(Copy(Izdel, 1, Res - 1));
+      Delete(Izdel, 1, Res);
+    end
+    else
+    begin
+      Res := Pos('-', Izdel);
+      if Res=0 then
+      Exit;
+      A := StrToInt(Copy(Izdel, 1, Res - 1));
+      Delete(Izdel, 1, Res);
+      B := 0;
+    end;
+  end;
+   //++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   //Клапан ГЕРМИК-ДУ-710*710-2*ф-ЭМП220-сн-0-0-
+   //Клапан ГЕРМИК-ДУ-Д-710*710-2*ф-ЭМП220-сн-0-0-
+  if Res_Ger <> 0 then
+  begin
+    Res := Pos(' ', Izdel);
+    Res1 := Pos(' _', Izdel);
+    if (Res1=0) and (Res<>0) then
+
+    Delete(Izdel, 1, Res);
+        //======================================== ГЕРМИК
+    Res := Pos('-', Izdel);
+    Pos1 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //======================================== ДУ
+    Res := Pos('-', Izdel);
+    Delete(Izdel, 1, Res);
+        //710*710-
+        //Д-710*710-
+    Res := Pos('*', Izdel);
+    Res1 := Pos('-', Izdel);
+    if (Res1 < Res) then
+      Delete(Izdel, 1, Res1);
+        //========================================
+    Res := Pos('*', Izdel);
+    A := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    B := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+  end;
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Res_KPD := Pos('КПД', Izdel);
+  if Res_KPD <> 0 then
+  begin
+    Kol := Kol_Klap;
+    Res := Pos(' ', Izdel);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos1 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos2 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Isp := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('*', Izdel);
+    A := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    B := StrToInt(Copy(Izdel, 1, Res - 1));
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('*', Izdel);
+    Pos_Flan := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Flan1 := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Privod := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Sn := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Res := Pos('-', Izdel);
+    Pos_Dop := Copy(Izdel, 1, Res - 1);
+    Delete(Izdel, 1, Res);
+        //========================================
+    Pos_Ram := Izdel;
+        //========================================
+
+  end;
+
+  Izdel := Klap;
+  Res_Kpd := Pos('КПД', Izdel);
+  Res_Kpu := Pos('КПУ', Izdel);
+  if Res_KED <> 0 then
+    Res_Kpd := 1;
+  F2 := Pos('2*ф', Izdel);
+  F1 := Pos('1*ф', Izdel);
+  F0 := Pos('0*ф', Izdel);
+   //IDGP:=SG1.Cells[8, i];
+  if F2 <> 0 then
+    Tip := Tip + '-' + Pos2 + Pos3 + '-' + IntToStr(A) + '*' + IntToStr(B) + '-2*ф';
+  if F1 <> 0 then
+    Tip := Tip + '-' + Pos2 + Pos3 + '-' + IntToStr(A) + '*' + IntToStr(B) + '-1*ф';
+  if F0 <> 0 then
+    Tip := Tip + '-' + Pos2 + Pos3 + '-' + IntToStr(A) + '*' + IntToStr(B) + '-0*ф';
+  // Клапан РЕГЛАН-1710-1655-12-01-У3
+  if (Res_Reglan<>0) then
+  begin
+    Res:=Pos('РЕГЛАН',Izdel);
+    if Res<>0 then
+    Begin
+      Delete(Izdel,1,Res+6);
+      //1710-1655-12-01-У3    Klap
+      Res:=Pos('-',Izdel);
+      if (Res<>0) and (Res<=5) then
+      begin
+        A:=StrToInt(Copy(Izdel,1,Res-1));
+       Delete(Izdel,1,Res);
+      end
+      Else//   'Клапан РЕГЛАН-1210*400-Н-1*LF230+S2A-УХЛ2'
+      begin
+        Res:=Pos('*',Izdel);
+        if (Res<>0) then
+        begin
+          A:=StrToInt(Copy(Izdel,1,Res-1));
+          Delete(Izdel,1,Res);
+        end;
+      end;
+      //1655-12-01-У3
+      Res:=Pos('-',Izdel);
+      if Res<>0 then
+      begin
+        B:=StrToInt(Copy(Izdel,1,Res-1));
+       Delete(Izdel,1,Res);
+      end;
+    end;
+  end;
+  Result.TIP_SL1 := Tip;
+  Result.TIP_IN2 := A;
+  Result.TIP_IN3 := B;
+end;
+
+function Material_Gib1(Oboz,Mater, Dlin_R, Shir_R, Dlin, Shir, Shir_Pol1, Shir_Pol2, Detal: string; KL, Kol_Gib, BB: Integer; IDGP: string; Kol_Det: Double): TResult;
+var
+  I: integer;
+  Res_List, Res_Tol, Srav, Klap, Res_Lop, Ugol, KolGib, Res_Resh,Resh_RON, Lenta, Kol_LOP_I, B, Res: Integer;
+  Mat,Mat1, Tol_S, NC_S, NC_S2, NC_S3, Dlin_S, Shir_S, GP, Det,S,B_S: string;
+  Res_Tol55, Tol, NC, NC2, NC3, ShirI, DlinI, DlinD, C, Kol_Ed,
+  Razmet_KPU, Kol_lop, A_Lenta, T, DlinII, SH1, SH2,F1,F2: Double;
+  Flag_Razb_Klapana,Cel,Des,Nerg,K,Kol_Stv,C1: Integer;
+begin
+        //+ ++++++++++++++++++++++++++++++++++++++++++
+        //Лист ДПРНМ 1,0х600х1500 Л63 ГОСТ 931-90  'Круг 15-h11 ГОСТ 7417-75 /12Х18Н10Т ГОСТ 5949-75'
+  Mat := Mater;
+  Mat1:='';
+  //KL - тип клапана 0-КПУ 1-КПД, 2-Гермик-ДУ, 3-КЭД, 4-
+  if Shir_R = '' then
+    Shir_R := '0';
+  if Dlin_R = '' then
+    Dlin_R := '0';
+  Dlin_S := Dlin_R;
+  Shir_S := Shir_R;
+  K:=0;
+  ShirI := StrToFloat(Shir_R);
+  DlinI := StrToFloat(Dlin_R);
+        //===============
+  if Shir_Pol1 = '' then //До первого отверстия
+    Sh1 := 0
+  else
+    Sh1 := StrToFloat(Shir_Pol1);
+        //----------------------
+  if Shir_Pol2 = '' then  //ШАГ ()150
+    Sh2 := 0
+  else
+    Sh2 := StrToFloat(Shir_Pol2);
+        //====================
+  Klap := KL;
+  if kl = 0 then
+    I := 0;
+  GP := IDGP;
+  Det := Detal;
+
+  KolGib := Kol_Gib;
+  Kol_Ed := Kol_Det;
+  Result.MAT_G_Do1 := 0;
+  Result.MAT_G_Do2 := 0;
+  Result.MAT_G_Do3 := 0;
+  B := BB;
+  {Res_List := Pos('ФЭЗ', Mat);
+  if Res_List <> 0 then
+    Mat := '1';
+  Res_List := Pos('Круг', Mat);
+  if Res_List <> 0 then
+    Mat := '1';
+  Res_List := Pos('ДПРНМ', Mat);
+  if Res_List <> 0 then
+    Mat := '1';
+  Res := Pos('Шпилька', Mat);
+  if (Mat = '') or (Res <> 0) then
+    Mat := '0'; }
+
+     Res:=Pos('0,55х',Mat);
+     if Res<>0 then
+     Mat1:='0,55';
+     //
+     Res:=Pos('0,7х',Mat);
+     if Res<>0 then
+     Mat1:='0,7';
+     //
+     Res:=Pos('1,0х',Mat);
+     if Res<>0 then
+     Mat1:='1,0';
+     //
+     Res:=Pos('1,2х',Mat);
+     if Res<>0 then
+     Mat1:='1,2';
+     //
+     Res:=Pos('1,5х',Mat);
+     if Res<>0 then
+     Mat1:='1,5';
+     //
+    Res:=Pos('2,0х',Mat);
+     if Res<>0 then
+     Mat1:='2,0';
+     //
+    Res:=Pos('3,0х',Mat);
+     if Res<>0 then
+     Mat1:='3,0';
+     //
+     if Mat1='' then
+     Mat1:='1';
+
+    Tol := StrToFloat(StringReplace(Mat1, ',', '.', [rfReplaceAll, rfIgnoreCase]));
+
+  if Tol <= 1 then
+    Tol_S := '0.55';
+  if (Tol > 1) and (Tol <= 2) then
+    Tol_S := '2';
+  if Tol > 2 then
+    Tol_S := '3';
+  if DlinI <= 2000 then
+    DlinIi := 2000
+  else
+    DlinIi := 3000;
+        //
+  if DlinI <= 1000 then
+    DlinII := 1000
+  else
+    DlinII := 1100;
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Form1.Conn_Klap := Connect_Miass_Klap.Create();
+  Lenta := Pos('Лента уплотнительная', Det);
+  Res_Resh := Pos('Решетка жалюзийная', Det);
+  Resh_RON := Pos('Решетка РОН', Det);
+  Res_Lop := AnsiCompareStr('Корпус лопатки', Det);
+  Nerg:=  Pos('Нерж', Det);
+        //KL - тип клапана 0-КПУ 1-КПД, 2-Гермик-ДУ, 3-КЭД, 4-
+  if Res_Lop = 0 then
+  begin
+                //КПУ
+    if KL = 0 then
+      Result.MAT_G_Do1 := 0.034*0.85 * 2;
+     // Result.MAT_G_Do1 := 0.034 * 2;
+    if KL = 2 then
+    begin
+                //Гермик ДУ
+                //Таблица №3+Таблица "66
+   // if not Form1.mkQuerySelect1(Form1.ADOQuery2,
+      if not Form1.Conn_Klap.mkQuerySelect('Select * from %s Where ([№]=' + #39 + '66' + #39 +
+      ')  And ([Длина]=' + #39 + FloatToStr(DlinII) + #39 + ')', ['[Резка Гибка]']) then
+        exit;
+      NC_S := (Form1.Conn_Klap.AQuery.FieldByName('Норма').AsString);
+      if NC_S = '' then
+        NC := 0
+      else
+        NC := StrToFloat(NC_S) + StrToFloat(Form1.Conn_Klap.AQuery.FieldByName('Высота').AsString);
+
+      if not Form1.Conn_Klap.mkQuerySelect('Select * from %s Where ([№]=' + #39 + '3' + #39 +
+      ') And ([Толщина]=' + #39 + (Tol_s) + #39 + ') And ([Длина]=' + #39 + FloatToStr(DlinIi) + #39 + ') And ([Высота]=' + #39 + IntToStr(KolGib) + #39 + ')', ['[Резка Гибка]']) then
+      exit;
+      NC_S := (Form1.Conn_Klap.AQuery.FieldByName('Норма').AsString);
+      if NC_S = '' then
+      NC :=NC+ 0
+      else
+      NC := NC+StrToFloat(NC_S);
+      Result.MAT_G_Do1 := NC;
+    end;
+  end;
+        //===========================
+  if (Lenta = 0) and (Res_Resh = 0) then
+  begin
+    if Shir_R = '' then
+      Shir_R := '0';
+    if Dlin_R = '' then
+      Dlin_R := '0';
+    ShirI := StrToFloat(Shir_R);
+    DlinI := StrToFloat(Dlin_R);
+    DlinII := StrToFloat(Dlin_R);
+
+    if DlinI <= 2000 then
+      DlinIi := 2000
+    else
+      DlinIi := 3000;
+    if KolGib>13 then
+       KolGib:=13;
+    if KolGib>10 then
+    begin
+       F1:=KolGib/10;
+       Cel:=Trunc(F1);
+       F2:=SimpleRoundTo(Frac(F1),-2);
+       S:=FloatToStr(F2);
+       Res:=Pos('.',S);
+       Delete(S,1,Res);
+       Des:=StrToInt(S);
+    end;
+    if not Form1.Conn_Klap.mkQuerySelect('Select * from %s Where ([№]=' + #39 + '3' + #39 + ') And ([Толщина]=' + #39 + (Tol_s) + #39 + ') And ([Длина]=' + #39 + FloatToStr(DlinIi) + #39 + ') And ([Высота]=' + #39 + IntToStr(KolGib) + #39 + ')', ['[Резка Гибка]']) then
+      exit;
+    NC_S := (Form1.Conn_Klap.AQuery.FieldByName('Норма').AsString);
+    if NC_S = '' then
+      NC := 0
+    else
+      NC := StrToFloat(NC_S);
+      if Nerg<>0 then
+      NC:=NC*1.2;
+    Result.MAT_G_Do1 := NC;
+  end;
+  //================================================================
+  KolGib := Kol_Gib;
+  if Res_Resh <> 0 then
+  begin
+    if not Form1.Conn_Klap.mkQuerySelect('Select * from %s Where ([№]=' + #39 + '9' + #39 + ') And ([Толщина]=' + #39 + IntToStr(KolGib) + #39 + ')', ['[Резка Гибка]']) then
+      exit;
+    NC_S := (Form1.Conn_Klap.AQuery.FieldByName('Высота').AsString);
+    if NC_S = '' then
+      NC := 0
+    else
+      NC := StrToFloat(NC_S);
+                //Result.MAT_G_Do1:=NC;
+                //++++++++++++
+    NC_S2 := (Form1.Conn_Klap.AQuery.FieldByName('Длина').AsString);
+    if NC_S2 = '' then
+      NC2 := 0
+    else
+      NC2 := StrToFloat(NC_S2);
+    Result.MAT_G_Do1 := NC + NC2;
+  end;
+  //================================================================
+  if Resh_RON <> 0 then
+  begin
+      KolGib := Kol_Gib;
+      NC:=0;
+      ////
+      ///   ВГ 475.00.00.001-700*1200-50
+      Res:=Pos('-',Oboz);
+      if Res<>0 then
+      begin
+          Delete(Oboz,1,Res); //700*1200-50
+      end;
+      //
+      Res := Pos('*', Oboz);
+      if Res<>0 then
+      begin
+        DlinI := StrToFloat(Copy(Oboz, 1, Res - 1) );
+        Delete(Oboz, 1, Res);   //1200-50
+      end;
+      //
+      Res := Pos('-', Oboz);
+      if Res<>0 then
+      begin
+        ShirI := StrToFloat(Copy(Oboz, 1, Res - 1) );
+        Delete(Oboz, 1, Res);   //50
+      end
+      Else
+      Begin
+        //
+        Res := Pos('*', Oboz);
+        if Res<>0 then
+        begin
+          ShirI := StrToFloat(Copy(Oboz, 1, Res - 1) );
+          Delete(Oboz, 1, Res);   //50
+        end;
+      End;
+      C1:=StrToInt(Oboz);
+      Kol_Stv:=Trunc((ShirI+2*C1-57)/40);
+     // ShirI := StrToFloat(Shir_R); //B   нужно считать кол створок   =(B2+2*C2-57)/40
+     // DlinI := StrToFloat(Dlin_R); //A
+    //
+    if (DlinI<900) then
+      begin
+        B_S:='1250';
+        K:=1;
+        NC:=(KolGib*0.006)*1.105;
+      end;
+    //
+    if (DlinI>=900) then
+      begin
+        B_S:='1250';
+        K:=1;
+        NC:=((KolGib*0.006)+0.034)*1.105;
+      end;
+      Result.MAT_G_Do1 := NC ;
+
+  end;
+  //================================================================
+  Res_Lop := AnsiCompareStr('Стенка лопатки', Det);
+  if Res_Lop = 0 then
+  begin
+    Kol_lop := Kol_Ed;
+  end;
+  Lenta := Pos('Лента уплотнительная', Det);
+        //Лента уплотнительная ?? 050.00.00.001-600
+  if Lenta <> 0 then
+  begin
+    if Shir = '' then
+      Shir := '0';
+    if Dlin = '' then
+      Dlin := '0';
+    Dlin_S := Dlin;
+    Shir_S := Shir;
+
+    ShirI := StrToFloat(Shir);
+    DlinI := StrToFloat(Dlin);
+    if Shir_Pol1 = '' then //До первого отверстия
+      Sh1 := 0
+    else
+      Sh1 := StrToFloat(Shir_Pol1);
+          //----------------------
+    if Shir_Pol2 = '' then  //ШАГ ()150
+      Sh2 := 0
+    else
+      Sh2 := StrToFloat(Shir_Pol2);
+
+                //B:=StrToInt(Dlin);
+    DlinI := StrToFloat(Dlin);
+
+    if DlinI <= 2000 then
+      DlinIi := 2000
+    else
+      DlinIi := 3000;
+                //KL - тип клапана 0-КПУ 1-КПД, 2-Гермик-ДУ, 3-КЭД, 4-
+
+
+    if not Form1.Conn_Klap.mkQuerySelect('Select * from %s Where ([№]=' + #39 + '3' + #39 + ') And ([Толщина]=' + #39 + (Tol_s) + #39 + ') And ([Длина]=' + #39 + FloatToStr(DlinIi) + #39 + ') And ([Высота]=' + #39 + IntToStr(KolGib) + #39 + ')', ['[Резка Гибка]']) then
+      exit;
+    NC_S := (Form1.Conn_Klap.AQuery.FieldByName('Норма').AsString);
+    if NC_S = '' then
+      NC := 0
+    else
+      NC := StrToFloat(NC_S);
+    Result.MAT_G_Do1 := NC;
+    DlinD := StrToFloat(Dlin);
+    A_Lenta := (Sh1); // До Первого отверстия(DlinD-(KOl_Lop/2-1)*150)/2;
+    Result.MAT_G_Do2 := A_Lenta;
+    if Sh2 <> 0 then
+
+      Kol_lop := (DlinD - ((Sh1 * 2))) / (Sh2) + 1
+    else
+      Kol_lop :=1;
+    Result.MAT_G_Do2 :=Kol_lop ;//Кол Отверст
+    T := 0.043 + 0.007 * (KOl_Lop / 2) * Kol_ed + 0.007 * Kol_Ed; //Пробивка отверстий в одной ленте
+    Result.MAT_G_Do3 := T;
+    Result.MAT_G_Do1 := NC+T;
+  end;
+end;
+
+procedure TForm1.Specif_Na_Izdel(Izdel1,GP,KO,Zak1,BZ1,Dat1,Kod1,Tab,Tab2: String;BZ_L1,BLF_L:Boolean;AA:Integer);
+var
+  I, J, Y,Row: Integer;
+  Parent, Vid, Elem, Kol_Ed, Kol, EI, Obozn, Typ, Kateg, Prim, Diam, Massa, Dlina, Shir,
+   Dlin_Raz, Shir_Raz, Obem, Kol_Gib, Kanban, Mater, Kompl_Ved, Trumpf, Nog, Uglorub, Gibka,
+   Prokat, Pila, Naim, Naim_Izdel, Grupp, Rout, Varian, Str2, IDGP,IDGP_S,IDKO_S,Dat_S, Izdel, Zak, Dat,
+    Dir, Dir1, Dir2, Data, Kod, God, Dat2, Mes, IDKO, SH1, SH2, Naim1: string;
+  ID, Res, Kol_I, Kod_I, Pos_STAM, Detal, Res_Sh, Richag: Integer;
+  XL, Xl1: Variant;
+  H: Hwnd;
+  Res_Sbor, Res_Lop, Res_Lop1, Proch_Privod, Res_K, Res_el, Res_priv: Integer;
+  Elem_S, ShirS, DlinS, ss, Izdelie, Obozn_Sh,bz,Str0,str1,str3,D: string;
+  Result: Tresult;
+  Tip,Kol2,Put,Put_KTO,Dir_Ser,fileName,fullFilePath,Ob1,Pokr,Oboz: string;
+  Dlin_I,Dlin_I_Raz,Shir_I, SH1_D, SH2_D: Double;
+  kl, A, B, R_25, Res_KED, Res_KPD, Pos_Zvez, Gib,
+  Res_Teki_269,Res_Reglan,Res_Lop_UVK,Res_Sten_Sredn,Lop//Айгуль 07.06.2017
+  ,Det,Res_lopast,xxx: Integer;
+  NC_G1, NC_G2, NC_G3, NC_P1, NC_P2, NC_P3, NC_N1, NC_N2, NC_N3,Kol_II,Kol_II2: Double;
+  NC_Gib1, NC_Gib2, NC_Gib3: Double;
+Tulpan,Tulpan2,Shag,Res_Teki_269_11,Res_Teki_269_12,xx,yy,RON,id1,El_Mag1,El_mag2,WW,PP,len_KVR,G,proch,os,vtul,Trub,n:Integer;
+BZ_1,BLF:Boolean;
+begin
+
+    A:=0;
+    B:=0;
+    IDGP :=GP;
+    IDKO :=KO;
+    Zak:=Zak1;
+    BZ:=BZ1;
+    Dat:=Dat1;
+    Kod:=Kod1;
+    Kod_I:=StrToInt(kod1);
+    BZ_1:=BZ_L1;
+    BLF :=BLF_L;
+    Izdelie:=Izdel1;
+    Naim:=Izdel1;
+    Izdel:=Izdel1;
+    Result := Tipe(Izdel, ss);
+    KL := Result.Tip_IN1;
+        //Тип клапана
+    Tip := Result.Tip_SL1;
+    A := Result.Tip_IN2;
+    B := Result.Tip_IN3;
+    R_25 := Result.Tip_IN4;
+    Res:=Pos('РЭА-',Izdelie);
+    Conn_Klap := Connect_Miass_Klap.Create();
+    if Res=0 then
+    if Tip = '' then
+    begin
+      Delete(Izdelie, 1, 6);
+      Tip := Izdelie;
+    end;
+    Memo1.Lines.Add(ADOConnection1.ConnectionString);
+    try
+      ADOConnection1.Connected := True;
+    except
+      MessageDlg('Не удалось подключиться к SQL базе данных в Москве!', mtError, [mbOk], 0);
+      Close;
+    end;
+    {function dbo.[pdm_ПолучСпецКП](@s nvarchar(256), @route int, @variant int, @group int)
+Функция возвращает полные спецификации изделия из PDM по его обозначению или индексу.
+Если параметр @route = 1, то еще определятся маршрут (Trumph, Ножницы, Гибка, Прокатка).
+Если параметр @variant = 0, то вариант поиска по обозначению, иначе - по индексу.
+Если параметр @group = 0, то результирующие данные не сгруппированны и актуальны ID и Parent.}
+
+    Memo1.Lines.Add('ADOConnection1.Connection=True');
+    Izdel := StringReplace(Naim, 'СТАМ ', 'СТАМ', [rfReplaceAll, rfIgnoreCase]);
+    {В ПДМ к названию некоторых клапанов пристегивают БЗ BZ_1 технолог ставит галку я пристегиваю БЗ}
+    if BZ_1 then      //Клапан ГЕРМИК-С-0925-1135-Н-П-12-01-00-У3_Б/З
+    Begin
+         //Izdel:='Старый_'+Izdel;
+        Izdel:='Миасс '+Izdel;
+       //Izdel:=Izdel+'_'+bz;
+       //Izdel:=Izdel+'_Б/З';
+    End;
+    //
+    if BLF then      //Клапан ГЕРМИК-С-0925-1135-Н-П-12-01-00-У3_Б/З
+    Begin
+         //Izdel:='Старый_'+Izdel;
+        Izdel:='BLF_'+Izdel;
+       //Izdel:=Izdel+'_'+bz;
+       //Izdel:=Izdel+'_Б/З';
+    End;
+    SyStem.SysUtils.FormatSettings.DecimalSeparator :=('.');
+    Izdel:=Izdel;
+    ADOQuery1.Close;
+    ADOQuery1.SQL.Clear;
+    Res := Pos('ГЕРМИК-Р-0392-0420-К-С-24-00-00-У3_231002572-ОПР', Izdel);
+      if Res <> 0 then                    //  Клапан ГЕРМИК-Р-0392-0420-К-С-24-00-00-У3 231002572-ОПР
+        Izdel := StringReplace(Izdel, '_', ' ', [rfReplaceAll]); //Замена Пробела на _
+
+        Str2 := 'EXEC	[dbo].[ПолучСпецКП] @date1 = ' + #39 + Izdel + #39 + ',@s =' +
+        #39 + '1'+ #39 +',@s1 =' +
+        #39 + '0'+ #39+',@s2 =' +
+        #39 + '0'+ #39;
+    ADOQuery1.SQL.Add(Str2);
+
+    ADOQuery1.Open;
+    Memo2.Lines.Add(Naim);
+    Memo2.Lines.Add(IntToStr(ADOQuery1.RecordCount));
+                          //Защита ЗОНТ-СТАМ-71-Ц
+                        //Защита Дефлектор-35-Ц
+    Kol_i := ADOQuery1.RecordCount;                        //ЗАЩИТА
+     if (Kol_I = 0) and ((Kod_I = 610) or (Kod_I = 600) or (Kod_I = 700)) then
+    begin
+      Naim := Izdel1;
+      Izdel:= Izdel1;
+      ADOQuery1.Close;
+      ADOQuery1.SQL.Clear;       //
+
+      Str2 := 'EXEC	[dbo].[ПолучСпецКП] @date1 = ' + #39 + Naim + #39 + ',@s =' +
+        #39 + '1'+ #39 +',@s1 =' +
+        #39 + '0'+ #39+',@s2 =' +
+        #39 + '0'+ #39;
+      ADOQuery1.SQL.Add(Str2);
+      ADOQuery1.Open;
+      Memo2.Lines.Add(Naim);
+      Memo2.Lines.Add(IntToStr(ADOQuery1.RecordCount));
+    end;
+    //
+    if (Kol_I = 0) and ((Kod_I = 310) or (Kod_I = 320)) then
+    begin
+      Naim := Izdel1;
+      Izdel:= Izdel1;
+      Res :=Pos('РРА',Izdel);
+      if Res<>0 then
+      Naim := 'Заслонка ' + Izdel;
+      if Res=0 then //  'РФ '+
+      Naim := 'Клапан ' + Izdel;
+      if BZ_1 then      //Клапан ГЕРМИК-С-0925-1135-Н-П-12-01-00-У3_Б/З
+      Begin
+        // Naim:='Старый_'+Naim;
+       Naim:='Миасс '+Naim;
+       //Izdel:=Izdel+'_'+bz;
+       //Izdel:=Izdel+'_Б/З';
+      End;
+      ADOQuery1.Close;
+      ADOQuery1.SQL.Clear;       //
+
+            Str2 := 'EXEC	[dbo].[ПолучСпецКП] @date1 = ' + #39 + Naim + #39 + ',@s =' +
+        #39 + '1'+ #39 +',@s1 =' +
+        #39 + '0'+ #39+',@s2 =' +
+        #39 + '0'+ #39;
+      ADOQuery1.SQL.Add(Str2);
+      ADOQuery1.Open;
+      Memo2.Lines.Add(Naim);
+      Memo2.Lines.Add(IntToStr(ADOQuery1.RecordCount));
+
+    end;
+        //+++++++++++++++
+    if (Kol_I = 0) and (Kod_I <> 310) AND  (Kod_I<> 320) and (Kod_I <> 600) and (Kod_I <> 610) and (Kod_I <> 770)  and (Kod_I <> 700) and (Kod_I <> 710) then
+    begin
+      Naim := Izdel; //'Клапан '+
+      Res := Pos('Клапан', Naim);
+      if Res <> 0 then
+        Delete(Naim, 1, 7);
+
+      ADOQuery1.Close;
+      ADOQuery1.SQL.Clear;       //
+        Str2 := 'EXEC	[dbo].[ПолучСпецКП] @date1 = ' + #39 + Naim + #39 + ',@s =' +
+        #39 + '1'+ #39 +',@s1 =' +
+        #39 + '0'+ #39+',@s2 =' +
+        #39 + '0'+ #39;
+      ADOQuery1.SQL.Add(Str2);
+      Memo2.Lines.Add(Str2);
+      ADOQuery1.Open;
+      Memo2.Lines.Add(Naim);
+      Memo2.Lines.Add(IntToStr(ADOQuery1.RecordCount));
+    end;
+    //WW:=0;
+    for I := 0 to ADOQuery1.RecordCount - 1 do
+    begin
+
+      PB2.Position := 0;
+      PB2.Min := 0;
+      PB2.Max := ADOQuery1.RecordCount - 1;
+      ID := ADOQuery1.FieldByName('ID').AsInteger;
+
+      Parent := ADOQuery1.FieldByName('Parent').AsString;
+      Vid := ADOQuery1.FieldByName('ВидЭлемента').AsString;
+      Elem := ADOQuery1.FieldByName('Элемент').AsString;
+      //Memo4.Lines.Add(Elem);
+      Elem := StringReplace(Elem, '%', 'проц.', [rfReplaceAll]);
+
+      Mater := ADOQuery1.FieldByName('Материал').AsString;
+     // Memo4.Lines.Add(Mater);
+      Mater := StringReplace(Mater, '%', 'проц.', [rfReplaceAll]);
+
+      Kol_ed := ADOQuery1.FieldByName('КолНаЕд').AsString;
+      if Kol_ed = '' then
+        Kol_ed := '0';
+      Kol := ADOQuery1.FieldByName('Количество').AsString;
+      if Kol = '' then
+        Kol := '0';
+      try
+      KOL_II:=StrToFloat(Kol);
+      except
+       KOL_II:=0;
+      end;
+      EI := ADOQuery1.FieldByName('ЕИ').AsString;
+      Obozn := ADOQuery1.FieldByName('Обозначение').AsString;
+      //Memo4.Lines.Add(Obozn);
+      Obozn := StringReplace(Obozn, '%', 'проц.', [rfReplaceAll]);
+      Oboz:=Obozn;
+      if (Kol_I = 0) and ((Kod_I = 610) or (Kod_I = 600) or (Kod_I = 700)) then
+      begin
+          Detal := Pos('Сборочные единицы', Vid);
+          Res_Teki_269:=Pos('Клапан',Elem);
+          if (Detal <> 0) and (Res_Teki_269<>0) then
+          begin
+                if not Conn_Klap.mkQueryUpdate( 'UPDATE %s SET [Клапан]=' +
+                #39 +Obozn + #39 +
+                ',[КолКлап]=' +
+                #39 +Kol + #39 +' WHERE [IdГП]=' + #39 + IDGP + #39,
+                ['СТАМ']) then
+            Exit;
+          end;
+      end;
+      Typ := ADOQuery1.FieldByName('Тип').AsString;
+      Pokr := ADOQuery1.FieldByName('Покрытие').AsString;
+      Kateg := ADOQuery1.FieldByName('Категория').AsString;
+      Prim := ADOQuery1.FieldByName('Примечание').AsString;
+      Diam := ADOQuery1.FieldByName('Диаметр').AsString;
+      if Diam = '' then
+        Diam := '0';
+      Massa := ADOQuery1.FieldByName('Масса').AsString;
+
+      Dlina := ADOQuery1.FieldByName('Длина').AsString;
+      if Dlina = '' then
+        Dlina := '0';
+      Dlin_i := StrToFloat(Dlina);
+
+      Obem := ADOQuery1.FieldByName('Объем').AsString;
+      Kol_Gib := ADOQuery1.FieldByName('КолГибов').AsString;
+      if Kol_Gib = '' then
+        Kol_Gib := '0';
+      Gib := StrToInt(Kol_Gib);
+      Richag := Pos('Рычаг', Elem);
+      if Richag <> 0 then
+        Gib := StrToInt(Kol_Gib) + 2;
+      Kol_Gib := IntToStr(Gib);
+      Res_KED := Pos('КЭД', Naim);
+      Res_KPD := Pos('КПД', Naim);
+      Detal := Pos('Детали', Vid);
+      Pos_Zvez := Pos('*', Obozn);
+      Res:=Pos('Стенка горизонтальная',Elem);
+      if ((Pos_Zvez <> 0) and (Res=0))  and (Detal <> 0) and ((Kod_I = 310) or (Kod_I = 320))
+      and ((Res_KED <> 0) or (Res_KPD <> 0)) then  //Для КЭД
+              // и КПД меняем длину и ширину местами
+      begin
+        Dlina := ADOQuery1.FieldByName('Ширина').AsString;
+        if Dlina = '' then
+          Dlina := '0';
+        Shir := ADOQuery1.FieldByName('Длина').AsString;
+        if Shir = '' then
+          Shir := '0';
+        Dlin_Raz := ADOQuery1.FieldByName('ШиринаРазв').AsString;
+        if Dlin_Raz = '' then
+          Dlin_Raz := '0';
+        Shir_Raz := ADOQuery1.FieldByName('ДлинаРазв').AsString;
+        if Shir_Raz = '' then
+          Shir_Raz := '0';
+
+      end
+      else
+      begin
+
+        Dlina := ADOQuery1.FieldByName('Длина').AsString;
+        if Dlina = '' then
+          Dlina := '0';
+        Dlin_I:=StrToFloat(Dlina);
+
+        Shir := ADOQuery1.FieldByName('Ширина').AsString;
+        if Shir = '' then
+          Shir := '0';
+        Dlin_Raz := ADOQuery1.FieldByName('ДлинаРазв').AsString;
+        if Dlin_Raz = '' then
+          Dlin_Raz := '0';
+        Dlin_I_Raz:=StrToFloat(Dlin_Raz);
+
+        Shir_Raz := ADOQuery1.FieldByName('ШиринаРазв').AsString;
+        if Shir_Raz = '' then
+          Shir_Raz := '0';
+        //Res_Teki_269,Res_Reglan,Res_Lop_UVK,Res_Sten_Sredn//Айгуль 07.06.2017
+        Res_Reglan:=Pos('РЕГЛАН',Naim);
+        Res_Teki_269:=Pos('ТЕКИ 296.01.00.003',Obozn);
+        Res_Lop_UVK:=Pos('Лопатка УВК',Elem);
+        Res_Sten_Sredn:=Pos('Стенка средняя',Elem);
+        Lop:=Pos('Лопатка',Elem);
+        //Res_Teki_269,Res_Reglan,Res_Lop_UVK,Res_Sten_Sredn//Айгуль 07.06.2017 ФЭЗ.П.0043-
+        //Решетка РОН
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        {if (Res_Reglan<>0) AND (Lop<>0) Then    //НАИЛЯ 18.07.2024
+        Begin
+          //Dlin_I:=Dlin_I-5;
+          Dlin_I_Raz:=Dlin_I_Raz-3;
+          Dlin_Raz:=FloatToStr(Dlin_I_Raz);
+        end;
+
+        if (A>=1000) and (Res_Lop_UVK<>0) and (Res_Reglan<>0) then
+        begin
+             Obozn:='PS 100TT-'+Dlina;
+             Mater :='PS 100TT-'+Dlina ;
+        end;
+
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Лопатка (УВК)
+        Res_Reglan:=Pos('КВР',Naim);      //НАИЛЯ 18.07.2024
+        Lop:= Pos('-Н-',Naim);
+        Res_Lop_UVK:=Pos('ВГ 068.04.00.001-',Obozn);
+        if  (Res_Lop_UVK<>0) and (Res_Reglan<>0) and (Lop<>0) then
+        begin
+             Obozn:='PS 100TT-'+Dlina;
+             Mater :='PS 100TT-'+Dlina ;
+        end; }
+
+
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        if (Res_Sten_Sredn <>0) and ((Dlin_I>=1000) and (Dlin_I<1500)) then
+        begin
+          Dlin_I:=Dlin_I+2;
+          Dlin_I_Raz:=Dlin_I_Raz+2;
+          Dlina:=FloatToStr(Dlin_I);
+          Dlin_Raz:=FloatToStr(Dlin_I_Raz);
+        end;
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        if (Res_Sten_Sredn <>0) and ((Dlin_I>1500)) then
+        begin
+          Dlin_I:=Dlin_I+3;
+          Dlin_I_Raz:=Dlin_I_Raz+3;
+          Dlina:=FloatToStr(Dlin_I);
+          Dlin_Raz:=FloatToStr(Dlin_I_Raz);
+        end;
+        if (Res_Teki_269<>0 ) then
+        begin
+          Gib:=5;
+          Kol_Gib:=IntToStr(Gib);
+        end;
+        //Мотвеенко 17,03,23
+        Res_Lop_UVK:=Pos('ВГ 1123.07.00.001-',Obozn);
+        if (Res_Lop_UVK<>0 ) then
+        begin
+          Gib:=14;
+          Kol_Gib:=IntToStr(Gib);
+        end;
+
+        if (Res_Teki_269_12<>0) then
+        begin
+          Dlin_I:=(B-1);
+          Dlin_I_Raz:=Dlin_I;
+          Dlina:=FloatToStr(Dlin_I);
+          Dlin_Raz:=FloatToStr(Dlin_I_Raz);
+        end;
+
+        Res_Teki_269_11:=Pos('ТЕКИ 269.15.00.011-',Obozn);
+        Res_Teki_269_12:=Pos('ТЕКИ 269.15.00.012-',Obozn);
+        if (Res_Teki_269_11<>0) or (Res_Teki_269_12<>0) then
+        begin
+              Mater:=StringReplace(Mater, '3,0', '2,0', [rfReplaceAll, rfIgnoreCase]) ;
+        end;
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        Res_Teki_269_11:=Pos('ИН 000.15.00.011-',Obozn);
+        Res_Teki_269_12:=Pos('ИН 000.15.00.012-',Obozn);
+        if (Res_Teki_269_11<>0) or (Res_Teki_269_12<>0) then
+        begin
+              Mater:=StringReplace(Mater, '3,0', '2,0', [rfReplaceAll, rfIgnoreCase]) ;
+        end;
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Res_Teki_269,Res_Reglan,Res_Lop_UVK,Res_Sten_Sredn//Айгуль 07.06.2017
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      end;
+      Kanban := ADOQuery1.FieldByName('Канбан').AsString;
+
+      Kompl_Ved := ADOQuery1.FieldByName('КомплВед').AsString;
+      Trumpf := ADOQuery1.FieldByName('Trumph').AsString;
+      Nog := ADOQuery1.FieldByName('Ножницы').AsString;
+      Uglorub := ADOQuery1.FieldByName('Углоруб').AsString;
+      Gibka := ADOQuery1.FieldByName('Гибка').AsString;
+      Prokat := ADOQuery1.FieldByName('Прокатка').AsString;
+      Pila := ADOQuery1.FieldByName('Пила').AsString;
+      SH1 := ADOQuery1.FieldByName('ШиринаПолки1').AsString;
+      SH2 := ADOQuery1.FieldByName('ШиринаПолки2').AsString;
+      if SH1 = '' then
+        Sh1 := '0';
+      if SH2 = '' then
+        Sh2 := '0';
+      //++++++++++++++++++++++++++++++++++  СпецифОбщая
+
+      proch:=Pos('Прочие изделия',Vid);
+      os   :=Pos('Ось',Elem);
+      vtul   :=Pos('Втулка',Elem);
+      if (proch<>0) and ((os<>0) or (vtul<>0)) then
+      begin
+        Vid:='Детали';
+        if Obozn='' then
+        Obozn:=Elem;
+      end;
+     // Trub   :=Pos('Втулка',Elem);
+      Detal := Pos('Детали', Vid);
+      if (Detal <> 0) then
+      begin
+        if Mater='' then
+        Mater:='1';
+
+       // StringGrid9.RowCount:= StringGrid9.RowCount+1;
+
+        Result := Material_Gib1(Oboz,Mater, Dlin_Raz,
+        Shir_raz, Dlina, Shir, SH1, SH2, Elem, KL, StrToInt(Kol_Gib), B, IDGP, StrToFloat(Kol));
+        NC_G1 := Result.MAT_G_Do1; //Н\Ч из таб 3
+        NC_G2 := Result.MAT_G_Do2; // //Кол Отверст
+        NC_G3 := Result.MAT_G_Do3; //Н/Ч +Выруб отвер
+        //----------------------------------------
+        Result := Material_Pila(Mater, (Dlin_Raz), (Shir_raz), (sh1), Elem, KL, R_25, B, IDGP, StrToFloat(Kol));
+        NC_P1 := Result.MAT_Pila_Do1;
+        NC_P2 := Result.MAT_Pila_Do2;
+
+        Result := Material(Mater, (Dlin_Raz), (Shir_raz), (sh1), Elem, KL, IDGP, StrToFloat(Kol));
+        NC_N1 := Result.MAT_Do1;
+        NC_N2 := Result.MAT_Do2; //Углоруб;
+
+        if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Н\ЧГибка]=' + #39 + FloatToStr(Nc_G1) + #39 +
+        ',[Н\чПила]=' + #39 + FloatToStr(Nc_P1) + #39 + ',[Н\чПилаЛенточная]=' + #39 + FloatToStr(Nc_P2) + #39 +                                              //,[ШиринаИ]=' + #39 + FloatToStr(Nc_G2) + #39 + '
+        ',[Н\чНожницы]=' + #39 + FloatToStr(Nc_N1) + #39 + ',[Н\чУглоруб]=' + #39 + FloatToStr(Nc_N2) + #39 + ',[ДлинаИ]=' + #39 + FloatToStr(Nc_G3) + #39 + ',[Длина]=' + #39 + Dlina + #39 + ',[Ширина]=' + #39 + Shir + #39 + ',[ДлинаРазв]=' + #39 + Dlin_Raz + #39 + ',[ШиринаРазв]=' + #39 + Shir_Raz + #39 +
+          ',[Количество]=' + #39 + Kol + #39 + ',[КолГибов]=' + #39 + Kol_Gib + #39 + ',[Материал]=' + #39 + Mater + #39 +
+          ',[ШиринаПолки1]=' + #39 + SH1 + #39 + ',[ШиринаПолки2]=' + #39 + SH2 + #39 + ',[Диаметр]=' + #39 + Diam + #39 +
+          ' WHERE [Обозначение]=' + #39 + Obozn + #39, ['СпецифОбщая']) then
+          Exit;
+
+      end;
+      //+++++++++++++++++++++++++++++++++++++++++==============================СТАМ
+      if (Kod_I=600) OR (Kod_I=610)  OR (Kod_I=700) then
+      begin
+        //================================
+          if not Conn_Klap.mkQuerySelect3('Select * from %s  Where (IdГП='
+          + #39 + IDGP + #39 +
+          ') AND (Элемент=' + #39 + Elem + #39 + ') AND (Обозначение='
+          + #39 + Obozn + #39 + ')  ', ['СпецифСТАМ']) then
+          exit;
+
+        if Conn_Klap.AQuery3.RecordCount<> 0 then
+        begin
+             Kol2 := Conn_Klap.AQuery3.FieldByName('Количество').AsString;
+            if Kol2 = '' then
+            Kol2 := '0';
+            try
+              KOL_II2:=StrToFloat(Kol2);
+            except
+              KOL_II2:=0;
+            end;
+             if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Количество]=+' + #39 + FloatToStr(Kol_II+Kol_II2)+#39+
+             ' WHERE ([IdГП]=' + #39 + IDGP + #39+') AND (Элемент=' + #39 + Elem + #39 + ') AND (Обозначение=' + #39 +
+             Obozn + #39+')', ['СпецифСТАМ']) then
+            Exit;
+        end;
+        if Conn_Klap.AQuery3.RecordCount= 0 then
+        begin
+        id1:=Pos('Теплоизоляционная минераловатная плита', Elem );
+        if id1<>0 then
+        Elem:='Теплоизоляционная плита' ;
+          //====================================
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39,
+          ['СТАМ']) then
+          Exit;
+
+          ShirS := StringReplace(Shir, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          DlinS := StringReplace(Dlina, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          if not Conn_Klap.mkQueryInsert('Insert Into %s ' + '(ID, Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' + '[Тип], [Категория], [Примечание], [Диаметр], [Масса], [Длина],   [Ширина], [ДлинаРазв],' +
+          '[ШиринаРазв], [Объем], [КолГибов], [Канбан], [Материал], [КомплВед], [Trumph], [Ножницы],' +
+          '[Углоруб], [Гибка], [Прокатка], [Пила],IdГП,Изделие,Заказ,Дата,IDКо,[ДлинаИ],[ШиринаИ],[ШиринаПолки1],[ШиринаПолки2],Покрытие) ' +
+          'Values (%s,%s,%s,%s,%s,%s,%s,%s,' +
+            '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s ,%s,%s)',
+            ['СпецифСТАМ', #39 + IntToStr(ID) + #39, #39 + Parent + #39, #39 + Vid + #39, #39 + Elem + #39, #39 + Kol_Ed + #39, #39 + Kol + #39, #39 + EI + #39, #39 + Obozn + #39, #39 + Typ + #39, #39 + Kateg + #39, #39 + Prim + #39, #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39, #39 + Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Kanban + #39, #39
+            + Mater + #39, #39 + Kompl_Ved + #39, #39 + Trumpf + #39, #39 + Nog + #39, #39 + Uglorub + #39, #39 + Gibka + #39, #39 + Prokat + #39, #39 + Pila + #39, #39 + IDGP + #39, #39 + Naim + #39, #39 + Zak + #39, #39 + ConvertDat1(Dat) + #39, #39 + IDKO + #39, #39 + DlinS + #39, #39 + ShirS + #39, #39 + SH1 + #39, #39 + SH2 + #39 , #39 + Pokr + #39]) then
+            exit;
+        end;
+      end;
+      //+++++++++++++++++++++++++++++++++++СТАМ КОНЕЦ
+      //+++++++++++++++++++++++++++++++++++++++++==============================ЛЮК
+      if (Kod_I=770) or (Kod_I=700)    then
+      begin
+
+        //================================
+          if not Conn_Klap.mkQuerySelect3('Select * from %s  Where (IdГП='
+          + #39 + IDGP + #39 +
+          ') AND (Элемент=' + #39 + Elem + #39 + ') AND (Обозначение='
+          + #39 + Obozn + #39 + ')  ', ['СпецифЛЮК']) then
+          exit;
+
+        if Conn_Klap.AQuery3.RecordCount<> 0 then
+        begin
+             Kol2 := Conn_Klap.AQuery3.FieldByName('Количество').AsString;
+            if Kol2 = '' then
+            Kol2 := '0';
+            try
+              KOL_II2:=StrToFloat(Kol2);
+            except
+              KOL_II2:=0;
+            end;
+             if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Количество]=+' + #39 + FloatToStr(Kol_II+Kol_II2)+#39+
+             ' WHERE ([IdГП]=' + #39 + IDGP + #39+') AND (Элемент=' + #39 + Elem + #39 + ') AND (Обозначение=' + #39 +
+             Obozn + #39+')', ['СпецифЛЮК']) then
+            Exit;
+        end;
+        if Conn_Klap.AQuery3.RecordCount= 0 then
+        begin
+          //====================================
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39,
+          ['ЛЮК']) then
+          Exit;
+
+          ShirS := StringReplace(Shir, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          DlinS := StringReplace(Dlina, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          if not Conn_Klap.mkQueryInsert('Insert Into %s ' + '(ID, Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' + '[Тип], [Категория], [Примечание], [Диаметр], [Масса], [Длина],   [Ширина], [ДлинаРазв],' +
+          '[ШиринаРазв], [Объем], [КолГибов], [Канбан], [Материал], [КомплВед], [Trumph], [Ножницы],' +
+          '[Углоруб], [Гибка], [Прокатка], [Пила],IdГП,Изделие,Заказ,Дата,IDКо,[ДлинаИ],[ШиринаИ],[ШиринаПолки1],[ШиринаПолки2],Покрытие) ' +
+          'Values (%s,%s,%s,%s,%s,%s,%s,%s,' +
+            '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s ,%s,%s ,%s)',
+            ['СпецифЛЮК', #39 + IntToStr(ID) + #39, #39 + Parent + #39, #39 + Vid + #39, #39 + Elem + #39, #39 + Kol_Ed + #39, #39 + Kol + #39, #39 + EI + #39, #39 + Obozn + #39, #39 + Typ + #39, #39 + Kateg + #39, #39 + Prim + #39, #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39, #39 + Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Kanban + #39, #39
+            + Mater + #39, #39 + Kompl_Ved + #39, #39 + Trumpf + #39, #39 + Nog + #39, #39 + Uglorub + #39, #39 + Gibka + #39, #39 + Prokat + #39, #39 + Pila + #39, #39 + IDGP + #39, #39 + Naim + #39, #39 + Zak + #39, #39 + ConvertDat1(Dat) + #39, #39 + IDKO + #39, #39 + DlinS + #39, #39 + ShirS + #39, #39 + SH1 + #39, #39 + SH2 + #39 , #39 + Pokr + #39]) then
+            exit;
+        end;
+              //====================================
+        Proch_Privod := Pos('Электропривод', Elem);
+        if Proch_Privod <> 0 then
+        begin
+          Elem_S := Elem;
+          Res_K := Pos(' ', Elem_S);
+          Delete(Elem_S, 1, Res_K);
+        end;
+        if (Proch_Privod <> 0) then
+        begin
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
+          ',МодПривода=' + #39 + Elem_S + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['ЛЮК']) then
+            Exit;
+        end;
+        //====================================
+        if (Proch_Privod <> 0)   then
+        begin
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem_S + #39 +
+          ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['ЗапускЛЮК']) then
+            Exit;
+        end;
+      end;
+      //+++++++++++++++++++++++++++++++++++ЛЮК КОНЕЦ
+      //+++++++++++++++++++++++++++++++++++++++++==============================710
+      if (Kod_I=710)   then
+      begin
+
+        //================================
+          if not Conn_Klap.mkQuerySelect3('Select * from [%s]  Where (IdГП='
+          + #39 + IDGP + #39 +
+          ') AND (Элемент=' + #39 + Elem + #39 + ') AND (Обозначение='
+          + #39 + Obozn + #39 + ')  ', ['Специф710']) then
+          exit;
+
+        if Conn_Klap.AQuery3.RecordCount<> 0 then
+        begin
+             Kol2 := Conn_Klap.AQuery3.FieldByName('Количество').AsString;
+            if Kol2 = '' then
+            Kol2 := '0';
+            try
+              KOL_II2:=StrToFloat(Kol2);
+            except
+              KOL_II2:=0;
+            end;
+             if not Conn_Klap.mkQueryUpdate('UPDATE [%s] SET [Количество]=+' + #39 + FloatToStr(Kol_II+Kol_II2)+#39+
+             ' WHERE ([IdГП]=' + #39 + IDGP + #39+') AND (Элемент=' + #39 + Elem + #39 + ') AND (Обозначение=' + #39 +
+             Obozn + #39+')', ['Специф710']) then
+            Exit;
+        end;
+        if Conn_Klap.AQuery3.RecordCount= 0 then
+        begin
+          //====================================
+          if not Conn_Klap.mkQueryUpdate('UPDATE [%s] SET [Статус]=' + #39 + '1' + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39,
+          ['710']) then
+          Exit;
+
+          ShirS := StringReplace(Shir, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          DlinS := StringReplace(Dlina, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          if not Conn_Klap.mkQueryInsert('Insert Into [%s] ' + '(ID, Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' + '[Тип], [Категория], [Примечание], [Диаметр], [Масса], [Длина],   [Ширина], [ДлинаРазв],' +
+          '[ШиринаРазв], [Объем], [КолГибов], [Канбан], [Материал], [КомплВед], [Trumph], [Ножницы],' +
+          '[Углоруб], [Гибка], [Прокатка], [Пила],IdГП,Изделие,Заказ,Дата,IDКо,[ДлинаИ],[ШиринаИ],[ШиринаПолки1],[ШиринаПолки2],Покрытие) ' +
+          'Values (%s,%s,%s,%s,%s,%s,%s,%s,' +
+            '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s ,%s,%s)',
+            ['Специф710', #39 + IntToStr(ID) + #39, #39 + Parent + #39, #39 + Vid + #39, #39 + Elem + #39, #39 + Kol_Ed + #39, #39 + Kol + #39, #39 + EI + #39, #39 + Obozn + #39, #39 + Typ + #39, #39 + Kateg + #39, #39 + Prim + #39, #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39, #39 + Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Kanban + #39, #39
+            + Mater + #39, #39 + Kompl_Ved + #39, #39 + Trumpf + #39, #39 + Nog + #39, #39 + Uglorub + #39, #39 + Gibka + #39, #39 + Prokat + #39, #39 + Pila + #39, #39 + IDGP + #39, #39 + Naim + #39, #39 + Zak + #39, #39 + ConvertDat1(Dat) + #39, #39 + IDKO + #39, #39 + DlinS + #39, #39 + ShirS + #39, #39 + SH1 + #39, #39 + SH2 + #39 , #39 + Pokr + #39]) then
+            exit;
+        end;
+
+      end;
+      //+++++++++++++++++++++++++++++++++++710 КОНЕЦ
+                      // or (Kod_I = 330)
+      if (Kod_I = 310)  or (Kod_I = 320) then
+      begin
+      //====================================  ЭПВ-BF230-Ст-R-У2
+        Proch_Privod := Pos('Электропривод', Elem);
+        if Proch_Privod <> 0 then
+        begin
+          Elem_S := Elem;
+          Res_K := Pos(' ', Elem_S);
+          Delete(Elem_S, 1, Res_K);
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
+          ',МодПривода=' + #39 + Elem_S + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
+            Exit;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem_S + #39 +
+          ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Запуск']) then
+            Exit;
+        end;
+        //====================================
+        Res_el := Pos('Электромагнит', Elem);
+        if Res_el <> 0 then
+        begin
+          Elem_S := Elem;
+          Res_K := Pos(' ', Elem);
+          Delete(Elem, 1, Res_K);
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
+          ',МодПривода=' + #39 + Elem_S + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
+            Exit;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem_S + #39 +
+          ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Запуск']) then
+            Exit;
+        end;
+        //====================================
+         Res_el := Pos('ЭПВ-', Elem);
+        if Res_el <> 0 then
+        begin
+          Elem_S := Elem;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
+          ',МодПривода=' + #39 + Elem_S + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
+            Exit;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem_S + #39 +
+          ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Запуск']) then
+            Exit;
+        end;
+        //==================================== ЭМД-220 ТУ ВY 500227068.102-2014
+         Res_el := Pos('ЭМД-', Elem);
+        if Res_el <> 0 then
+        begin
+          Elem_S := Elem;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
+          ',МодПривода=' + #39 + Elem_S + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
+            Exit;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem_S + #39 +
+          ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Запуск']) then
+            Exit;
+        end;
+        //==================================== ЭМД-220 ТУ ВY 500227068.102-2014
+         Res_el := Pos('ЭМВ', Elem);
+        if Res_el <> 0 then
+        begin
+          Elem_S := Elem;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
+          ',МодПривода=' + #39 + Elem_S + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
+            Exit;
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem_S + #39 +
+          ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Запуск']) then
+            Exit;
+        end;
+        //====================================
+        //====================================
+        Detal := Pos('Детали', Vid);
+        Res_Sbor := Pos('Сборочные единицы', Vid);
+        Res_Lop := Pos('Лопатка', Elem);
+        Res_Lopast := Pos('Лопасть', Elem);
+        Res_Lop1 := Pos('Лопатка-заготовка', Elem);
+        if ((Res_Lop <> 0) or (Res_Lop1 <> 0)) and (Res_Sbor <> 0) then
+        begin
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 + ',РаскрЛопаток=' +
+          #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
+            Exit;
+        end;
+        //==============================
+        Res_KED := Pos('КЭД', Naim);
+        Res_KPD := Pos('КПД', Naim);
+        Detal := Pos('Детали', Vid);
+        Pos_Zvez := Pos('*', Obozn);
+        Res:=Pos('Стенка горизонтальная',Elem);                       // or (Kod_I = 330)
+        if ((Pos_Zvez <> 0) and (Res=0)) and (Detal <> 0) and ((Kod_I = 310)) and ((Res_KED <> 0) or (Res_KPD <> 0)) then  //Для КЭД
+          // и КПД меняем длину и ширину местами
+          begin
+            Dlina := ADOQuery1.FieldByName('Ширина').AsString;
+            if Dlina = '' then
+            Dlina := '0';
+            Shir := ADOQuery1.FieldByName('Длина').AsString;
+            if Shir = '' then
+            Shir := '0';
+            Dlin_Raz := ADOQuery1.FieldByName('ШиринаРазв').AsString;
+            if Dlin_Raz = '' then
+            Dlin_Raz := '0';
+            Shir_Raz := ADOQuery1.FieldByName('ДлинаРазв').AsString;
+            if Shir_Raz = '' then
+            Shir_Raz := '0';
+
+          end
+          else
+          begin
+            Dlina := ADOQuery1.FieldByName('Длина').AsString;
+            if Dlina = '' then
+            Dlina := '0';
+            Dlin_I:=StrToFloat(Dlina);
+
+            Shir := ADOQuery1.FieldByName('Ширина').AsString;
+            if Shir = '' then
+            Shir := '0';
+            Dlin_Raz := ADOQuery1.FieldByName('ДлинаРазв').AsString;
+            if Dlin_Raz = '' then
+            Dlin_Raz := '0';
+            Dlin_I_Raz:=StrToFloat(Dlin_Raz);
+
+            Shir_Raz := ADOQuery1.FieldByName('ШиринаРазв').AsString;
+            if Shir_Raz = '' then
+            Shir_Raz := '0';                                                                                                                                             //  AND (Количество=' + #39 + Kol + #39 + ')
+          end;
+        if not Conn_Klap.mkQuerySelect3('Select * from %s  Where (IdГП=' + #39 + IDGP + #39 +
+        ')  AND ([IdКО]=' + #39 + IDKO + #39 + ') AND (Элемент=' + #39 + Elem + #39 +
+        ') AND (Обозначение=' + #39 + Obozn + #39 + ')  ', ['Специф']) then
+          exit;
+
+        if Conn_Klap.AQuery3.RecordCount<> 0 then
+        begin
+             Kol2 := Conn_Klap.AQuery3.FieldByName('Количество').AsString;
+            if Kol2 = '' then
+            Kol2 := '0';
+            try
+              KOL_II2:=StrToFloat(Kol2);
+            except
+              KOL_II2:=0;
+            end;
+             if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Количество]=+' + #39 + FloatToStr(Kol_II+Kol_II2)+#39+
+             ' WHERE ([IdГП]=' + #39 + IDGP + #39+') AND ([IdКО]=' + #39 + IDKO + #39 + ') AND (Элемент=' + #39 + Elem + #39 +
+             ') AND (Обозначение=' + #39 + Obozn + #39+')', ['Специф']) then
+            Exit;
+                    //====================================  or (Res_el <> 0)   or (Res_el <> 0)
+          if (Proch_Privod <> 0)  or (Res_el <> 0) then
+          begin
+            if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
+            ',МодПривода=' + #39 + Elem_S + #39 + ',Привод=+' + #39 + FloatToStr(Kol_II+Kol_II2)+#39+
+            ' WHERE ([IdГП]=' + #39 + IDGP + #39+') AND ([IdКО]=' + #39 + IDKO + #39 + ')', ['Klapana']) then
+            Exit;
+          end;
+          //====================================
+          if (Proch_Privod <> 0) or (Res_el <> 0)  then
+          begin
+            if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem_S + #39 +
+            ',Привод=+' + #39 + FloatToStr(Kol_II+Kol_II2)+#39+' WHERE  ([IdГП]=' + #39 + IDGP + #39+
+            ') AND ([IdКО]=' + #39 + IDKO + #39 + ')', ['Запуск']) then
+            Exit;
+          end;
+        //====
+        end;
+        if Conn_Klap.AQuery3.RecordCount= 0 then
+        begin
+          ShirS := StringReplace(Shir, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          DlinS := StringReplace(Dlina, ',', '.', [rfReplaceAll, rfIgnoreCase]);
+          if not Conn_Klap.mkQueryInsert('Insert Into %s ' +
+          '(ID, Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' +
+          '[Тип], [Категория], [Примечание], [Диаметр], [Масса], [Длина],   [Ширина], [ДлинаРазв],' +
+          '[ШиринаРазв], [Объем], [КолГибов], [Канбан], [Материал], [КомплВед], [Trumph], [Ножницы],' +
+          '[Углоруб], [Гибка], [Прокатка], [Пила],IdГП,Изделие,Заказ,Дата,IDКо,[ДлинаИ],[ШиринаИ],[ШиринаПолки1],[ШиринаПолки2],Покрытие) ' +
+          'Values (%s,%s,%s,%s,%s,%s,%s,%s,' +
+            '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s ,%s,%s)',
+            ['Специф', #39 + IntToStr(ID) + #39, #39 + Parent + #39, #39 + Vid + #39, #39 + Elem + #39, #39 + Kol_Ed + #39, #39 + Kol + #39, #39 + EI + #39, #39 + Obozn + #39, #39 + Typ + #39, #39 + Kateg + #39, #39 + Prim + #39, #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39, #39 + Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Kanban + #39, #39
+            + Mater + #39, #39 + Kompl_Ved + #39, #39 + Trumpf + #39, #39 + Nog + #39, #39 + Uglorub + #39, #39 + Gibka + #39, #39 + Prokat + #39, #39 + Pila + #39, #39 + IDGP + #39, #39 + Naim + #39, #39 + Zak + #39, #39 + ConvertDat1(Dat) + #39, #39 + IDKO + #39, #39 + DlinS + #39, #39 + ShirS + #39, #39 + SH1 + #39, #39 + SH2 + #39 , #39 + Pokr + #39]) then
+            exit;
+        end;
+        //==============================
+        Obozn_Sh := Obozn;
+        Res_Sh := Pos('-', Obozn_Sh);
+        Delete(Obozn_Sh, Res_Sh, 30);
+                //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      end;
+      if (Kod_i = 520) or (Kod_i = 525) or (Kod_i = 530) or (Kod_i = 400) or (Kod_i = 215) or (Kod_I = 330) then
+      begin
+        Naim := Izdel1;
+        Proch_Privod := Pos('Прочие изделия', Vid);
+        //====================================
+        Res_Priv := Pos('Электропривод', Elem);
+        if Proch_Privod <> 0 then
+        begin
+          Elem_S := Elem;
+          Res_K := Pos(' ', Elem_S);
+          Delete(Elem_S, 1, Res_K);
+        end;
+        //====================================
+        Res_el := Pos('Электромагнит', Elem);
+        if Res_el <> 0 then
+        begin
+          Elem_S := Elem;
+          Res_K := Pos(' ', Elem);
+          Delete(Elem, 1, Res_K);
+        end;
+        //====================================
+                //====================================
+         Res_el := Pos('ЭПВ-', Elem);
+        if Res_el <> 0 then
+        begin
+          Elem_S := Elem;
+        end;
+
+        if ((Res_priv <> 0) or (Res_el <> 0)) and (Proch_Privod <> 0) then
+        begin
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 + ',МодПривода=' + #39 + Elem + #39 +
+          ',Привод=' + #39 + Kol + #39 + ' WHERE ([IdГП]=' + #39 + IDGP + #39 +
+          ') AND ([IdКО]=' + #39 + IDKO + #39 + ') ', ['KlapanaZap']) then
+            Exit;
+        end;
+        if ((Res_priv <> 0) or (Res_el <> 0)) and (Proch_Privod <> 0) then
+        begin
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET МодПривода=' + #39 + Elem + #39 + ',Привод=' + #39 + Kol + #39 +
+          ' WHERE ([IdГП]=' + #39 + IDGP + #39 + ') AND ([IdКО]=' + #39 + IDKO + #39 + ') ', ['ЗапускВозд']) then
+            Exit;
+        end;
+        Res_Lop := Pos('опатк', Elem);
+        Res_K := Pos('Детали', Vid);
+        Obozn_Sh := Obozn;
+        tulpan:=Pos('ВГ 064.00.00.004',Obozn);
+        tulpan2:= Pos('ТЮЛЬПАН-2', Naim);  // AND(Tulpan2<>0) and (KOL_II=2
+        KOL_II:=StrToFloat(Kol);
+
+        tulpan:=Pos('ВГ 064.00.00.004',Obozn); //ВГ 064.00.00.004-350-01
+        tulpan2:= Pos('ТЮЛЬПАН-2', Naim);      // AND(Tulpan2<>0) and (KOL_II=2  AND (Shag=0)
+        if (Tulpan2=0) AND (Tulpan<>0)  then   // ТЮЛЬПАН-1 один уголок -01
+        begin
+          KOL_II:=StrToFloat(Kol);
+          if not Conn_Klap.mkQuerySelect('Select * from %s  Where  (IdГП=' + #39 + IDGP + #39 + ') And  (Обозначение=' + #39 + Obozn + #39 +
+              ')   ', ['[СпецифВозд]']) then
+              exit;
+          if Conn_Klap.AQuery.RecordCount = 0 then
+          begin
+            if not Conn_Klap.mkQueryInsert('Insert Into %s ' +
+             '(ID, Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' +
+             '[Тип], [Категория], [Примечание], [Диаметр], [Масса], [Длина],   [Ширина], [ДлинаРазв],' +
+             '[ШиринаРазв], [Объем], [КолГибов], [Канбан], [Материал], [КомплВед], [Trumph], [Ножницы],' +
+             '[Углоруб], [Гибка], [Прокатка], [Пила],IdГП,Изделие,Заказ,Дата,IdКО,[ШиринаПолки1],[ШиринаПолки2],Покрытие) ' +
+             'Values (%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' +
+            '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s ,%s)',
+            ['СпецифВозд', #39 + IntToStr(ID) + #39, #39 + Parent + #39, #39 + Vid + #39, #39 + Elem + #39,
+            #39 + '1' + #39, #39 + '1' +
+             #39, #39 + EI + #39, #39 + Obozn+'-01'+ #39, #39 + Typ  + #39, #39 + Kateg + #39, #39 + Prim + #39,
+             #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39,
+             #39 + Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Kanban + #39, #39 + Mater + #39, #39 +
+            Kompl_Ved + #39, #39 + Trumpf + #39, #39 + Nog + #39, #39 + Uglorub + #39, #39 + Gibka + #39,
+            #39 + Prokat + #39, #39 + Pila + #39, #39 + IDGP + #39, #39 + Naim + #39, #39 + Zak + #39,
+            #39 + ConvertDat1(Dat) + #39, #39 + IDKO + #39, #39 + SH1 + #39, #39 + SH2 + #39 , #39 + Pokr + #39])
+            then
+            exit;
+
+            KOL_II:=StrToFloat(Kol);
+            KOL_II:=KOL_II-1;
+            Kol:=FloatToStr(Kol_II);
+
+            KOL_II2:=StrToFloat(Kol_Ed);
+            KOL_II2:=KOL_II2-1;
+            Kol_Ed:=FloatToStr(Kol_II2); //Дальше пойдет проверка уголок запишестя как есть и кол -1
+            Shag:=1;
+          end;
+        end;
+        ///Тюльпа-2 два уголка -01 минус два уголка  AND (Shag=0)
+        if (Tulpan2<>0) AND (Tulpan<>0)  then  //
+        begin
+          KOL_II:=StrToFloat(Kol);
+            if not Conn_Klap.mkQuerySelect('Select * from %s  Where  (IdГП=' + #39 + IDGP + #39 + ') And (Обозначение=' + #39 + Obozn+'-01' + #39 +
+              ')   ', ['[СпецифВозд]']) then
+              exit;
+          if Conn_Klap.AQuery.RecordCount = 0 then
+          begin
+            if not Conn_Klap.mkQueryInsert('Insert Into %s ' +
+             '(ID, Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' +
+             '[Тип], [Категория], [Примечание], [Диаметр], [Масса], [Длина],   [Ширина], [ДлинаРазв],' +
+             '[ШиринаРазв], [Объем], [КолГибов], [Канбан], [Материал], [КомплВед], [Trumph], [Ножницы],' +
+             '[Углоруб], [Гибка], [Прокатка], [Пила],IdГП,Изделие,Заказ,Дата,IdКО,[ШиринаПолки1],[ШиринаПолки2],Покрытие) ' +
+             'Values (%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' +
+            '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s ,%s ,%s,%s ,%s)',
+            ['СпецифВозд', #39 + IntToStr(ID) + #39, #39 + Parent + #39, #39 + Vid + #39, #39 + Elem + #39,
+            #39 + '2' + #39, #39 + '2' +
+             #39, #39 + EI + #39, #39 + Obozn+'-01'+ #39, #39 + Typ + #39, #39 + Kateg + #39, #39 + Prim + #39,
+             #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39,
+             #39 + Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Kanban + #39, #39 + Mater + #39, #39 +
+            Kompl_Ved + #39, #39 + Trumpf + #39, #39 + Nog + #39, #39 + Uglorub + #39, #39 + Gibka + #39,
+            #39 + Prokat + #39, #39 + Pila + #39, #39 + IDGP + #39, #39 + Naim + #39, #39 + Zak + #39,
+            #39 + ConvertDat1(Dat) + #39, #39 + IDKO + #39, #39 + SH1 + #39, #39 + SH2 + #39 , #39 + Pokr + #39])
+            then
+            exit;
+
+            KOL_II:=StrToFloat(Kol);
+            KOL_II:=KOL_II-2;
+            Kol:=FloatToStr(Kol_II);
+
+            KOL_II2:=StrToFloat(Kol_Ed);
+            KOL_II2:=KOL_II2-2;
+            Kol_Ed:=FloatToStr(Kol_II2); //Дальше пойдет проверка уголок запишестя как есть и кол -2
+            Shag:=1;
+          END;
+        end;
+        //+++++++++++++++++++++++++++++++++++++
+        Res_Lopast := Pos('Лопасть', Elem);
+        if ((Res_Lop <> 0) or (Res_Lopast <> 0)) and (Res_K <> 0) then
+        begin
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 + ',РаскрЛопаток=РаскрЛопаток+' + #39 +
+          Kol + #39 +
+           ' WHERE ([IdГП]=' + #39 + IDGP + #39 + ') AND ([IdКО]=' + #39 +
+           IDKO + #39 + ') ', ['KlapanaZap']) then
+            Exit;
+        end;
+
+        // Суммирование кол-ва одинаковых деталей                                                                                                                                                         //  AND (Количество=' + #39 + kol + #39 + ')
+        if not Conn_Klap.mkQuerySelect3('Select * from %s  Where (IdГП=' + #39 + IDGP + #39 + ') And (IdКО=' + #39 +
+        IDKO + #39 + ') AND (Элемент=' + #39 + Elem + #39 + ')  AND (Обозначение=' + #39 + Obozn + #39 + ')',
+         ['СпецифВозд']) then
+          exit;
+
+        if (Conn_Klap.AQuery3.RecordCount<> 0) then
+        begin
+            Tulpan2:=Pos('30КСТМ2-Т ТУ 3558-081-33006874-2011',Elem);
+            if Tulpan2<>0 then
+               Tulpan:=0;
+             Kol2 := Conn_Klap.AQuery3.FieldByName('Количество').AsString;
+            if Kol2 = '' then
+            Kol2 := '0';
+            try
+              KOL_II2:=StrToFloat(Kol2);
+            except
+              KOL_II2:=0;
+            end;
+             if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Количество]=+' + #39 + FloatToStr(Kol_II+Kol_II2) + #39 +
+             ' WHERE ([IdГП]=' + #39 + IDGP + #39+') AND (Обозначение=' + #39 + Obozn + #39+') And (IdКО=' + #39 +
+             IDKO + #39 + ') AND (Элемент=' + #39 + Elem + #39 + ')',
+             ['СпецифВозд']) then
+            Exit;
+        end;
+        //внесение новой детали
+        if Conn_Klap.AQuery3.RecordCount = 0 then
+        begin
+          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET Статус=' + #39 + '1' + #39
+          + ' WHERE ([IdГП]=' + #39 + IDGP + #39 + ') AND ([IdКО]=' + #39 + IDKO + #39 + ') ',
+          ['KlapanaZap']) then
+            Exit;
+          if not Conn_Klap.mkQueryInsert('Insert Into %s ' + '(ID, Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' +
+          '[Тип], [Категория], [Примечание], [Диаметр], [Масса], [Длина],   [Ширина], [ДлинаРазв],' +
+          '[ШиринаРазв], [Объем], [КолГибов], [Канбан], [Материал], [КомплВед], [Trumph], [Ножницы],' +
+          '[Углоруб], [Гибка], [Прокатка], [Пила],IdГП,Изделие,Заказ,Дата,IdКО,[ШиринаПолки1],[ШиринаПолки2],Покрытие) ' +
+          'Values (%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' +
+            '%s,%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s ,%s ,%s,%s ,%s)',
+            ['СпецифВозд', #39 + IntToStr(ID) + #39, #39 + Parent + #39, #39 + Vid + #39, #39 +
+            Elem + #39, #39 + Kol_Ed + #39, #39 + Kol + #39, #39 + EI + #39, #39 + Obozn + #39, #39 + Typ + #39, #39 + Kateg + #39, #39 + Prim + #39, #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39, #39 + Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Kanban + #39, #39 + Mater + #39, #39 +
+            Kompl_Ved + #39, #39 + Trumpf + #39, #39 + Nog + #39, #39 + Uglorub + #39, #39 + Gibka + #39, #39 + Prokat + #39, #39 + Pila + #39, #39 + IDGP + #39, #39 + Naim + #39, #39 + Zak + #39, #39 + ConvertDat1(Dat) + #39, #39 + IDKO + #39, #39 + SH1 + #39, #39 + SH2 + #39 , #39 + Pokr + #39])
+          then
+            exit;
+        end;
+        
+                 //++++++++++++++++++++++++++++++++++++++++
+        Obozn_Sh := Obozn;
+        Res_Sh := Pos('-', Obozn_Sh);
+        Delete(Obozn_Sh, Res_Sh, 30);
+      end;
+      if (Detal <> 0) then
+        begin
+            if not Conn_Klap.mkQuerySelect('Select * from %s  Where (Обозначение=' + #39 + Obozn + #39 +
+            ')   ', ['[СпецифОбщая]']) then
+            exit;
+            if Conn_Klap.AQuery.RecordCount = 0 then
+            begin
+              WW:=1;//Признак новой детали
+              if not Conn_Klap.mkQueryInsert('Insert Into %s ' + '(Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [Обозначение],' +
+              '[Тип], [Категория], [Диаметр], [Масса], [Длина], [Ширина], [ДлинаРазв],' +
+              '[ШиринаРазв], [Объем], [КолГибов], [Материал], [КомплВед],' +               //ДлинаИ-Т, ШиринаИ-Лента
+              'Изделие,Дата,[ШиринаПолки1],[ШиринаПолки2],[Н\ЧГибка],[Н\чПила],[Н\чНожницы],[Н\чУглоруб],ДлинаИ,ШиринаИ,ЕИ) ' +
+              'Values (%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' +
+              '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',
+              ['СпецифОбщая', #39 + 'False' + #39, #39 + Vid + #39, #39 + Elem + #39, #39 + Kod + #39, #39 + Kol + #39, #39 +
+              Obozn+ #39, #39 + Typ + #39, #39 + '0' + #39, #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39, #39 +
+              Shir_Raz + #39, #39 + Obem + #39, #39 + Kol_Gib + #39, #39 + Mater + #39, #39 + Kompl_Ved + #39, #39 + Naim + #39, #39 + ConvertDat1(Dat) + #39, #39 + SH1 + #39, #39 + SH2 + #39, #39 + FloatToStr(Nc_G1) + #39, #39 + FloatToStr(Nc_P1) + #39, #39 + FloatToStr(Nc_N1) + #39, #39 + FloatToStr(Nc_N2) + #39, #39 + FloatToStr(Nc_G1) + #39, #39 + FloatToStr(Nc_G2) + #39, #39 + '1' + #39]) then
+              exit;
+            end;
+        end;
+      PB2.Position := Y;
+      Inc(y);
+      ADOQuery1.Next;
+    end;
+    PB2.Position := 0;
+    PB1.Position := J;
+end;
+
+
+procedure TForm1.N118Click(Sender: TObject);
+var
+Row,Kod_I,AA:Integer;
+IDGP,IDKO,Naim,Zak,Dat,Kod,bz,ss,Tab,Tab2 :string;
+BZ_L1,BLF_L,S:Boolean;
+begin
+    Row:=StringGrid10.Row;
+    //S:=StrToBool(SG6.Cells[I_FN_OTMENA + 1,Row]);
+    if SG6.Cells[I_FN_OTMENA + 1,Row]='' then
+    S:=False
+    Else
+    S:=StrToBool(SG6.Cells[I_FN_OTMENA + 1,Row]);
+    if S then
+       Exit;
+    idgp :=StringGrid10.Cells[I_FN_SGP + 2, Row];//  StringGrid1.Cells[0, j];
+    if IDGP = '' then
+      Exit;
+    IDKO := StringGrid10.Cells[I_FN_SGP + 3, Row];
+    Naim := StringGrid10.Cells[I_FN_NAM, Row];
+
+    Zak := StringGrid10.Cells[I_FN_Zak, Row];
+    Dat := StringGrid10.Cells[I_FN_Dat, Row];
+    Kod := SG6.Cells[I_FN_OTMENA + 11, Row];
+    Kod_I := StrToInt(Kod);
+    bz := StringGrid10.Cells[I_FN_ZAKAZCHIK, Row];
+    if StringGrid10.Cells[I_FN_SGP+5, Row]=''  then
+     BZ_L1:=False
+     else
+    BZ_L1:=StrToBool(StringGrid10.Cells[I_FN_SGP+5, Row]);
+    //
+    //if StringGrid1.Cells[8, j]=''  then
+    // BLF:=False
+    // else              StringGrid1.Cells[8, j]
+    BLF_L:=StrToBool('0');
+    ss := '';
+    Tab:='Специф';
+    Tab2:='Klapana';
+    AA:=0;
+    Specif_Na_Izdel(Naim,IDGP,IDKO,Zak,BZ,Dat,Kod,Tab,Tab2, BZ_L1,BLF_L,AA);
+    Button16Click(nil);
+end;
+
+procedure TForm1.N119Click(Sender: TObject);
+var
+Row,Kod_I,AA:Integer;
+IDGP,IDKO,Naim,Zak,Dat,Kod,bz,ss,Tab,Tab2 :string;
+BZ_L1,BLF_L,S:Boolean;
+begin
+    Row:=SGL.Row;
+   {     if not Form1.mkQueryDelete(Form1.ADOQuery1, 'DELETE FROM %s Where (IdГП= ' + #39 + SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND (IdКО= ' + #39 + SGL.Cells[I_FN_SGP + 8, SGL.Row] + #39 + ')', ['СпецифВозд']) then
+      Exit;
+    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 + ',[СтатусФ]=' + #39 + '0' + #39 + ',[СПисокФ]=' + #39 + '' + #39 + ',[РаскрЛопаток]=' + #39 + '0' + #39 + ' WHERE ([IdГП]=' + #39 + SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND (IdКО= ' + #39 + SGL.Cells[I_FN_SGP + 8, SGL.Row] + #39 + ')', ['KlapanaZap']) then
+      Exit;
+    Button28Click(nil);  }
+    if StringGrid6.Cells[24,Row]='' then
+    S:=False
+    Else
+    S:=StrToBool(StringGrid6.Cells[24,Row]);
+    if S then
+       Exit;
+    idgp :=SGL.Cells[I_FN_SGP + 2, Row];//  StringGrid1.Cells[0, j];
+    if IDGP = '' then
+      Exit;
+    IDKO := SGL.Cells[I_FN_SGP + 8, Row];
+    Naim := SGL.Cells[I_FN_NAM, Row];
+
+    Zak := SGL.Cells[I_FN_Zak, Row];
+    Dat := SGL.Cells[I_FN_Dat, Row];
+    Kod := StringGrid6.Cells[25, Row];
+    Kod_I := StrToInt(Kod);
+    bz := StringGrid6.Cells[23, Row];
+    if SGL.Cells[I_FN_SGP + 9, Row]=''  then
+     BZ_L1:=False
+     else
+    BZ_L1:=StrToBool(SGL.Cells[I_FN_SGP + 9, Row]);
+    //
+    if SGL.Cells[I_FN_SGP + 11, Row]=''  then
+     BLF_L:=False
+     else
+    BLF_L:=StrToBool(SGL.Cells[I_FN_SGP + 11,Row]);
+    ss := '';
+    Tab:='';
+    Tab2:='';
+    AA:=0;
+    Specif_Na_Izdel(Naim,IDGP,IDKO,Zak,BZ,Dat,Kod,Tab,Tab2, BZ_L1,BLF_L,AA);
+    Button28Click(nil);
+end;
+
 procedure TForm1.N11Click(Sender: TObject);
 var
   I, j, x, n, l, C, I_P, X_P, N_P, L_P, C_P, A, A_P: Integer;
@@ -24630,6 +28783,202 @@ begin
     XL_P := Unassigned;
   end;
 
+end;
+
+procedure TForm1.N120Click(Sender: TObject);
+var
+Row,Kod_I,AA:Integer;
+IDGP,IDKO,Naim,Zak,Dat,Kod,bz,ss,Tab,Tab2 :string;
+BZ_L1,BLF_L,S:Boolean;
+begin
+    Row:=SG.Row;
+   // S:=StrToBool(SG.Cells[16,Row]); //  Статус
+    if SG.Cells[16,Row]='' then
+    S:=False
+    Else
+    S:=StrToBool(SG.Cells[16,Row]);
+    if S then
+       Exit;
+    idgp :=SG.Cells[13, Row];
+    if IDGP = '' then
+      Exit;
+    IDKO := SG.Cells[29, Row];
+    Naim := 'Стакан монтажный '+SG.Cells[3, Row];
+
+    Zak := SG.Cells[2, Row];
+    Dat := SG.Cells[1, Row];
+    Kod := SG.Cells[28, Row];
+    Kod_I := StrToInt(Kod);
+    bz := SG.Cells[19, Row];
+    //if StringGrid10.Cells[I_FN_SGP+5, Row]=''  then
+     BZ_L1:=False;
+    // else
+    //BZ_L1:=StrToBool(StringGrid10.Cells[I_FN_SGP+5, Row]);
+    //
+    //if StringGrid1.Cells[8, j]=''  then
+    // BLF:=False
+    // else              StringGrid1.Cells[8, j]
+    BLF_L:=StrToBool('0');
+    ss := '';
+    Tab:='СпецифСТАМ';
+    Tab2:='СТАМ';
+    AA:=0;
+    Specif_Na_Izdel(Naim,IDGP,IDKO,Zak,BZ,Dat,Kod,Tab,Tab2, BZ_L1,BLF_L,AA);
+    Btn3Click(nil);
+end;
+
+procedure TForm1.N121Click(Sender: TObject);
+var
+Row,Kod_I,AA:Integer;
+IDGP,IDKO,Naim,Zak,Dat,Kod,bz,ss,Tab,Tab2 :string;
+BZ_L1,BLF_L,S:Boolean;
+begin
+    Row:=SG4.Row;
+    //S:=StrToBool(SG4.Cells[16,Row]); //  Статус
+    if SG4.Cells[16,Row]='' then
+    S:=False
+    Else
+    S:=StrToBool(SG4.Cells[16,Row]);
+    if S then
+       Exit;
+    idgp :=SG4.Cells[13, Row];
+    if IDGP = '' then
+      Exit;
+    IDKO := SG4.Cells[24, Row];
+    Naim := 'Люк дымовой '+SG4.Cells[3, Row];
+
+    Zak := SG4.Cells[2, Row];
+    Dat := SG4.Cells[1, Row];
+    Kod := SG4.Cells[25, Row];
+    Kod_I := StrToInt(Kod);
+    bz := SG4.Cells[19, Row];
+    //if StringGrid10.Cells[I_FN_SGP+5, Row]=''  then
+     BZ_L1:=False;
+    // else
+    //BZ_L1:=StrToBool(StringGrid10.Cells[I_FN_SGP+5, Row]);
+    //
+    //if StringGrid1.Cells[8, j]=''  then
+    // BLF:=False
+    // else              StringGrid1.Cells[8, j]
+    BLF_L:=StrToBool('0');
+    ss := '';
+    Tab:='СпецифЛЮК';
+    Tab2:='ЛЮК';
+    AA:=0;
+    Specif_Na_Izdel(Naim,IDGP,IDKO,Zak,BZ,Dat,Kod,Tab,Tab2, BZ_L1,BLF_L,AA);
+    Button36Click(nil);
+end;
+
+procedure TForm1.N122Click(Sender: TObject);
+var
+  Vn_DAt, Vn_DAt1, God, mes, Nom, Prim, Dir1,Izdel: string;
+  D: TDate;
+  C,R,R1: Integer;
+begin
+  Izdel:=SG5.Cells[3, SG5.Row] ;
+  {R:=Pos('СТАМ 401-',Izdel);
+  R1:=Pos('СТАМ 411-',Izdel);
+  if (R<>0) or (R1<>0) then
+  Exit; }
+  Vn_DAt := SG5.Cells[8, SG5.Row]; // Планирование
+  D := StrToDate(Vn_DAt);
+  Vn_DAt1 := FormatDateTime('mm.dd.yyyy', D);
+  God := FormatDateTime('yyyy', D);
+  mes := FormatDateTime('mmmm', D);
+  Nom := SG5.Cells[0, SG5.Row];
+  C := 0; //StrToInt(SG215.Cells[I_FN_KOL_ZAP + 28, SG215.Row]);//Цвет
+  Prim := SG5.Cells[9, SG5.Row]; //Примечание
+  Dir1 := '\Суточные задания\';
+  Form1.SUT(Vn_DAt, Nom, Dir1, 4, C, Prim); //ZZZZZZZZZZZZZZZZZZZZZZ
+end;
+
+procedure TForm1.N123Click(Sender: TObject);
+var
+  fileName, Vn_Dat, Nom, GP, IDGP, IDKO, Kol_Otv, Izdel, Zakaz, Zak, Id, P, ID1: string;
+  X, J: Integer;
+begin
+  IDGP := SG10.Cells[21, SG10.Row];
+  IDKO := '0';
+  Kol_Otv := SG10.Cells[4, SG10.Row]; //кол завес
+  Izdel := SG10.Cells[3, SG10.Row];
+  Zakaz := SG10.Cells[2, SG10.Row];
+  Zak := Zakaz;
+  GP := IDGP;
+  UOsnova_Main := Osnova_Main.Create();
+  fileName := '';//ExtractFileDir(ParamStr(0)); //+'\Klapan.EXE';
+  Vn_Dat := '01.01.2000';
+  Nom := '-3';
+  UOsnova_Main.Flag_Error := 0;
+  Form1.Memo2.Lines.Add('Osnova');
+  SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
+
+  UOsnova_Main.Osnova(Vn_Dat, '[750]', '[Специф750]', #39 + Nom + #39, fileName, 1, StrToInt(IDGP));
+                        //++++++++++++++++++++++++++++++++++++++++++++++++++
+  if UOsnova_Main.Flag_Error = 2 then //ДЕТАЛИ НЕ ВСЕ
+  begin
+    Form1.Memo2.Lines.Add('UOsnova_Main.Osnova( ДЕТАЛИ НЕ ВСЕ,750,Специф750,' + Nom + ',' + fileName + ' )UOsnova_Main.Flag_Error =2');
+    Exit;
+  end;
+  MessageDlg('Ok! 01.01.2000', mtError, [mbOk], 0);
+end;
+
+procedure TForm1.N124Click(Sender: TObject);
+var
+  Zak, Nam, NK, KK, NN, KN, BZ, BRIK, Kol, GP, KO, Tab: string;
+  i, y, j: Integer;
+begin
+  //FShtrih_EKV.chk1.Checked:=False;
+  FShtrih_EKV.StringGrid1.ColCount:=12;
+  FShtrih_EKV.StringGrid1.Cells[0, 0] := 'Кол во';
+  FShtrih_EKV.StringGrid1.Cells[1, 0] := 'БЗ';
+  FShtrih_EKV.StringGrid1.Cells[2, 0] := 'Изделие';
+  FShtrih_EKV.StringGrid1.Cells[3, 0] := 'Брикет';
+  FShtrih_EKV.StringGrid1.Cells[4, 0] := 'НачКод';
+  FShtrih_EKV.StringGrid1.Cells[5, 0] := 'КонКод';
+  FShtrih_EKV.StringGrid1.Cells[6, 0] := 'НачНомер';
+  FShtrih_EKV.StringGrid1.Cells[7, 0] := 'КонНомер';
+  FShtrih_EKV.StringGrid1.Cells[8,0]:='Заказ';
+  FShtrih_EKV.StringGrid1.Cells[9,0]:='Мощность';
+  FShtrih_EKV.StringGrid1.Cells[10,0]:='КолТен';
+  FShtrih_EKV.StringGrid1.Cells[11, 0] := 'ТУ';
+  Zak := SG10.Cells[2, SG10.Row];
+  if not Form1.mkQuerySelect(Form1.ADOQuery2, 'Select * from %s Where   (Заказ=' + #39 + Zak + #39 + ') AND (Отмена IS NULL) ', ['[750]']) then
+    exit;
+  FShtrih_EKV.StringGrid1.RowCount := Form1.ADOQuery2.RecordCount + 1;
+  for i := 0 to Form1.ADOQuery2.RecordCount - 1 do
+  begin
+    Kol := Form1.ADOQuery2.FieldByName('Кол во').AsString;
+    BZ := Form1.ADOQuery2.FieldByName('БЗ').AsString;
+    Nam := Form1.ADOQuery2.FieldByName('Изделие').AsString;
+    BRIK := Form1.ADOQuery2.FieldByName('Брикет').AsString;
+    NK := Form1.ADOQuery2.FieldByName('НачКод').AsString;
+    KK := Form1.ADOQuery2.FieldByName('КонКод').AsString;
+    NN := Form1.ADOQuery2.FieldByName('НачНомер').AsString;
+    KN := Form1.ADOQuery2.FieldByName('КонНомер').AsString;
+    GP := Form1.ADOQuery2.FieldByName('IdГП').AsString;
+    KO := Form1.ADOQuery2.FieldByName('IdКО').AsString;
+    Tab := '';
+    if not Form1.mkQuerySelect66(Form1.ADOQuery4, 'Select * from %s Where   (IdГП=' + #39 + GP + #39 + ') AND (IdКО=' + #39 + KO + #39 + ') AND (Элемент=' + #39 + 'Табличка маркировки' + #39 + ') ', ['[Специф750]']) then
+      exit;
+    Tab := Form1.ADOQuery4.FieldByName('Обозначение').AsString;
+    FShtrih_EKV.StringGrid1.Cells[0, i + 1] := Kol;
+    FShtrih_EKV.StringGrid1.Cells[1, i + 1] := BZ;
+    FShtrih_EKV.StringGrid1.Cells[2, i + 1] := Nam;
+    FShtrih_EKV.StringGrid1.Cells[3, i + 1] := BRIK;
+    FShtrih_EKV.StringGrid1.Cells[4, i + 1] := NK;
+    FShtrih_EKV.StringGrid1.Cells[5, i + 1] := KK;
+    FShtrih_EKV.StringGrid1.Cells[6, i + 1] := NN;
+    FShtrih_EKV.StringGrid1.Cells[7, i + 1] := KN;
+    FShtrih_EKV.StringGrid1.Cells[8, i + 1] := Zak;
+    Form1.ADOQuery2.Next;
+  end;
+  FShtrih_EKV.Caption := Zak;
+  FShtrih_EKV.ShowModal;
+end;
+
+procedure TForm1.N125Click(Sender: TObject);
+begin
+      FPoisk.Show;
 end;
 
 procedure TForm1.N12Click(Sender: TObject);
@@ -24974,6 +29323,43 @@ begin
         SGL.Canvas.FillRect(Rect);
         SGL.Canvas.TextOut(Rect.Left, Rect.Top, SGL.Cells[ACol, ARow]);
       end;
+               //------------СтатусФлекс
+    Stat := 0;
+    if SGL.Cells[I_FN_SGP + 12, ARow] <> '' then
+      Stat := Pos('rue',SGL.Cells[I_FN_SGP + 12, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 2) then
+      SGL.canvas.brush.Color := RGB(14,177,250);//ДОКс   Синий
+      SGL.Canvas.Font.Style := [fsBold];
+      SGL.Canvas.FillRect(Rect);
+      SGL.Canvas.TextOut(Rect.Left, Rect.Top, SGL.Cells[ACol, ARow]);
+    end;
+                   //------------СтатусФлекс
+    Stat := 0;
+    if SGL.Cells[I_FN_SGP + 13, ARow] <> '' then
+      Stat := Pos('rue',SGL.Cells[I_FN_SGP + 13, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 2) then
+      SGL.canvas.brush.Color := RGB(14,177,250);//ДОКс   Синий
+      SGL.Canvas.Font.Style := [fsBold];
+      SGL.Canvas.FillRect(Rect);
+      SGL.Canvas.TextOut(Rect.Left, Rect.Top, SGL.Cells[ACol, ARow]);
+    end;
+
+    //------------ КОВР
+    Stat := 0;
+    if SGL.Cells[I_FN_SGP + 14, ARow] <> '' then
+      Stat := Pos('rue',SGL.Cells[I_FN_SGP + 14, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 5) then
+      SGL.canvas.brush.Color := RGB(229, 90, 240);//ДОКс   Синий
+      //SGL.Canvas.Font.Style := [fsBold];
+      SGL.Canvas.FillRect(Rect);
+      SGL.Canvas.TextOut(Rect.Left, Rect.Top, SGL.Cells[ACol, ARow]);
+    end;
     end;
     if (gdSelected in State) then
     begin
@@ -25194,7 +29580,7 @@ end;
 procedure TForm1.SGLDblClick(Sender: TObject);
 var
   Nom_pos, S, Nomer_Raz, Kol_Raz, God, Mes, Zakaz, Dat_s: string;
-  kol_zap, kol, kol1, A, B, D, y, F_KPU, F_KPD, Kol_Dn, Pos1: Integer;
+  kol_zap, kol, kol1, A, B, D, y, F_KPU, F_KPD, Kol_Dn, Pos1,Pos2: Integer;
   XL, XL1, XL2: Variant;
   Dat: TDate;
 begin
@@ -25204,6 +29590,7 @@ begin
     FSpec.Label1.Caption := Sgl.Cells[I_FN_SGP + 2, Sgl.Row]; //IDGP
     FSpec.Lbl1.Caption := Sgl.Cells[I_FN_SGP + 8, Sgl.Row]; //IDKO
     Pos1 := AnsiCompareStr('0', Sgl.Cells[I_FN_SGP + 2, Sgl.Row]);
+    Pos2 := AnsiCompareStr('0', Sgl.Cells[I_FN_SGP + 12, Sgl.Row]);
     FSpec.Label2.Caption := '1';
     if Pos1 <> 0 then
       FSpec.ShowModal;
@@ -25279,7 +29666,7 @@ begin
   Clear_StringGrid(ZCV);
   Clear_StringGrid(SG3);
   Kol_Vert := 0;
-  ZCV.ColCount := 47;
+  ZCV.ColCount := 48;
   ZCV.Cells[0, 0] := '№';
   ZCV.Cells[1, 0] := FN_DAT;
   ZCV.Cells[2, 0] := FN_ZAK;
@@ -25346,7 +29733,7 @@ begin
   ZCV.Cells[43, 1] := 'СборЛопатка';
   ZCV.Cells[44, 1] := 'СборТяга';
   ZCV.Cells[45, 1] := 'Подсборка1';
-
+  ZCV.Cells[46, 1] := 'КОРВ';
           //Naimen:= '';
   Sbor1 := '';
   if Edit13.Text <> '' then
@@ -25659,8 +30046,9 @@ begin
     ZCV.Cells[42, I ] := ADOQuery2.FieldByName('Электро').AsString;
 
     ZCV.Cells[43, i] := ADOQuery2.FieldByName('СборЛопатка').AsString;
-  ZCV.Cells[44, i] := ADOQuery2.FieldByName('СборТяга').AsString;
-  ZCV.Cells[45, i] := ADOQuery2.FieldByName('Подсборка1').AsString;
+    ZCV.Cells[44, i] := ADOQuery2.FieldByName('СборТяга').AsString;
+    ZCV.Cells[45, i] := ADOQuery2.FieldByName('Подсборка1').AsString;
+    ZCV.Cells[46, i] := ADOQuery2.FieldByName('КОРВ').AsString;
                 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Sb_s := (ADOQuery2.FieldByName(FN_SBOR_KLAP_NC).AsString);
     if Sb_s = '' then
@@ -25769,6 +30157,149 @@ begin
 
 end;
 
+procedure TForm1.OSI1(T1, T2,T3,T4, D1, D2, DR1, DR2, S: string);
+var
+  XX, J, I, Z: Integer;
+  XL: Variant;
+  Dat, Dat1, Dat2, Dat3, SS, D, Dir, God, Mes, PP, ZAk, ss1, Err, Tab1, Tab2
+  , Tab3, Tab4: string;
+begin
+  Tab1 := T1;
+  Tab2 := T2;
+  Tab3 := T3;
+  Tab4 := T4;
+  Conn_Klap := Connect_Miass_Klap.Create();
+  God := FormatDateTime('yyyy', DTP8.DateTime);
+  Mes := FormatDateTime('mmmm', DTP8.DateTime);
+  Memo9.Lines.LoadFromFile(ExtractFileDir(ParamStr(0)) + '\ConnCEH.ini');
+  D := Memo9.Lines.Strings[2];
+  //Dat2 := FormatDateTime('dd.mm.yyyy', DTP8.DateTime);
+  //Dat3 := FormatDateTime('dd.mm.yyyy', DTP9.DateTime);
+  Dat2 := DR1;
+  Dat3 := DR2;
+  //Dat := FormatDateTime('mm.dd.yyyy', DTP8.DateTime);
+  //Dat1 := FormatDateTime('mm.dd.yyyy', DTP9.DateTime);
+  Dat := D1;
+  Dat1 := D2;
+  ss1 := '  BETWEEN ' + #39 + Dat + #39 + ' And ' + #39 + Dat1 + #39;
+  try
+    XL := CreateOleObject('Excel.Application'); //
+    XL.Application.EnableEvents := false;
+    XL.Workbooks.Open(D + '\CKlapana2\2013\ОСИ.xlsx');
+  //
+    Dir := (D + '\CKlapana\Сопроводительные ' + S + '\');
+    CreateDir(Dir);
+    Dir := (D + '\CKlapana\Сопроводительные ' + S + '\' + God);
+    CreateDir(Dir);
+
+    Dir := (D + '\CKlapana\Сопроводительные ' + S + '\' + God + '\' + Mes);
+    CreateDir(Dir);
+
+    XL.Application.ActiveWorkBook.SaveAs(Dir + '\' + Dat2 + '-' + Dat3 + '.xlsx');
+  //
+    XL.ActiveWorkBook.WorkSheets[1].Range['B' + IntToStr(1), 'B' + IntToStr(1)] := Dat2 + '-' + Dat3;
+    XL.ActiveWorkBook.WorkSheets[1].Range['C' + IntToStr(1), 'C' + IntToStr(1)] := S;
+    XL.ActiveWorkBook.WorkSheets[1].Range['A' + IntToStr(2), 'A' + IntToStr(2)] := S;
+    XL.ActiveWorkBook.Sheets.Item[1].Activate;
+  //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    ZAk := '';
+    SS := '(' + Tab1 + '.Элемент LIKE ' + #39 + '%Ось%' + #39 + ') OR  ('
+     + Tab1 + '.Элемент LIKE ' + #39 + '%Втулка%' + #39 + ') OR  ('
+    + Tab1 + '.Элемент LIKE ' + #39 + '%Труба%' + #39 + ') OR  ('
+    + Tab1 + '.Элемент LIKE ' + #39 + '%Болт%' + #39 + ')';
+  //Tab1= Специф
+  //Tab2= Klapana
+    if not Conn_Klap.mkQuerySelect('Select ' + Tab1 + '.Элемент,' + Tab1 + '.Обозначение,Sum('
+    + Tab1 + '.Количество*' + Tab2 + '.[кол во] ) As S ' + 'FROM ' + Tab1 +
+    ' INNER JOIN ' + Tab2 + ' ON ' + Tab1 + '.IdГП = ' + Tab2 + '.IdГП  Where ('
+    + Tab2 + '.Дата %s' + ') AND (%s) Group BY ' + Tab1 + '.Элемент,' + Tab1 +
+    '.Обозначение', [ss1, SS]) then
+      exit;
+
+    XX := 5;
+    //Создание временной таблицы  idgp,zakaz,Nom
+    SetConnectTemp(ADOQueryTemp);
+    //Создание временной таблицы
+    ADOQueryTemp := TADOQuery.Create(nil);
+    ADOQueryTemp.Connection := ADOConnectionTemp;
+
+    ADOQueryTemp.SQL.Text := 'CREATE TABLE #ClientToDBFL (Элемент nvarchar(350),' +
+    'Обозначение nvarchar(350),Kol float )';
+    try
+      ADOQueryTemp.ExecSQL;
+    except
+      Err := '1222';
+    end;
+    for J := 0 to Conn_Klap.AQuery.RecordCount - 1 do
+    begin
+      ADOQueryTemp.SQL.Text := 'INSERT INTO #ClientToDBFL ' +
+      '(Элемент,Обозначение,Kol) Values (' + #39 + Conn_Klap.AQuery.FieldByName('Элемент').AsString + #39 +
+      ',' + #39 + Conn_Klap.AQuery.FieldByName('Обозначение').AsString + #39 + ',' +
+      #39 + Conn_Klap.AQuery.FieldByName('S').AsString + #39 + ')';
+      try
+        ADOQueryTemp.ExecSQL;
+      except
+        Err := '1222';
+      end;
+      Conn_Klap.AQuery.Next;
+    end;
+    //
+    //ЛЮК
+    SS := '(' + Tab3 + '.Элемент LIKE ' + #39 + '%Ось%' + #39 + ') OR  ('
+     + Tab3 + '.Элемент LIKE ' + #39 + '%Втулка%' + #39 + ') OR  ('
+    + Tab3 + '.Элемент LIKE ' + #39 + '%Труба%' + #39 + ') OR  ('
+    + Tab3 + '.Элемент LIKE ' + #39 + '%Болт%' + #39 + ')';
+
+    if not Conn_Klap.mkQuerySelect('Select ' + Tab3 + '.Элемент,' + Tab3 + '.Обозначение,Sum('
+    + Tab3 + '.Количество*' + Tab4 + '.[кол во] ) As S ' + 'FROM ' + Tab3 +
+    ' INNER JOIN ' + Tab4 + ' ON ' + Tab3 + '.IdГП = ' + Tab4 + '.IdГП  Where ('
+    + Tab4 + '.Дата %s' + ') AND (%s) Group BY ' + Tab3 + '.Элемент,' + Tab3 +
+    '.Обозначение', [ss1, SS]) then
+      exit;
+
+    for J := 0 to Conn_Klap.AQuery.RecordCount - 1 do
+    begin
+      ADOQueryTemp.SQL.Text := 'INSERT INTO #ClientToDBFL ' +
+      '(Элемент,Обозначение,Kol) Values (' + #39 + Conn_Klap.AQuery.FieldByName('Элемент').AsString + #39 +
+      ',' + #39 + Conn_Klap.AQuery.FieldByName('Обозначение').AsString + #39 + ',' +
+      #39 + Conn_Klap.AQuery.FieldByName('S').AsString + #39 + ')';
+      try
+        ADOQueryTemp.ExecSQL;
+      except
+        Err := '1222';
+      end;
+      Conn_Klap.AQuery.Next;
+    end;
+    //ЛЮК
+    ADOQueryTemp.SQL.Text := ('Select Элемент,Обозначение,Sum(Kol ) As S ' +
+    'FROM #ClientToDBFL  Group BY Элемент,Обозначение');
+    ADOQueryTemp.Open;
+    for J := 0 to ADOQueryTemp.RecordCount - 1 do
+    begin
+      if J <> ADOQueryTemp.RecordCount then
+      begin
+        XL.ActiveWorkBook.Worksheets[1].Range['A4:G4'].Select;
+        XL.Selection.Copy;
+        XL.ActiveWorkBook.Worksheets[1].Range['A' + IntToStr(XX)].Select;
+        XL.ActiveWorkBook.Worksheets[1].Paste;
+      end;
+      XL.ActiveWorkBook.WorkSheets[1].Cells[XX, 1] := IntToStr(XX-4);
+      XL.ActiveWorkBook.WorkSheets[1].Cells[XX, 2] := ADOQueryTemp.FieldByName('Обозначение').AsString;
+      XL.ActiveWorkBook.WorkSheets[1].Cells[XX, 3] := ADOQueryTemp.FieldByName('Элемент').AsString;
+      XL.ActiveWorkBook.WorkSheets[1].Cells[XX, 4] := ADOQueryTemp.FieldByName('S').AsString;
+      Inc(XX);
+      ADOQueryTemp.Next;
+    end;
+//OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+  //XL.Application.ActiveWorkBook.Close;
+  except
+    XL := UnAssigned;
+  end;
+  XL.ActiveWorkBook.save;
+  XL.Visible := True;
+  XL := UnAssigned;
+
+end;
 procedure TForm1.Button47Click(Sender: TObject);
 begin
   FNaklVoz.ShowModal;
@@ -25781,15 +30312,15 @@ var
   Dat, Dat1, Dat2, Dat3, SS, D, Dir, God, Mes, PP, ZAk, ss1, Err: string;
 begin
   Conn_Klap := Connect_Miass_Klap.Create();
-  God := FormatDateTime('yyyy', DTP8.DateTime);
-  Mes := FormatDateTime('mmmm', DTP8.DateTime);
+  God := FormatDateTime('yyyy', DateTimePicker4.DateTime);
+  Mes := FormatDateTime('mmmm', DateTimePicker5.DateTime);
   Memo9.Lines.LoadFromFile(ExtractFileDir(ParamStr(0)) + '\ConnCEH.ini');
   D := Memo9.Lines.Strings[2];
-  Dat2 := FormatDateTime('dd.mm.yyyy', DTP8.DateTime);
-  Dat3 := FormatDateTime('dd.mm.yyyy', DTP9.DateTime);
+  Dat2 := FormatDateTime('dd.mm.yyyy', DateTimePicker4.DateTime);
+  Dat3 := FormatDateTime('dd.mm.yyyy', DateTimePicker5.DateTime);
 
-  Dat := FormatDateTime('mm.dd.yyyy', DTP8.DateTime);
-  Dat1 := FormatDateTime('mm.dd.yyyy', DTP9.DateTime);
+  Dat := FormatDateTime('mm.dd.yyyy', DateTimePicker4.DateTime);
+  Dat1 := FormatDateTime('mm.dd.yyyy', DateTimePicker5.DateTime);
   ss1 := '  BETWEEN ' + #39 + Dat + #39 + ' And ' + #39 + Dat1 + #39;
   XL := CreateOleObject('Excel.Application'); //
   XL.Application.EnableEvents := false;
@@ -25798,8 +30329,11 @@ begin
   XL.ActiveWorkBook.Sheets.Item[2].Activate;
   //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
   ZAk := '';
-  SS := 'Специф.Элемент LIKE ' + #39 + 'Ось%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Sum(Специф.Количество*Klapana.[кол во] ) As S ' + 'FROM %s INNER JOIN Klapana ON Специф.IdГП = Klapana.IdГП  Where (Klapana.Дата %s' + ') AND (%s) AND ((Специф.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (Специф.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Специф.Элемент,Специф.Обозначение', ['Специф', ss1, SS]) then
+  SS := '((Специф.Элемент LIKE ' + #39 + '%Ось%'+#39+') or (Специф.Обозначение LIKE ' + #39 + '%Ось%'+#39+') or (Специф.Обозначение LIKE ' + #39 + '%ВГ 542.00.00.032%'+#39+')) ';
+  if not Conn_Klap.mkQuerySelect(
+  'Select Специф.Элемент,Специф.Обозначение,Sum(Специф.Количество*Запуск.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN Запуск ON Специф.IdГП = Запуск.IdГП  Where (Запуск.['+ComboBox23.Text+'] %s' +
+  ') AND %s Group BY Специф.Элемент,Специф.Обозначение', ['Специф', ss1, SS]) then
     exit;
 
   XX := 5;
@@ -25825,34 +30359,15 @@ begin
       Err := '1222';
     end;
 
-      {if J<>Conn_Klap.AQuery.RecordCount  then
-      Begin
-          XL.ActiveWorkBook.Worksheets[2].Range['A4:E4'].Select;
-          XL.Selection.Copy;
-          XL.ActiveWorkBook.Worksheets[2].Range['A' + IntToStr(XX)].Select;
-          XL.ActiveWorkBook.Worksheets[2].Paste;
-      End;
-          XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,2] :=Conn_Klap.AQuery.FieldByName('Элемент').AsString;
-          XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,3] :=Conn_Klap.AQuery.FieldByName('Обозначение').AsString;
-          XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,4] :=Conn_Klap.AQuery.FieldByName('S').AsString;
-          Zak:='';
-          PP:= Conn_Klap.AQuery.FieldByName('Элемент').AsString;
-          if not Conn_Klap.mkQuerySelect3( 'Select Специф.Заказ '+
-          'FROM %s   Where (Специф.Дата %s '
-          +') AND (Специф.Элемент= '+#39+PP+#39+') Group BY Заказ', ['Специф',SS1]) then
-          exit;
-           for Z := 0 to Conn_Klap.AQuery3.RecordCount - 1 do
-            begin
-                 Zak:=Zak+','+ Conn_Klap.AQuery3.FieldByName('Заказ').AsString;
-                  Conn_Klap.AQuery3.Next;
-            end;
-            XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,5] :=Zak;
-          Inc(XX);}
     Conn_Klap.AQuery.Next;
   end;
    //ppppppppppppppppppppppppppppppppppppppppppppppp
-  SS := 'СпецифВозд.Элемент LIKE ' + #39 + 'Ось%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,Sum(СпецифВозд.Количество*KlapanaZap.[кол во] ) As S ' + 'FROM %s INNER JOIN KlapanaZap ON СпецифВозд.IdГП = KlapanaZap.IdГП  Where (KlapanaZap.Дата %s ' + ') AND (%s) AND ((СпецифВозд.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (СпецифВозд.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение', ['СпецифВозд', ss1, SS]) then
+  //SS := 'СпецифВозд.Элемент LIKE ' + #39 + 'Ось%' + #39;
+ // SS := '(СпецифВозд.Элемент LIKE ' + #39 + 'Ось%'+#39+') ';
+ SS := '((СпецифВозд.Элемент LIKE ' + #39 + '%Ось%'+#39+') or (СпецифВозд.Обозначение LIKE ' + #39 + '%Ось%'+#39+') or (СпецифВозд.Обозначение LIKE ' + #39 + '%ВГ 542.00.00.032%'+#39+')) ';
+  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,Sum(СпецифВозд.Количество*ЗапускВозд.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN ЗапускВозд ON СпецифВозд.IdГП = ЗапускВозд.IdГП AND СпецифВозд.IdКО = ЗапускВозд.IdКО  Where (ЗапускВозд.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s)  Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение', ['СпецифВозд', ss1, SS]) then
     exit;
 
   Inc(XX);
@@ -25864,29 +30379,6 @@ begin
     except
       Err := '1222';
     end;
-    {  if J<>Conn_Klap.AQuery.RecordCount  then
-      Begin
-          XL.ActiveWorkBook.Worksheets[2].Range['A4:E4'].Select;
-          XL.Selection.Copy;
-          XL.ActiveWorkBook.Worksheets[2].Range['A' + IntToStr(XX)].Select;
-          XL.ActiveWorkBook.Worksheets[2].Paste;
-      End;
-          XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,2] :=Conn_Klap.AQuery.FieldByName('Элемент').AsString;
-          XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,3] :=Conn_Klap.AQuery.FieldByName('Обозначение').AsString;
-          XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,4] :=Conn_Klap.AQuery.FieldByName('S').AsString;
-                    Zak:='';
-          PP:= Conn_Klap.AQuery.FieldByName('Элемент').AsString;
-          if not Conn_Klap.mkQuerySelect3( 'Select СпецифВозд.Заказ '+
-          'FROM %s   Where (СпецифВозд.Дата %s '
-          +') AND (СпецифВозд.Элемент= '+#39+PP+#39+') Group BY Заказ', ['СпецифВозд',SS1]) then
-          exit;
-           for Z := 0 to Conn_Klap.AQuery3.RecordCount - 1 do
-            begin
-                 Zak:=Zak+','+ Conn_Klap.AQuery3.FieldByName('Заказ').AsString;
-                  Conn_Klap.AQuery3.Next;
-            end;
-            XL.ActiveWorkBook.WorkSheets[2].Cells[ XX,5] :=Zak;
-          Inc(XX); }
     Conn_Klap.AQuery.Next;
   end;
   ADOQueryTemp.SQL.Text := ('Select Элемент,Обозначение,Sum(Kol ) As S ' + 'FROM #ClientToDBFL  Group BY Элемент,Обозначение');
@@ -25914,8 +30406,10 @@ begin
   XL.ActiveWorkBook.WorkSheets[6].Range['B' + IntToStr(1), 'B' + IntToStr(1)] := Dat2;
   XL.ActiveWorkBook.Sheets.Item[6].Activate;
   //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-  SS := 'Специф.Элемент LIKE ' + #39 + 'Втулка%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Sum(Специф.Количество*Klapana.[кол во] ) As S ' + 'FROM %s INNER JOIN Klapana ON Специф.IdГП = Klapana.IdГП  Where (Klapana.Дата %s ' + ') AND (%s) AND ((Специф.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (Специф.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Специф.Элемент,Специф.Обозначение', ['Специф', ss1, SS]) then
+  SS := '(Специф.Элемент LIKE ' + #39 + '%Втулка%' + #39+')or (Специф.Обозначение LIKE ' + #39 + '%Втулка%' + #39+')';
+  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Sum(Специф.Количество*Запуск.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN Запуск ON Специф.IdГП = Запуск.IdГП  Where (Запуск.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s)  Group BY Специф.Элемент,Специф.Обозначение', ['Специф', ss1, SS]) then
     exit;
 
   XX := 5;
@@ -25936,8 +30430,11 @@ begin
     Conn_Klap.AQuery.Next;
   end;
    //ppppppppppppppppppppppppppppppppppppppppppppppp
-  SS := 'СпецифВозд.Элемент LIKE ' + #39 + 'Втулка%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,Sum(СпецифВозд.Количество*KlapanaZap.[кол во] ) As S ' + 'FROM %s INNER JOIN KlapanaZap ON СпецифВозд.IdГП = KlapanaZap.IdГП  Where (KlapanaZap.Дата %s ' + ') AND (%s) AND ((СпецифВозд.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (СпецифВозд.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение', ['СпецифВозд', ss1, SS]) then
+  //SS := 'СпецифВозд.Элемент LIKE ' + #39 + 'Втулка%' + #39;
+  SS := '(СпецифВозд.Элемент LIKE ' + #39 + '%Втулка%' + #39+')or (СпецифВозд.Обозначение LIKE ' + #39 + '%Втулка%' + #39+')';
+  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,Sum(СпецифВозд.Количество*ЗапускВозд.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN ЗапускВозд ON СпецифВозд.IdГП = ЗапускВозд.IdГП AND СпецифВозд.IdКО = ЗапускВозд.IdКО  Where (ЗапускВозд.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s)Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение', ['СпецифВозд', ss1, SS]) then
     exit;
 
   Inc(XX);
@@ -25963,8 +30460,10 @@ begin
   XL.ActiveWorkBook.WorkSheets[7].Range['B' + IntToStr(1), 'B' + IntToStr(1)] := Dat2;
   XL.ActiveWorkBook.Sheets.Item[7].Activate;
   //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-  SS := 'Специф.Элемент LIKE ' + #39 + 'Труба%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Sum(Специф.Количество*Klapana.[кол во] ) As S ' + 'FROM %s INNER JOIN Klapana ON Специф.IdГП = Klapana.IdГП  Where (Klapana.Дата %s ' + ') AND (%s) AND ((Специф.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (Специф.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Специф.Элемент,Специф.Обозначение', ['Специф', ss1, SS]) then
+  SS := '(Специф.Элемент LIKE ' + #39 + '%Труба%' + #39+')or (Специф.Обозначение LIKE ' + #39 + '%Труба%' + #39+')';
+  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Sum(Специф.Количество*Запуск.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN Запуск ON Специф.IdГП = Запуск.IdГП  Where (Запуск.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s) AND ((Специф.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (Специф.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Специф.Элемент,Специф.Обозначение', ['Специф', ss1, SS]) then
     exit;
 
   XX := 5;
@@ -25985,8 +30484,11 @@ begin
     Conn_Klap.AQuery.Next;
   end;
    //ppppppppppppppppppppppppppppppppppppppppppppppp
-  SS := 'СпецифВозд.Элемент LIKE ' + #39 + 'Труба%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,Sum(СпецифВозд.Количество*KlapanaZap.[кол во] ) As S ' + 'FROM %s INNER JOIN KlapanaZap ON СпецифВозд.IdГП = KlapanaZap.IdГП  Where (KlapanaZap.Дата %s ' + ') AND (%s) AND ((СпецифВозд.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (СпецифВозд.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение', ['СпецифВозд', ss1, SS]) then
+  SS := '(СпецифВозд.Элемент LIKE ' + #39 + '%Труба%' + #39+')or (СпецифВозд.Обозначение LIKE ' + #39 + '%Труба%' + #39+')';
+  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,Sum(СпецифВозд.Количество*ЗапускВозд.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN ЗапускВозд ON СпецифВозд.IdГП = ЗапускВозд.IdГП AND СпецифВозд.IdКО = ЗапускВозд.IdКО  Where (ЗапускВозд.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s) AND ((СпецифВозд.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (СпецифВозд.ВидЭлемента= ' + #39 +
+  'Прочие изделия' + #39 + ')) Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение', ['СпецифВозд', ss1, SS]) then
     exit;
 
   Inc(XX);
@@ -26013,7 +30515,8 @@ begin
   XL.ActiveWorkBook.Sheets.Item[3].Activate;
   //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
   SS := 'Элемент Like   ' + #39 + '%взрывозащищенная%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select Элемент,Sum(Cast(Количество As INT)) As S from %s Where (Дата %s ' + ') AND (%s) AND ( (ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Элемент', ['Специф', ss1, SS]) then
+  if not Conn_Klap.mkQuerySelect('Select Элемент,Sum(Cast(Количество As INT)) As S from %s Where (Дата %s ' +
+  ') AND (%s) AND ( (ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Элемент', ['Специф', ss1, SS]) then
     exit;
   XX := 5;
 
@@ -26032,7 +30535,8 @@ begin
     Conn_Klap.AQuery.Next;
   end;
    //ppppppppppppppppppppppppppppppppppppppppppppppp
-  if not Conn_Klap.mkQuerySelect('Select Элемент,Sum(Cast(Количество As INT)) As S from %s Where (Дата %s ' + ') AND (%s) AND ( (ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Элемент', ['СпецифВозд', ss1, SS]) then
+  if not Conn_Klap.mkQuerySelect('Select Элемент,Sum(Cast(Количество As INT)) As S from %s Where (Дата %s ' +
+  ') AND (%s) AND ( (ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Элемент', ['СпецифВозд', ss1, SS]) then
     exit;
   XX := 5;
   for J := 0 to Conn_Klap.AQuery.RecordCount - 1 do
@@ -26055,7 +30559,10 @@ begin
   XL.ActiveWorkBook.WorkSheets[4].Range['B' + IntToStr(1), 'B' + IntToStr(1)] := Dat2;
   XL.ActiveWorkBook.Sheets.Item[4].Activate;
   SS := 'Специф.Элемент LIKE ' + #39 + 'Ось%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Специф.Заказ,Специф.Изделие,Sum(Специф.Количество*Klapana.[кол во] ) As S ' + 'FROM %s INNER JOIN Klapana ON Специф.IdГП = Klapana.IdГП  Where (Klapana.Дата %s ' + ') AND (%s) AND ((Специф.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (Специф.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY Специф.Элемент,Специф.Обозначение,Специф.Заказ,Специф.Изделие', ['Специф', ss1, SS]) then
+  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Специф.Заказ,Специф.Изделие,Sum(Специф.Количество*Запуск.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN Запуск ON Специф.IdГП = Запуск.IdГП  Where (Запуск.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s) AND ((Специф.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (Специф.ВидЭлемента= ' + #39 +
+  'Прочие изделия' + #39 + ')) Group BY Специф.Элемент,Специф.Обозначение,Специф.Заказ,Специф.Изделие', ['Специф', ss1, SS]) then
     exit;
   XX := 5;
 
@@ -26081,8 +30588,11 @@ begin
    //ppppppppppppppppppppppppppppppppppppppppppppppp
   XL.ActiveWorkBook.WorkSheets[5].Range['B' + IntToStr(1), 'B' + IntToStr(1)] := Dat2;
   XL.ActiveWorkBook.Sheets.Item[5].Activate;
-  SS := 'СпецифВозд.Элемент LIKE ' + #39 + 'Ось%' + #39;
-  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,СпецифВозд.Заказ,СпецифВозд.Изделие,Sum(СпецифВозд.Количество*KlapanaZap.[кол во] ) As S ' + 'FROM %s INNER JOIN KlapanaZap ON СпецифВозд.IdГП = KlapanaZap.IdГП  Where (KlapanaZap.Дата %s ' + ') AND (%s) AND ((СпецифВозд.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (СпецифВозд.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 + ')) Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение,СпецифВозд.Заказ,СпецифВозд.Изделие', ['СпецифВозд', ss1, SS]) then
+  SS := 'СпецифВозд.Элемент LIKE ' + #39 + '%Ось%' + #39;
+  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,СпецифВозд.Заказ,СпецифВозд.Изделие,Sum(СпецифВозд.Количество*ЗапускВозд.[Кол во запущенных] ) As S '
+  + 'FROM %s INNER JOIN ЗапускВозд ON СпецифВозд.IdГП = ЗапускВозд.IdГП AND СпецифВозд.IdКО = ЗапускВозд.IdКО  Where (ЗапускВозд.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s) AND ((СпецифВозд.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (СпецифВозд.ВидЭлемента= ' + #39 + 'Прочие изделия' + #39 +
+  ')) Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение,СпецифВозд.Заказ,СпецифВозд.Изделие', ['СпецифВозд', ss1, SS]) then
     exit;
   XX := 5;
   for J := 0 to Conn_Klap.AQuery.RecordCount - 1 do
@@ -26104,6 +30614,81 @@ begin
     Conn_Klap.AQuery.Next;
   end;
 //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+  XL.ActiveWorkBook.WorkSheets[8].Range['B' + IntToStr(1), 'B' + IntToStr(1)] := Dat2;
+  XL.ActiveWorkBook.Sheets.Item[8].Activate;
+  //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+  ZAk := '';
+  SS := '(Специф.Элемент LIKE ' + #39 + 'Полумуфта%'+#39+') ';
+  if not Conn_Klap.mkQuerySelect('Select Специф.Элемент,Специф.Обозначение,Sum(Специф.Количество*Запуск.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN Запуск ON Специф.IdГП = Запуск.IdГП  Where (Запуск.['+ComboBox23.Text+'] %s' +
+  ') AND (%s) AND ((Специф.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (Специф.ВидЭлемента= ' + #39 +
+  'Прочие изделия' + #39 + ')) Group BY Специф.Элемент,Специф.Обозначение', ['Специф', ss1, SS]) then
+    exit;
+
+  XX := 2;
+        //Создание временной таблицы  idgp,zakaz,Nom
+  SetConnectTemp(ADOQueryTemp);
+    //Создание временной таблицы
+  ADOQueryTemp := TADOQuery.Create(nil);
+  ADOQueryTemp.Connection := ADOConnectionTemp;
+
+  ADOQueryTemp.SQL.Text := 'CREATE TABLE #ClientToDBFL (Элемент nvarchar(350),' + 'Обозначение nvarchar(350),Kol float )';
+  try
+    ADOQueryTemp.ExecSQL;
+  except
+    Err := '1222';
+  end;
+  for J := 0 to Conn_Klap.AQuery.RecordCount - 1 do
+  begin
+        //SetConnectTemp(ADOQueryTemp);
+    ADOQueryTemp.SQL.Text := 'INSERT INTO #ClientToDBFL ' + '(Элемент,Обозначение,Kol) Values (' + #39 + Conn_Klap.AQuery.FieldByName('Элемент').AsString + #39 + ',' + #39 + Conn_Klap.AQuery.FieldByName('Обозначение').AsString + #39 + ',' + #39 + Conn_Klap.AQuery.FieldByName('S').AsString + #39 + ')';
+    try
+      ADOQueryTemp.ExecSQL;
+    except
+      Err := '1222';
+    end;
+
+    Conn_Klap.AQuery.Next;
+  end;
+   //ppppppppppppppppppppppppppppppppppppppppppppppp
+  //SS := 'СпецифВозд.Элемент LIKE ' + #39 + 'Ось%' + #39;
+  SS := '(СпецифВозд.Элемент LIKE ' + #39 + 'Полумуфта%'+#39+') ';
+  if not Conn_Klap.mkQuerySelect('Select СпецифВозд.Элемент,СпецифВозд.Обозначение,Sum(СпецифВозд.Количество*ЗапускВозд.[Кол во запущенных] ) As S ' +
+  'FROM %s INNER JOIN ЗапускВозд ON СпецифВозд.IdГП = ЗапускВозд.IdГП AND СпецифВозд.IdКО = ЗапускВозд.IdКО  Where (ЗапускВозд.['+ComboBox23.Text+'] %s ' +
+  ') AND (%s) AND ((СпецифВозд.ВидЭлемента= ' + #39 + 'Детали' + #39 + ') OR (СпецифВозд.ВидЭлемента= '
+  + #39 + 'Прочие изделия' + #39 + ')) Group BY СпецифВозд.Элемент,СпецифВозд.Обозначение', ['СпецифВозд', ss1, SS]) then
+    exit;
+
+  Inc(XX);
+  for J := 0 to Conn_Klap.AQuery.RecordCount - 1 do
+  begin
+    ADOQueryTemp.SQL.Text := 'INSERT INTO #ClientToDBFL ' + '(Элемент,Обозначение,Kol) Values (' + #39 + Conn_Klap.AQuery.FieldByName('Элемент').AsString + #39 + ',' + #39 + Conn_Klap.AQuery.FieldByName('Обозначение').AsString + #39 + ',' + #39 + Conn_Klap.AQuery.FieldByName('S').AsString + #39 + ')';
+    try
+      ADOQueryTemp.ExecSQL;
+    except
+      Err := '1222';
+    end;
+    Conn_Klap.AQuery.Next;
+  end;
+  ADOQueryTemp.SQL.Text := ('Select Элемент,Обозначение,Sum(Kol ) As S ' + 'FROM #ClientToDBFL  Group BY Элемент,Обозначение');
+  ADOQueryTemp.Open;
+
+  //Inc(XX);
+  for J := 0 to ADOQueryTemp.RecordCount - 1 do
+  begin
+    if J <> ADOQueryTemp.RecordCount then
+    begin
+      XL.ActiveWorkBook.Worksheets[8].Range['A4:E4'].Select;
+      XL.Selection.Copy;
+      XL.ActiveWorkBook.Worksheets[8].Range['A' + IntToStr(XX)].Select;
+      XL.ActiveWorkBook.Worksheets[8].Paste;
+    end;
+    XL.ActiveWorkBook.WorkSheets[8].Cells[XX, 2] := ADOQueryTemp.FieldByName('Элемент').AsString;
+    XL.ActiveWorkBook.WorkSheets[8].Cells[XX, 3] := ADOQueryTemp.FieldByName('Обозначение').AsString;
+    XL.ActiveWorkBook.WorkSheets[8].Cells[XX, 4] := ADOQueryTemp.FieldByName('S').AsString;
+    Inc(XX);
+    ADOQueryTemp.Next;
+  end;
   Dir := (D + '\CKlapana\Привода\');
   CreateDir(Dir);
   Dir := (D + '\CKlapana\Привода\' + God);
@@ -26130,20 +30715,32 @@ var
   otk,N:TDate;
 begin
   Vozduh := 1; // and (ZCV.Cells[I_FN_KOL_ZAP + 5, ZCV.Row] = '')
+    if (ZCV.Col = 2) then
+  begin
+    FSpec.Caption := ZCV.Cells[12, ZCV.ROW]; //Nam
+    FSpec.Label1.Caption := ZCV.Cells[30, ZCV.ROW]; //IDGP
+    FSpec.Lbl1.Caption := ZCV.Cells[31, ZCV.ROW]; //IDKO
+
+   // Pos1 := AnsiCompareStr('0', Sgl.Cells[I_FN_SGP + 2, Sgl.Row]);
+    FSpec.Label2.Caption := '1';
+    //if Pos1 <> 0 then
+      FSpec.ShowModal;
+  end;
   Kol := StrToInt(ZCV.Cells[5, ZCV.ROW]);
   Kol_Prin := StrToInt(ZCV.Cells[14, ZCV.ROW]);
   if ZCV.Cells[13, ZCV.ROW]<>'' then
   Begin
     OTK:=StrToDate(ZCV.Cells[13, ZCV.ROW]);
     N:=Now;
-  End;
-  if (ZCV.Col = 0) and ((FlagDolg = 4) or (FlagDolg = 1) or (FlagDolg = 10) or (FlagDolg = 7) or (FlagDolg = 2)) then
+  End;                       // or (FlagDolg = 10)
+  if (ZCV.Col = 0) and ((FlagDolg = 4) or (FlagDolg = 1)  or (FlagDolg = 7) or (FlagDolg = 2)) then
   begin                          //
     if ((Kol=Kol_Prin) AND (N>OTK+2))  AND (FlagDolg <> 1) AND (FlagDolg <> 2) Then  //   (ZSG.Cells[I_FN_KOL_ZAP + 9,ZSG.row]<>'')
     Begin
       MessageDlg('ОТК приняло клапан, запрещенно изменять дату!', mtError, [mbOk], 0);
       exit;
     End;
+    FSborAll.Label7.Caption:=ZCV.Cells[12, ZCV.ROW];
     FSborAll.Label1.Caption := ZCV.Cells[0, ZCV.Row];
     FSborAll.ComboBox1.Clear;
     FSborAll.CBB1.Clear;
@@ -26872,7 +31469,7 @@ begin
         Insert('.', S_Sbor, Res);
 
       s := '%Нагреватель электрический%';
-      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND ((IdКО=' + #39 + IDKO + #39 + ') or (IdКО=' + #39 + #39 + ')) AND (Заказ=' + #39 + Zak + #39 + ') AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
         exit;
 
       if Form1.Qry1.RecordCount <> 0 then
@@ -27016,7 +31613,7 @@ begin
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     //Создание временной таблицы  idgp,zakaz,Nom
- { SetConnectTemp(ADOQueryTemp);
+  SetConnectTemp(ADOQueryTemp);
     //Создание временной таблицы
   ADOQueryTemp:=TADOQuery.Create(nil);
   ADOQueryTemp.Connection:=ADOConnectionTemp;
@@ -27060,7 +31657,7 @@ begin
         except
         Err:='1222';
         end;
-    end;  }
+    end;
   //
   XL2.Visible := True;
   Sheet1 := UnAssigned;
@@ -27076,7 +31673,7 @@ var
   Vn_DAt, Vn_DAt1, Dir, God, mes, Nom, S_Svar, S_Sbor, Sbor_Lop, Sbor_Tyag,
   Priv_Str, idgp, IDKO, Zak, Izdel, Leg, Kol_S, Stan, Oboz, Elem, Mat, Err,
   id_lop, s, S1, Lop, Dir2, Tab1, Tab2, Tab3, BZ, Brik, SS_SS, SS_SS1, Str,
-  A_S, B_S, F_S, Prim1, Mod_Priv, K, P,Prov1,Prov2: string;
+  A_S, B_S, F_S, Prim1, Mod_Priv, K, P,Prov1,Prov2,Obozn: string;
   Svar_o, Sbor_o, Kol_D, Kol1, Kol2, Kol3, Kol4, Kol5, Kol6, Kol7, Kol8, Kol_T, Kol_Ten, F, F1, s_L, S_T, Ten,
  Kol_LOP, Ten_Priv, P_K, P_P: Double;
   Res_Nog, Res_Trumph, Res_Gib, Res_Pila, Kanban, Val, Svark, Rotor, Pokr,
@@ -27123,7 +31720,7 @@ begin
   CreateDir(Dir);
 
   XL2 := CreateOleObject('Excel.Application');
-  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\SUT1.xlsx'), PWideChar(Dir + '\' + Vn_DAt + ' СутЗадан_КПУ_КПД № ' + Nom + '.xlsx'), False);
+  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\SUT2.xlsx'), PWideChar(Dir + '\' + Vn_DAt + ' СутЗадан_КПУ_КПД № ' + Nom + '.xlsx'), False);
 
   XL2.Workbooks.Open(Dir + '\' + Vn_DAt + ' СутЗадан_КПУ_КПД № ' + Nom + '.xlsx');
   XL2.Application.EnableEvents := false;
@@ -27174,7 +31771,8 @@ begin
     if Res <> 0 then
       Insert('.', S_Sbor, Res);
 
-    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') ', [Tab3]) then //
+    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+    ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') ', [Tab3]) then //
       exit;
     Leg := Form1.Qry1.FieldByName('Заказчик').AsString;
     BZ1 := Form1.Qry1.FieldByName('bz').AsBoolean;
@@ -27287,8 +31885,16 @@ begin
     SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
     Sheet2 := XL2.ActiveWorkBook.WorkSheets[5]; //XL2.WorkSheets.Add;
     Sheet2.Activate;
+    res:=AnsiCompareStr(IDKO,'0');
+    if Res<>0 then
+    Begin
+           Tab2:='СпецифСТАМ';
+           IDKO:='0';
+    End;
     s := 'Лента нагревательная саморегулирующаяся 31VR2-Т ТУ 3558-103-33006874-2012';
-    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+    ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 +
+    ') AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
       exit;
 
     if Form1.Qry1.RecordCount = 0 then
@@ -27430,7 +32036,8 @@ begin
       //
       //Проверка на двойной клапан
       s := 'Корпус%';
-      if not Form1.mkQuerySelect1(Form1.ADOQuery1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+      if not Form1.mkQuerySelect1(Form1.ADOQuery1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+      ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
         Exit;
       if Form1.ADOQuery1.RecordCount <> 0 then
       begin
@@ -27443,32 +32050,34 @@ begin
       SS_SS := StringReplace(s, ',', '.', [rfReplaceAll]);
       F := StrToFloat(SS_SS);
       F1 := F * 1000;
-      Res := Pos('-МС', Mod_Priv); //      Электропривод ЭПВ-SFA-S2-L-МС
+      {Res := Pos('-МС', Mod_Priv); //      Электропривод ЭПВ-SFA-S2-L-МС
       if Res <> 0 then
       begin
         SS_SS1 := FloatToStr(F1);   //Греющий кабель внутри привода
            // SS_SS1:=FloatToStr(F1-(600*(Priv/Kol_Zap)));  //
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] := SS_SS1; //Кабель на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 7] := '600';  //Провод на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (8), 6] :=Prov1;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (9), 6] :=Prov2;
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] := SS_SS1; //Кабель на клап
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 7] := '600';  //Провод на клап
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] :=Prov1;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (7), 6] :=Prov2;
         XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 6] := 'внутри привода';
         XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 7] := '0';
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (8), 6] :=Prov1;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (9), 6] :=Prov2;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] :=Prov1;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (7), 6] :=Prov2;
       end
-      else
+      else }
       begin
             //if Kanal<>0 then
            // Begin
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] := FloatToStr(Ten * 1000); //Кабель на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 7] := FloatToStr(P_K * 1000);
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] := FloatToStr(Ten * 1000); //Кабель на клап
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 7] := FloatToStr(P_K * 1000);
          //Провод на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 6] := FloatToStr(Ten_Priv * 1000); //
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 7] := FloatToStr(P_P * 1000);
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (8), 6] :=Prov1;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (9), 6] :=Prov2;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 8] := IntToStr(1);
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 6] := FloatToStr(Ten_Priv * 1000); //
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 7] := FloatToStr(P_P * 1000);
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (8), 6] :=Prov1;
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (9), 6] :=Prov2;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] :=Prov1;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (7), 6] :=Prov2;
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 8] := IntToStr(1);
 
       end;
 
@@ -27478,14 +32087,55 @@ begin
       XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 5] := ADOQuery2.FieldByName('Брикет').AsString;
       s := StringReplace(ADOQuery2.FieldByName('МодПривода').AsString, 'Электропривод', '', [RFReplaceall]);
       Priv_Str := IntToStr(Priv);
-      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 10] := s;
-      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 11] := Priv_Str;
-      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 9] := ADOQuery2.FieldByName('Кол во запущенных').AsString;
+      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 12] := s;
+      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 13] := Priv_Str;
+      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 11] := ADOQuery2.FieldByName('Кол во запущенных').AsString;
 
       XL2.ActiveWorkBook.WorkSheets[5].Cells[2, 5] := Nom;
       XL2.ActiveWorkBook.WorkSheets[5].Cells[5, 1] := Nom;
       XL2.ActiveWorkBook.WorkSheets[5].Cells[13, 1] := Vn_DAt;
-      if Cvet = 1 then
+      //
+      s := 'ВГ 108.00.00.000-%';                        //
+      if not Form1.mkQuerySelect1(Form1.ADOQuery1,
+        'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 +')  AND (Заказ=' + #39 + Zak + #39 +
+        ')  AND (Обозначение LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+        Exit;
+      for I := 0 to Form1.ADOQuery1.RecordCount-1 do
+      begin
+          // inc(Q1);
+           s := ADOQuery1.FieldByName('Количество').AsString;
+           Obozn:=ADOQuery1.FieldByName('Обозначение').AsString ;
+           Res := Pos('-',Obozn );
+           if Res<>0 then
+           Delete(Obozn, 1, Res);
+        //
+        Res := Pos('*', Obozn);
+        if Res <> 0 then
+        try
+          A := StrToInt(Copy(Obozn, 1, Res - 1));
+        except
+          A := 0;
+        end;
+        //
+        Delete(Obozn, 1, Res);
+        Res := Pos('-', Obozn);
+        if Res<>0 then
+        Delete(Obozn,  Res,100);
+        try
+          B := StrToInt(Obozn);
+        except
+          B := 0;
+        end;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), I+8] := IntToStr(A); //Кабель на клап
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (7), I+8] := IntToStr(B);
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 10] := S;
+        //if Form1.ADOQuery1.RecordCount=1 then
+        //  inc(Q1);
+        //inc(Q1);
+        Form1.ADOQuery1.Next;
+
+      end;
+	        if Cvet = 1 then
       begin
         XL2.ActiveWorkBook.WorkSheets[5].Range['A2:L2'].Interior.Color := 3010538; //Желтый
         XL2.ActiveWorkBook.WorkSheets[5].Cells[2, 8] := 'Жел';
@@ -27502,8 +32152,8 @@ begin
       end;
       inc(Q1);
       inc(Q1);
-      inc(Q1);
-      inc(Q1);
+      //inc(Q1);
+      //inc(Q1);
     end;
   //____________Кабель
     //+ZZZZZZ
@@ -27659,19 +32309,10 @@ begin
       Form1.Qry1.Next;
     end;
    //+++++++++++++++++++++++++++++++++++++++++Исполнительный механизм ЭлектроМагнит
-           { El_Mag1:= Pos('Комплект ИМ с электромагнитом', Elem);
-        El_Mag2:= Pos('Исполнительный механизм', Elem);
-        if (El_Mag1 <> 0) or (El_Mag2 <> 0) then
-        begin
-          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
-          ',МодПривода=' + #39 + Obozn + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
-            Exit;
-        end;  }
+
     Memo19.Lines.Clear;
     Rang := Sheet2.Range['D' + IntToStr(u), emptyparam];
     Rang.value := ('**************************************************************************************');
-    {rang:=Sheet2.Range['K'+IntToStr(u),emptyparam];
-      rang.value:=('********************************************'); }
     inc(u);
     //Комплект ИМ с электромагнитом
     s := '%Комплект ИМ с электромагнитом%';
@@ -27780,14 +32421,7 @@ begin
   Sheet2.PageSetup.PrintArea := 'A1:Q' + IntToStr(r + 2);
 
   Sheet2.PageSetup.Zoom := false;
-        {Sheet2.PageSetup.FitToPagesWide:= 1;//1 Страница По ШИРИНЕ
 
-        Sheet2.PageSetup.FitToPagesTall := 1;// 1 Страница ПО ВЫСОТЕ
-        if R>40 then
-        Begin
-        Sheet2.PageSetup.FitToPagesTall := 2;// 2 Страницы ПО ВЫСОТЕ
-        Sheet2.PageSetup.PrintTitleRows := '$'+IntToStr(gggg-1)+':$'+IntToStr(gggg); //6 7
-        End;  }
   XL2.ActiveWorkBook.WorkSheets[4].PageSetup.FitToPagesWide := 1; //1 Страница По ШИРИНЕ
 
   XL2.ActiveWorkBook.WorkSheets[4].PageSetup.FitToPagesTall := 1; // 1 Страница ПО ВЫСОТЕ
@@ -27837,11 +32471,11 @@ var
   Vn_DAt, Vn_DAt1, Dir, God, mes, Nom, S_Svar, S_Sbor, Sbor_Lop, Sbor_Tyag, Raskl,Obvarka,
   Priv_Str, idgp, IDKO, Zak, Izdel, Leg, Kol_S, Stan, Oboz, Elem, Mat, Err,
   id_lop, s, S1, Lop, Dir2, Tab1, Tab2, Tab3, BZ, Brik, SS_SS, SS_SS1, Str,
-  A_S, B_S, F_S, Prim1, Mod_Priv, K, P,Prov1,Prov2: string;
+  A_S, B_S, F_S, Prim1, Mod_Priv, K, P,Prov1,Prov2,Obozn,IZGP: string;
   Svar_o, Sbor_o, Kol_D, Kol1, Kol2, Kol3, Kol4, Kol5, Kol6, Kol7, Kol8, Kol_T, Kol_Ten, F, F1, s_L, S_T, Ten,
  Kol_LOP, Ten_Priv, P_K, P_P: Double;
   Res_Nog, Res_Trumph, Res_Gib, Res_Pila, Kanban, Val, Svark, Rotor, Pokr,
-   fff, FFF1, gggg, G1, q, Q1, A, B, Zvez, Kanal: Integer;
+   fff, FFF1, gggg, G1, q, Q1, A, B, Zvez, Kanal,Res1: Integer;
   BZ1: Boolean;
   d: TDate;
 begin
@@ -27878,6 +32512,19 @@ begin
     Tab2 := '[Специф750]';
     Tab3 := '[750]';
   end;
+   if q = 3 then
+  begin
+    Tab1 := '[ЗапускСТАМ]';
+    Tab2 := '[СпецифСТАМ]';
+    Tab3 := '[СТАМ]';
+  end;
+  if q = 4 then
+  begin
+    Tab1 := '[ЗапускЛЮК]';
+    Tab2 := '[СпецифЛЮК]';
+    Tab3 := '[ЛЮК]';
+  end;
+
   Dir2 := Dir1;
   Vn_DAt := Dat3; //dd.mm/YYYY//FormatDateTime('mm.dd.yyyy', DateTimePicker1.Date);
   d := StrToDate(Vn_DAt);
@@ -27895,7 +32542,7 @@ begin
   CreateDir(Dir);
 
   XL2 := CreateOleObject('Excel.Application');
-  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\SUTVOZ.xlsx'), PWideChar(Dir + '\' + Vn_DAt + ' СутЗадан_Возд № ' + Nom + '.xlsx'), False);
+  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\SUTVOZ_NOW.xlsx'), PWideChar(Dir + '\' + Vn_DAt + ' СутЗадан_Возд № ' + Nom + '.xlsx'), False);
 
   XL2.Workbooks.Open(Dir + '\' + Vn_DAt + ' СутЗадан_Возд № ' + Nom + '.xlsx');
   XL2.Application.EnableEvents := false;
@@ -27911,6 +32558,8 @@ begin
     exit;
   for E := 1 to ADOQuery2.RecordCount do
   begin
+    if (Q<>3) and (Q<>4) and (Q<>2) then
+    Begin
     Form1.Memo2.Lines.Add(ADOQuery2.FieldByName('Н\ч Сварка').AsString);
     Svar_o := RoundTo(Svar_o + StrToFloat(ADOQuery2.FieldByName('Н\ч Сварка').AsString), -2);
     Sbor_o := RoundTo(Sbor_o + StrToFloat(ADOQuery2.FieldByName('Н\ч Сборка Клапана').AsString), -2);
@@ -27921,6 +32570,7 @@ begin
     Sbor_Lop := ADOQuery2.FieldByName('Сборка лопаток').AsString;
     Obvarka := ADOQuery2.FieldByName('Обварка').AsString;
     Raskl := ADOQuery2.FieldByName('Расключение').AsString;
+    End;
     //
     BZ := ADOQuery2.FieldByName('БЗ').AsString;
     Brik := ADOQuery2.FieldByName('Брикет').AsString;
@@ -27947,11 +32597,16 @@ begin
     if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp +
     #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') ', [Tab3]) then //
       exit;
+    if (Q<>3) and (Q<>4)  then
+    Begin
     Leg := Form1.Qry1.FieldByName('Заказчик').AsString;
     BZ1 := Form1.Qry1.FieldByName('bz').AsBoolean;
+    End;
+
+    IZGP:=Qry1.FieldByName('ИзделиеГП').AsString;
     XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 2] := ADOQuery2.FieldByName('Заказ').AsString;
     XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 3] := ADOQuery2.FieldByName('БЗ').AsString;
-    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 4] := Izdel; //ADOQuery2.FieldByName('Изделие').AsString;
+    XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 4] := Izdel+#13#10+IZGP;
     XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 5] := ADOQuery2.FieldByName('Брикет').AsString;
 
     //XL2.ActiveWorkBook.WorkSheets[1].Cells[(E) + (6), 6] := ADOQuery2.FieldByName('A').AsString;
@@ -28059,38 +32714,97 @@ begin
     SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
     Sheet2 := XL2.ActiveWorkBook.WorkSheets[5]; //XL2.WorkSheets.Add;
     Sheet2.Activate;
+    res:=AnsiCompareStr(IDKO,'0');
+    //Res1:=Pos('ГЕРМИК-ДУ',Izdel ); and (Res1<>0)
+    if (Res<>0)  then
+    Begin
+           Tab2:='СпецифСТАМ';
+           IDKO:='0';
+    End;
     s := 'Лента нагревательная саморегулирующаяся 31VR2-Т ТУ 3558-103-33006874-2012';
-    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+    if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+    ') AND (Заказ=' + #39 + Zak + #39 +
+    ') AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
       exit;
 
     if Form1.Qry1.RecordCount = 0 then
     begin
-      s := 'Кабель нагревательный саморегулирующий 30КСТМ2-Т ТУ 3558-081-33006874-2011';
-      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
-    end;
-    if Form1.Qry1.RecordCount = 0 then
-    begin
       s := 'Кабель нагревательный%';
-      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+      ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
     end;
 
-    if Form1.Qry1.RecordCount = 0 then
-    begin
-      s := 'Кабель саморегулируемый греющий 10 BTV2-CT-T6, 230V, 29W/m at 10 C,II 2 G Ex e II T6 и II 2 D Ex td A21 IP66';
-      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
-
-    end;
 //  28.11.22 Головцова
     if Form1.Qry1.RecordCount = 0 then
     begin
-      s := 'Кабель саморегулируемый%';
-      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+      s := 'Кабель саморег%';
+      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+      ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
 
     end;
+
+    //
     if Form1.Qry1.RecordCount = 0 then
     begin
-      s := 'Кабель саморегулирующийся%';
-      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+       IDKO := ADOQuery2.FieldByName('IdКО').AsString;
+       //res:=AnsiCompareStr(IDKO,'0');
+      //Res1:=Pos('ГЕРМИК-ДУ',Izdel );
+      //if (Res1<>0) then
+      Begin
+      if q = 0 then
+      begin
+        Tab1 := 'Запуск';
+        Tab2 := 'Специф';
+        Tab3 := 'Klapana';
+      end;
+      if q = 1 then
+      begin
+        Tab1 := 'ЗапускВозд';
+        Tab2 := 'СпецифВозд';
+        Tab3 := 'KlapanaZap';
+      end;
+      if q = 2 then
+      begin
+        Tab1 := '[Запуск750]';
+        Tab2 := '[Специф750]';
+        Tab3 := '[750]';
+      end;
+         if q = 3 then
+      begin
+        Tab1 := '[ЗапускСТАМ]';
+        Tab2 := '[СпецифСТАМ]';
+        Tab3 := '[СТАМ]';
+        //IDKO:='0';
+      end;
+      if q = 4 then
+      begin
+          Tab1 := '[ЗапускЛЮК]';
+          Tab2 := '[СпецифЛЮК]';
+          Tab3 := '[ЛЮК]';
+      end;
+           //IDKO:='0';
+      End;
+      s := 'Лента нагревательная саморегулирующаяся 31VR2-Т ТУ 3558-103-33006874-2012';
+      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+      ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 +
+      ') AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+      exit;
+
+      if Form1.Qry1.RecordCount = 0 then
+      begin
+      s := 'Кабель нагревательный%';
+      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+      ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+      end;
+
+//  28.11.22 Головцова
+      if Form1.Qry1.RecordCount = 0 then
+      begin
+      s := 'Кабель саморег%';
+      if not Form1.mkQuerySelect66(Form1.Qry1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+      ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+
+      end;
 
     end;
     if Form1.Qry1.RecordCount <> 0 then
@@ -28098,6 +32812,7 @@ begin
       Prov1:=Qry1.FieldByName('Элемент').AsString;
       SS_SS := Izdel; //Клапан ГЕРМИК-П-0850-1375-Н-П-04-00-00-У2
       //Клапан ГЕРМИК-С-1000*1000-Н-1*NF230A-1-УХЛ2
+      //ВГ 108.00.00.000-600*2120
       Zvez := Pos('*', Izdel);
       if Zvez <> 0 then
       begin
@@ -28202,7 +32917,9 @@ begin
       //
       //Проверка на двойной клапан
       s := 'Корпус%';
-      if not Form1.mkQuerySelect1(Form1.ADOQuery1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 + ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
+      if not Form1.mkQuerySelect1(Form1.ADOQuery1, 'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 +
+      ') AND (IdКО=' + #39 + IDKO + #39 + ') AND (Заказ=' + #39 + Zak + #39 +
+      ') AND (ВидЭлемента=' + #39 + 'Сборочные единицы' + #39 + ')  AND (Элемент LIKE ' + #39 + '%s' + #39 + ') ', [Tab2, s]) then //
         Exit;
       if Form1.ADOQuery1.RecordCount <> 0 then
       begin
@@ -28215,32 +32932,11 @@ begin
       SS_SS := StringReplace(s, ',', '.', [rfReplaceAll]);
       F := StrToFloat(SS_SS);
       F1 := F * 1000;
-      Res := Pos('-МС', Mod_Priv); //      Электропривод ЭПВ-SFA-S2-L-МС
-      if Res <> 0 then
       begin
-        SS_SS1 := FloatToStr(F1);   //Греющий кабель внутри привода
-           // SS_SS1:=FloatToStr(F1-(600*(Priv/Kol_Zap)));  //
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] := SS_SS1; //Кабель на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 7] := '600';  //Провод на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (8), 6] :=Prov1;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (9), 6] :=Prov2;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 6] := 'внутри привода';
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 7] := '0';
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (8), 6] :=Prov1;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (9), 6] :=Prov2;
-      end
-      else
-      begin
-            //if Kanal<>0 then
-           // Begin
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] := FloatToStr(Ten * 1000); //Кабель на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 7] := FloatToStr(P_K * 1000);
-         //Провод на клап
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 6] := FloatToStr(Ten_Priv * 1000); //
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 7] := FloatToStr(P_P * 1000);
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (8), 6] :=Prov1;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (9), 6] :=Prov2;
-        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 8] := IntToStr(1);
+
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 6] :=Prov1;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (7), 6] :=Prov2;
+        //XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + 7, 8] := IntToStr(1);
 
       end;
 
@@ -28250,13 +32946,58 @@ begin
       XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 5] := ADOQuery2.FieldByName('Брикет').AsString;
       s := StringReplace(ADOQuery2.FieldByName('МодПривода').AsString, 'Электропривод', '', [RFReplaceall]);
       Priv_Str := IntToStr(Priv);
-      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 10] := s;
-      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 11] := Priv_Str;
-      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 9] := ADOQuery2.FieldByName('Кол во запущенных').AsString;
+      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 14] := s;
+      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 15] := Priv_Str;
+      XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 13] := ADOQuery2.FieldByName('Кол во запущенных').AsString;
+     // XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 12] := '1';
 
       XL2.ActiveWorkBook.WorkSheets[5].Cells[2, 5] := Nom;
       XL2.ActiveWorkBook.WorkSheets[5].Cells[5, 1] := Nom;
       XL2.ActiveWorkBook.WorkSheets[5].Cells[13, 1] := Vn_DAt;
+      //
+      s := 'ВГ 108.00.00.000-%';
+      s1:= 'ВГ 310.06.00.000-%';                       //
+      if not Form1.mkQuerySelect1(Form1.ADOQuery1,
+        'Select *  From %s Where (' + 'IdГП=' + #39 + idgp + #39 + ') AND (IdКО=' + #39 + IDKO + #39 +')  AND (Заказ=' + #39 + Zak + #39 +
+        ')  AND ((Обозначение LIKE ' + #39 + '%s' + #39 + ') OR (Обозначение LIKE ' + #39 + '%s' + #39 + ')) ', [Tab2, s,S1]) then //
+        Exit;
+      for I := 0 to Form1.ADOQuery1.RecordCount-1 do
+      begin
+          // inc(Q1);
+           s := ADOQuery1.FieldByName('Количество').AsString;
+           Obozn:=ADOQuery1.FieldByName('Обозначение').AsString ;
+           Res := Pos('-',Obozn );
+           if Res<>0 then
+           Delete(Obozn, 1, Res);
+        //
+        Res := Pos('*', Obozn);
+        if Res <> 0 then
+        try
+          A := StrToInt(Copy(Obozn, 1, Res - 1));
+        except
+          A := 0;
+        end;
+        //
+        Delete(Obozn, 1, Res);
+        Res := Pos('-', Obozn);
+        if Res<>0 then
+        Delete(Obozn,  Res,100);
+        try
+          B := StrToInt(Obozn);
+        except
+          B := 0;
+        end;
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), I+8] := IntToStr(A); //Кабель на клап
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (7), I+8] := IntToStr(B);
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (6), 12] := S;   //кол Секций
+        XL2.ActiveWorkBook.WorkSheets[5].Cells[(Q1) + (7), 12] := S;   //кол Секций
+        //if Form1.ADOQuery1.RecordCount=1 then
+        //  inc(Q1);
+        //inc(Q1);
+        Form1.ADOQuery1.Next;
+
+      end;
+
       if Cvet = 1 then
       begin
         XL2.ActiveWorkBook.WorkSheets[5].Range['A2:L2'].Interior.Color := 3010538; //Желтый
@@ -28274,8 +33015,8 @@ begin
       end;
       inc(Q1);
       inc(Q1);
-      inc(Q1);
-      inc(Q1);
+      //inc(Q1);
+      //inc(Q1);
     end;
   //____________Кабель
     //+ZZZZZZ
@@ -28289,7 +33030,6 @@ begin
     Kol_Zap := ADOQuery2.FieldByName('Кол во запущенных').AsInteger;
     Inc(u);
     Sheet2 := XL2.ActiveWorkBook.WorkSheets[4]; //XL2.WorkSheets.Add;
-
     Sheet2.Activate;
     XL2.ActiveWorkBook.WorkSheets[4].Cells[4, 3] := Vn_DAt;
     if E > 1 then
@@ -28316,11 +33056,14 @@ begin
       Rang := Sheet2.Range['K' + IntToStr(u), emptyparam];
       Rang.value := Kol_Zap;
     //
+    if Q<>3 then
+    Begin
       Rang := Sheet2.Range['L' + IntToStr(u), emptyparam];
       Rang.value := ADOQuery2.FieldByName('Сборка лопаток').AsString;
 
       Rang := Sheet2.Range['N' + IntToStr(u), emptyparam];
       Rang.value := ADOQuery2.FieldByName('Сборка тяг').AsString;
+    End;
     //
       Rang := Sheet2.Range['P' + IntToStr(u), emptyparam];
       Rang.value := ADOQuery2.FieldByName('МодПривода').AsString;
@@ -28349,11 +33092,14 @@ begin
       Rang := Sheet2.Range['K7', emptyparam];
       Rang.value := Kol_Zap;
     //
+    if (Q<>3) and (Q<>4)  then
+    Begin
       Rang := Sheet2.Range['L' + IntToStr(7), emptyparam];
       Rang.value := ADOQuery2.FieldByName('Сборка лопаток').AsString;
 
       Rang := Sheet2.Range['N' + IntToStr(7), emptyparam];
       Rang.value := ADOQuery2.FieldByName('Сборка тяг').AsString;
+    End;
     //
       Rang := Sheet2.Range['P' + IntToStr(7), emptyparam];
       Rang.value := ADOQuery2.FieldByName('МодПривода').AsString;
@@ -28373,7 +33119,8 @@ begin
       Memo19.Lines.Add(id_lop);
       Lop := Qry1.FieldByName('Элемент').AsString;
       Kol_LOP := Qry1.FieldByName('Количество').AsFloat;
-
+      Sheet2 := XL2.ActiveWorkBook.WorkSheets[4]; //XL2.WorkSheets.Add;
+      Sheet2.Activate;
       XL2.ActiveWorkBook.Worksheets[4].Range['A11:Q11'].Select;
       XL2.Selection.Copy;
       XL2.ActiveWorkBook.Worksheets[4].Range['A' + IntToStr(u + i)].Select;
@@ -28431,19 +33178,11 @@ begin
       Form1.Qry1.Next;
     end;
    //+++++++++++++++++++++++++++++++++++++++++Исполнительный механизм ЭлектроМагнит
-           { El_Mag1:= Pos('Комплект ИМ с электромагнитом', Elem);
-        El_Mag2:= Pos('Исполнительный механизм', Elem);
-        if (El_Mag1 <> 0) or (El_Mag2 <> 0) then
-        begin
-          if not Conn_Klap.mkQueryUpdate('UPDATE %s SET [Статус]=' + #39 + '1' + #39 +
-          ',МодПривода=' + #39 + Obozn + #39 + ',Привод=' + #39 + Kol + #39 + ' WHERE [IdГП]=' + #39 + IDGP + #39, ['Klapana']) then
-            Exit;
-        end;  }
+
     Memo19.Lines.Clear;
     Rang := Sheet2.Range['D' + IntToStr(u), emptyparam];
     Rang.value := ('**************************************************************************************');
-    {rang:=Sheet2.Range['K'+IntToStr(u),emptyparam];
-      rang.value:=('********************************************'); }
+
     inc(u);
     //Комплект ИМ с электромагнитом
     s := '%Комплект ИМ с электромагнитом%';
@@ -29606,65 +34345,36 @@ begin
 
 end;
 
-procedure TForm1.Button52Click(Sender: TObject);
+procedure TForm1.Clear_StringGrid1(StringGrid: TStringGrid);
 var
-  Kol_ZAP, Kol, Kol_Zap_Ranee, Res, Nomer, Zak_Int, i, A, B, D, y, F_KPU, F_KPD, xy, Res1, e, Zag, Zap, j, g, k, List, Err, X_kol, Kol1, Kol2, NI24: Integer;
-  Zak, Dat, Plan_Dat, Vn_Dat, Nom, Pos_Vst, Pos_Ml, R, Pereh, Privod, Zag_S, Zap_S, Dir_main, God, Mes, Fil, A_S, B_S, N22, n24, n26, n29, n30: string;
-  Svar, Sbor, Izdel, Pos1, Pos2, Pos3, Pos4, Pos5, Pos_Isp, Pos_Flan, Pos_Flan1, Pos_Privod, Pos_Sn, Pos_Dop, Pos_Ram, Dir, R1, R2, R3, R4, R5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18: string;
-  NC, ND22: Double;
-  Dat1, Dat2, Dat3: TDate;
-  XL, XL1, XL2, XL_Temp, V1: Variant;
+  i, j: integer;
+  Str: string;
+  SG: TStringGrid;
 begin
-  Clear_StringGrid(SG1);
-  if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE ВидЭлемента=' + #39 + 'Детали' + #39, ['Специф']) then
-    exit;
-  SG1.RowCount := ADOQuery2.RecordCount + 1;
-  for i := 0 to ADOQuery2.RecordCount - 1 do
-  begin
-    SG1.Cells[1, i] := ADOQuery2.FieldByName('Parent').AsString;
-    SG1.Cells[2, i] := ADOQuery2.FieldByName('ВидЭлемента').AsString;
-    SG1.Cells[3, i] := ADOQuery2.FieldByName('Элемент').AsString;
-    SG1.Cells[4, i] := ADOQuery2.FieldByName('КолНаЕд').AsString;
-    SG1.Cells[5, i] := ADOQuery2.FieldByName('Количество').AsString;
-    SG1.Cells[6, i] := ADOQuery2.FieldByName('ЕИ').AsString;
-    SG1.Cells[7, i] := ADOQuery2.FieldByName('Обозначение').AsString;
-    SG1.Cells[8, i] := ADOQuery2.FieldByName('Тип').AsString;
-    SG1.Cells[9, i] := ADOQuery2.FieldByName('Категория').AsString;
-    SG1.Cells[10, i] := ADOQuery2.FieldByName('Примечание').AsString;
-    SG1.Cells[11, i] := ADOQuery2.FieldByName('Диаметр').AsString;
-    SG1.Cells[12, i] := ADOQuery2.FieldByName('Масса').AsString;
-    SG1.Cells[13, i] := ADOQuery2.FieldByName('Длина').AsString;
-    SG1.Cells[14, i] := ADOQuery2.FieldByName('Ширина').AsString;
-    SG1.Cells[15, i] := ADOQuery2.FieldByName('ДлинаРазв').AsString;
-    SG1.Cells[16, i] := ADOQuery2.FieldByName('ШиринаРазв').AsString;
-    SG1.Cells[17, i] := ADOQuery2.FieldByName('Объем').AsString;
-    SG1.Cells[18, i] := ADOQuery2.FieldByName('КолГибов').AsString;
-    SG1.Cells[19, i] := ADOQuery2.FieldByName('Канбан').AsString;
-    SG1.Cells[20, i] := ADOQuery2.FieldByName('Материал').AsString;
-    SG1.Cells[21, i] := ADOQuery2.FieldByName('КомплВед').AsString;
-    SG1.Cells[22, i] := ADOQuery2.FieldByName('Trumph').AsString;
-    SG1.Cells[23, i] := ADOQuery2.FieldByName('Ножницы').AsString;
-    SG1.Cells[24, i] := ADOQuery2.FieldByName('Углоруб').AsString;
-    SG1.Cells[25, i] := ADOQuery2.FieldByName('Гибка').AsString;
-    SG1.Cells[26, i] := ADOQuery2.FieldByName('Прокатка').AsString;
-    SG1.Cells[27, i] := ADOQuery2.FieldByName('Пила').AsString;
-    SG1.Cells[30, i] := ADOQuery2.FieldByName('Заказ').AsString;
-    SG1.Cells[28, i] := ADOQuery2.FieldByName('IdГП').AsString;
-    SG1.Cells[29, i] := ADOQuery2.FieldByName('Изделие').AsString;
-    SG1.Cells[32, i] := ADOQuery2.FieldByName('Дата').AsString;
-    SG1.Cells[31, i] := '310';
-    ADOQuery2.Next;
-  end;
+  SG := StringGrid;
+  Str := SG.Name;
+  i := 0;
+  j := 0;
+  for i := 0 to SG.ColCount - 1 do
+    SG.Cols[i].Clear;
 end;
 
 procedure TForm1.N26Click(Sender: TObject);
 var
   Str: string;
 begin
+//StringGrid10.Cells[I_FN_SGP + 2, I + 1] := ADOQuery1.FieldByName('IdГП').AsString;
+//StringGrid10.Cells[I_FN_SGP + 3, I + 1] := ADOQuery1.FieldByName('IdКО').AsString;
   Str := FormatDateTime('mm.dd.yyyy', Now);
-  if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Отмена]=' + #39 + Str + #39 + ' WHERE ([IdГП]=' + #39 + StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ')', ['Klapana']) then
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' + #39 + Str + #39 + ' WHERE ([IdГП]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 3, StringGrid10.Row] + #39 + ')', ['Klapana']) then
     Exit;
-  if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Отмена]=' + #39 + Str + #39 + ' WHERE ([IdГП]=' + #39 + StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ')', ['Запуск']) then
+  if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+  'UPDATE %s SET [Отмена]=' + #39 + Str + #39 + ' WHERE ([IdГП]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 2, StringGrid10.Row] + #39 + ') AND ([IdКО]=' + #39 +
+  StringGrid10.Cells[I_FN_SGP + 3, StringGrid10.Row] + #39 + ')', ['Запуск']) then
     Exit;
 end;
 
@@ -29865,6 +34575,33 @@ begin
     Button71.Click;
 
 end;
+
+procedure TForm1.PageControl1MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var
+  I: Integer;
+  F: Double;
+  J: Integer;
+  myRect: TGridRect;
+  Sum: Double;
+begin
+  if (SG.Col = 4) or (SG.Col = 5) or (SG.Col = 9) or (SG.Col = 20) then
+  begin
+    Sum := 0;
+    myRect := SG.Selection;
+    for I := myRect.Left to myRect.Right do
+      for J := myRect.Top to myRect.Bottom do
+      begin
+        try
+          Sum := Sum + StrToFloat(SG.Cells[I, J]);
+        except
+          Break;
+        end;
+      end;
+    StatusBar2.Panels[2].Text := FloattOsTR(Sum);
+  end;
+end;
+
 
 procedure TForm1.Panel15Click(Sender: TObject);
 begin
@@ -30334,9 +35071,12 @@ begin
   begin
     if not Form1.mkQueryDelete(Form1.ADOQuery1, 'DELETE FROM %s Where (IdГП= ' + #39 + SG.Cells[13, SG.Row] + #39 + ') ', ['СпецифСТАМ']) then
       Exit;
-    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 + ' WHERE ([IdГП]=' + #39 + SG.Cells[13, SG.Row] + #39 + ')', ['СТАМ']) then
+    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 +
+    ',[СтатусФ]=' + #39 + '0' + #39 +
+    ',[СтатусФлекс]=' + #39 + '0' + #39 +
+    ',[СтатусПро]=' + #39 + '0' + #39 +' WHERE ([IdГП]=' + #39 + SG.Cells[13, SG.Row] + #39 + ')', ['СТАМ']) then
       Exit;
-
+    Btn3Click(nil);
   end;
 end;
 
@@ -31097,8 +35837,12 @@ begin
     Stenki_Vozd(SS,'ВГ 050.00.00.002-','ВГ 053.00.00.001-','ВГ 050.00.00.001-',
   'ВГ 050.00.00.001-','','','',SS,SS,8, XL);
 }
-  SS := '  AND (Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ')  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') ';  //ВГ 050.00.00.002-
-  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where   (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ')  AND ((Станок=' + #39 + 'Линия' + #39 + ')) %s  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
+  SS := '  AND (Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+  ')  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 +
+  ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ') ';  //ВГ 050.00.00.002-    or (Станок=' + #39 + 'Trumph' + #39 + ')
+  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where   (Планирование Between ' + #39 + StrDat1 + #39 +
+  ' AND ' + #39 + StrDat2 + #39 + ')  AND ((Станок=' + #39 + 'Линия' + #39 + ')  or (Станок=' + #39 + 'Trumph' + #39 + ')) %s  ORDER BY Номер,IdГП',
+  ['Заготовка', SS]) then
     exit;
   XL.ActiveWorkBook.Sheets.Item[List + 1].Activate;
   if ADOQuery1.RecordCount <> 0 then
@@ -31151,9 +35895,9 @@ begin
       Kol_S := ADOQuery1.FieldByName('Количество').AsString;
       Kol_G := StrToInt(Kol_S);
       StrNom := ADOQuery1.FieldByName('Номер').AsString;
-      Res := Pos('5094', StrNom);
+      Res := Pos('12268', StrNom);
       if Res <> 0 then
-        StrNom := '5094';
+        StrNom := '12268';
       Kol_Zap_S := ADOQuery1.FieldByName('КолКлап').AsString;
       Idgp := ADOQuery1.FieldByName('IdГП').AsString;
       idko := ADOQuery1.FieldByName('IdКО').AsString;
@@ -31178,7 +35922,8 @@ begin
       Z := 0;
           {  Stenki_Vozd(SS,'ВГ 050.00.00.002-','ВГ 053.00.00.001-','ВГ 050.00.00.001-',
           'ВГ 050.00.00.001-','','','',SS,SS,8, XL);AND (Обозначение NOT LIKE '+#39+Oboz3+'%-ZAZ'+#39+')}
-      SS := '  AND ((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') OR ((Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ') ))  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+      SS := '  AND ((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') OR ((Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 +
+      ') ))  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ') ';
 
       if not mkQuerySelect66(ADOQuery4, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 +
       ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ')) %s AND (IdГП=' + #39 + Idgp + #39 + ') AND (IdКО=' + #39 + idko + #39 + ') AND (Номер=' + #39 + StrNom + #39 + ')', ['Заготовка', SS]) then
@@ -31245,8 +35990,14 @@ begin
   //===================Кол накладных          AND (Станок='+#39+'Линия'+#39+')
   {'ВГ 050.00.00.002-',,'ВГ 050.00.00.001-',
   'ВГ 050.00.00.001-01',}   //or (Обозначение LIKE '+#39+Oboz4+'%'+#39+')   AND (Обозначение NOT LIKE '+#39+Oboz3+'%-ZAZ'+#39+')
-  SS := ' ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') or (Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') or (( (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) )) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
-  if not mkQuerySelect(ADOQuery1, 'Select DISTINCT Номер  from %s Where %s AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') ', ['Заготовка', SS]) then
+  SS := ' ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+  ') or (Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 +
+  ') or (( (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 +
+  ')) )) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 +
+  ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ') ';
+  if not mkQuerySelect(ADOQuery1,
+  'Select DISTINCT Номер  from %s Where %s AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' +
+  #39 + StrDat2 + #39 + ') ', ['Заготовка', SS]) then
     exit;
 
   Kol_P := ADOQuery1.recordCount; //ADOQuery1.FieldByName('S1').AsInteger; Кол ПОДДОНОВ
@@ -31257,9 +36008,11 @@ begin
   //XL.Visible:=True;
   //Memo9.Lines.Clear;
   StrDat3 := FormatDateTime('dd.mm.yyyy ', DateTimePicker3.DateTime);  // or (Обозначение LIKE '+#39+Oboz2+'%'+#39+')OR (Обозначение LIKE '+#39+'ТЕКИ 07.239.01.00.002-%'+#39+') AND (Станок='+#39+'Линия'+#39+')
-  SS := '(Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ')  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+  SS := '(Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ')  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ') ';
   //Обозначение,Номер,Элемент,Sum(количество) As S,Sum(колКлап) As S1  Group BY Обозначение,Элемент,Номер Order By Номер
-  if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ')) ORDER BY Номер,IdГП', ['Заготовка', SS]) then
+  if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between '
+  + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 +
+  ') AND ((Станок=' + #39 + 'Линия' + #39 + ') or (Станок=' + #39 + 'Trumph' + #39 + ')) ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
   if ADOQuery1.RecordCount <> 0 then
   begin
@@ -31314,9 +36067,9 @@ begin
       if Mass <> '' then
         Massa := StrToFloat(StringReplace(Mass, ',', '.', [rfReplaceAll]));
       StrNom := ADOQuery1.FieldByName('Номер').AsString;
-      Res := Pos('6168', StrNom);
+      Res := Pos('14210', StrNom);
       if Res <> 0 then
-        StrNom := '6168';
+        StrNom := '14210';
         //++++++++++++++++++++
       Kol_S := ADOQuery1.FieldByName('Количество').AsString;
       Kol_G := StrToInt(Kol_S);
@@ -31334,12 +36087,13 @@ begin
       Idgp := ADOQuery1.FieldByName('IdГП').AsString;
       idko := ADOQuery1.FieldByName('IdКО').AsString;
        //   AND (Обозначение NOT LIKE '+#39+Oboz3+'%-ZAZ'+#39+')
-      SS := '  AND ((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') OR ((Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')))  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+      SS := '  AND ((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') OR ((Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')))  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ') ';
       Kol2 := '';
       Z := 0;
       Z1 := 0;
       ob2 := '';
-      if not mkQuerySelect66(ADOQuery4, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ')) %s AND (IdГП=' + #39 + Idgp + #39 + ') AND (IdКО=' + #39 + idko + #39 + ') AND (Номер=' + #39 + ADOQuery1.FieldByName('Номер').AsString + #39 + ')', ['Заготовка', SS]) then
+      if not mkQuerySelect66(ADOQuery4, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 +
+      ') AND ((Станок=' + #39 + 'Линия' + #39 + ') or (Станок=' + #39 + 'Trumph' + #39 + ')) %s AND (IdГП=' + #39 + Idgp + #39 + ') AND (IdКО=' + #39 + idko + #39 + ') AND (Номер=' + #39 + ADOQuery1.FieldByName('Номер').AsString + #39 + ')', ['Заготовка', SS]) then
         exit;
       if ADOQuery4.RecordCount = 0 then
         XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 11] := 'Trumpf';
@@ -31451,7 +36205,8 @@ begin
   XX := 0;
   YY := 0;
 
-  SS := '  AND ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') ';
+  SS := '  AND ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+  ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ') ';
   if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 +
   ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Канбан' + #39 + ') or (Станок=' + #39 + 'Гибка' + #39 + ')) %s  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
@@ -31505,7 +36260,8 @@ begin
 //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
   //Стенки   Горизонтальная
   //===================Кол накладных          AND (Станок='+#39+'Линия'+#39+')
-  SS := ' ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+  SS := ' ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+  ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ')';
   if not mkQuerySelect(ADOQuery1, 'Select DISTINCT Номер  from %s Where %s AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') ', ['Заготовка', SS]) then
     exit;
   Kol_P := ADOQuery1.recordCount; //ADOQuery1.FieldByName('S1').AsInteger;
@@ -31514,7 +36270,7 @@ begin
   Massa_Ob := 0;
   //Memo9.Lines.Clear;
   StrDat3 := FormatDateTime('dd.mm.yyyy ', DateTimePicker3.DateTime);  //OR (Обозначение LIKE '+#39+'ТЕКИ 07.239.01.00.002-%'+#39+') AND (Станок='+#39+'Линия'+#39+')
-  SS := '((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') )';
+  SS := '((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') ) AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ')';
   //Обозначение,Номер,Элемент,Sum(количество) As S,Sum(колКлап) As S1  Group BY Обозначение,Элемент,Номер Order By Номер
   if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Канбан' + #39 + ') or (Станок=' + #39 + 'Trumph' + #39 + '))  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
@@ -31606,7 +36362,7 @@ end;
 
 function TForm1.Lenta(AStr, Dat1, dat2, Tab1, Tab2: string; List: Integer; XL: Variant): string;
 var
-  I, J, XX, YY, Cvet, Res, Kol_P, Kol_Det: Integer;
+  I, J, XX, YY, Cvet, Res,Res1, Kol_P, Kol_Det: Integer;
   Dl_F, Massa, Massa_Ob: Double;
   S, Str, StrNom, Idgp, Izdel, Kol_Zap_S, SS, StrDat1, StrDat2, Oboz, Kol_S, StrDat3, Str1, mass, P1, P2: string;
   XL1: Variant;
@@ -31620,7 +36376,9 @@ begin
   XX := 5;
   YY := 0;
 
-  SS := '  AND (Элемент LIKE ' + #39 + AStr + '%' + #39 + ') AND (Изделие LIKE ' + #39 +Dat1 + '%' + #39 + ') ';
+  SS := '  AND (Элемент LIKE ' + #39 + AStr + '%' + #39 + ')'+
+  ' AND ((not Изделие LIKE ' + #39 +'СТАМ 401-%' + #39 +
+  ') AND (not Изделие LIKE ' + #39 +'СТАМ 411-%' + #39 + ')) AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ') ';
   if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 +
   ' AND ' + #39 + StrDat2 + #39 + ') AND (Станок=' + #39 + 'Гибка' + #39 + ') %s  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
@@ -31693,6 +36451,11 @@ begin
         Delete(Oboz,Res,10);
         Str:=Oboz;
       end;
+      Oboz:= ADOQuery1.FieldByName('Обозначение').AsString;
+      res:=Pos('ВГ 1378.',Oboz); //ВГ 1378.00.00.001-1-01
+      res1:=Pos('ВГ 255.',Oboz); //ВГ 255.00.00.003 СТАМ
+      if (Res<>0) or (Res1<>0) then
+      Str := ADOQuery1.FieldByName('ДлинаРазв').AsString;
       //
       if Str='' then
       Dl_F:=0
@@ -31832,7 +36595,8 @@ begin
   XX := 0;
   YY := 0;
 
-  SS := '  AND ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') ';                      //  (Станок=' + #39 + 'Канбан' + #39 + ') or  or  (Станок=' + #39 + 'Trumph' + #39 + ')
+  SS := '  AND ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+  ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')  AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ')';                      //  (Станок=' + #39 + 'Канбан' + #39 + ') or  or  (Станок=' + #39 + 'Trumph' + #39 + ')
   if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ')) %s  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
   for J := 0 to ADOQuery1.RecordCount - 1 do
@@ -31885,7 +36649,8 @@ begin
 //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
   //Стенки   Горизонтальная
   //===================Кол накладных          AND (Станок='+#39+'Линия'+#39+')
-  SS := ' ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+  SS := ' ((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+  ') ) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ')';
   if not mkQuerySelect(ADOQuery1, 'Select DISTINCT Номер  from %s Where %s AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') ', ['Заготовка', SS]) then
     exit;
   Kol_P := ADOQuery1.recordCount; //ADOQuery1.FieldByName('S1').AsInteger;
@@ -31894,7 +36659,7 @@ begin
   Massa_Ob := 0;
   //Memo9.Lines.Clear;
   StrDat3 := FormatDateTime('dd.mm.yyyy ', DateTimePicker3.DateTime);  //OR (Обозначение LIKE '+#39+'ТЕКИ 07.239.01.00.002-%'+#39+') AND (Станок='+#39+'Линия'+#39+')  (Станок=' + #39 + 'Канбан' + #39 + ') or   or  (Станок=' + #39 + 'Trumph' + #39 + ')
-  SS := '((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') )';
+  SS := '((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') ) AND (Изделие NOT LIKE ' + #39 + '%AirMate%' + #39 + ')';
   //Обозначение,Номер,Элемент,Sum(количество) As S,Sum(колКлап) As S1  Group BY Обозначение,Элемент,Номер Order By Номер
   if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ( (Станок=' + #39 + 'Линия' + #39 + '))  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
@@ -31988,9 +36753,10 @@ end;
 
 function TForm1.Stenki(AStr, Oboz1, Oboz2, Oboz3, Oboz4, Oboz5, Dat1, dat2, Tab1, Tab2: string; List: Integer; XL: Variant): string;
 var
-  I, J, XX, YY, Cvet, Res, Kol_P, kol_Det, Kol_Zap, Res1, Kol_G, Kol_V: Integer;
+  I, J, XX, YY, Cvet, Res, Kol_P, kol_Det, Kol_Zap, Res1, Kol_G, Kol_V,F,ST,N: Integer;
   Dl_F, Massa, Massa_Ob, Dl_F_G: Double;
-  S, Str, StrNom, Idgp, Izdel, Kol_Zap_S, SS, StrDat1, StrDat2, Oboz, Kol_S, StrDat3, Str1, Mass, Ob2, Kol2: string;
+  S, Str, StrNom, Idgp, Izdel, Kol_Zap_S, SS, StrDat1, StrDat2, Oboz,
+  Kol_S, StrDat3, Str1, Mass, Ob2, Kol2,Stan: string;
   XL1: Variant;
 begin
    //Стенки комплект
@@ -32005,75 +36771,16 @@ begin
   Kol_V := 0;
   Memo26.Lines.Clear;
   Memo28.Lines.Clear;
-      //'ТЕКИ 07.239.01.00.001-','ТЕКИ 07.239.01.00.002-','ВГ 1106.03.00.002-',
-  //'ВГ 1106.03.00.001-'
-  SS := '  AND (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 + ')) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') ';
-  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ') or (Станок=' + #39 + 'Trumph' + #39 + '))  %s  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
-    exit;
-  Kol_G := ADOQuery1.RecordCount;
-
-     //
-  SS := '  AND (((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz2 + '%-%' + #39 + ')) OR (Обозначение LIKE ' + #39 + Oboz4 + '%' + #39 + ')) AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ')  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
-
-  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ') or (Станок=' + #39 + 'Trumph' + #39 + ')  ) %s ', ['Заготовка', SS]) then
-    exit;
-  Kol_V := ADOQuery1.RecordCount;
-
-  if Kol_V > Kol_G then
-  begin
-
-    for J := 0 to ADOQuery1.RecordCount - 1 do
-    begin
-      Dl_F := 0;
-      Kol_Zap_S := ADOQuery1.FieldByName('КолКлап').AsString;
-      StrNom := ADOQuery1.FieldByName('Номер').AsString;
-      Oboz := ADOQuery1.FieldByName('Обозначение').AsString;
-      Kol_S := ADOQuery1.FieldByName('Количество').AsString;
-      Idgp := ADOQuery1.FieldByName('IdГП').AsString;
-
-      SS := '  AND (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 + ')) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') ';
-      if not mkQuerySelect66(ADOQuery4, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ')) %s AND (IdГП=' + #39 + Idgp + #39 + ') AND (Номер=' + #39 + StrNom + #39 + ')', ['Заготовка', SS]) then
-        exit;
-      if ADOQuery4.RecordCount = 0 then
-      begin
-
-        Res := Pos('-', Oboz);
-        if Res <> 0 then
-          Delete(Oboz, 1, Res);
-        Memo26.Lines.Add(Oboz + ' ' + Kol_S + ' ' + StrNom);
-      end;
-      ADOQuery1.Next;
-    end;
-  end;
-   //
-  if Kol_V < Kol_G then
-  begin
-
-    for J := 0 to ADOQuery1.RecordCount - 1 do
-    begin
-      Dl_F := 0;
-      Kol_Zap_S := ADOQuery1.FieldByName('КолКлап').AsString;
-      StrNom := ADOQuery1.FieldByName('Номер').AsString;
-      Oboz := ADOQuery1.FieldByName('Обозначение').AsString;
-      Kol_S := ADOQuery1.FieldByName('Количество').AsString;
-      Idgp := ADOQuery1.FieldByName('IdГП').AsString;
-
-      SS := '  AND (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 + ')) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') ';
-      if not mkQuerySelect66(ADOQuery4, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ')) %s AND (IdГП=' + #39 + Idgp + #39 + ') AND (Номер=' + #39 + StrNom + #39 + ')', ['Заготовка', SS]) then
-        exit;
-      if ADOQuery4.RecordCount = 0 then
-      begin
-
-        Res := Pos('-', Oboz);
-        if Res <> 0 then
-          Delete(Oboz, 1, Res);
-        Memo28.Lines.Add(Oboz + ' ' + Kol_S + ' ' + StrNom);
-      end;
-      ADOQuery1.Next;
-    end;
-  end;
-  SS := '  AND (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 + ')) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') ';
-  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + '))  %s  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
+  F:=0;
+      // Stenki(SS, 'ТЕКИ 07.239.01.00.001-', 'ТЕКИ 07.239.01.00.002-', 'ВГ 1106.03.00.002-', 'ВГ 1106.03.00.001-',
+  //ШТАМП СЛОМАЛСЯ   OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')
+  SS := '  AND (((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 +
+  ') AND (Обозначение NOT LIKE ' + #39 + Oboz2 + '%-%' + #39 +
+  '))  OR (Обозначение LIKE ' + #39 + Oboz4 + '%' + #39 +
+  ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') ';
+  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where   (Планирование Between ' + #39 + StrDat1 + #39 +
+  ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + '))  %s  ORDER BY Номер,IdГП',
+  ['Заготовка', SS]) then
     exit;
   for J := 0 to ADOQuery1.RecordCount - 1 do
   begin
@@ -32102,121 +36809,46 @@ begin
     Res := Pos('-', Oboz);
     if Res <> 0 then
       Delete(Oboz, 1, Res);
-    XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 1] := Oboz;
-    XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 2] := Kol_S;
+    XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 3] := Oboz;
+    XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 4] := Kol_S;
     XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 6] := Kol_Zap_S;
         // Ищем Пару     OR (Обозначение LIKE '+#39+Oboz5+'%'+#39+')
     Ob2 := '';
     Kol2 := '';
-    SS := '  AND (((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz2 + '%-%' + #39 + ')) OR (Обозначение LIKE ' + #39 + Oboz4 + '%' + #39 + ')) AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ')  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+    SS := '  AND (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+    ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 +
+    ')) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 +
+    ')) AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ')  AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
 
-    if not mkQuerySelect66(ADOQuery4, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + ')) %s AND (IdГП=' + #39 + Idgp + #39 + ') AND (Номер=' + #39 + StrNom + #39 + ')', ['Заготовка', SS]) then
+    if not mkQuerySelect66(ADOQuery4, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 +
+    ' AND ' + #39 + StrDat2 + #39 + ')  %s AND (IdГП=' + #39 + Idgp + #39 + ') AND (Номер=' + #39 + StrNom + #39 + ')', ['Заготовка', SS]) then
       exit;
-
-    for I := 0 to ADOQuery4.RecordCount - 1 do
-    begin
-      StrNom := ADOQuery4.FieldByName('Номер').AsString;
-      Oboz := ADOQuery4.FieldByName('Обозначение').AsString;
-      Res := Pos('-', Oboz);
-      if Res <> 0 then
+     Stan:= ADOQuery4.FieldByName('Станок').AsString;
+      ST:=Pos('Trumph',Stan);
+      if (ADOQuery4.RecordCount<>0) and (ST<>0)  then
+      begin
+        XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 2, 1] := '№ ' + (StrNom);
+        XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 1] := 'Trumph';
+        XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 2] := '0';
+      end
+      Else
+      begin
+        StrNom := ADOQuery4.FieldByName('Номер').AsString;
+        Oboz := ADOQuery4.FieldByName('Обозначение').AsString;
+        Res := Pos('-', Oboz);
+        if Res <> 0 then
         Delete(Oboz, 1, Res);
-      Ob2 := Ob2 + '+' + Oboz;
-      Kol_S := ADOQuery4.FieldByName('Количество').AsString;
-      Kol2 := Kol2 + '+' + Kol_S;
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 2, 3] := '№ ' + (StrNom);
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 3] := Oboz;
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 4] := Kol_S;
-      ADOQuery4.Next;
-    end;
-
+        Ob2 := Ob2 + '+' + Oboz;
+        Kol_S := ADOQuery4.FieldByName('Количество').AsString;
+        Kol2 := Kol2 + '+' + Kol_S;
+        XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 2, 1] := '№ ' + (StrNom);
+        XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 1] := Oboz;
+        XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 4, 2] := Kol_S;
+      end;
     XX := XX + 7;
     ADOQuery1.Next;
   end;
-  for I := 0 to Memo26.Lines.Count - 1 do
-  begin
 
-    if Memo26.Lines.Strings[I] <> '' then
-    begin
-      SS := Memo26.Lines.Strings[I];
-      Res := Pos(' ', SS);
-      if Res <> 0 then
-      begin
-        Oboz := Copy(SS, 1, Res - 1);
-        Delete(SS, 1, Res);
-      end;
-               //
-      Res := Pos(' ', SS);
-      if Res <> 0 then
-      begin
-        Kol_S := Copy(SS, 1, Res - 1);
-        Delete(SS, 1, Res);
-      end;
-               //
-      StrNom := (SS);
-
-      XL.ActiveWorkBook.Worksheets[List + 1].Range['A1:F6'].Select;
-      XL.Selection.Copy;
-      XL.ActiveWorkBook.Worksheets[List + 1].Range['A' + IntToStr(XX)].Select;
-      XL.ActiveWorkBook.Worksheets[List + 1].Paste;
-
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 1, 1] := '';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 1] := 'TRUMPF';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 2] := '';
-
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 1, 3] := '';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 3] := '';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 4] := '';
-
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 1, 3] := '№ ' + (StrNom);
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 3] := Oboz;
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 4] := Kol_S;
-      XX := XX + 7;
-    end;
-
-  end;
-      //
-  for I := 0 to Memo28.Lines.Count - 1 do
-  begin
-
-    if Memo28.Lines.Strings[I] <> '' then
-    begin
-      SS := Memo28.Lines.Strings[I];
-      Res := Pos(' ', SS);
-      if Res <> 0 then
-      begin
-        Oboz := Copy(SS, 1, Res - 1);
-        Delete(SS, 1, Res);
-      end;
-               //
-      Res := Pos(' ', SS);
-      if Res <> 0 then
-      begin
-        Kol_S := Copy(SS, 1, Res - 1);
-        Delete(SS, 1, Res);
-      end;
-               //
-      StrNom := (SS);
-
-      XL.ActiveWorkBook.Worksheets[List + 1].Range['A1:F6'].Select;
-      XL.Selection.Copy;
-      XL.ActiveWorkBook.Worksheets[List + 1].Range['A' + IntToStr(XX)].Select;
-      XL.ActiveWorkBook.Worksheets[List + 1].Paste;
-
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 1, 1] := '';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 1] := 'TRUMPF';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 2] := '';
-
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 1, 3] := '';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 3] := '';
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 4] := '';
-
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 1, 3] := '№ ' + (StrNom);
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 3] := Oboz;
-      XL.ActiveWorkBook.WorkSheets[List + 1].Cells[XX + 3, 4] := Kol_S;
-      XX := XX + 7;
-    end;
-
-  end;
   if Cvet = 1 then
   begin
     XL.ActiveWorkBook.WorkSheets[List + 1].Range['B' + IntToStr(2) + ':B' + IntToStr(XX)].Interior.Color := 3010538; //Желтый
@@ -32238,24 +36870,40 @@ begin
 //Stenki(SS,'ТЕКИ 07.239.01.00.001-','ТЕКИ 07.239.01.00.002-','ТЕКИ 269.15.01.001-','ТЕКИ 269.15.01.001-','ТЕКИ 269.15.01.007-',  '','',SS,SS,4, XL);
   //Стенки   Горизонтальная
   SS := '(Изделие LIKE ' + #39 + '%КПУ%' + #39 + ')';
-  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND %s ', ['Заготовка', SS]) then
+  if not mkQuerySelect(ADOQuery1, 'Select* from %s Where  (Планирование Between ' + #39 + StrDat1 + #39 +
+  ' AND ' + #39 + StrDat2 + #39 + ') AND %s ', ['Заготовка', SS]) then
     exit;
   if ADOQuery1.RecordCount <> 0 then
     Cvet := StrToInt(ADOQuery1.FieldByName('Цвет').AsString);
   //===================Кол накладных      OR ((Обозначение LIKE '+#39+Oboz3+'%'+#39+
       //' AND (Обозначение NOT LIKE '+#39+Oboz3+'%-01'+#39+') ) OR (Обозначение LIKE '+#39+Oboz4+'%-01'+#39+')    AND (Станок='+#39+'Линия'+#39+')  AND ((Обозначение LIKE '+#39+Oboz1+'%'+#39+')
-  SS := '   (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 + ')) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') ';
-  if not mkQuerySelect(ADOQuery1, 'Select DISTINCT Номер  from %s Where %s AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') ', ['Заготовка', SS]) then
+  SS := '   (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 +
+  ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 +
+  ')) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 +
+  ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ') AND (Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') ';
+  if not mkQuerySelect(ADOQuery1, 'Select DISTINCT Номер  from %s Where %s AND (Планирование Between '
+   + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') ', ['Заготовка', SS]) then
     exit;
   Kol_P := ADOQuery1.recordCount; //ADOQuery1.FieldByName('S1').AsInteger;
 
   XX := 5;
   //Memo9.Lines.Clear;
+
   Massa_Ob := 0;
   StrDat3 := FormatDateTime('dd.mm.yyyy ', DateTimePicker3.DateTime);  //OR (Обозначение LIKE '+#39+'ТЕКИ 07.239.01.00.002-%'+#39+') AND (Станок='+#39+'Линия'+#39+')
-  SS := '(Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') AND (((Обозначение LIKE ' + #39 + Oboz1 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 + ') ) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+  SS := '(Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') AND (((Обозначение LIKE '
+  + #39 + Oboz1 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz1 + '%-%' + #39 +
+  ') ) OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
   //Обозначение,Номер,Элемент,Sum(количество) As S,Sum(колКлап) As S1  Group BY Обозначение,Элемент,Номер Order By Номер
-  if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ')  AND ((Станок=' + #39 + 'Линия' + #39 + '))  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
+  if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between '
+  + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ')  AND ((Станок=' + #39 + 'Линия' + #39 +
+  '))  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
+    exit;
+  Kol_G:= ADOQuery1.RecordCount;
+  if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between '
+  + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ')  AND ((Станок=' + #39 + 'Линия' + #39 +
+  ') or (Станок=' + #39 + 'Trumph' + #39 +
+  '))  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
   if ADOQuery1.RecordCount <> 0 then
   begin
@@ -32277,76 +36925,39 @@ begin
       XL.ActiveWorkBook.WorkSheets[List].Range['A' + IntToStr(2) + ':E' + IntToStr(2)].Interior.Color := 16424058; //Синий
       XL.ActiveWorkBook.WorkSheets[List].Cells[2, 8] := ' Син';
     end;
-    for J := 0 to ADOQuery1.RecordCount - 1 do
-    begin
-
-      if J <> ADOQuery1.RecordCount then
-      begin
-        XL.ActiveWorkBook.Worksheets[List].Range['K6:S6'].Select;
-        XL.Selection.Copy;
-        XL.ActiveWorkBook.Worksheets[List].Range['A' + IntToStr(XX)].Select;
-        XL.ActiveWorkBook.Worksheets[List].Paste;
-      end;
-      SS := ADOQuery1.FieldByName('Обозначение').AsString;
-
-      ADOQuery2.Close;
-      ADOQuery2.SQL.Clear;
-      Str1 := 'Select * from СпецифОбщая Where (Обозначение=' + #39 + SS + #39 + ')';
-      ADOQuery2.SQL.Text := Str1;
-      ADOQuery2.Active := True;
-      Str := ADOQuery2.FieldByName('ДлинаРазв').AsString;
-      if Str <> '' then
-        Dl_F := StrToFloat(Str);
-
-        //++++++++++++++++++++ StringReplace(s,'.',',',[rfReplaceAll]);
-      SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
-
-      Mass := ADOQuery2.FieldByName('Масса').AsString;
-      if Mass <> '' then
-        Massa := StrToFloat(StringReplace(Mass, ',', '.', [rfReplaceAll]));
-
-        //++++++++++++++++++++
-      Kol_S := ADOQuery2.FieldByName('Количество').AsString;
-      if Kol_S <> '' then
-        kol_Det := StrToInt(Kol_S);
-      Dl_F := Massa * kol_Det;
-      Mass := FloatToStr(Dl_F);
-      Massa_Ob := Massa_Ob + Dl_F;
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 1] := IntToStr(J + 1);
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 2] := ADOQuery1.FieldByName('Номер').AsString;
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 3] := Str;
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 4] := ADOQuery1.FieldByName('Количество').AsString;
-        //XL.ActiveWorkBook.WorkSheets[List].Cells[ XX,8] :=Mass;
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 9] := ADOQuery1.FieldByName('КолКлап').AsString;
-      Res := Pos('1106', SS);
-      if Res <> 0 then
-        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 8] := SS;
-      Inc(XX);
-      ADOQuery1.Next;
-    end;
-  end;
-        //
-  for I := 0 to Memo28.Lines.Count - 1 do
-  begin
-    Inc(XX);
   end;
     ///               //гор                     //Верт                  //Г                //ТЕКИ 269.15.01.001-A-01 Г      //В
 //Stenki(SS,'ТЕКИ 07.239.01.00.001-','ТЕКИ 07.239.01.00.002-','ТЕКИ 269.15.01.001-','ТЕКИ 269.15.01.001-','ТЕКИ 269.15.01.007-',  '','',SS,SS,4, XL);
 
   YY := XX;
-   //Стенки   Вертикальная
+   //Стенки   Вертикальная {or (Станок=' + #39 + 'Trumph' + #39 +  ')  }
+   //ШТАМП СЛОМАЛСЯ   OR (Обозначение LIKE ' + #39 + Oboz3 + '%' + #39 + ')
   XX := 5;
   StrDat3 := FormatDateTime('"Дата: "dd.mm.yyyy, " ', DateTimePicker3.DateTime);  //OR (Обозначение LIKE '+#39+'ТЕКИ 07.239.01.00.002-%'+#39+') AND (Станок='+#39+'Линия'+#39+')
-  SS := '(Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') AND (((Обозначение LIKE ' + #39 + Oboz2 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz2 + '%-%' + #39 + ') ) OR (Обозначение LIKE ' + #39 + Oboz4 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
+  SS := '(Изделие LIKE ' + #39 + '%КПУ%' + #39 + ') AND (((Обозначение LIKE '
+   + #39 + Oboz2 + '%' + #39 + ') AND (Обозначение NOT LIKE ' + #39 + Oboz2 + '%-%' + #39 +
+   ') )  OR (Обозначение LIKE ' + #39 + Oboz4 + '%' + #39 + ')) AND (Обозначение NOT LIKE ' + #39 + '%НЕРЖ%' + #39 + ')';
    //    Обозначение,Элемент,Номер,Sum(количество) As S,Sum(колКлап) As S1  Group BY Обозначение,Элемент,Номер Order By Номер
-  if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between ' + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 + '))  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
+  if not mkQuerySelect(ADOQuery1, 'Select * from %s Where %s  AND (Планирование Between '
+  + #39 + StrDat1 + #39 + ' AND ' + #39 + StrDat2 + #39 + ') AND ((Станок=' + #39 + 'Линия' + #39 +
+  ') )  ORDER BY Номер,IdГП', ['Заготовка', SS]) then
     exit;
+
+    for J := 0 to ADOQuery1.RecordCount - 1 do
+    begin
+
+        XL.ActiveWorkBook.Worksheets[List].Range['K6:S6'].Select;
+        XL.Selection.Copy;
+        XL.ActiveWorkBook.Worksheets[List].Range['A' + IntToStr(XX)].Select;
+        XL.ActiveWorkBook.Worksheets[List].Paste;
+        Inc(XX);
+    end;
+    XX := 5;
   if ADOQuery1.RecordCount <> 0 then
   begin
     XL.ActiveWorkBook.Sheets.Item[List].Activate;
     for J := 0 to ADOQuery1.RecordCount - 1 do
     begin
-
       SS := ADOQuery1.FieldByName('Обозначение').AsString;
       ADOQuery2.Close;
       ADOQuery2.SQL.Clear;
@@ -32371,20 +36982,60 @@ begin
       Dl_F := Massa * kol_Det;
       Mass := FloatToStr(Dl_F);
       Massa_Ob := Massa_Ob + Dl_F;
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 5] := ADOQuery1.FieldByName('Номер').AsString;
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 6] := Str;
-      XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 7] := ADOQuery1.FieldByName('Количество').AsString;
+      //
+      N:= ADOQuery1.FieldByName('Номер').AsInteger;
+      if N=29277 then
+         N:=29277;
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 5] := ADOQuery1.FieldByName('Номер').AsString;
+        Kol_S:=  ADOQuery1.FieldByName('Количество').AsString;
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 7] := Kol_S;
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 6] := Str;
+      Idgp:=ADOQuery1.FieldByName('IdГП').AsString;
+      ADOQuery2.Close;
+      ADOQuery2.SQL.Clear;
+      Str1 := 'Select * from Заготовка Where (Обозначение like ' + #39 + Oboz3+'%'+  #39 + ') AND (Элемент LIKE ' + #39 + 'Стенка %' + #39 +
+      ') AND (IdГП='+#39+Idgp+#39+') AND (Номер='+#39+ADOQuery1.FieldByName('Номер').AsString+#39+')';
+      ADOQuery2.SQL.Text := Str1;
+      ADOQuery2.Active := True;
+      Stan:= ADOQuery2.FieldByName('Станок').AsString;
+      ST:=Pos('Линия',Stan);
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 1] := IntToStr(J + 1);
+      if (ADOQuery2.RecordCount<>0) and (ST=0)  then
+      begin
+         XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 2] := ADOQuery1.FieldByName('Номер').AsString;
+         XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 3] := 'Trumph';
+      end
+      Else
+      begin
+
+        SS := ADOQuery2.FieldByName('Обозначение').AsString;
+        ADOQuery2.Close;
+        ADOQuery2.SQL.Clear;
+        Str1 := 'Select * from СпецифОбщая Where (Обозначение=' + #39 + SS + #39 + ')';
+        ADOQuery2.SQL.Text := Str1;
+        ADOQuery2.Active := True;
+        Str := ADOQuery2.FieldByName('ДлинаРазв').AsString;
+        if Str <> '' then
+        Dl_F := StrToFloat(Str);
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 3] :=Str;
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 2] := ADOQuery1.FieldByName('Номер').AsString;
+        Kol_S:=  ADOQuery1.FieldByName('Количество').AsString;
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 9] := ADOQuery1.FieldByName('КолКлап').AsString;
+        SS := ADOQuery1.FieldByName('Обозначение').AsString;
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 8] := SS;
+        XL.ActiveWorkBook.WorkSheets[List].Cells[XX, 4] := Kol_S;
+      end;
 
       Inc(XX);
       ADOQuery1.Next;
     end;
   end;
-  for I := 0 to Memo26.Lines.Count - 1 do
+ { for I := 0 to Memo26.Lines.Count - 1 do
   begin
     Inc(XX);
     Inc(YY);
-  end;
-
+  end; }
+  YY:=XX;
   XL.ActiveWorkBook.Sheets.Item[List].Activate;
   XL.ActiveWorkBook.Worksheets[List].Range['K6:S6'].Select;
   XL.Selection.Copy;
@@ -34550,8 +39201,9 @@ begin
   OSI('', '', '', '', '', 1, XL);
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    //Стенки комплект
-             //гор                     //Верт                  //ТЕКИ 269.15.01.001- ТЕКИ 269.15.01.001- ТЕКИ 269.15.01.007-              //ТЕКИ 269.15.01.001-A-01 Г      //В
-  Stenki(SS, 'ТЕКИ 07.239.01.00.001-', 'ТЕКИ 07.239.01.00.002-', 'ВГ 1106.03.00.002-', 'ВГ 1106.03.00.001-', '', '', '', SS, SS, 4, XL);
+             //гор                     //Верт ВГ 1106.03.00.002-1250                 //ТЕКИ 269.15.01.001- ТЕКИ 269.15.01.001- ТЕКИ 269.15.01.007-              //ТЕКИ 269.15.01.001-A-01 Г      //В
+  Stenki(SS, 'ТЕКИ 07.239.01.00.001-', 'ТЕКИ 07.239.01.00.002-', 'ВГ 1106.03.00.002-',
+  'ВГ 1106.03.00.001-', '', '', '', SS, SS, 4, XL);
   //добавить проверку в запрос  ВГ 342.01.00.001- попадет и ВГ 342.01.00.001-01-
   Stenki_KED(SS, 'ВГ 342.01.00.003-', 'ВГ 342.01.00.004-', 'ВГ 342.01.00.002-', 'ВГ 342.01.00.001-', 'ВГ 342.01.00.001-01-', 'ВГ 451.01.00.001-', 'ВГ 451.01.00.001-01', SS, SS, 6, XL);
   //               'ВГ 050.33.00.101-','ВГ 050.33.00.001-',
@@ -34601,18 +39253,26 @@ Ispol_Klim      //8
   Kod, Pos_Zv, res, Res1, Reg_L, Ruch, Pos_U// Для Гермика УХЛ
 , Res_KVR, EPV, //Взрывозащита0.116  0.322
 Regular_krugl, //Регуляр круглый
-Res_KID, Reglan,Y: Integer;
+Res_KID, Reglan,Y,Kpu: Integer;
   Izdel, Izdelie, Izdel_Germik, Nam, Isp, Tip, Privod, Pos1, Pos2, Pos3,
   Pos4, Pos5, Pos6, Pos7, L, A, A_s, B, B_s, BZ, Tulpan_Nom: string;
-  SB_1, SB_2, Kol_Ed,NC_Ger_S_Prov,Obvarka,El1: Double;
+  SB_1, SB_2, Kol_Ed,NC_Ger_S_Prov,Obvarka,El1,DD: Double;
   SB1_S, SB2_S, Kol_Ed_Str, SB_LOP_S, Sborka_lop,Prov,Obv,Nom,El_S: string;
-  Reg: Integer;
+  Reg,Res2: Integer;
   Result: Tresult;
 begin
   SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
   for i := 0 to StringGrid6.RowCount - 1 do
   begin
-    if (StringGrid6.Cells[I_FN_SBOR_KLAP_NC, i + 1] = '0') and (StringGrid6.Cells[24, i + 1] <> '') and (StringGrid6.Cells[26, i + 1] <> '') then
+    DD:=StrToFloat(StringGrid6.Cells[I_FN_SBOR_KLAP_NC, i + 1]);
+    Res2:=AnsiCompareStr('0',StringGrid6.Cells[24, i + 1] );  //Статус
+    Reg:=AnsiCompareStr('0',SGL.Cells[I_FN_SGP + 10, i + 1] );  //СтатусФ
+    kpu:=AnsiCompareStr('False',SGL.Cells[I_FN_SGP + 12, i + 1] );  //СтатусФлекс
+    if (Res2=0) AND (Reg=0) and (Kpu=0) then
+    Continue;
+
+
+    if (DD = 0) and (StringGrid6.Cells[24, i + 1] <> '') and (StringGrid6.Cells[26, i + 1] <> '') then
     begin
       Result.Sborka2:=0;
       Result.Sborka1:=0;
@@ -34664,14 +39324,67 @@ begin
       BZ := StringGrid6.Cells[23, i + 1]; //BZ
       Kod := StrToInt(StringGrid6.Cells[25, i + 1]); //Kod
       Kol_Lop := StrToInt(StringGrid6.Cells[26, i + 1]);
+     //
+      Kpu := Pos('ПРОК-', Izdel);
+      if Kpu <> 0 then
+      begin
+        NC_Sbor := 0;
+        Result := PROK_New(Izdel, IDGP, 0, I);
+      end;
+      //
       Kol_Priv := StrToInt(StringGrid6.Cells[2, i + 1]);  //Клапан ГЕРМИКх2С-1460*1735-Н-2*SFA-1-УХЛ2-0
+      //
+      Res_KID := Pos('ГЕРМИК-ДУ', Izdel);
+      if Res_KID <> 0 then
+      begin
+        NC_Sbor := 0;
+        Result := Germik_DU_Vozd(Izdel, IDGP,IDKO, 0, I);
+      end;
+      // Клапан Канал-РЕГУЛЯР-50-25-0
+      //Клапан Канал-ГЕРМИК-П-50-25-Н-F220S
+      //Клапан Канал-ГЕРМИК-С-50-30-Н-M220
+      //Клапан ГЕРМИК-П-А-0870-1040-П-П-12-01-00-УХЛ3-02_RAL7012_201030197а-ННВ
+      Res_KID := Pos('Канал-ГЕРМИК-С', Izdel);
+      if Res_KID <> 0 then
+      begin
+
+        NC_Sbor := 0;
+        Result :=KANAL_GERMIK_S(Izdel, IDGP,IDKO, 0, I);
+      end;
+      //Клапан ГЕРМИК-П-А-0870-1040-П-П-12-01-00-УХЛ3-02_RAL7012_201030197а-ННВ
+      Res_KID := Pos('Канал-ГЕРМИК-П', Izdel);
+      if Res_KID <> 0 then
+      begin
+        NC_Sbor := 0;
+        Result :=KANAL_GERMIK_P(Izdel, IDGP,IDKO, 0, I);
+      end;
+      //
+      Res_KID := Pos('Канал-РЕГУЛЯР', Izdel);
+      if Res_KID <> 0 then
+      begin
+        NC_Sbor := 0;
+        Result :=KANAL_Regular(Izdel, IDGP,IDKO, 0, I);
+      end;
+      //
       //Клапан Канал-КОЛ-К-100
       Reg := Pos('Канал-КОЛ-К-', Izdel);
       if (Reg <> 0)  then
       begin
         Result := KANAL_KR(Izdel, IDGP, IDKO, 0, i);
       end;
-//
+      //Клапан КЛАБ-125-0*ф-Н-РУЧКА-0-0
+    Reg := Pos('КЛАБ-', Izdel);
+      if (Reg <> 0)  then
+      begin
+        Result := KLAB(Izdel, IDGP, IDKO, 0, i);
+      end;
+      //Клапан КВР-1440-1310-Н-07-05-У3
+    Reg := Pos('Клапан КВР-', Izdel);
+      if (Reg <> 0)  then
+      begin
+        Result := KVR(Izdel, IDGP, IDKO, 0, i);
+      end;
+
       Res1 := Pos('Канал-КВ-', Izdel);
       if (Res1 <> 0)  then
       begin
@@ -34694,19 +39407,34 @@ begin
       Res1 := Pos('ГЕРМИКх2', Izdel);
       if Res1 <> 0 then
         Continue;
-      {Res1 := Pos('_', Izdel);
+     { Res1 := Pos('_', Izdel);
       if Res1 <> 0 then
         Continue;  24.05.22 Матвеенко}
+
+    //Клапан ГЕРМИК-Т-2000*1500-В-4*ЭПВ-SF230-S2-V-1-УХЛ2-0
+      res:= Pos('ГЕРМИК-ДУ',Izdel);
+      Res2:=Pos('ГЕРМИК-Т-',Izdel);
       Reg := Pos('ГЕРМИК', Izdel);
       Res1 := Pos('Канал', Izdel);
-      if (Reg <> 0) and (Res1 = 0) then
+      if (Reg <> 0) and (Res1 = 0) and (Res = 0) and (res2 = 0) then
       begin
+          Res:=Pos('ГЕРМИК-С-А-', Izdel);
+          if res<>0 then
+          Izdel:= StringReplace(Izdel, 'ГЕРМИК-С-А-', 'ГЕРМИК-С-', [rfReplaceAll]);
+
+          Res:=Pos('ГЕРМИК-П-А-', Izdel);
+          if res<>0 then
+          Izdel:= StringReplace(Izdel, 'ГЕРМИК-П-А-', 'ГЕРМИК-П-', [rfReplaceAll]);
         Result := Germik_P(Izdel, IDGP, IDKO, 0, i);
+      end;
+      if (Res1 = 0) and (res2 <> 0) then
+      begin
+        Result := Germik_T(Izdel, IDGP, IDKO, 0, i);
       end;
       //========================================================
       Reg := Pos('РЕГУЛЯР', Izdel);
-      //Res1 := Pos('Канал', Izdel);
-      if (Reg <> 0) then
+      Res1 := Pos('Канал', Izdel);
+      if (Reg <> 0) and (Res1=0) then
       begin
         Result := Regular(Izdel, IDGP, IDKO, 0, i);
       end;
@@ -34744,6 +39472,9 @@ begin
         Obv := StringReplace(FloatToStr(Obvarka), ',', '.', [rfReplaceAll]);            //Сборка лопаток
         SB_LOP_S := StringReplace(SB_LOP_S, ',', '.', [rfReplaceAll]);
         SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
+        {Для ГЕРМИКА-ДУ
+        [Расключение]=' + #39 + (Prov) + #39 + будет равно СборкаРеш   NC_RON
+        [Обварка]=' + #39 + (Obv) + #39 + будет равно Сборка тяг=Корпус  SB_TYAG_S}
         if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Н\ч Сборка Клапана]=' + #39 + (SB1_S) + #39 +
         ',[Н\ч Сварка]=' + #39 + (SB2_S) + #39 + ',[Расключение]=' + #39 + (Prov) + #39 +
         ',[Сборка лопаток]=' + #39 + (SB_LOP_S) + #39 +',[Обварка]=' + #39 + (Obv) + #39 + ',[Электро]=' +
@@ -34796,9 +39527,10 @@ begin
           Form1.ADOQuery2.Next;
         End;
     end;
-
   end;
+
 end;
+
 
 procedure TForm1.btn1Click(Sender: TObject);
 var
@@ -35130,7 +39862,7 @@ var
 begin
 
   Clear_StringGrid(SG);
-  SG.COLCount := 28;
+  SG.COLCount := 33;
   SG.Cells[0, 0] := '№';
   SG.Cells[1, 0] := 'Дата задания';
   SG.Cells[2, 0] := 'Заказ';
@@ -35160,6 +39892,11 @@ begin
   SG.Cells[25, 0] := 'КолКлап';
   SG.Cells[26, 0] := 'ДатКлап';
   SG.Cells[27, 0] := 'Отмена';
+  SG.Cells[28, 0] := 'Код';
+  SG.Cells[29, 0] := 'IDКо';
+  SG.Cells[30, 0] := 'СтатусФ';
+  SG.Cells[31, 0] := 'СтатусПро';
+  SG.Cells[32, 0] := 'СтатусФлекс';
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   if ((Cbb3.ItemIndex = 0) or (Cbb3.ItemIndex = -1) or (Cbb3.Text = '')) and (Cbb2.ItemIndex <> 0) and (Cbb2.Text <> '') then
@@ -35193,13 +39930,14 @@ begin
   end;
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if (cbb4.ItemIndex = 0) then
-    Betwe1 := Betwe1 + ' AND (NOT ОТК IS NULL) ';
+    Betwe1 := Betwe1 + ' AND (NOT ОТК IS NULL) AND (Отмена IS NULL) ';
 
   if (cbb4.ItemIndex = 1) then
-    Betwe1 := Betwe1 + ' AND ( ОТК IS NULL) ';
-
+    Betwe1 := Betwe1 + ' AND ( ОТК IS NULL) AND (Отмена IS NULL)';
+  if (cbb4.ItemIndex = 11) then
+    Betwe1 := Betwe1 + ' AND ( NOT Отмена IS NULL) ';
   if (cbb4.ItemIndex = 3) or (cbb4.ItemIndex = -1) then
-    Betwe1 := Betwe1 + ' AND ( ОТК IS NULL) AND (ПР=' + #39 + 'МИ' + #39 + ') ';
+    Betwe1 := Betwe1 + ' AND ( ОТК IS NULL) AND (ПР=' + #39 + 'МИ' + #39 + ') AND (Отмена IS NULL) ';
   if Poisk_Stam = 1 then
   begin
     if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE Заказ= ' + #39 + Edit.Text + #39, ['СТАМ']) then
@@ -35208,7 +39946,7 @@ begin
 
   if Poisk_Stam = 0 then
   begin
-    if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE (Отмена IS NULL) AND (L=0) ' + Betwe1 + Order2, ['СТАМ']) then
+    if not mkQuerySelect(ADOQuery2, 'Select * from %s WHERE  (L=0) ' + Betwe1 + Order2, ['СТАМ']) then
       exit;
   end;
   if ADOQuery2.RecordCount = 0 then
@@ -35220,6 +39958,7 @@ begin
   begin
     SG.Cells[1, I + 1] := ADOQuery2.FieldByName('Дата').AsString;
     SG.Cells[2, I + 1] := ADOQuery2.FieldByName('Заказ').AsString;
+    SG.Cells[30, I + 1] := ADOQuery2.FieldByName('Изделие').AsString;
     Izdel := ADOQuery2.FieldByName('Изделие').AsString;
     Res1 := Pos('Защита', Izdel);
     res := Pos('СТАМ', Izdel);
@@ -35277,6 +40016,11 @@ begin
     SG.Cells[25, I + 1] := Form1.ADOQuery2.FieldByName('КолКлап').AsString;
     SG.Cells[26, I + 1] := Form1.ADOQuery2.FieldByName('ДатКлап').AsString;
     SG.Cells[27, I + 1] := Form1.ADOQuery2.FieldByName('Отмена').AsString;
+    SG.Cells[28, i+1] := Form1.ADOQuery2.FieldByName('Код').AsString;
+    SG.Cells[29, i+1] := Form1.ADOQuery2.FieldByName('IDКо').AsString;
+    SG.Cells[30, i+1] := Form1.ADOQuery2.FieldByName('СтатусФ').AsString;
+    SG.Cells[31, i+1] := Form1.ADOQuery2.FieldByName('СтатусПро').AsString;
+    SG.Cells[32, i+1] := Form1.ADOQuery2.FieldByName('СтатусФлекс').AsString;
     ADOQuery2.Next;
 
   end;
@@ -35310,6 +40054,10 @@ end;
 procedure TForm1.btn41Click(Sender: TObject);
 begin
   Poisk_LUK := 1;
+  if Edit24.Text<>'' then
+  STR_LUK:= Label180.Caption + ' like ' + #39 + '%' + Edit24.Text + '%' + #39;
+  if Edit33.Text<>'' then
+  STR_LUK:= 'БЗ' + ' like ' + #39 + '%' + Edit33.Text + '%' + #39;
   btn36.Click;
 end;
 
@@ -35452,7 +40200,7 @@ var
   Bet, Ned1, Ned2, Str, Izdel,Betw: string;
 begin
   Clear_StringGrid(SG5);
-  SG5.ColCount := 28;
+  SG5.ColCount := 29;
   SG5.Cells[0, 0] := 'Номер';
   SG5.Cells[1, 0] := 'Дата задания';
   SG5.Cells[2, 0] := 'Заказ';
@@ -35465,7 +40213,7 @@ begin
   SG5.Cells[8, 0] := 'Планирование';
   SG5.Cells[9, 0] := 'Примечание';
   SG5.Cells[10, 0] := 'Мат';
-  SG5.Cells[11, 0] := 'Дата запуска';
+  SG5.Cells[11, 0] := 'Сборщик';
   SG5.Cells[12, 0] := 'TRUMPF';
   SG5.Cells[13, 0] := 'ГИБКА';
   SG5.Cells[14, 0] := 'СВАРКА';
@@ -35482,11 +40230,12 @@ begin
   SG5.Cells[25, 0] := 'Упаковка';
   SG5.Cells[26, 0] := 'Срочно';
   SG5.Cells[27, 0] := 'idКО';
+  SG5.Cells[28, 0] := 'Отмена';
   SG5.SortByColumn(1);
-  SG5.ColWidths[17] := 40;
-  SG5.ColWidths[5] := 70;
-  SG5.ColWidths[7] := 0;
-  SG5.ColWidths[9] := 0;
+ // SG5.ColWidths[17] := 40;
+ // SG5.ColWidths[5] := 70;
+ // SG5.ColWidths[7] := 0;
+  //SG5.ColWidths[9] := 20;
         {Все
 Запущенные на заготовку
 Заготовка готова
@@ -35502,40 +40251,45 @@ begin
   if Poisk_LUK = 0 then
   begin
     if (ComboBox33.ItemIndex = 1) then //Запущенные на заготовку
-      Bet := ' AND (NOT [TRUMPF] IS NULL) AND (ГИБКА IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND (NOT [TRUMPF] IS NULL) AND (ГИБКА IS NULL) AND '+
+      '((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox33.ItemIndex = 2) then // Заготовка готова
-      Bet := ' AND (NOT [Гибка] IS NULL) AND ( [СВАРКА] IS NULL) AND ((ОТК IS NULL))';
+      Bet := ' AND (NOT [Гибка] IS NULL) AND ( [СВАРКА] IS NULL) AND ((ОТК IS NULL)) AND ([Отмена] IS NULL)';
 
     if (ComboBox33.ItemIndex = 3) then //Готовность по СВАРКЕ
-      Bet := ' AND  (NOT [СВАРКА] IS NULL) AND  ([ПОКРАСКА] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND  (NOT [СВАРКА] IS NULL) AND  ([ПОКРАСКА] IS NULL) AND '+
+      '((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox33.ItemIndex = 4) then //Готовность  на сборку
-      Bet := ' AND  (NOT [ПОКРАСКА] IS NULL) AND ([Сборка Запуск] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND  (NOT [ПОКРАСКА] IS NULL) AND ([Сборка Запуск] IS NULL) AND'+
+      ' ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox33.ItemIndex = 5) then ////Запуск на сборку
-      Bet := ' AND (NOT [Сборка Запуск] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND (NOT [Сборка Запуск] IS NULL) AND '+
+      '((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox33.ItemIndex = 6) then //ОТК
-      Bet := ' AND (NOT ОТК IS NULL)';
+      Bet := ' AND (NOT ОТК IS NULL) AND ([Отмена] IS NULL)';
 
     if (ComboBox33.ItemIndex = 7) then // Отмененые
       Bet := ' AND (NOT Отмена IS NULL)';
 
     if (ComboBox33.ItemIndex = 8) then // не запущенные
-      Bet := ' AND ( TRUMPF IS NULL) AND ((ОТК IS NULL) )';
+      Bet := ' AND ( TRUMPF IS NULL) AND ((ОТК IS NULL)) AND ([Отмена] IS NULL)';
 
     if (ComboBox33.ItemIndex = 9) then //Просрочен
     begin
       res := (WeekNum(Date));
-      Bet := ' AND  ([План неделя]<' + #39 + IntToStr(res) + #39 + ' ) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND  ([План неделя]<' + #39 + IntToStr(res) + #39 + ' ) AND '+
+      '((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
     end;
 
     if (ComboBox33.ItemIndex = 10) then //Готовые
       Bet := '  AND (NOT ОТК IS NULL)';
 
     if (ComboBox33.ItemIndex = 11) or (ComboBox33.ItemIndex = -1) then //НЕ Готовые
-      Bet := '  AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := '  AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
     if Edit27.Text <> '' then
     begin
       Str := Edit27.Text;
@@ -35561,7 +40315,8 @@ begin
 //Просроченные
 
 
-  if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where ([Отмена] IS NULL) AND (Х IS NULL)' + Bet + Order2, ['ЗапускЛЮК']) then
+  if not Form1.mkQuerySelect(Form1.ADOQuery1,
+  'Select * from %s Where (Х IS NULL)' + Bet + Order2, ['ЗапускЛЮК']) then
     exit;
   SG5.RowCount := Form1.ADOQuery1.RecordCount + 2;
   SG7.RowCount := Form1.ADOQuery1.RecordCount + 2;
@@ -35590,7 +40345,7 @@ begin
     SG5.Cells[8, I + 1] := Form1.ADOQuery1.FieldByName('Планирование').AsString;
     SG5.Cells[9, I + 1] := Form1.ADOQuery1.FieldByName('Примечание').AsString;
     SG5.Cells[10, I + 1] := Form1.ADOQuery1.FieldByName('Мат').AsString;
-    SG5.Cells[11, I + 1] := Form1.ADOQuery1.FieldByName('Дата запуска').AsString;
+    SG5.Cells[11, I + 1] := Form1.ADOQuery1.FieldByName('Сборщик').AsString;
     SG5.Cells[12, I + 1] := Form1.ADOQuery1.FieldByName('TRUMPF').AsString;
     SG5.Cells[13, I + 1] := Form1.ADOQuery1.FieldByName('ГИБКА').AsString;
     SG5.Cells[14, I + 1] := Form1.ADOQuery1.FieldByName('СВАРКА').AsString;
@@ -35608,16 +40363,17 @@ begin
     SG5.Cells[25, I + 1] := Form1.ADOQuery1.FieldByName('Упаковка').AsString;
     SG5.Cells[26, I + 1] := Form1.ADOQuery1.FieldByName('Срочно').AsString;
     SG5.Cells[27, I + 1] := Form1.ADOQuery1.FieldByName('IDКО').AsString;
+    SG5.Cells[28, I + 1] := Form1.ADOQuery1.FieldByName('Отмена').AsString;
     Form1.ADOQuery1.Next;
   end;
-  SG5.RowHeights[0] := 60;
-  SG216.RowHeights[0] := 60;
-  SG5.ColWidths[5] := 70;
-  SG5.ColWidths[7] := 60;
-  SG5.ColWidths[9] := 60;
-  SG5.ColWidths[11] := 10;
+  //SG5.RowHeights[0] := 60;
+  //SG216.RowHeights[0] := 60;
+  //SG5.ColWidths[5] := 70;
+ // SG5.ColWidths[7] := 60;
+ // SG5.ColWidths[9] := 60;
+  //SG5.ColWidths[11] := 10;
   SG5.ColWidths[16] := 0;
-  SG5.ColWidths[21] := 0;
+  SG5.ColWidths[21] := 10;
   Poisk := 0;
 end;
 
@@ -36156,9 +40912,6 @@ var
   myRect: TGridRect;
   Sum: Double;
 begin
-       //F:=SG.ColumnSum(4,1,SG.Row);
-       //Sum:=F;
-
   if (SG.Col = 4) or (SG.Col = 5) or (SG.Col = 9) or (SG.Col = 20) then
   begin
     Sum := 0;
@@ -36173,7 +40926,6 @@ begin
         end;
       end;
     StatusBar2.Panels[2].Text := FloattOsTR(Sum);
-
   end;
 end;
 
@@ -36859,7 +41611,20 @@ begin
   SG.Cells[23, 0] := 'Клапан';
   SG.Cells[24, 0] := 'СпецКлап';
   SG.Cells[25, 0] := 'КолКлап';
-  SG.Cells[26, 0] := 'ДатКлап';}
+  SG.Cells[26, 0] := 'ДатКлап';
+  SG.Cells[29, 0] := 'IDКо';}
+    Res1:=Pos('Матвеенко',Regist.Famili);
+  if (SG.Col = 20) and ((FlagDolg = 2) or (FlagDolg = 1)) then
+  begin
+  Form1.Vozduh := 3;
+    FNorm.Caption := SG.Cells[2, SG.Row];
+    FNorm.Label3.Caption := SG.Cells[3, SG.Row];
+    FNorm.Label5.Caption := SG.Cells[19, SG.Row]; //БЗ
+    FNorm.Label4.Caption := SG.Cells[4, SG.Row];
+    FNorm.lbliDGP.Caption := SG.Cells[13, SG.Row];
+    FNorm.lbliDKO.Caption := SG.Cells[29, SG.Row];
+    FNorm.Show;
+  end;
   luk := 0;
   if (SG.Col = 22)  //Примечание
     then
@@ -37345,7 +42110,7 @@ var
   Bet, Ned1, Ned2, Str,SS,GP,Kol: string;
 begin
   Clear_StringGrid(SG10);
-  SG10.ColCount := 30;
+  SG10.ColCount := 33;
   SG10.Cells[0, 0] := 'Номер';
   SG10.Cells[1, 0] := 'Дата';
   SG10.Cells[2, 0] := 'Заказ';
@@ -37376,6 +42141,9 @@ begin
   SG10.Cells[27, 0] := 'Отправила';
   SG10.Cells[28, 0] := 'Отмена';
   SG10.Cells[29, 0] := 'КолТЭН';
+  SG10.Cells[30, i+1] :='СтатусФ';
+  SG10.Cells[31, i+1] :='СтатусПро';
+  SG10.Cells[32, i+1] := 'СтатусФлекс';
         //SG218.SortByColumn(1);
   //SG2.ColWidths[3] := 200;
  { SG10.ColWidths[5] := 20;
@@ -37464,6 +42232,9 @@ begin
     SG10.Cells[19, I + 1] := Form1.ADOQuery1.FieldByName('Заводской Номер').AsString;
     SG10.Cells[20, I + 1] := Form1.ADOQuery1.FieldByName('ОТК').AsString;
     SG10.Cells[21, I + 1] := Form1.ADOQuery1.FieldByName('IdГП').AsString;
+    SG10.Cells[30, i+1] := Form1.ADOQuery1.FieldByName('СтатусФ').AsString;
+    SG10.Cells[31, i+1] := Form1.ADOQuery1.FieldByName('СтатусПро').AsString;
+    SG10.Cells[32, i+1] := Form1.ADOQuery1.FieldByName('СтатусФлекс').AsString;
     GP:= Form1.ADOQuery1.FieldByName('IdГП').AsString;
    { SS:='AND (Элемент LIKE '+#39+'%Нагреватель электрический%'+#39+' )';
     if not Form1.mkQuerySelect66(Form1.ADOQuery4, 'Select * from %s Where ([IdГП]=' +
@@ -37570,40 +42341,40 @@ begin
   if Poisk = 0 then
   begin
     if (ComboBox3.ItemIndex = 1) then //Запущенные на заготовку
-      Bet := ' AND (NOT [TRUMPF] IS NULL) AND (ГИБКА IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND (NOT [TRUMPF] IS NULL) AND (ГИБКА IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox3.ItemIndex = 2) then // Заготовка готова
-      Bet := ' AND (NOT [Гибка] IS NULL) AND ( [СВАРКА] IS NULL) AND ((ОТК IS NULL))';
+      Bet := ' AND (NOT [Гибка] IS NULL) AND ( [СВАРКА] IS NULL) AND ((ОТК IS NULL)) AND ([Отмена] IS NULL)';
 
     if (ComboBox3.ItemIndex = 3) then //Готовность по СВАРКЕ
-      Bet := ' AND  (NOT [СВАРКА] IS NULL) AND  ([ПОКРАСКА] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND  (NOT [СВАРКА] IS NULL) AND  ([ПОКРАСКА] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox3.ItemIndex = 4) then //Готовность  на сборку
-      Bet := ' AND  (NOT [ПОКРАСКА] IS NULL) AND ([Сборка Запуск] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND  (NOT [ПОКРАСКА] IS NULL) AND ([Сборка Запуск] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox3.ItemIndex = 5) then ////Запуск на сборку
-      Bet := ' AND (NOT [Сборка Запуск] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND (NOT [Сборка Запуск] IS NULL) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
 
     if (ComboBox3.ItemIndex = 6) then //ОТК
-      Bet := ' AND (NOT ОТК IS NULL)';
+      Bet := ' AND (NOT ОТК IS NULL) AND ([Отмена] IS NULL)';
 
     if (ComboBox3.ItemIndex = 7) then // Отмененые
       Bet := ' AND (NOT Отмена IS NULL)';
 
     if (ComboBox3.ItemIndex = 8) then // не запущенные
-      Bet := ' AND ( TRUMPF IS NULL) AND ((ОТК IS NULL) )';
+      Bet := ' AND ( TRUMPF IS NULL) AND (ОТК IS NULL) AND ([Отмена] IS NULL) ';
 
     if (ComboBox3.ItemIndex = 9) then //Просрочен
     begin
       res := (WeekNum(Date));
-      Bet := ' AND  ([План неделя]<' + #39 + IntToStr(res) + #39 + ' ) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := ' AND  ([План неделя]<' + #39 + IntToStr(res) + #39 + ' ) AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
     end;
 
     if (ComboBox3.ItemIndex = 10) then //Готовые
-      Bet := '  AND (NOT ОТК IS NULL)';
+      Bet := '  AND (NOT ОТК IS NULL) AND ([Отмена] IS NULL)';
 
     if (ComboBox3.ItemIndex = 11) or (ComboBox3.ItemIndex = -1) then //НЕ Готовые
-      Bet := '  AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых]))';
+      Bet := '  AND ((ОТК IS NULL) OR ([Кол во запущенных]>[Кол принятых])) AND ([Отмена] IS NULL)';
     if Edit22.Text <> '' then
     begin
       Str := Edit22.Text;
@@ -37626,19 +42397,19 @@ begin
   dat1 := FormatDateTime('mm.dd.YYYY', DateTimePicker7.Date);
   dat2 := FormatDateTime('mm.dd.YYYY', DateTimePicker8.Date);
   if DIP = 0 then
-  begin
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where ([Отмена] IS NULL) AND (Х IS NULL)' + Bet + Order2, ['ЗапускСТАМ']) then
+  begin                                                 //AND ([Отмена] IS NULL)
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where  (Х IS NULL)' + Bet + Order2, ['ЗапускСТАМ']) then
       exit;
   end
   else
-  begin
-    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where ([Отмена] IS NULL) AND (Х IS NULL)' + Betwe_G + Order2, ['ЗапускСТАМ']) then
+  begin                                                                //([Отмена] IS NULL) AND
+    if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where  (Х IS NULL)' + Betwe_G + Order2, ['ЗапускСТАМ']) then
       exit;
     Dip := 0;
   end;
   SG215.RowCount := Form1.ADOQuery1.RecordCount + 2;
   SG216.RowCount := Form1.ADOQuery1.RecordCount + 2;
-  SG215.ColCount := 32;
+  SG215.ColCount := 33;
   SG215.Cells[0, 0] := 'Номер';
   SG215.Cells[1, 0] := 'Дата задания';
   SG215.Cells[2, 0] := 'Заказ';
@@ -37646,7 +42417,8 @@ begin
   SG215.Cells[4, 0] := 'Изделие';
   SG215.Cells[5, 0] := 'Кол во';
   SG215.Cells[6, 0] := 'Расчетная дата готовности';
-  SG215.Cells[7, 0] := 'План Неделя';
+ // SG215.Cells[7, 0] := 'План Неделя';
+  SG215.Cells[7, 0] := 'Сборщик';
   SG215.Cells[8, 0] := 'Планирование';
   SG215.Cells[9, 0] := 'Примечание';
   SG215.Cells[10, 0] := 'Мат';
@@ -37673,10 +42445,11 @@ begin
   SG215.Cells[29, 0] := 'Срочно';
   SG215.Cells[30, 0] := 'idКО';
   SG215.Cells[31, 0] := 'ОТК Прим';
+  SG215.Cells[32, 0] := 'Отмена';
   SG215.SortByColumn(1);
   SG215.ColWidths[17] := 40;
   SG215.ColWidths[5] := 0;
-  SG215.ColWidths[7] := 0;
+  //SG215.ColWidths[7] := 0;
   SG215.ColWidths[9] := 20;
   StatusBar1.Panels[2].Text := IntToStr(ADOQuery1.RecordCount);
   for I := 0 to Form1.ADOQuery1.RecordCount - 1 do
@@ -37690,7 +42463,8 @@ begin
     SG215.Cells[5, I + 1] := Form1.ADOQuery1.FieldByName('Кол во запущенных').AsString;
    // SG215.Cells[5, I + 1] := Form1.ADOQuery1.FieldByName('Н\ч Сборка').AsString;
     SG215.Cells[6, I + 1] := Form1.ADOQuery1.FieldByName('Расчетная дата готовности').AsString;
-    SG215.Cells[7, I + 1] := Form1.ADOQuery1.FieldByName('План Неделя').AsString;
+   // SG215.Cells[7, I + 1] := Form1.ADOQuery1.FieldByName('План Неделя').AsString;
+    SG215.Cells[7, I + 1] := Form1.ADOQuery1.FieldByName('Сборщик').AsString;
     SG215.Cells[8, I + 1] := Form1.ADOQuery1.FieldByName('Планирование').AsString;
 
     SG215.Cells[9, I + 1] := Form1.ADOQuery1.FieldByName('Примечание').AsString;
@@ -37720,14 +42494,15 @@ begin
     SG215.Cells[29, I + 1] := Form1.ADOQuery1.FieldByName('Срочно').AsString;
     SG215.Cells[30, I + 1] := Form1.ADOQuery1.FieldByName('IdКО').AsString;
     SG215.Cells[31, I + 1] := Form1.ADOQuery1.FieldByName('ОТК Прим').AsString;
+    SG215.Cells[32, I + 1] := Form1.ADOQuery1.FieldByName('Отмена').AsString;
     Form1.ADOQuery1.Next;
   end;
   SG215.RowHeights[0] := 60;
   SG216.RowHeights[0] := 60;
   SG215.ColWidths[5] := 40;
-  SG215.ColWidths[7] := 60;
+  //SG215.ColWidths[7] := 60;
   SG215.ColWidths[9] := 60;
-  SG215.ColWidths[11] := 10;
+  //SG215.ColWidths[11] := 10;
   SG215.ColWidths[16] := 60;
   SG215.ColWidths[21] := 0;
   SG215.ColWidths[26] := 0;
@@ -37760,6 +42535,12 @@ end;
 procedure TForm1.SG10DblClick(Sender: TObject);
 begin
   Form1.Vozduh := 2;
+   if (SG10.Col = 11) then
+  begin
+       N123.Click;
+    if UOsnova_Main.Flag_Error = 2 then //ДЕТАЛИ НЕ ВСЕ
+      Exit;
+  end;
   if (SG10.Col = 11) or (SG10.Col = 8) then  //and ((FlagDolg = 1) or (FlagDolg = 7))
   begin   // TRUMPF
     F710.Caption := SG10.Cells[SG10.Col, 0];
@@ -37801,7 +42582,7 @@ end;
 
 procedure TForm1.SG10GetCellColor(Sender: TObject; ARow, ACol: Integer; AState: TGridDrawState; ABrush: TBrush; AFont: TFont);
 var
-  I, Res: Integer;
+  I, Res,Stat: Integer;
   kol, kol_zap, kol_g: Integer;
 begin
   if (SG10.Cells[4, ARow] = '') or (SG10.Cells[5, ARow] = '') or (SG10.Cells[24, ARow] = '') then
@@ -37855,6 +42636,16 @@ begin
     begin
       ABrush.Color := RGB(32, 252, 184); //
     end; }
+                           //------------СтатусФлекс
+    Stat := 0;
+    if SG10.Cells[32, ARow] <> '' then
+      Stat := Pos('rue',SG10.Cells[32, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 2) then
+      SG10.canvas.brush.Color := RGB(14,177,250);//ДОКс   Синий
+      SG10.Canvas.Font.Style := [fsBold];
+    end;
   end;
 end;
 
@@ -37950,7 +42741,7 @@ begin
     FStamTime.Label4.Caption := IntToStr(SG215.Row);
     FStamTime.ShowModal;
   end;
-  if (SG215.Col = 12) or (SG215.Col = 11) and ((FlagDolg = 1) or (FlagDolg = 7)) then
+  if (SG215.Col = 12)  and ((FlagDolg = 1) or (FlagDolg = 7)) then
   begin   // TRUMPF
     FStamTime.Caption := SG215.Cells[SG215.Col, 0];
     FStamTime.Label1.Caption := SG215.Cells[21, SG215.Row]; //idGP
@@ -38043,6 +42834,15 @@ begin
     FStamTime.Label4.Caption := IntToStr(SG215.Row);
     FStamTime.ShowModal;
   end;
+  //
+  if (SG215.Col =7) then //Сборщик
+  begin
+      FSborKan.Label1.Caption:=SG215.Cells[21, SG215.Row];
+      FSborKan.Label2.Caption:=SG215.Cells[30, SG215.Row];
+      //0-Канлка(Запуск750) 1- ЗапускЛЮК 2- ЗапускСТАМ
+      FSborKan.Sbor_Uch:=2;
+      FSborKan.ShowModal;
+  end;
 end;
 
 procedure TForm1.SG215DrawCell(Sender: TObject; ACol, ARow: Integer; Rect: TRect; State: TGridDrawState);
@@ -38109,12 +42909,22 @@ begin
       SG215.Canvas.FillRect(Rect);
       SG215.Canvas.TextOut(Rect.Left, Rect.Top, SG215.Cells[2, ARow]);
     end;
+
+
+    if (SG215.Cells[32, ARow] <> '')  then   //Срочно
+    begin
+      SG215.Canvas.Brush.Color := clGray;
+      //SG215.Canvas.Font.Color := clWindow;
+      SG215.Canvas.FillRect(Rect);
+      SG215.Canvas.TextOut(Rect.Left, Rect.Top, SG215.Cells[ACol, ARow]);
+    end;
   end;
 end;
 
 procedure TForm1.btn10Click(Sender: TObject);
-begin
-  FPDO.Show;
+  begin
+
+  //FPDO.Show;
 end;
 
 procedure TForm1.N37Click(Sender: TObject);
@@ -38984,11 +43794,16 @@ begin
     Put := Put_KTO;
     Res := Pos('ОИТ', Put);
     if Res <> 0 then
-      Delete(Put, Res, 3);
+      Delete(Put, Res, 3);                  //
     Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Воздушные';
     if Memo7.Lines.Strings[i] <> '' then
       fileName := Memo7.Lines.Strings[i] + '.dxf';
     fullFilePath := FileSearch(fileName, Dir_Ser);
+    if fullFilePath = '' then
+    begin
+       Dir_Ser := Put + 'КТО\_Развертки new\Клапаны\Пожарные';
+       fullFilePath := FileSearch(fileName, Dir_Ser);
+    end;
     if fullFilePath <> '' then
     begin
       Memo9.Lines.Add(fullFilePath);
@@ -39228,8 +44043,8 @@ end;
 
 procedure TForm1.btn15Click(Sender: TObject);
 var
-  I, res, Res1, Res2, Res3, Razmer, D, TIP, KOL: Integer;
-  Izdel, Izdelie, nc_sbor, nc_sbor1, nc_sbor2, IDGP, Mat, Naim1,Tip1,Razm1,Ispol,Tulp: string;
+  I, res, Res1, Res2, Res3, Razmer, D, TIP, KOL,Kol_Zap,y: Integer;
+  Izdel, Izdelie, nc_sbor, nc_sbor1, nc_sbor2, IDGP, Mat, Naim1,Tip1,Razm1,Ispol,Tulp,Nom,Zak: string;
   nc_sbor_f: Double;
 begin
   for I := 1 to SG.RowCount do
@@ -39250,6 +44065,7 @@ begin
       Izdel := Naim1;
       Izdelie := Naim1;
       IDGP := SG.Cells[13, I];
+      Zak:=SG.Cells[2, i];
       Tulp:='';
                         //----------------------------------------------------
                         //Naim1:= StringReplace(Naim, 'СТАМ ', 'СТАМ',[rfReplaceAll, rfIgnoreCase]);
@@ -39287,32 +44103,20 @@ begin
            Delete(Izdelie, 1, Res2);  //К1
         End;
 
-        if (Razmer < 50) then
-        begin
-            Razm1:='35';
-        end;
-        if (Razmer>= 50) AND (Razmer<63) then
-        begin
-            Razm1:='50';
-        end;
-        if (Razmer>= 63) AND (Razmer<88) then
-        begin
-            Razm1:='63';
-        end;
-        if (Razmer>= 88) AND (Razmer<109) then
-        begin
-            Razm1:='88';
-        end;
-        if (Razmer>= 109) AND (Razmer<136) then
-        begin
-            Razm1:='109';
-        end;
-        if (Razmer>= 136)  then
-        begin
-            Razm1:='136';
-        end;
         if TIP=404 then
              TIP:=402;
+        if TIP=405 then
+             TIP:=401;
+        if TIP=415 then
+             TIP:=414;
+        Res2 := Pos('У', Izdelie);
+        if (Res2<>0) and (TIP=401) then
+        Begin
+           if not mkQuerySelect(ADOQuery1,
+        'Select * from %s Where ( [Размер] ='+#39+Razm1+#39+')', ['СТАМнорм']) then
+        exit;
+          nc_sbor2:= ADOQuery1.FieldByName('401ТЭН').AsString;
+        End;
         TIP1:=IntToStr(Tip);
         if (TIP=700) or (TIP=710) then
         begin
@@ -39355,6 +44159,8 @@ begin
         end;
          if nc_sbor2='' then
            nc_sbor2:='0';
+           if nc_sbor1='' then
+           nc_sbor1:='0';
         //
         SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
         nc_sbor1 := StringReplace(nc_sbor1, ',', '.', [rfReplaceAll, rfIgnoreCase]);
@@ -39362,6 +44168,26 @@ begin
         nc_sbor1:=FloatToStr(StrToFloat(nc_sbor1)+StrToFloat(nc_sbor2));
         if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [' + 'Н\ч Сборка' + ']=' + #39 + (nc_sbor1) + #39 + ' WHERE ([IdГП]=' + #39 + IDGP + #39 + ') ', ['СТАМ']) then
         Exit;
+        if not Form1.mkQuerySelect1(Form1.ADOQuery2,
+                'Select * from [%s]  WHERE ([IDГП]=' + #39 + IDGP + #39 + ')', ['ЗапускСТАМ']) then
+                exit;
+                for y:=0 to Form1.ADOQuery2.RecordCount-1 do
+                begin
+                        Kol_Zap:=Form1.ADOQuery2.FieldByName('Кол во запущенных').AsInteger;
+                        Nom:=Form1.ADOQuery2.FieldByName('Номер').AsString;
+                        nc_sbor1:=FloatToStr(StrToFloat(nc_sbor1)*Kol_Zap);
+                        Res := Pos(',', nc_sbor1);
+                        Delete(nc_sbor1, Res, 1);
+                        if Res <> 0 then
+                                Insert('.', nc_sbor1, Res);
+                        if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+                        'UPDATE %s SET [Н\ч Сборка]=' + #39 + nc_sbor1+ #39 +
+                        ' WHERE ([Заказ]=' + #39 + Zak + #39 + ')AND ([Номер]=' + #39 + Nom + #39 + ') AND ([' +
+                        FN_NAM + ']='
+                        + #39 + Naim1 + #39 + ')', ['ЗапускСТАМ']) then
+                        Exit;
+                        Form1.ADOQuery2.Next
+                end;
       end;
      end;
   end;
@@ -39369,7 +44195,7 @@ end;
 
 procedure TForm1.SGGetCellColor(Sender: TObject; ARow, ACol: Integer; AState: TGridDrawState; ABrush: TBrush; AFont: TFont);
 var
-  I, Res: Integer;
+  I, Res,Stat: Integer;
 begin
 
   if (ARow > 0) and (ACol > 1) then
@@ -39414,6 +44240,16 @@ begin
     if (SG.Cells[27, ARow] <> '') then
     begin
       ABrush.Color := RGB(166, 166, 166); //Отмена
+    end;
+                   //------------СтатусФлекс
+    Stat := 0;
+    if SG.Cells[32, ARow] <> '' then
+      Stat := Pos('rue',SG.Cells[32, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 2) then
+      SG.canvas.brush.Color := RGB(14,177,250);//ДОКс   Синий
+      SG.Canvas.Font.Style := [fsBold];
     end;
   end;
 
@@ -40670,6 +45506,88 @@ begin
 
 end;
  // function GetActivePos( var AVTable : Variant; const AFieldsList : TStrings ) : Integer;
+
+function TForm1.Xls_To_Grid1(AGrid: TStringGrid; AXLSFile: string; List: string; C, R: Integer): Boolean;
+const
+  xlCellTypeLastCell = $0000000B;
+var
+  XLApp, Sheet: OLEVariant;
+  RangeMatrix: Variant;
+  x, y, k, Col, Res, I, J, Posic, Kod, PosZ, F, Otmena: Integer;
+  Nam, Str, Str1, StrDat, Dat, S1, S2, S3, S4, s5, s6, S7, S8, N, N1, N2, N3, N4, n5, n6, N7, N8: string;
+begin
+  Result := False;
+
+  XLApp := CreateOleObject('Excel.Application');
+  try
+    XLApp.Visible := False;
+    XLApp.Workbooks.Open(AXLSFile);
+    //for Col := 1 to XLApp.Workbooks[ExtractFileName(AXLSFile)].WorkSheets.Count - 1 do
+   // begin
+      SyStem.SysUtils.FormatSettings.DecimalSeparator := ('.');
+      Nam := XLApp.Workbooks[ExtractFileName(AXLSFile)].WorkSheets[1].Name;
+      XLApp.Workbooks[ExtractFileName(AXLSFile)].WorkSheets.Item[1].Activate;
+      Sheet := XLApp.Workbooks[ExtractFileName(AXLSFile)].WorkSheets[1];
+      Clear_StringGrid(AGrid);
+      Nam := Sheet.Name;
+      Sheet.Cells.SpecialCells(xlCellTypeLastCell, EmptyParam).Activate;
+      x := XLApp.ActiveCell.Row;
+      y := XLApp.ActiveCell.Column; //30;
+      AGrid.RowCount := x + 1;
+      AGrid.ColCount := y;
+      RangeMatrix := XLApp.Range['A1', XLApp.Cells.Item[x, y]].Value;
+      for R := 1 to y do
+      begin
+        for k := 1 to x do
+        begin
+          Str := string(RangeMatrix[k, R]);
+          AGrid.Cells[(R - 1), (k - 1)] := Str;
+
+        end;
+      end;
+        //
+      for R := 1 to x do
+      begin
+        Str := AGrid.Cells[0, R];
+        S1 := AGrid.Cells[1, R];
+        S2 := AGrid.Cells[2, R];
+        S3 := AGrid.Cells[3, R];
+        S4 := AGrid.Cells[4, R];
+        s5 := AGrid.Cells[5, R];
+        s6 := AGrid.Cells[6, R];
+        S7 := AGrid.Cells[7, R];
+        S8 := AGrid.Cells[8, R];
+            //
+        if Str = '' then
+          Break;
+        Col:=StrToInt(S1);
+        for I := 0 to Col-1 do
+        begin
+
+
+            if not Form1.mkQueryInsert(Form1.ADOQuery1,
+            'Insert Into %s ' + '([' + N + '], [' + N1 + ']) ' +
+            'Values (%s,%s)',
+            [Nam, #39 + Str + #39, #39 + S1 + #39, #39 + S2 + #39, #39 + S3 + #39, #39 + S4 + #39,
+            #39 + s5 + #39, #39 + s6 + #39, #39 + S7 + #39, #39 + S8 + #39]) then
+            exit;
+        end;
+      end;
+   // end;
+
+    RangeMatrix := Unassigned;
+
+  finally
+                // Quit Excel
+    if not VarIsEmpty(XLApp) then
+    begin
+      XLApp.Quit;
+      XLApp := Unassigned;
+      Sheet := Unassigned;
+      Result := True;
+    end;
+  end;
+end;
 
 procedure TForm1.Button60Click(Sender: TObject);
 var
@@ -43455,6 +48373,13 @@ begin
         ZCV.CellStyle[2, I].BGColor := RGB(242, 12, 20);
          // ZCV.CellStyle[2, I].Font.Color := RGB(255, 255, 255); //Белый
       end;
+
+      Res2 := Pos('rue', ZCV.Cells[46, I]); //КОВР
+      if (Res2 <> 0) then
+      begin
+        ZCV.CellStyle[2, I].BGColor := RGB(229, 90, 240);
+      end;
+
       //if ZCV.Col=1 then
       ZCV.CellStyle[1, I].BGColor := RGB(255, 255, 255);
 
@@ -43589,14 +48514,12 @@ begin
       XL.ActiveWorkBook.WorkSheets[2].Range['C' + IntToStr(J + 9), 'C' + IntToStr(J + 9)] := Oboz;
       XL.ActiveWorkBook.WorkSheets[2].Range['D' + IntToStr(J + 9), 'D' + IntToStr(J + 9)] := IntToStr(Kol_I * StrToInt(Kol));
       XL.ActiveWorkBook.WorkSheets[2].Range['F' + IntToStr(J + 9), 'F' + IntToStr(J + 9)] := ADOQuery2.FieldByName('Обозначение').AsString;
-      ;
       ADOQuery2.Next;
     end;
     TempTableQ1.Next;
   end;
   XL.Visible := True;
   XL.Application.ActiveWorkBook.SaveAs(Dir + '\' + StrDat3 + '.xls');
-
   XL := UnAssigned;
 end;
 
@@ -44440,7 +49363,7 @@ var
   Bet, Ned1, Ned2, Str, Betwe1, Dat1, dat: string;
 begin
   Clear_StringGrid(SG2);
-  SG2.ColCount := 29;
+  SG2.ColCount := 32;
   SG2.Cells[0, 0] := 'Номер';
   SG2.Cells[1, 0] := 'ДатаЗаказа';
   SG2.Cells[2, 0] := 'Заказ';
@@ -44468,6 +49391,9 @@ begin
   SG2.Cells[26, 0] := 'Статус';
   SG2.Cells[27, 0] := 'ОТКФам';
   SG2.Cells[28, 0] := 'IdКО';
+  SG2.Cells[29, 0] := 'СтатусФ';
+  SG2.Cells[30, 0] := 'СтатусПро';
+  SG2.Cells[31, 0] := 'СтатусФлекс';
         //SG218.SortByColumn(1);
   //SG2.ColWidths[3] := 200;
   SG2.ColWidths[5] := 70;
@@ -44582,6 +49508,9 @@ begin
     SG2.Cells[26, I + 1] := ADOQuery1.FieldByName('Статус').AsString;
     SG2.Cells[27, I + 1] := ADOQuery1.FieldByName('ОТКФам').AsString;
     SG2.Cells[28, I + 1] := ADOQuery1.FieldByName('IdКО').AsString;
+    SG2.Cells[29, i+1] := Form1.ADOQuery1.FieldByName('СтатусФ').AsString;
+    SG2.Cells[30, i+1] := Form1.ADOQuery1.FieldByName('СтатусПро').AsString;
+    SG2.Cells[31, i+1] := Form1.ADOQuery1.FieldByName('СтатусФлекс').AsString;
     Form1.ADOQuery1.Next;
   end;
   SG2.RowHeights[0] := 60;
@@ -44709,6 +49638,163 @@ begin
      // EJZ('Упаковка',StrDat1,StrDat2,'','Кол принятых',StringGrid1);
   ExportGridtoExcel1(StringGrid1);
 end;
+        {                         //GP                     //KO
+        Specif_Klap_KOL(Nam, SGL.Cells[I_FN_SGP + 2, I + 1], SGL.Cells[I_FN_SGP + 8, I + 1],
+           //Zak                              //BZ                         //DATA                                                             //KOD
+        SGL.Cells[I_FN_ZAK, I + 1], StringGrid6.Cells[23, I + 1], SGL.Cells[I_FN_DAT, I + 1],
+         'СпецифВозд', 'KlapanaZap', StrToInt(StringGrid6.Cells[25, I + 1])); }
+procedure TForm1.Specif_Klap_KOL(Izdel, GP, KO, Zak, BZ, Dat, Tab, Tab2: string; AA: Integer);
+var
+  XLApp, Sheet: Variant;
+  i, j, y, PosTrud, F, A,B, col, res,r: integer;
+  Izdelie, Izdelie1, idGP, idKO, Zakaz, BZ_, Dat_, Fil, Str, Str2, Obozn, Det_F, Det_Baz, Kol: string;
+  Parent, Vid, Elem, Kol_Ed, EI, Typ, Kateg, Prim, Diam, Massa, Dlina, Shir,
+   Dlin_Raz, Shir_Raz, Obem, Kol_Gib, Kol_G, Kanban, Salvagnini,
+   Pokraska, Mater, Kompl_Ved, Trumpf, Gibka, Pila, Nog, Prokat,
+   Svar, Zig, Trumpf_o, Gibka_O, Pila_O, Nog_O, Prokat_O, Svar_O,
+    Zig_o, Uglorub, Naim, Naim_Izdel, Grupp, Rout, Varian, Dir,
+    Dir1, Dir2, Data, Kod, God, Dat2, Mes, SH1, SH2, Razd, Nach_Razd,
+    Kompl, Pokr, Dat1, List, Nam, s,A_S,B_S: string;
+  Result: Tresult;
+  NC_G1, NC_G2, NC_G3, NC_P1, NC_P2, NC_P3, NC_N1, NC_N2, NC_N3, Kol_II, Kol_II2: Double;
+begin
+  Clear_StringGrid(SG1);
+  idGP := GP;
+  idKO := KO;
+  Naim := Izdel;
+  s := '0';
+  Dir := '\\MSS-DC06\V\ОИТ\Cklapana2\Детали из Файла\';
+    Str := Dir + Naim + '.xlsx';
+  if not FileExists(Str) then
+  begin
+    j := 0;
+    Exit;
+  end;
+    //Клапан Канал-КОЛ-К-40-20
+ { F := Pos('-', Naim);
+  if F <> 0 then
+    Delete(Naim, 1, F); // КОЛ-40-20
+  //
+  F := Pos('-', Naim);
+  if F <> 0 then
+    Delete(Naim, 1, F); // 40-20
+  //
+  F := Pos('-', Naim);
+  if F <> 0 then
+  Begin
+    A_S:=Copy(Naim,1,F-1);
+    Delete(Naim, 1, F); // 20
+  End;
+  B_S:=Copy(Naim,1,2); }
+
+  Dat1 := FormatDateTime('mm.dd.YYYY', Now);
+  XLApp := CreateOleObject('Excel.Application');
+  try
+    XLApp.Visible := False;
+    XLApp.Workbooks.Open(Str);
+    XLApp.Workbooks[ExtractFileName(Str)].WorkSheets.Item[1].Activate;
+    Sheet := XLApp.Workbooks[ExtractFileName(Str)].WorkSheets[1];
+    Str := Sheet.Cells[3, 1];
+    for i := 2 to 25 do
+    begin
+      PB1.Position := 0;
+      PB1.Min := 0;
+      PB1.Max := 69;
+      Elem := '';
+        Dlina := '0';
+        Shir := '0';
+        Dlin_Raz := '0';
+        Shir_Raz := '0';
+        Vid := Sheet.Cells[i, 3];
+        if Vid='' then
+        Break;
+        Elem := Sheet.Cells[i, 4];
+        Kol := Sheet.Cells[i, 6];
+        EI := Sheet.Cells[i, 7];
+        Obozn := Sheet.Cells[i, 8];
+        Diam := Sheet.Cells[i, 9];
+        Massa := Sheet.Cells[i, 10];
+        Dlina:= Sheet.Cells[i , 11];
+        Shir:= Sheet.Cells[i , 12];
+        Dlin_Raz := Sheet.Cells[i , 13]; //
+        Shir_Raz := Sheet.Cells[i , 14]; //
+        Obem := Sheet.Cells[i , 15];
+        Kol_G := Sheet.Cells[i, 16];
+        if Kol_G = '' then
+          Kol_Gib := '0'
+        else
+          Kol_Gib := Sheet.Cells[i, 16];
+
+        Mater := Sheet.Cells[i, 18];
+        SH1 := '0';
+        SH2 := '0';
+
+        //if not Form1.mkQueryDelete(Form1.ADOQuery1, 'DELETE FROM [%s] Where (Элемент= ' + #39 + Elem + #39 + ') AND (Обозначение= ' + #39 + Obozn + #39 + ')', ['СпецифОбщая']) then
+        //  Exit;
+       R:=Pos('Детали',Vid);
+        if R<>0 then
+        Begin
+        if not mkQuerySelect1(ADOQuery2, 'Select * from %s  Where (Обозначение=' + #39 + Obozn + #39 + ') ',
+         ['СпецифОбщая']) then
+          exit;
+
+        if ADOQuery2.RecordCount = 0 then
+        begin
+
+          if not mkQueryInsert(ADOQuery3, 'Insert Into %s ' +
+          '(Технолог, [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' +
+          ' [Диаметр], [Масса], [Длина], [Ширина], [ДлинаРазв],[ШиринаРазв],[КолГибов],' +
+
+           '[Материал],Изделие,Дата) ' +
+           'Values (%s,%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,' +
+           '%s,%s)', ['СпецифОбщая', #39 + 'False' + #39, #39 + Vid +
+            #39, #39 + Elem + #39, #39 + IntToStr(AA) + #39, #39 + Kol + #39, #39 + EI + #39, #39 + Obozn + #39,
+             #39 + Diam + #39, #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39,
+              #39 + Shir_Raz + #39, #39 + Kol_Gib + #39,
+              #39 + Mater + #39, #39 + Izdel + #39, #39 + ConvertDat1(Dat) + #39]) then
+            exit;
+        end;
+        End;
+        if Elem = '' then
+          Continue;
+        if not mkQuerySelect1(ADOQuery2, 'Select * from %s  Where (IdГП=' + #39 + idGP + #39 +
+        ') AND (IdКО=' + #39 + idKO + #39 + ') AND (Элемент=' + #39 + Elem + #39 +
+        ') AND (Обозначение=' + #39 + Obozn + #39 + ') ', [Tab]) then
+          exit;
+            //
+        if not Form1.mkQueryUpdate2(Form1.ADOQuery1, 'UPDATE [%s] SET [СтатусФ]=' + #39 + '1' + #39 +
+        ',[Статус]=' + #39 + '1' + #39 + ',[Технолог Обраб]=' + #39 + Dat1 + #39 +
+        ' WHERE ([IdГП]=' + #39 + idGP + #39 + ') AND ([IdКО]=' + #39 + idKO + #39 + ') ', [Tab2]) then
+          Exit;
+        if ADOQuery2.RecordCount = 0 then
+        begin
+          if not mkQueryInsert(ADOQuery3, 'Insert Into %s ' +
+          '( [ВидЭлемента], [Элемент], [КолНаЕд], [Количество], [ЕИ], [Обозначение],' +
+          ' [Диаметр], [Масса], [Длина], [Ширина], [ДлинаРазв],' +
+          '[ШиринаРазв], [КолГибов],  [Материал], IdГП,Изделие,Заказ,Дата,IDКо) ' +
+          'Values (%s,%s,%s,%s,%s,%s,' + '%s,%s,%s,%s,' + '%s,%s,%s,%s,%s,%s,%s,%s,%s )'
+          , [Tab, #39 + Vid + #39, #39 + Elem + #39, #39 + Kol + #39,
+          #39 + Kol + #39, #39 + EI + #39, #39 + Obozn + #39, #39 + Diam + #39,
+          #39 + Massa + #39, #39 + Dlina + #39, #39 + Shir + #39, #39 + Dlin_Raz + #39,
+          #39 + Shir_Raz + #39, #39 + Kol_Gib + #39, #39 + Mater + #39,
+          #39 + idGP + #39, #39 + Izdel + #39, #39 + Zak + #39,
+          #39 + ConvertDat1(Dat) + #39, #39 + idKO + #39]) then
+            exit;
+        end;
+
+      PB1.Position := i;
+    end;
+  finally
+    if not VarIsEmpty(XLApp) then
+    begin
+      XLApp.DisplayAlerts := False;
+      XLApp.Quit;
+      XLApp := Unassigned;
+      Sheet := Unassigned;
+    end;
+  end;
+  PB1.Position := 0;
+end;
 
 procedure TForm1.Button82Click(Sender: TObject);
 var
@@ -44742,18 +49828,19 @@ begin    //Клапан Канал-КОЛ-К-200  procedure TForm1.Specif_Klap_K
     StringGrid6.Cells[24, I + 1] := ADOQuery1.FieldByName('Статус').AsString;
     StringGrid6.Cells[25, I + 1] := ADOQuery1.FieldByName('Код').AsString;
     SGL.Cells[I_FN_SGP + 9, 0] := 'bz';}
-  for I := 0 to SGL.RowCount - 1 do
+  for I := 0 to SGL.RowCount - 1 do   //Клапан Канал-КОЛ-40-20
   begin
     Res := Pos('0', StringGrid6.Cells[24, I + 1]);
-    if (Res <> 0) or (StringGrid6.Cells[24, I + 1]='') then
+    if (StringGrid6.Cells[24, I + 1]='') or (Res<>0)  then
     begin
-      Res := Pos('Клапан Канал-КОЛ-К-', SGL.Cells[I_FN_NAM, I + 1]);
-      if Res <> 0 then
+      Res := Pos('Клапан Канал-КОЛ-', SGL.Cells[I_FN_NAM, I + 1]);
+      B := Pos('Клапан Канал-КОЛ-К', SGL.Cells[I_FN_NAM, I + 1]);
+      if (Res <> 0) AND (B=0) then
       begin
           //Клапан Канал-КОЛ-К-200  Клапан Канал-КОЛ-К-250_226200001-01-СПБ
           Nam:=SGL.Cells[I_FN_NAM, I + 1];
           BZ:= SGL.Cells[I_FN_SGP + 9, I + 1];
-          B:=Pos('rue',BZ);
+          {B:=Pos('rue',BZ);
           if B<>0 then
           begin
                Res:=Pos('_',Nam);
@@ -44761,8 +49848,10 @@ begin    //Клапан Канал-КОЛ-К-200  procedure TForm1.Specif_Klap_K
                begin
                    Delete(Nam, Res, 200);
                end;
-          end;
-        Specif_Klap_KOL_K(Nam, SGL.Cells[I_FN_SGP + 2, I + 1], SGL.Cells[I_FN_SGP + 8, I + 1], SGL.Cells[I_FN_ZAK, I + 1], StringGrid6.Cells[23, I + 1], SGL.Cells[I_FN_DAT, I + 1], 'СпецифВозд', 'KlapanaZap', StrToInt(StringGrid6.Cells[25, I + 1]));
+          end;}                         //GP                     //KO
+        Specif_Klap_KOL(Nam, SGL.Cells[I_FN_SGP + 2, I + 1], SGL.Cells[I_FN_SGP + 8, I + 1],
+           //Zak                              //BZ                         //DATA                                                             //KOD
+        SGL.Cells[I_FN_ZAK, I + 1], StringGrid6.Cells[23, I + 1], SGL.Cells[I_FN_DAT, I + 1], 'СпецифВозд', 'KlapanaZap', StrToInt(StringGrid6.Cells[25, I + 1]));
       end;
     end;
   end;
@@ -44917,7 +50006,7 @@ N2:=0;n3:=0;N4:=0;n5:=0;N6:=0;N7:=0;
           r.BordersOutline(xlColorBlack, bsThick);
           if not mkQuerySelect(ADOQuery1,                                    //  AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 DISTINCT(Изделие),[Н\ч Сборка Клапана],[Н\ч Сварка],[Сборка лопаток],[Сборка тяг],[СборкаРеш],[Сборка Засова]
           ' Select DISTINCT(Изделие),[Н\ч Сборка] from %s Where (Отмена IS NULL)  AND (пр='
-          +#39+'МИ'+#39+') AND (Дата>'+#39+'01.01.2022'+#39+') AND [Н\ч Сборка]<>'+#39+'0'+#39 , [Tab1]) then
+          +#39+'МИ'+#39+') AND (Дата>'+#39+'01.01.2024'+#39+') AND [Н\ч Сборка]<>'+#39+'0'+#39 , [Tab1]) then
           exit;
           I:=1;
     for j := 0 to ADOQuery1.RecordCount - 1 do
@@ -44944,6 +50033,93 @@ N2:=0;n3:=0;N4:=0;n5:=0;N6:=0;N7:=0;
           x.Free;
 end;
 
+procedure TForm1.CC_KANAL(Dat1, Dat2, Str, Tab1, Tab2: string;P:integer);
+var
+   // x,sh,r: Variant;
+    x: TXLSFile;
+    sh: TSheet;
+    r: TRange;
+    i, j,n,Y,Q,Res : integer;
+   Str2,Str1,Name,Kol,Path:string;
+   // Reg: TRegistry;
+    st,ST1,Tek: string;
+   // XL:Variant;
+    Buffer: array[0..5000,0..4] of string;
+    N1,N2,n3,N4,n5,N6,N7,N8,N9:Double;
+begin
+N1:=0;
+N2:=0;n3:=0;N4:=0;n5:=0;N6:=0;N7:=0;N8:=0;  N9:=0;
+
+    Dat1:=FormatDateTime('mm.dd.YYYY',dtp14.DateTime);
+    //Dat2:=FormatDateTime('dd.mm.YYYY',DateTimePicker2.DateTime);
+    path:= PWideChar(ExtractFileDir(ParamStr(0)));//ShellExecute(0,nil,PWideChar(Dat1),nil,nil, SW_SHOWNORMAL);;
+
+    Memo29.Lines.Clear;
+    Memo30.Lines.Clear;
+    Memo31.Lines.Clear;
+
+    x := TXLSFile.Create;
+    n := 1;
+    x.Workbook.Sheets.Clear;
+    x.Workbook.Sheets.Add(IntToStr(n));
+    sh := x.Workbook.SheetByName(IntToStr(n));
+          sh.Cells[0, 0].Value := 'Период';
+          sh.Cells[0, 0].HAlign := xlHAlignCenter;
+          sh.Cells[0, 1].Value := 'Объект нормы';
+          sh.Cells[0, 1].HAlign := xlHAlignCenter;
+          sh.Cells[0, 2].Value := 'Подразделение';
+          sh.Cells[0, 2].HAlign := xlHAlignCenter;
+          sh.Cells[0, 3].Value := 'Номенклатура';
+          sh.Cells[0, 3].HAlign := xlHAlignCenter;
+          sh.Cells[0, 4].Value := 'Норма времени изготовления';
+          sh.Cells[0, 4].HAlign := xlHAlignCenter;
+
+
+          sh.Columns[0].WidthPx := 100;
+          sh.Columns[1].WidthPx := 250;
+          sh.Columns[2].WidthPx := 100;
+          sh.Columns[3].WidthPx := 100;
+          sh.Columns[4].WidthPx := 100;
+          r := sh.Ranges.Add;
+          r.AddRect(0, 0, 0, 1);
+          r.FontHeight := 12;
+          r.FontBold := True;
+          r.FontColorIndex := xlColorBlack;
+          r.FillPatternBGColorIndex := xlColorLightYellow;
+          r.FillPattern := xlPatternSolid;
+          r.BordersOutline(xlColorBlack, bsThick);
+          if P=0 then  //Пож
+          Begin
+          if not mkQuerySelect(ADOQuery1,                                    //  AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 DISTINCT(Изделие),[Н\ч Сборка Клапана],[Н\ч Сварка],[Сборка лопаток],[Сборка тяг],[СборкаРеш],[Сборка Засова]
+          ' Select DISTINCT(Изделие),[Н\ч Сборка Клапана] from [%s] Where (Отмена IS NULL)  AND (пр='
+          +#39+'МИ'+#39+') AND (Дата>'+#39+Dat1+#39+') AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 , [Tab1]) then
+          exit;
+          End;
+
+          I:=1;
+    for j := 0 to ADOQuery1.RecordCount - 1 do
+    begin
+            N1 :=ADOQuery1.FieldByName('Н\ч Сборка Клапана').AsFloat;//;
+
+            N6:=SimpleRoundTo(N1, -2);
+            sh.Cells[i, 4].Value :=FloatToStr(N6);
+            sh.Cells[i, 4].HAlign := xlHAlignRight;
+
+            sh.Cells[i, 1].Value :=ADOQuery1.FieldByName('Изделие').AsString;//
+            sh.Cells[i, 1].HAlign := xlHAlignCenter;
+
+            r := sh.Ranges.Add;
+            r.AddRect(i, i, 0, 1);
+            r.BordersOutline(xlColorBlack, bsThin);
+            Inc(i);
+            ADOQuery1.Next;
+    end;
+
+              x.SaveAs(path + '\' + FormatDateTime('yyyymmdd', DateTimePicker1.Date) + ' КАНЛ.xls');
+              ShellExecute( 0, 'open', PChar( path + '\' + FormatDateTime('yyyymmdd', DateTimePicker1.Date) + ' КАНЛ.xls' ), nil, nil, SW_SHOWNORMAL );
+          x.Free;
+end;
+
 procedure TForm1.CC1(Dat1, Dat2, Str, Tab1, Tab2: string;P:integer);
 var
    // x,sh,r: Variant;
@@ -44961,7 +50137,7 @@ begin
 N1:=0;
 N2:=0;n3:=0;N4:=0;n5:=0;N6:=0;N7:=0;N8:=0;  N9:=0;
 
-    Dat1:=FormatDateTime('dd.mm.YYYY',Now);
+    Dat1:=FormatDateTime('mm.dd.YYYY',dtp14.DateTime);
     //Dat2:=FormatDateTime('dd.mm.YYYY',DateTimePicker2.DateTime);
     path:= PWideChar(ExtractFileDir(ParamStr(0)));//ShellExecute(0,nil,PWideChar(Dat1),nil,nil, SW_SHOWNORMAL);;
 
@@ -45003,7 +50179,7 @@ N2:=0;n3:=0;N4:=0;n5:=0;N6:=0;N7:=0;N8:=0;  N9:=0;
           Begin
           if not mkQuerySelect(ADOQuery1,                                    //  AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 DISTINCT(Изделие),[Н\ч Сборка Клапана],[Н\ч Сварка],[Сборка лопаток],[Сборка тяг],[СборкаРеш],[Сборка Засова]
           ' Select DISTINCT(Изделие),[Н\ч Сборка Клапана],[Н\ч Сварка],[Сборка лопаток],[Сборка тяг],[СборкаРеш],[Сборка Засова],Электро from %s Where (Отмена IS NULL)  AND (пр='
-          +#39+'МИ'+#39+') AND (Дата>'+#39+'11.18.2022'+#39+') AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 , [Tab1]) then
+          +#39+'МИ'+#39+') AND (Дата>'+#39+Dat1+#39+') AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 , [Tab1]) then
           exit;
           End;
           if P=1 then  //Возд
@@ -45011,7 +50187,7 @@ N2:=0;n3:=0;N4:=0;n5:=0;N6:=0;N7:=0;N8:=0;  N9:=0;
           if not mkQuerySelect(ADOQuery1,                                    //  AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 DISTINCT(Изделие),[Н\ч Сборка Клапана],[Н\ч Сварка],[Сборка лопаток],[Сборка тяг],[СборкаРеш],[Сборка Засова]
           ' Select DISTINCT(Изделие),[Н\ч Сборка Клапана],[Н\ч Сварка],[Сборка лопаток],'+
           '[Сборка тяг],[СборкаРеш],[Сборка Засова],[Расключение],Обварка,Электро from %s Where (Отмена IS NULL)  AND (пр='
-          +#39+'МИ'+#39+') AND (Дата>'+#39+'11.01.2022'+#39+') AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 , [Tab1]) then
+          +#39+'МИ'+#39+') AND (Дата>'+#39+Dat1+#39+') AND [Н\ч Сборка Клапана]<>'+#39+'0'+#39 , [Tab1]) then
           exit;
           End;
           I:=1;
@@ -45022,6 +50198,10 @@ N2:=0;n3:=0;N4:=0;n5:=0;N6:=0;N7:=0;N8:=0;  N9:=0;
             N3 :=ADOQuery1.FieldByName('Сборка лопаток').AsFloat;
             N4 :=ADOQuery1.FieldByName('Сборка тяг').AsFloat;
             N5 :=ADOQuery1.FieldByName('СборкаРеш').AsFloat;
+            Name:=ADOQuery1.FieldByName('Изделие').AsString;
+            Res:=Pos('Клапан КПУ-1Н-О-В-1250*1250-2*Ф-ЭПВ220-СН-КК-0-0-0-0-0',Name);
+            if Res<>0 then
+               Res:=1;
             if P=0 then
           Begin
             N7 :=ADOQuery1.FieldByName('Сборка Засова').AsFloat;
@@ -45148,10 +50328,10 @@ begin
      X := ' WHERE  (NOT Дата IS NULL)  AND ([Х] IS NULL) AND (Отмена IS NULL) ';
   //Bet1 := '  AND (([Сборка Готовность]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND ( [Подсборка1]='+#39+ComboBox8.Text+#39+'))'+
   if not mkQuerySelect(ADOQuery2, 'Select * from %s  ' + X+
-  '  AND (([Сборка Готовность]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND ( [Сборщик]='+#39+ComboBox8.Text+#39+'))'+
-  ' OR (([Подсборка]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND (Подсборка1='+#39+ComboBox8.Text+#39+')) OR '+
+  ' AND (([Сборка Готовность]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND ( [Сборщик]='+#39+ComboBox8.Text+#39+'))'+
+  ' OR (([Подсборка]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND ([Подсборка1]='+#39+ComboBox8.Text+#39+')) OR '+
   '  (([КорпусДат]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND (СборТяга='+#39+ComboBox8.Text+#39+')) OR '+
-  ' (([ЛопаткаДат]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND (СборЛопатка='+#39+ComboBox8.Text+#39+'))'
+  ' (([ЛопаткаДат]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND (СборЛопатка='+#39+ComboBox8.Text+#39+')) Order BY Номер  '
   , ['Запуск']) then
     exit;
   C := ADOQuery2.RecordCount;
@@ -45254,8 +50434,8 @@ begin
     exit;   }
 
     if not mkQuerySelect(ADOQuery2, 'Select * from %s  ' + X+
-  '  AND (([Сборка Готовность]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND ( [Сборщик]='+#39+ComboBox19.Text+#39+'))'+
-  ' OR (([Подсборка]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND (Подсборка1='+#39+ComboBox19.Text+#39+')) '
+  '   AND (([Сборка Готовность]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND ( [Сборщик]='+#39+ComboBox19.Text+#39+'))'+
+  ' OR (([Подсборка]  BETWEEN ' + #39 + StrDat1 + #39 + ' And ' + #39 + StrDat2 + #39 + ') AND ([Подсборка1]='+#39+ComboBox19.Text+#39+'))  Order BY Номер '
   , ['ЗапускВозд']) then
     exit;
   C := ADOQuery2.RecordCount;
@@ -45298,6 +50478,457 @@ begin
     ADOQuery2.Next;
   end;
   FRabota.ShowModal;
+end;
+
+procedure TForm1.Button92Click(Sender: TObject);
+begin
+CC_KANAL('','','','750','0',0);
+end;
+
+procedure TForm1.Button93Click(Sender: TObject);
+var
+  XL2,XL1,XL,Sheet: Variant;
+  E, i, J, X, X1, Res, Priv, Kol_Zap, Kount, DlinaI, Res_KPU, Sten_G, Sten_V, Res_Detal, hh, F2, Res1, Res2,xx,ii: Integer;
+  Vn_DAt, Dir, God, mes, Nom, Priv_Str, IDGP, OboznSh, Obozn, Dlina, Elem, Izdel, S, Fil: string;
+  ar: array[0..7750, 0..7] of string;
+  Ar1: array[0..1050, 0..13] of string;
+  Ar2: array of array of string;
+  SR: TSearchRec; // поисковая переменная
+  FindRes,r,E2: Integer; // переменная для записи результата поиска
+  Str, Dir_Ser, Str1, Str2, Str3, fileName, fullFilePath, Put, Lini, Dat_S1, Err,fill,kol,mat,Tol,qw,Str11,f,ff: string;
+  h: hwnd;
+begin
+
+  dir:='';
+  God := FormatDateTime('yyyy', Now);
+  mes := FormatDateTime('mmmm', Now);
+  Dir_Ser := Patch_G;//путь к разверткам
+  Memo10.Lines.Clear;
+  Memo11.Lines.Clear;  
+
+    SelectDirectory('Выберите папку для поиска файлов:', '', dir);
+  if Dir='' then
+    Exit;
+
+  Patch_G:=Dir+'\';
+  Memo32.Lines.Clear;
+  GetAllFiles(dir+'\');
+  XL := CreateOleObject('Excel.Application');
+  XL.Application.EnableEvents := false;
+  XL.WorkBooks.Add;
+  XL.ActiveWorkBook.Sheets.Item[1].Activate;
+  HH:=1;
+
+  for i:=0 to Memo5.Lines.Count-1 do
+  Begin
+      XL1 := CreateOleObject('Excel.Application');
+      XL1.Workbooks.Open(Memo5.Lines.Strings[i]);
+      XL1.Application.EnableEvents := false;
+      XL1.ActiveWorkBook.Sheets.Item[1].Activate;
+      f:=Copy(Memo6.Lines.Strings[i],1,5);
+      xx := 1000;
+      for ii := 1 to xx  do
+      begin
+          Kol:= XL1.ActiveWorkBook.WorkSheets[1].Cells[ii, 2];
+          res:=Pos('Кронштейн КПУ ВГ 1106.',kol);
+          if Res<>0 then
+          begin
+             for J := 0 to 11 do
+             begin
+              FF:= XL1.ActiveWorkBook.WorkSheets[1].Cells[ii, J+6]; //Трумпф часы
+              if ff<>'' then
+                Break;
+             end;
+
+             Memo32.Lines.Add(Kol+';'+FF) ;
+             XL.ActiveWorkBook.WorkSheets[1].Cells[hh, 1]:=F;
+             XL.ActiveWorkBook.WorkSheets[1].Cells[hh, 2]:=Kol;
+             XL.ActiveWorkBook.WorkSheets[1].Cells[hh, 3]:=FF;
+             //XL1.ActiveWorkBook.Close;
+             XL1.DisplayAlerts := False;
+             XL1.Application.Quit;
+             XL1 := UnAssigned;
+             Inc(HH);
+             Break;
+          end;
+      end;
+  End;
+  XL.Visible:=True;
+end;
+
+procedure TForm1.Button94Click(Sender: TObject);
+var D1,D2,DR1,DR2:string;
+begin
+  DR1 := FormatDateTime('dd.mm.yyyy', DTP1.DateTime);
+  DR2 := FormatDateTime('dd.mm.yyyy', DTP2.DateTime);
+
+  D1 := FormatDateTime('mm.dd.yyyy', DTP1.DateTime);
+  D2 := FormatDateTime('mm.dd.yyyy', DTP2.DateTime);
+  OSI1('СпецифСТАМ','СТАМ','СпецифЛЮК','ЛЮК',D1,D2,DR1,DR2,'СТАМ+ЛЮК');
+end;
+
+function TForm1.Spisanie1SDolgi(Nam_F,Tab_Zap,Tab_Spec: String): Boolean;
+Var XL:Variant;
+Dir,Str,StrDat1,StrDat2,SS,God,Mes,StrNom,Oboz,Kol_S,Idgp,idko,Zak,
+SS1,BZ,Nam,Klap,Kol,Kol_Zap_S:string;
+I,y,J,g,R,Kol_Kl,Kol_Pr:Integer;
+begin
+  StrDat1 := FormatDateTime('mm.dd.yyyy', Now);
+  StrDat2 := FormatDateTime('mm.dd.yyyy', DateTimePicker2.Date);
+  God := FormatDateTime('yyyy', Now);
+  Mes := FormatDateTime('mmmm', Now);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\';
+  CreateDir(Dir);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\' + God + '\';
+  CreateDir(Dir);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\' + God + '\' + Mes + '\';
+  CreateDir(Dir);
+  //
+  XL := CreateOleObject('Excel.Application'); //  — копия
+  XL.Application.EnableEvents := false;
+  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\Требование1С.xls'),
+  PWideChar(Dir + '\'+StrDat1+Nam_F+'.xls'), False);
+  XL.Workbooks.Open(Dir + '\'+StrDat1+Nam_F+'.xls');
+  SS := '  AND (Элемент LIKE ' + #39 + 'Электропривод' + '%' + #39 +')';
+
+
+  SS1 := ' AND ([Сборка Примечание] LIKE ' + #39 +'%' + '---%нет' + '%' + #39 +')';
+     if not mkQuerySelect(ADOQuery1, 'Select * from %s Where   (ОТК IS NULL'
+        +') AND (Отмена IS NULL)  %s',
+        [Tab_Zap,SS1]) then
+        exit;
+  J:=1;
+  for i := 0 to ADOQuery1.RecordCount - 1 do
+  begin
+    Kol_kl := ADOQuery1.FieldByName('Кол во запущенных').AsInteger;
+    StrNom := ADOQuery1.FieldByName('Номер').AsString;
+    Idgp := ADOQuery1.FieldByName('IdГП').AsString;
+    idko := ADOQuery1.FieldByName('IdКО').AsString;
+    BZ := ADOQuery1.FieldByName('БЗ').AsString;
+
+      if not mkQuerySelect1(ADOQuery2, 'Select * from %s Where   (IdГП = ' + #39 +Idgp+ #39 +
+      ') AND (IdКО=' + #39 +idko+ #39 + ')%s',
+      [Tab_Spec,SS]) then
+      exit;
+      for G := 0 to ADOQuery2.RecordCount-1 do
+      begin
+
+        Kol_Pr:= ADOQuery2.FieldByName('Количество').AsInteger;
+        Zak:= ADOQuery2.FieldByName('Заказ').AsString;
+        Nam:= ADOQuery2.FieldByName('Элемент').AsString;
+        Klap:= ADOQuery2.FieldByName('Изделие').AsString;
+        R:=Pos('stam',Klap);
+        if R<>0 then
+        begin
+            if not mkQuerySelect66(ADOQuery4, 'Select * from %s Where   (IdГП = ' + #39 +Idgp+ #39 +
+            ') AND (IdКО=' + #39 +idko+ #39 + ')',
+            ['СТАМ']) then
+            exit;
+            Klap:= ADOQuery4.FieldByName('Изделие').AsString;
+        end;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 1] := Zak;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 2] := BZ;
+          Y:=Pos('Электропривод',Nam);
+          if Y<>0 then
+              XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 3] := Nam
+          Else
+            XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 3] := 'Электропривод '+Nam;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 10] :=Klap;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 8] := ADOQuery2.FieldByName('ЕИ').AsString;//'шт.';
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 9] := IntToStr(Kol_Kl*Kol_Pr);
+          Inc(J);
+      end;
+      ADOQuery1.next;
+  end;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(1)].Borders.LineStyle := 2;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(J)].Borders.LineStyle := 1;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A3', 'I' + IntToStr(1)].Columns.AutoFit;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(1)].HorizontalAlignment := 3;
+  XL.Application.ActiveWorkBook.Save;
+  XL.Visible := True;
+  XL := UnAssigned;
+end;
+
+function TForm1.Spisanie1S(Nam_F,Tab_Zap,Tab_Spec,GP: String): Boolean;
+Var XL:Variant;
+Dir,Str,StrDat1,StrDat2,SS,God,Mes,StrNom,Oboz,Kol_S,Idgp,idko,Zak,
+SS1,BZ,Nam,Klap,Kol,Kol_Zap_S:string;
+I,y,J,g,Kol_Kl,R,KO:Integer;
+ Kol_Pr:Double;
+begin
+  StrDat1 := FormatDateTime('mm.dd.yyyy', DateTimePicker1.Date);
+  StrDat2 := FormatDateTime('mm.dd.yyyy', DateTimePicker2.Date);
+  God := FormatDateTime('yyyy', Now);
+  Mes := FormatDateTime('mmmm', Now);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\';
+  CreateDir(Dir);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\' + God + '\';
+  CreateDir(Dir);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\' + God + '\' + Mes + '\';
+  CreateDir(Dir);
+  //
+  XL := CreateOleObject('Excel.Application'); //  — копия
+  XL.Application.EnableEvents := false;
+  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\Требование1С.xls'),
+  PWideChar(Dir + '\'+StrDat1+Nam_F+'.xls'), False);
+  XL.Workbooks.Open(Dir + '\'+StrDat1+Nam_F+'.xls');
+  //
+  SS := ' (NOT Изделие LIKE ' + #39 + 'Комплект панелей' + '%' + #39 +') AND';
+  //
+  {SS := '  AND ((ВидЭлемента = ' + #39 + 'Прочие изделия' + #39 +
+  ') OR (ВидЭлемента = ' + #39 + 'Стандартные изделия' + #39 +
+  ') OR (ВидЭлемента = ' + #39 + 'Материалы' + #39 +'))';}
+  //
+  if not mkQuerySelect(ADOQuery1, 'Select distinct (Номер),idГП, IdКО,КолКлап,БЗ '+
+  ' from %s Where  %s (Планирование Between ' + #39 + StrDat1 + #39 +
+  ' AND ' + #39 + StrDat2 + #39 + ') ORDER BY Номер',
+  ['Заготовка',SS]) then
+    exit;
+  J:=1;
+  SS := '  AND (Элемент LIKE ' + #39 + 'Электропривод' + '%' + #39 +')';
+  for i := 0 to ADOQuery1.RecordCount - 1 do
+  begin
+    Kol_kl := ADOQuery1.FieldByName('КолКлап').AsInteger;
+    StrNom := ADOQuery1.FieldByName('Номер').AsString;
+    Idgp := ADOQuery1.FieldByName('IdГП').AsString;
+    R:=Pos('1835494',Idgp);
+    if R<>0 then
+       Idgp := '1835494';
+    idko := ADOQuery1.FieldByName('IdКО').AsString;
+    KO:=StrToInt(IDKO);
+    BZ := ADOQuery1.FieldByName('БЗ').AsString;
+    // нет привода BLF230-5  Заказ на производство 00000960833.1 от 22.11.2023 0:00:00
+    SS1 := '  AND (([Сборка Примечание] LIKE ' + #39 +'%' + 'нет привода' + '%' + #39 +')'+
+    ' AND (NOT [Сборка Примечание] LIKE ' + #39 +'%' + '---%нет' + '%' + #39 +'))';
+     if not mkQuerySelect1(ADOQuery2, 'Select * from %s Where   (IdГП = ' + #39 +Idgp+ #39 +
+        ') AND (IdКО=' + #39 +idko+ #39 + ') AND (Номер=' + #39 +StrNom+ #39 + ') AND (Отмена is NULL)  %s',
+        [Tab_Zap,SS1]) then
+        exit;
+      if ADOQuery2.RecordCount<>0 then
+      begin
+        ADOQuery1.next;
+        Continue;
+      end;
+      if not mkQuerySelect1(ADOQuery2, 'Select * from %s Where   (IdГП = ' + #39 +Idgp+ #39 +
+      ') AND (IdКО=' + #39 +idko+ #39 + ')%s',
+      [Tab_Spec,SS]) then
+      exit;
+      for G := 0 to ADOQuery2.RecordCount-1 do
+      begin
+
+        Kol_Pr:= ADOQuery2.FieldByName('Количество').AsFloat;
+        Zak:= ADOQuery2.FieldByName('Заказ').AsString;
+        Nam:= ADOQuery2.FieldByName('Элемент').AsString;
+        Klap:= ADOQuery2.FieldByName('Изделие').AsString;
+        R:=Pos('stam',Klap);
+        if R<>0 then
+        begin
+            if not mkQuerySelect66(ADOQuery4, 'Select * from %s Where   (IdГП = ' + #39 +Idgp+ #39 +
+            ')',
+            ['СТАМ']) then
+            exit;
+            Klap:= ADOQuery4.FieldByName('Изделие').AsString;
+        end;
+        if (KO<>0)  then
+        begin
+            if not mkQuerySelect66(ADOQuery4, 'Select * from %s Where   (IdГП = ' + #39 +Idgp+ #39 +
+            ')',
+            [GP]) then
+            exit;
+            Klap:= ADOQuery4.FieldByName('ИзделиеГП').AsString;
+        end;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 1] := Zak;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 2] := BZ;
+          Y:=Pos('Электропривод',Nam);
+          if Y<>0 then
+              XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 3] := Nam
+          Else
+            XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 3] := 'Электропривод '+Nam;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 10] :=Klap;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 8] := ADOQuery2.FieldByName('ЕИ').AsString;//'шт.';
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 9] := FloatToStr(Kol_Kl*Kol_Pr);
+          Inc(J);
+          ADOQuery2.next;
+      end;
+      ADOQuery1.next;
+  end;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(1)].Borders.LineStyle := 2;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(J)].Borders.LineStyle := 1;
+  //XL.ActiveWorkBook.WorkSheets[1].Range['A3', 'I' + IntToStr(1)].Columns.AutoFit;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(1)].HorizontalAlignment := 3;
+  XL.Application.ActiveWorkBook.Save;
+  XL.Visible := True;
+  XL := UnAssigned;
+end;
+
+procedure TForm1.Button95Click(Sender: TObject);
+Var XL:Variant;
+Dir,Str,StrDat1,StrDat2,SS,God,Mes,StrNom,Oboz,Kol_S,Idgp,idko,Zak,
+SS1,BZ,Nam,Klap,Kol,Kol_Zap_S:string;
+I,y,J,List,Kol_Kl,Kol_Pr:Integer;
+begin
+  Spisanie1S('Пож','Запуск','Специф','Klapana');
+  Spisanie1S('Возд','ЗапускВозд','СпецифВозд','KlapanaZap');
+end;
+
+procedure TForm1.Button97Click(Sender: TObject);
+const
+  xlCellTypeLastCell = $0000000B;
+Var XL,RangeMatrix,Sheet:Variant;
+S,Zak,Priv,Kol,Klap,Zak1:string;
+I,X,Y,R,L:Integer;
+begin
+     if OpenDialog1.Execute then
+     begin
+      XL := CreateOleObject('Excel.Application'); //  — копия
+      XL.Workbooks.Open(OpenDialog1.FileName);
+      XL.Workbooks[ExtractFileName(OpenDialog1.FileName)].WorkSheets.Item[1].Activate;
+      Sheet :=XL.Workbooks[ExtractFileName(OpenDialog1.FileName)].WorkSheets[1];
+      Sheet.Cells.SpecialCells(xlCellTypeLastCell, EmptyParam).Activate;
+      x := XL.ActiveCell.Row;
+     // RangeMatrix := XL.Range['A1', XL.Cells.Item[X + 1, 15]].Value;
+      Y:=3;
+      for I := 0 to X  do
+      begin
+          Priv := XL.ActiveWorkBook.WorkSheets[1].Cells[y, 2];
+          R:=Pos(' ',Priv);
+            if R<>0 then
+                Delete(Priv,1,R);
+          Zak:=   XL.ActiveWorkBook.WorkSheets[1].Cells[y, 3];
+          Zak1:=   XL.ActiveWorkBook.WorkSheets[1].Cells[y, 3];
+          Klap:=  XL.ActiveWorkBook.WorkSheets[1].Cells[y+1, 6];
+         // Memo32.Lines.Add(Zak+'  '+Klap);
+          if Zak <> '' then
+          begin
+            R:=Pos(' 0',Zak);
+            if R<>0 then
+                Delete(Zak,1,R);
+            for l := 1 to Length(Zak) do
+            begin
+                if Zak[1]='0' then
+                Delete(Zak,1,1)
+                else
+                Break;
+            end;
+            R:=Pos('.',Zak);
+            if R<>0 then
+                Delete(Zak,R,20000);
+            // нет привода BLF230-5  Заказ на производство 00000959086.19 от 22.11.2023 0:00:00
+             if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+             'UPDATE %s SET [Сборка Примечание]=' + #39 + 'нет привода* '+Priv+' '+Zak1 + #39 +
+             ' WHERE ([Заказ]=' + #39 + Zak + #39 + ') And ([Изделие]=' + #39 + Klap + #39 + ')', ['Запуск']) then
+              Exit;
+             //
+             if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+             'UPDATE %s SET [Сборка Примечание]=' + #39 + 'нет привода* '+Priv+' '+Zak1 + #39 +
+             ' WHERE ([Заказ]=' + #39 + Zak + #39 + ') And ([Изделие]=' + #39 + Klap + #39 + ')', ['ЗапускВозд']) then
+              Exit;
+            //
+          end;
+          Inc(Y);
+          Inc(Y);
+      end;
+      XL.ActiveWorkBook.Close;
+      XL := UnAssigned;
+     end;
+end;
+
+procedure TForm1.Button98Click(Sender: TObject);
+begin
+      Spisanie1SDolgi('ПожДолг','Запуск','Специф');
+      Spisanie1SDolgi('ВоздДолг','ЗапускВозд','СпецифВозд');
+end;
+
+procedure TForm1.Button99Click(Sender: TObject);
+begin
+      Spisanie1SVSE('750','Запуск750','Специф750');
+      Spisanie1SVSE('СТАМ','ЗапускСТАМ','СпецифСТАМ');
+
+end;
+
+ function TForm1.Spisanie1SVSE(Nam_F,Tab_Zap,Tab_Spec: String): Boolean;
+Var XL:Variant;
+Dir,Str,StrDat1,StrDat2,SS,God,Mes,StrNom,Oboz,Kol_S,Idgp,idko,Zak,
+SS1,BZ,Nam,Klap,Kol,Kol_Zap_S,EI:string;
+I,y,J,g,Kol_Kl,R:Integer;
+Kol_Pr :Double;
+begin
+  StrDat1 := FormatDateTime('mm.dd.yyyy', DTP10.Date);
+  StrDat2 := FormatDateTime('mm.dd.yyyy', DTP11.Date);
+  God := FormatDateTime('yyyy', Now);
+  Mes := FormatDateTime('mmmm', Now);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\';
+  CreateDir(Dir);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\' + God + '\';
+  CreateDir(Dir);
+
+  Dir := Put_KTO + '\CKlapana\Списание1С\' + God + '\' + Mes + '\';
+  CreateDir(Dir);
+  //
+  XL := CreateOleObject('Excel.Application'); //  — копия
+  XL.Application.EnableEvents := false;
+  CopyFile(PWideChar(Put_KTO + '\CKlapana2\2013\Требование1С.xls'),
+  PWideChar(Dir + '\'+StrDat1+Nam_F+'.xls'), False);
+  XL.Workbooks.Open(Dir + '\'+StrDat1+Nam_F+'.xls');
+  SS := '  AND ((ВидЭлемента = ' + #39 + 'Прочие изделия' + #39 +
+  ') OR (ВидЭлемента = ' + #39 + 'Стандартные изделия' + #39 +'))';
+
+  if not mkQuerySelect(ADOQuery1, 'Select distinct (Номер),idГП, IdКО,КолКлап,БЗ '+
+  ' from %s Where   (Планирование Between ' + #39 + StrDat1 + #39 +
+  ' AND ' + #39 + StrDat2 + #39 + ') ORDER BY Номер DESC',
+  ['Заготовка']) then
+    exit;
+  J:=1;
+  for i := 0 to ADOQuery1.RecordCount - 1 do
+  begin
+    Kol_kl := ADOQuery1.FieldByName('КолКлап').AsInteger;
+    StrNom := ADOQuery1.FieldByName('Номер').AsString;
+    Idgp := ADOQuery1.FieldByName('IdГП').AsString;
+    idko := ADOQuery1.FieldByName('IdКО').AsString;
+    BZ := ADOQuery1.FieldByName('БЗ').AsString;
+    if idko='0' then
+     SS1:= ' AND ((IdКО=' + #39 +'0'+ #39 + ') OR (IdКО=' + #39 +''+ #39 + '))'
+     Else
+     SS1:= ' AND (IdКО=' + #39 +idko+ #39 + ')';
+      if not mkQuerySelect1(ADOQuery2, 'Select * from [%s] Where   (IdГП = ' + #39 +Idgp+ #39 +
+      ')%s %s',
+      [Tab_Spec,SS,SS1]) then
+      exit;
+      SyStem.SysUtils.FormatSettings.DecimalSeparator :=('.');
+      for G := 0 to ADOQuery2.RecordCount-1 do
+      begin
+
+        Kol_Pr:= ADOQuery2.FieldByName('Количество').AsFloat;
+        Zak:= ADOQuery2.FieldByName('Заказ').AsString;
+        Nam:= ADOQuery2.FieldByName('Элемент').AsString;
+        Klap:= ADOQuery2.FieldByName('Изделие').AsString;
+        EI:=   ADOQuery2.FieldByName('ЕИ').AsString;
+        XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 1] := Zak;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 2] := BZ;
+        XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 3] := Nam;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 10] :=Klap;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 8] := EI;
+          XL.ActiveWorkBook.WorkSheets[1].Cells[J + 1, 9] := FloatToStr(Kol_Kl*Kol_Pr);
+          Inc(J);
+          ADOQuery2.next;
+      end;
+      ADOQuery1.next;
+  end;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(1)].Borders.LineStyle := 2;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(J)].Borders.LineStyle := 1;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A3', 'I' + IntToStr(1)].Columns.AutoFit;
+  XL.ActiveWorkBook.WorkSheets[1].Range['A1', 'I' + IntToStr(1)].HorizontalAlignment := 3;
+  XL.Application.ActiveWorkBook.Save;
+  XL.Visible := True;
+  XL := UnAssigned;
 end;
 
 procedure TForm1.Button9Click(Sender: TObject);
@@ -45433,6 +51064,18 @@ begin
       SG2.Canvas.FillRect(Rect);
       SG2.Canvas.TextOut(Rect.Left, Rect.Top, SG2.Cells[ACol, ARow]);
     end;
+                               //------------СтатусФлекс
+    Stat := 0;
+    if SG2.Cells[31, ARow] <> '' then
+      Stat := Pos('rue',SG2.Cells[31, ARow]);
+    if (Stat <>0) then //
+    begin
+      if (ACol = 2) then
+      SG2.canvas.brush.Color := RGB(14,177,250);//ДОКс   Синий
+      SG2.Canvas.Font.Style := [fsBold];
+      SG2.Canvas.FillRect(Rect);
+      SG2.Canvas.TextOut(Rect.Left, Rect.Top, SG2.Cells[ACol, ARow]);
+    end;
   end;
 end;
 
@@ -45449,7 +51092,7 @@ var
   i, j: Integer;
   myrect: TGridRect;
 begin
-  if (SG2.Col = 4) then
+  if (SG2.Col = 4) or (SG2.Col =23)  then
   begin
     Sum := 0;
     myrect := SG2.Selection;
@@ -45485,9 +51128,13 @@ begin
   begin
     if not Form1.mkQueryDelete(Form1.ADOQuery1, 'DELETE FROM %s Where (IdГП= ' + #39 + SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND (IdКО= ' + #39 + SGL.Cells[I_FN_SGP + 8, SGL.Row] + #39 + ')', ['СпецифВозд']) then
       Exit;
-    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 + ',[СтатусФ]=' + #39 + '0' + #39 + ',[СПисокФ]=' + #39 + '' + #39 + ',[РаскрЛопаток]=' + #39 + '0' + #39 + ' WHERE ([IdГП]=' + #39 + SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND (IdКО= ' + #39 + SGL.Cells[I_FN_SGP + 8, SGL.Row] + #39 + ')', ['KlapanaZap']) then
+    if not Form1.mkQueryUpdate(Form1.ADOQuery1, 'UPDATE %s SET [Статус]=' + #39 + '0' + #39 +
+    ',[СтатусФ]=' + #39 + '0' + #39 +
+    ',[СтатусФлекс]=' + #39 + '0' + #39 +
+    ',[СтатусПро]=' + #39 + '0' + #39 +
+    ',[СПисокФ]=' + #39 + '' + #39 + ',[РаскрЛопаток]=' + #39 + '0' + #39 + ' WHERE ([IdГП]=' + #39 + SGL.Cells[I_FN_SGP + 2, SGL.Row] + #39 + ') AND (IdКО= ' + #39 + SGL.Cells[I_FN_SGP + 8, SGL.Row] + #39 + ')', ['KlapanaZap']) then
       Exit;
-
+    Button28Click(nil);
   end;
 end;
 
@@ -45890,12 +51537,14 @@ end;
 
 procedure TForm1.btn31Click(Sender: TObject);
 var
-  Vn_Dat, fileName, Dat, KO: string;
-  I, Y, A, C: Integer;
+  Vn_Dat, fileName, Dat, KO,IDGP: string;
+  I, Y, A, C,Stat: Integer;
 begin
   UOsnova_Main := Osnova_Main.Create();
   Conn_Klap := Connect_Miass_Klap.Create();
   Conn_Ceh := Connect_Miass_Ceh.Create();
+ // ZSG.Cells[I_FN_KOL_ZAP + 26, 1] := 'IdГП';
+  //ZSG.Cells[I_FN_KOL_ZAP + 36, 1] := 'IdКО';
 
   fileName :='';// ExtractFileDir(ParamStr(0)); //+'\Klapan.EXE';
   Vn_Dat := FormatDateTime('dd.mm.yyyy', DateTimePicker1.Date);
@@ -45903,11 +51552,35 @@ begin
   begin
     if StringGrid11.Cells[0, I] <> '' then
     begin
+      IDGP:=ZSG.Cells[I_FN_KOL_ZAP + 26, i];
+      KO:=ZSG.Cells[I_FN_KOL_ZAP + 36, i];
+      if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where' +
+            ' ([IDГП]=' + #39 + (IDGP) + #39+') AND ([IDКО]=' + #39 + KO + #39+')', ['Klapana']) then
+            exit;
+      Stat:=StrToInt(Form1.ADOQuery1.FieldByName('Статус').AsString);
       Vn_Dat := ZSG.Cells[I_FN_KOL_ZAP + 3, I];
       C := StrToInt(ZSG.Cells[I_FN_KOL_ZAP + 28, I]);
       UOsnova_Main.Flag_Error := 0;
-      if not UOsnova_Main.Osnova(Vn_Dat, '[Запуск]', '[Специф]', #39 + ZSG.Cells[0, I] + #39, fileName, 1, C) then
-        Exit;
+      if Stat=1 then
+          begin
+                           UOsnova_Main.Flag_Error := 0;                            //  Edit1.Text
+                            UOsnova_Main.Tab3:='СпецифОбщая';
+                            Form1.Memo4.Lines.Add('СпецифОбщая');
+                           UOsnova_Main.Osnova( Vn_Dat,'[Запуск]','Специф',
+                          #39+ZSG.Cells[0, I]+#39,fileName, 1,C) ;
+
+          end
+
+          else
+          begin
+                          UOsnova_Main.Flag_Error := 0;                            //  Edit1.Text
+                            UOsnova_Main.Tab3:='СпецифФлекс';
+                            Form1.Memo4.Lines.Add('СпецифФлекс');
+                          UOsnova_Main.Osnova_Flex( Vn_Dat,'[Запуск]','Специф',
+                          #39+ZSG.Cells[0, I]+#39,fileName, 1,C);
+          end;
+     // if not UOsnova_Main.Osnova(Vn_Dat, '[Запуск]', '[Специф]', #39 + ZSG.Cells[0, I] + #39, fileName, 1, C) then
+      //  Exit;
     end;
   end;
 end;
@@ -45921,7 +51594,7 @@ begin
   UOsnova_Main := Osnova_Main.Create();
   Conn_Klap := Connect_Miass_Klap.Create();
   Conn_Ceh := Connect_Miass_Ceh.Create();
-
+  UOsnova_Main.Tab3:='СпецифОбщая';
   fileName :='';// ExtractFileDir(ParamStr(0)); //+'\Klapan.EXE';
                 //Vn_Dat := FormatDateTime('dd.mm.yyyy', DateTimePicker1.Date);
   for I := 0 to ZCV.RowCount - 1 do

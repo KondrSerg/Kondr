@@ -35,6 +35,7 @@ type
     Memommo1: TMemo;
     Label16: TLabel;
     Label17: TLabel;
+    Button4: TButton;
                 procedure FormShow(Sender: TObject);
                 procedure SGSSelectCell(Sender: TObject; ACol, ARow: Integer;
                         var CanSelect: Boolean);
@@ -61,7 +62,7 @@ type
                 Conn_Ceh:Connect_Miass_Ceh;
                 Conn_Klap:Connect_Miass_Klap;
                 UOsnova_Main:Osnova_Main ;
-                Cvet,Cvet1:Integer;
+                Cvet,Cvet1,Stat:Integer;
         end;
 
 var
@@ -153,39 +154,8 @@ begin
                         Kol_Zap := StrToInt(SGS.Cells[5, ARow]);
                         Kol_Zap_R := StrToInt(SGS.Cells[4, ARow]);
                         //++++++++++++++++++++++++++++++++++++++++
-                      {  if ((PDO<>'') AND (KTO='')) Then
-                        Begin
-                                 If Kol_Zap>1 then
-                                 MessageDlg('Можно запустить только 1 клапан (Первый Прогон) !',
-                                        mtError, [mbOk], 0);
-                                //SGS.Cells[5, ARow] := '1';
-                                //Exit;
-                        end;
-                        //++++++++++++++++++++++++++++++++++++++++
-                        if ((PDO<>'') AND (KTO<>'')) Then
-                        Begin
-                                 If Kol_Zap>1 then
-                                 MessageDlg('Можно запустить только 1 клапан (Второй Прогон) !',
-                                        mtError, [mbOk], 0);
-                        end;
-                        //++++++++++++++++++++++++++++++++++++++++
-                        if ((PDO='') AND (KTO<>'')) Then
-                        Begin
-                                 MessageDlg('Спроси мастера, клапан косячный!',
-                                        mtError, [mbOk], 0);
-                                SGS.Cells[5, ARow] := '0';
-                                Exit;
-                        end; }
                         Kol := Kol_Zap_R - Kol_Zap;
                         //++++++++++++++++++++++++++++++++++++++++
-                       { if Kol < 0 then
-                        begin
-                                MessageDlg('Можно запустить только ' +
-                                        SGS.Cells[4, ARow] + ' !',
-                                        mtError, [mbOk], 0);
-                                SGS.Cells[5, ARow] := '';
-                                Exit;
-                        end;  }
                         if SGS.Cells[5, i] = '' then
                                 Kol_Zap := 0
                         else
@@ -461,11 +431,6 @@ begin
                                 then
                                 exit;
                                 Form1.Memo2.Lines.Add('2');
-
-                                {SV:=StringReplace(SGSBrik.Cells[8, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                Sb:=StringReplace(SGSBrik.Cells[9, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                S_Svar :=FloatToStr(StrToFloat(SV )*Kol_Zap);
-                                S_Sbor :=FloatToStr(StrToFloat( Sb)*Kol_Zap);}
                                 Svar_o := RoundTo(Svar_o +
                                         StrToFloat(S_Svar), -2);
                                 Sbor_o := RoundTo(Sbor_o +
@@ -555,11 +520,7 @@ begin
                                 R_Dat:='NULL'
                                 else
                                 R_Dat := #39+Form1.ConvertDat1(SGS.Cells[33, i])+#39;
-                               // R_Dat := Form1.ConvertDat1(SGS.Cells[33, i]);
-                                Teh_Gotov := Form1.ConvertDat1(SGS.Cells[19,
-                                        i]);
-                                //Teh_Obrab := Form1.ConvertDat1(SGS.Cells[20,
-                                //        i]);
+                                Teh_Gotov := Form1.ConvertDat1(SGS.Cells[19, i]);
                                 if Kol_Zap = 0 then
                                         Continue;
                                 Kol_Ob := Kol_Ob + Kol_Zap;
@@ -657,53 +618,40 @@ begin
                                                 '%s,%s,%s,%s,%s,%s,%s,%s ,%s,%s,%s ,%s,%s,%s,%s,%s,%s ,%s)',
                                                 ['ЗапускВозд',
                                                 #39 + Dat_Zak + #39,
-                                                        #39 + Plan_dat + #39,
-                                                        #39 + SGS.Cells[2, i] +
-                                                        #39,
-                                                        #39 + SGS.Cells[16, i] +
-                                                        #39,
-                                                        #39 + SGS.Cells[3, i] +
-                                                        #39,
-                                                        #39 + IntToStr(Kol_Zap)
-                                                        + #39,
-                                                         R_Dat ,
-                                                        #39 + Nom +
-                                                        #39,
-                                                        #39 + S_Svar + #39,
-                                                        #39 + S_Sbor + #39,
-                                                        #39 + Privod + #39,
-                                                        #39 + IntToStr(NachNom) +#39,
-                                                        #39 + IntToStr(KonNom) +#39,
-                                                        #39 + IntToStr(NachKod) +#39,
-                                                        #39 + IntToStr(KonKod) +#39,
-                                                        #39 + Priv_Str +#39,
-                                                        #39 + IdGP +#39,
-                                                        #39 + IzdelGP +#39,
-                                                        #39 + KTO +#39,
-                                                        #39 + BZ +#39,  #39 + Kol_lop +#39 ,
-                                                        #39 + Dat1 +#39,#39 + IntToStr(Cvet1) +#39,#39 + bz1 +#39,
-                                                        #39 + SGS.Cells[32, i] +
-                                                        #39 ,
-                                                        #39 + SGS.Cells[34, i] +
-                                                        #39 ,
-                                                        #39 + SGS.Cells[35, i] +
-                                                        #39,
-                                                        #39 + Raskl_O+#39,
+                                                #39 + Plan_dat + #39,
+                                                #39 + SGS.Cells[2, i] +#39,
+                                                #39 + SGS.Cells[16, i] +#39,
+                                                #39 + SGS.Cells[3, i] +#39,
+                                                #39 + IntToStr(Kol_Zap)+ #39,
+                                                R_Dat ,
+                                                #39 + Nom +#39,
+                                                #39 + S_Svar + #39,
+                                                #39 + S_Sbor + #39,
+                                                #39 + Privod + #39,
+                                                #39 + IntToStr(NachNom) +#39,
+                                                #39 + IntToStr(KonNom) +#39,
+                                                #39 + IntToStr(NachKod) +#39,
+                                                #39 + IntToStr(KonKod) +#39,
+                                                #39 + Priv_Str +#39,
+                                                #39 + IdGP +#39,
+                                                #39 + IzdelGP +#39,
+                                                #39 + KTO +#39,
+                                                #39 + BZ +#39,  #39 + Kol_lop +#39 ,
+                                                #39 + Dat1 +#39,#39 + IntToStr(Cvet1) +#39,#39 + bz1 +#39,
+                                                #39 + SGS.Cells[32, i] +#39 ,
+                                                #39 + SGS.Cells[34, i] +#39 ,
+                                                #39 + SGS.Cells[35, i] +#39,
+                                                #39 + Raskl_O+#39,
                                                 #39 + Sb_L_O +#39,
                                                 #39 + Sb_T_O +#39,
                                                 #39 + Sb_R_O +#39,
                                                 #39 + Sb_Obv_O +#39,
-                                                #39 + El_O +#39
-                                                        ])
+                                                #39 + El_O +#39])
                                 then
                                 exit;
 
                                         //++++++++++++++++++++++++++++++++++++++++++++++++++++
                                 Form1.Memo2.Lines.Add('4');
-                                {SV:=StringReplace(SGS.Cells[8, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                Sb:=StringReplace(SGS.Cells[9, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                S_Svar :=FloatToStr(StrToFloat(SV )*Kol_Zap);
-                                S_Sbor :=FloatToStr(StrToFloat( Sb)*Kol_Zap); }
                                 Svar_o := RoundTo(Svar_o +
                                         StrToFloat(SV), -2);
                                 Sbor_o := RoundTo(Sbor_o +
@@ -716,22 +664,54 @@ begin
                 end;
           end;
          end;
-
+        // Form1.ADOQuery1.FieldByName('РаскрЛопаток').AsString;
          UOsnova_Main:=Osnova_Main.Create() ;
          fileName := '';//ExtractFileDir(ParamStr(0));//+'\Klapan.EXE';
          Vn_Dat := FormatDateTime('dd.mm.yyyy', DateTimePicker1.Date);
          UOsnova_Main.Flag_Error :=0;
-         UOsnova_Main.Osnova( Vn_Dat,'ЗапускВозд','СпецифВозд',#39+Nom+#39,fileName,1,Cvet1 ) ;
+        { if not Form1.mkQuerySelect(Form1.ADOQuery2,
+                                        'Select * from %s Where  (Заказ= ' + #39
+                                        + Zak + #39 + ') AND ([IdГП]= ' +
+                                        #39 + (IDgp) + #39 + ') AND ([IdКО]= ' +
+                                        #39 + (KO) + #39 + ')',
+                                        ['KlapanaZap']) then
+                                        exit;    }
+                Stat:=1;// StrToInt(Form1.ADOQuery2.FieldByName('Статус').AsString);
+         if Stat=1 then
+         begin
+            UOsnova_Main.Flag_Error := 0;                            //  Edit1.Text
+            UOsnova_Main.Tab3:='СпецифОбщая';
+            Form1.Memo4.Lines.Add('СпецифОбщая');
+            if not UOsnova_Main.Osnova(Vn_Dat, 'ЗапускВозд', 'СпецифВозд', #39 + Label4.Caption + #39, fileName, 1, Cvet1) then
+            Exit;
+
+         end
+
+         else
+         begin
+            UOsnova_Main.Flag_Error := 0;                            //  Edit1.Text
+            UOsnova_Main.Tab3:='СпецифФлекс';
+            Form1.Memo4.Lines.Add('СпецифФлекс');
+            UOsnova_Main.Osnova_Flex( Vn_Dat,'[ЗапускВозд]','СпецифВозд',
+            #39+Nom+#39,fileName, 1,Cvet1);
+         end;
+        // UOsnova_Main.Osnova( Vn_Dat,'ЗапускВозд','СпецифВозд',#39+Nom+#39,fileName,1,Cvet1 ) ;
         //then
         //Exit;
           if  UOsnova_Main.Flag_Error =2 Then //ДЕТАЛИ НЕ ВСЕ
           //ЗАНЕСТИ В ЗАПУСК И Поставить флаг ФлагЗаготовки
           Begin
-                        //++++++++++++++++++++++++++++++++++++++++++++++++++++
-                        Form1.Memo2.Lines.Add('UOsnova_Main.Osnova( ДЕТАЛИ НЕ ВСЕ,ЗапускВозд,СпецифВозд,'+Nom+','+fileName+' )UOsnova_Main.Flag_Error =2') ;
+            if not Form1.mkQueryDelete( Form1.ADOQuery1, 'DELETE FROM %s Where (Номер= '
+                        +#39+Nom+#39+') '  ,
+                        ['ЗапускВозд'] )
+            Then
+            Exit;
+            //++++++++++++++++++++++++++++++++++++++++++++++++++++
+            Form1.Memo2.Lines.Add('UOsnova_Main.Osnova( ДЕТАЛИ НЕ ВСЕ,ЗапускВозд,СпецифВозд,'+Nom+','+fileName+' )UOsnova_Main.Flag_Error =2') ;
+            Exit;
           end;
         //++++++++++++++++++++++++++++++++++++++++++++++++++
-          if  UOsnova_Main.Flag_Error =1 Then //ДАТА ЛЕВАЯ УДАЛИТЬ Из ЗАПУСКА
+          {if  UOsnova_Main.Flag_Error =1 Then //ДАТА ЛЕВАЯ УДАЛИТЬ Из ЗАПУСКА
                                                 //И UPDATE КЛАПАНА НЕ ДЕЛАТЬ
           Begin
                         if not Form1.mkQueryDelete( Form1.ADOQuery1, 'DELETE FROM %s Where (Номер= '
@@ -741,7 +721,7 @@ begin
                         Exit;
                         Form1.Memo2.Lines.Add('UOsnova_Main.Osnova( ДАТА НЕ ТА - '+Vn_Dat+',ЗапускВозд,СпецифВозд,'+Nom+','+fileName+' )UOsnova_Main.Flag_Error =1') ;
                         //Exit;
-          end;
+          end;}
           D := FormatDateTime('dd.mm.yyyy', DateTimePicker1.Date);
           KTO:='';
          Form1.SUT(D,Nom,Dir1,1,Cvet1,kto);//ZZZZZZZZZZZZZZZZZZZZZZ
@@ -849,49 +829,19 @@ begin
                                         Nomer_Raz := Nom;
                                 end;
                                 Form1.Memo2.Lines.Add('5');
-                                {SV:=StringReplace(SGSBrik.Cells[8, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                Sb:=StringReplace(SGSBrik.Cells[9, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                S_Svar :=FloatToStr(StrToFloat(SV ));
-                                S_Sbor :=FloatToStr(StrToFloat( Sb));
-
-                                Res := Pos(',', S_Svar);
-                                Delete(S_Svar, Res, 1);
-                                if Res <> 0 then
-                                        Insert('.', S_Svar, Res);
-
-                                Res := Pos(',', S_Sbor);
-                                Delete(S_Sbor, Res, 1);
-                                if Res <> 0 then
-                                        Insert('.', S_Sbor, Res);
-
-                                Priv_Str:=IntToStr(Kol_pr*Kol_Zap);  }
-
                                 KonNom:=NomPos;
                                 KonKod:=KodPos;
                                 //++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                {',['
-                                                + FN_RAS_DATA_GOTOVN + ']=' + #39
-                                                + Dat1 + #39 + }
-                                if not
-                                                Form1.mkQueryUpdate(Form1.ADOQuery1,
-                                                'UPDATE %s SET [Кол во запущенных]=' + #39
-                                                + IntToStr(Kol_Zap +
-                                                Kol_Zap_R) + #39
-                                                + ',[Кол во запущенных пос]=' +
-                                                #39 + IntToStr(Kol_Zap) + #39 +
-                                                ',Номер=' + #39 +
-                                                Nom + #39 +
-                                                ',[' + FN_KOL_RAZ + ']='
-                                                +
-                                                #39 + Kol_Raz + #39 + ',[' +
-                                                FN_NOMER_RAZ + ']=' + #39 +
-                                                Nomer_Raz +#39 +
-                                                ',[' + 'НомерПос' + ']='
-                                                +#39 + IntToStr(NomPos) + #39 +
-                                                ',[' + 'КодПос' + ']='
-                                                +#39 + IntToStr(KodPos) + #39 + ' WHERE ([IDГП]=' + #39 +
-                                                IDGP + #39+') And ([IDКО]=' + #39 +
-                                                IDKO + #39+')' , ['KlapanaZap'])
+                                if not  Form1.mkQueryUpdate(Form1.ADOQuery1,
+                                'UPDATE %s SET [Кол во запущенных]=' + #39
+                                + IntToStr(Kol_Zap +  Kol_Zap_R) + #39
+                                + ',[Кол во запущенных пос]=' +#39 + IntToStr(Kol_Zap) + #39 +
+                                ',Номер=' + #39 + Nom + #39 +
+                                ',[' + FN_KOL_RAZ + ']='+ #39 + Kol_Raz + #39 + ',[' +
+                                FN_NOMER_RAZ + ']=' + #39 + Nomer_Raz +#39 +
+                                ',[' + 'НомерПос' + ']='+#39 + IntToStr(NomPos) + #39 +
+                                ',[' + 'КодПос' + ']='+#39 + IntToStr(KodPos) + #39 + ' WHERE ([IDГП]=' + #39 +
+                                IDGP + #39+') And ([IDКО]=' + #39 +IDKO + #39+')' , ['KlapanaZap'])
                                 then
                                 Exit;
 
@@ -1019,26 +969,7 @@ begin
                                         Nomer_Raz :=Nom;
                                 end;
                                 Form1.Memo2.Lines.Add('6');
-                                {SV:=StringReplace(SGS.Cells[8, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                Sb:=StringReplace(SGS.Cells[9, I], ',', '.',[rfReplaceAll, rfIgnoreCase]);
-                                S_Svar :=FloatToStr(StrToFloat(SV ));
-                                S_Sbor :=FloatToStr(StrToFloat( Sb));
-                                Res := Pos(',', S_Svar);
-                                Delete(S_Svar, Res, 1);
-                                if Res <> 0 then
-                                        Insert('.', S_Svar, Res);
 
-                                Res := Pos(',', S_Sbor);
-                                Delete(S_Sbor, Res, 1);
-                                if Res <> 0 then
-                                        Insert('.', S_Sbor, Res);
-
-                                //Rec_Count := Form1.ADOQuery2.RecordCount;
-                                Priv_Str:=IntToStr(Kol_pr*Kol_Zap);
-
-                                  ',['
-                                                + FN_RAS_DATA_GOTOVN + ']=' + #39
-                                                + Dat1 + #39 +}
                                 //++++++++++++++++++++++++++++++++++++++++++++++++++++
                                 if not Form1.mkQueryUpdate(Form1.ADOQuery1,
                                                 'UPDATE %s SET [Кол во запущенных]=' + #39
@@ -1371,6 +1302,7 @@ begin
                 SGSBrik.Cells[39, 0] := 'Расчетная дата готовности';
                 SGSBrik.Cells[40, 0] := 'Исполнение';
                 SGSBrik.Cells[41, 0] := 'Заказчик';
+                //SGSBrik.Cells[42, 0] := 'Stat';
                // SGSBrik.ColWidths[17] := 0;
                 SGSBrik.ColWidths[18] := 0;
                 SGSBrik.ColWidths[19] := 0;
@@ -1390,8 +1322,7 @@ begin
                         Order:= ' Order By Заказ ';
                 if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where'+
                 ' ([' + FN_KOL_ZAP + ']<[' + FN_KOL + ']) AND'+
-                //' AND (NOT [' + FN_Mod_Privod +'] IS NULL)'+
-                ' ([Статус]=1)'+
+                '  ((Статус='+#39+'1'+#39+')or (СтатусФ='+#39+'1'+#39+') or (СтатусФлекс='+#39+'1'+#39+'))'+
                 ' AND ([' + FN_SBOR_KLAP_NC +']<>0)'+
                 ' AND (NOT [' + FN_SBOR_KLAP_NC +'] IS NULL)'+
                 ' AND (NOT [Брикет] IS NULL)'+
@@ -1412,6 +1343,7 @@ begin
                 begin
                         Kol := Form1.ADOQuery1.FieldByName(FN_KOL).AsInteger;
                         Kol_Zap := Form1.ADOQuery1.FieldByName(FN_KOL_ZAP).AsInteger;
+                        Stat:= Form1.ADOQuery1.FieldByName('Статус').AsInteger;
                         SGSBrik.Cells[0, i + 1] :=IntToStr(I+1);
                         //++++++++++++++++++++++++++++++++++++++++++++Briket
                         SGSBrik.Cells[1, i + 1] :=
@@ -1521,6 +1453,7 @@ begin
                             SGSBrik.Cells[47, I+1] :='0'
                          else
                         SGSBrik.Cells[47, I+1] :=Form1.ADOQuery1.FieldByName('Электро').AsString;
+
                         Form1.ADOQuery1.Next;
 
                 end;
@@ -1587,7 +1520,7 @@ begin
                 if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where'+
                 ' ([' + FN_KOL_ZAP + ']<[' + FN_KOL + ']) AND'+
                 //' AND (NOT [' + FN_Mod_Privod +'] IS NULL)'+
-                ' ([Статус]=1)'+
+                '  ((Статус='+#39+'1'+#39+') or (СтатусФ='+#39+'1'+#39+') or (СтатусФлекс='+#39+'1'+#39+'))'+
                 ' AND ([' + FN_SBOR_KLAP_NC +']<>0)'+
                 ' AND (NOT [' + FN_SBOR_KLAP_NC +'] IS NULL)'+
                // ' AND ([БЗ] ='+#39+#39+')'+
@@ -1605,6 +1538,7 @@ begin
                 begin
                         Kol := Form1.ADOQuery1.FieldByName(FN_KOL).AsInteger;
                         Kol_Zap := Form1.ADOQuery1.FieldByName(FN_KOL_ZAP).AsInteger;
+                        Stat:= Form1.ADOQuery1.FieldByName('Статус').AsInteger;
                         SGS.Cells[0, i + 1] :=IntToStr(I+1);
                         SGS.Cells[1, i + 1] := Form1.ADOQuery1.FieldByName(FN_PLAN_DATA).AsString;
                         SGS.Cells[2, i + 1] :=

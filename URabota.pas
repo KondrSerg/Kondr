@@ -219,8 +219,8 @@ begin
       Y:=0;
       for I := 0 to SG.RowCount-1 do
      begin
-         if Col=18 then
-          S:=AnsiUpperCase(SG.Cells[7,I+1])
+         if Col=18 then            //7 09.06.23
+          S:=AnsiUpperCase(SG.Cells[10,I+1])
           Else
          S:=AnsiUpperCase(SG.Cells[Col,I+1]);
          //C:=SG.GetVisualProperties(Col,I+1).Abrush.Color;// (Rec Colors[Col,I+1];
@@ -229,11 +229,11 @@ begin
          //if (Col<>18)then
          //Begin
          if (Col=18)then
-         begin
-          if SG.Cells[6,I+1]='' then
+         begin       //6
+          if SG.Cells[9,I+1]='' then
             DTab:=0
-          Else
-            DTab:=StrToDate(SG.Cells[6,I+1]);
+          Else                      //6
+            DTab:=StrToDate(SG.Cells[9,I+1]);
           F:=0;
           for II := trunc(DD1) to trunc(DD2) do
           Begin
@@ -325,8 +325,11 @@ begin
         if Vozd=0 then
     Begin
 
-      SG.Cells[7,YY+1]:=SG.Cells[8,YY]+'+'+ SG.Cells[19,YY];
-      SG.Cells[8,YY+1]:=  FloatToStr(StrToFloat(SG.Cells[8,YY])+StrToFloat(SG.Cells[19,YY]));
+      SG.Cells[7,YY+1]:=SG.Cells[8,YY]{+'+'+ SG.Cells[19,YY]};
+      SG.Cells[8,YY+1]:=  FloatToStr(StrToFloat(SG.Cells[8,YY]){+StrToFloat(SG.Cells[19,YY])});
+      //Мотвеенко 09.06.23
+      SG.Cells[10,YY+1]:=SG.Cells[11,YY]+'+'+ SG.Cells[19,YY];
+      SG.Cells[11,YY+1]:=  FloatToStr(StrToFloat(SG.Cells[11,YY])+StrToFloat(SG.Cells[19,YY]));
     End;
 
     S :=ExtractFileDir(ParamStr(0)) ;

@@ -58,6 +58,13 @@ object FSborAll: TFSborAll
     Height = 13
     Caption = #1057#1073#1086#1088#1082#1072' '#1043#1086#1090#1086#1074#1072
   end
+  object Label7: TLabel
+    Left = 32
+    Top = 240
+    Width = 32
+    Height = 13
+    Caption = 'Label7'
+  end
   object ComboBox1: TComboBox
     Left = 32
     Top = 43
@@ -102,7 +109,6 @@ object FSborAll: TFSborAll
     Width = 313
     Height = 21
     TabOrder = 4
-    Visible = False
     OnKeyPress = ComboBox1KeyPress
   end
   object CBB3: TComboBox
@@ -111,7 +117,6 @@ object FSborAll: TFSborAll
     Width = 313
     Height = 21
     TabOrder = 5
-    Visible = False
     OnKeyPress = ComboBox1KeyPress
   end
   object btn1: TBitBtn

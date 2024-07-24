@@ -119,10 +119,10 @@ begin
                         if Res <> 0 then
                                 Insert('.', Sb_O, Res);
                         if not Form1.mkQueryUpdate(Form1.ADOQuery1,
-                        'UPDATE %s SET [Н\ч Сборка Клапана]=' + #39 + Sb_O+ #39 +
+                        'UPDATE %s SET [Н\ч Сборка]=' + #39 + Sb_O+ #39 +
                         ' WHERE ([Заказ]=' + #39 + FNorm.Caption + #39 + ')AND ([Номер]=' + #39 + Nom + #39 + ') AND ([' +
                         FN_NAM + ']='
-                        + #39 + Label3.Caption + #39 + ')', ['Запуск750']) then
+                        + #39 + Label3.Caption + #39 + ')', ['ЗапускСТАМ']) then
                         Exit;
                         Form1.ADOQuery2.Next
                 end;

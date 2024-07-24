@@ -25,6 +25,7 @@ type
     N1: TMenuItem;
     Label3: TLabel;
     Memo2: TMemo;
+    Memo1: TMemo;
     procedure FormShow(Sender: TObject);
     procedure SpecGridDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
@@ -154,7 +155,10 @@ if Form1.Luk=2 then
         for I := 0 to Form1.ADOQuery1.RecordCount - 1 do
         begin
                 SpecGrid.Cells[0, I + 1] := Form1.ADOQuery1.FieldByName('Id').AsString;
-
+               if Form1.Luk=2 then
+                SpecGrid.Cells[I_FN_ZAK1, I + 1] :=
+                        Form1.ADOQuery1.FieldByName('Parent').AsString
+                Else
                 SpecGrid.Cells[I_FN_ZAK1, I + 1] :=
                         Form1.ADOQuery1.FieldByName('Технолог').AsString;
 
@@ -226,6 +230,26 @@ if Form1.Luk=2 then
                         Form1.ADOQuery1.FieldByName('IdКо').AsString;
                 Form1.ADOQuery1.Next;
         end;
+        if Form1.Luk=2 then
+  begin
+       { if Form1.Spec=1 Then
+        begin
+           if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s ', ['ШаблонСТАМ']) then
+                exit;
+        end; }
+        Memo1.Lines.Clear;
+        if Form1.Spec=0 Then
+        begin
+                S:='элемент LIKE '+#39+'%Нагреватель электрический%'+#39;
+                if not Form1.mkQuerySelect(Form1.ADOQuery1, 'Select * from %s Where [IdГП]=' +
+                #39+Lbl1.Caption+#39+' AND (%s) Order By ВидЭлемента,Элемент', ['Специф750',S]) then
+                exit;
+                Memo1.Lines.Add( Form1.ADOQuery1.FieldByName('Элемент').AsString);
+            Memo1.Lines.Add(Form1.ADOQuery1.FieldByName('Количество').AsString);
+            Memo1.Lines.Add(Form1.ADOQuery1.FieldByName('Обозначение').AsString);
+            Form1.ADOQuery1.Next;
+        end;
+  end;
 end;
 
 procedure TFSTAM.SpecGridDrawCell(Sender: TObject; ACol, ARow: Integer;

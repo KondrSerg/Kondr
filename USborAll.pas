@@ -27,6 +27,7 @@ type
     dtp3: TDateTimePicker;
     dtp4: TDateTimePicker;
     Label6: TLabel;
+    Label7: TLabel;
     procedure Button2KeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -62,7 +63,7 @@ end;
 
 procedure TFSborAll.FormShow(Sender: TObject);
 Var
-I:integer;
+I,Ger,du:integer;
 S:string;
 begin
 
@@ -139,13 +140,48 @@ begin
                 dtp2.DateTime:=Form1.ADOQuery2.FieldByName('Подсборка').AsDateTime
                 else
                  dtp2.DateTime:=Now;
-
+                du:=Pos('ГЕРМИК-ДУ-',Label7.caption);
+                if DU<>0 then
+                Begin
+                  //
+                  FSborAll.CBB2.Visible:=True;
+                  FSborAll.CBB3.Visible:=True;
+                  S:=Form1.ADOQuery2.FieldByName('ЛопаткаДат').AsString;
+                  if S<>'' then
+                    dtp3.DateTime:=Form1.ADOQuery2.FieldByName('ЛопаткаДат').AsDateTime
+                  else
+                    dtp3.DateTime:=Now;
+                  //
+                  S:=Form1.ADOQuery2.FieldByName('ТягаДат').AsString;
+                  if S<>'' then
+                    dtp4.DateTime:=Form1.ADOQuery2.FieldByName('ТягаДат').AsDateTime
+                  else
+                    dtp4.DateTime:=Now;
+                End;
                 ComboBox1.Text:=Form1.ZCV.Cells[17, Form1.ZCV.Row] ;
                 CBB1.Text:=Form1.ZCV.Cells[43, Form1.ZCV.Row] ;
                 CBB2.Text:=Form1.ZCV.Cells[44, Form1.ZCV.Row]  ;
                 CBB3.Text:=Form1.ZCV.Cells[45, Form1.ZCV.Row] ;
         End;
+        if CBB2.Visible=True then
+        begin
+            CBB2.Enabled:=True;
+        end;
+        if CBB2.Visible=False then
+        begin
+            CBB2.Visible:=True;
+            CBB2.Enabled:=False;
+        end;
 
+        if CBB3.Visible=True then
+        begin
+            CBB3.Enabled:=True;
+        end;
+        if CBB3.Visible=False then
+        begin
+            CBB3.Visible:=True;
+            CBB3.Enabled:=False;
+        end;
 end;
 
 procedure TFSborAll.btn1Click(Sender: TObject);
@@ -183,27 +219,27 @@ begin
 end;
 
 procedure TFSborAll.Button1Click(Sender: TObject);
-Var I,Nom:Integer;
+Var I,Nom,R:Integer;
 Str,Str1,Str2,Str3,Str4:string;
 begin
-                        if ComboBox1.Text<>'' then
+      if ComboBox1.Text<>'' then
                 Str1:=#39+FormatDateTime('mm.dd.YYYY',dtp1.DateTime)+#39
-                else
+      else
                 Str1:='NULL';
                 //
-                if CBB1.Text<>'' then
+      if CBB1.Text<>'' then
                 Str2:=#39+FormatDateTime('mm.dd.YYYY',dtp2.DateTime)+#39
-                else
+      else
                 Str2:='NULL';
                 //
-                if CBB2.Text<>'' then
+      if CBB2.Text<>'' then
                 Str3:=#39+FormatDateTime('mm.dd.YYYY',dtp3.DateTime)+#39
-                else
+      else
                 Str3:='NULL';
                 //
-                if CBB3.Text<>'' then
+      if CBB3.Text<>'' then
                 Str4:=#39+FormatDateTime('mm.dd.YYYY',dtp4.DateTime)+#39
-                else
+      else
                 Str4:='NULL';
         if Form1.Vozduh=0 Then
         Begin
@@ -215,12 +251,11 @@ begin
                 + #39, #39 + Label1.Caption + #39]) then
                 Exit;
 
-            if not Form1.mkQueryUpdate(Form1.ADOQuery1,          //    ,[%s]=%s,[%s]=%s,[%s]=%s
-                'UPDATE %s SET [%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s,'+
+            if not Form1.mkQueryUpdate(Form1.ADOQuery1,          //[%s]=%s,'Сборка Готовность',Str1,    ,[%s]=%s,[%s]=%s,[%s]=%s
+                'UPDATE %s SET [%s]=%s,[%s]=%s,[%s]=%s,'+
                 ' [%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s WHERE ([Номер]=%s)',
                 ['Запуск', 'Сборщик', #39 + ComboBox1.Text
                 + #39,
-                 'Сборка Готовность',Str1,
                  'Подсборка1', #39 + CBB1.Text
                 + #39,'Подсборка',Str2,
                  'СборЛопатка', #39 + CBB2.Text
@@ -260,24 +295,42 @@ begin
           //ZCV.Cells[45, 1] := 'Подсборка1';
         if Form1.Vozduh=1 Then
         Begin
-        if not Form1.mkQueryUpdate(Form1.ADOQuery1,
+            if not Form1.mkQueryUpdate(Form1.ADOQuery1,
                 'UPDATE %s SET [%s]=%s WHERE ([Номер]=%s) ',
                 ['KlapanaZap', 'Сборщик', #39 + ComboBox1.Text
                 + #39, #39 + Label1.Caption + #39]) then
                 Exit;
-        if not Form1.mkQueryUpdate(Form1.ADOQuery1,
-                'UPDATE %s SET [%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s WHERE ([Номер]=%s)',
+            r:=Pos('ГЕРМИК-ДУ-',Label7.caption);
+                if r<>0 then
+                Begin
+                     if not Form1.mkQueryUpdate(Form1.ADOQuery1,        //[%s]=%s,  'Сборка Готовность',Str1,
+                'UPDATE %s SET [%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s WHERE ([Номер]=%s)',
                 ['ЗапускВозд', 'Сборщик', #39 + ComboBox1.Text
-                + #39,'Сборка Готовность',Str1,
+                + #39,
                  'Подсборка1', #39 + CBB1.Text
                 + #39,'Подсборка',Str2,
-                'СборЛопатка', #39 + ComboBox1.Text
-                + #39,'СборТяга', #39 + ComboBox1.Text
-                + #39, #39 + Label1.Caption + #39]) then
-                Exit;
+                'СборЛопатка', #39 + CBB2.Text
+                + #39,'ЛопаткаДат',Str3,'СборТяга', #39 + CBB3.Text
+                + #39,'ТягаДат',Str4, #39 + Label1.Caption + #39]) then
+                  Exit;
+                End
+                else
+                Begin
 
-        For I:=1 to Form1.ZCV.RowCount Do
-        Begin
+                  if not Form1.mkQueryUpdate(Form1.ADOQuery1,        //[%s]=%s,  'Сборка Готовность',Str1,
+                'UPDATE %s SET [%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s,[%s]=%s WHERE ([Номер]=%s)',
+                ['ЗапускВозд', 'Сборщик', #39 + ComboBox1.Text
+                + #39,
+                 'Подсборка1', #39 + CBB1.Text
+                + #39,'Подсборка',Str2,
+                'СборЛопатка', #39 + CBB2.Text
+                + #39,'СборТяга', #39 + CBB3.Text
+                + #39, #39 + Label1.Caption + #39]) then
+                  Exit;
+                  End;
+
+            For I:=1 to Form1.ZCV.RowCount Do
+            Begin
                 Try
                 Nom:=StrToInt(Form1.ZCV.Cells[0, i]);
                 except
@@ -300,7 +353,7 @@ begin
                   Form1.ZCV.Cells[45, i] :=
                   CBB3.Text;
                 End;
-        end;
+            end;
 
         end;
                 //+++++++++++++++++++++++

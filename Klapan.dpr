@@ -64,7 +64,10 @@ uses
   barcod in '..\ШтрихКод_Рабочий\barcod.pas',
   UBrigada in 'UBrigada.pas' {FBrigada},
   URabota in 'URabota.pas' {FRabota},
-  USborKan in 'USborKan.pas' {FSborKan};
+  USborKan in 'USborKan.pas' {FSborKan},
+  barcod_EKV in 'barcod_EKV.pas',
+  UShtrih_EKV in 'UShtrih_EKV.pas' {FShtrih_EKV},
+  UPoisk in 'UPoisk.pas' {FPoisk};
 
 {$R *.res}
 
@@ -130,6 +133,9 @@ begin
   Application.CreateForm(TFRabota, FRabota);
   Application.CreateForm(TFRabota, FRabota);
   Application.CreateForm(TFSborKan, FSborKan);
+  Application.CreateForm(TFShtrih_EKV, FShtrih_EKV);
+  Application.CreateForm(TFPoisk, FPoisk);
+  Application.CreateForm(TFPoisk, FPoisk);
   Application.Run;
 end.
 
